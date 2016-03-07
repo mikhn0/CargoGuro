@@ -14,4 +14,5 @@
 
 @property (nonatomic, weak) id<CGCalculateModuleInteractorOutput> output;
 
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "CGCalculateModuleInteractor.h"
+#import "HTTPClient.h"
 
 #import "CGCalculateModuleInteractorOutput.h"
 

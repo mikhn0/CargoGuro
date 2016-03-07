@@ -13,7 +13,9 @@
 #import "CGCalculateModulePresenter.h"
 #import "CGCalculateModuleRouter.h"
 
+#import "CGResultCalculateModuleAssembly.h"
 #import <ViperMcFlurry/ViperMcFlurry.h>
+
 
 @implementation CGCalculateModuleAssembly
 

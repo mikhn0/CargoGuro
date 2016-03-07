@@ -10,8 +10,9 @@
 
 @protocol RamblerViperModuleTransitionHandlerProtocol;
 
+
 @interface CGCalculateModuleRouter : NSObject <CGCalculateModuleRouterInput>
 
-@property (nonatomic, weak) id<RamblerViperModuleTransitionHandlerProtocol> transitionHandler;
+    @property (nonatomic, weak) id<RamblerViperModuleTransitionHandlerProtocol> transitionHandler;
 
 @end

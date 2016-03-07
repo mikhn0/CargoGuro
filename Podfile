@@ -3,11 +3,13 @@
 # Uncomment this line if you're using Swift
 #use_frameworks!
 
-target 'CargoGuroViper' do
+target 'CargoGuroViper', :exclusive => true do
   pod 'AFNetworking’
   pod 'Typhoon'
   pod 'RamblerTyphoonUtils'
   pod 'ViperMcFlurry'
   pod 'RamblerSegues'
+  pod 'OCMock'
+  pod 'JVFloatLabeledTextField'
 end
 

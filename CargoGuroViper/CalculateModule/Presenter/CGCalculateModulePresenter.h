@@ -20,4 +20,6 @@
 @property (nonatomic, strong) id<CGCalculateModuleInteractorInput> interactor;
 @property (nonatomic, strong) id<CGCalculateModuleRouterInput> router;
 
++ (CGCalculateModulePresenter *)sharedinstance;
+
 @end
