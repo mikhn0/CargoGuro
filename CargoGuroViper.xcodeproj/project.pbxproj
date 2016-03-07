@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0133876EF0C7518663BFAA /* libPods-CargoGuroViper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D581A13A680831D7ACC36E /* libPods-CargoGuroViper.a */; };
 		63152DDE1C7DE85B00AE47ED /* CGCalculateModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DDD1C7DE85B00AE47ED /* CGCalculateModuleAssembly.m */; };
 		63152DE31C7DE86700AE47ED /* CGCalculateModuleInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DE01C7DE86700AE47ED /* CGCalculateModuleInteractor.m */; };
 		63152DE71C7DE86F00AE47ED /* CGCalculateModulePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DE61C7DE86F00AE47ED /* CGCalculateModulePresenter.m */; };
 		63152DEB1C7DE87600AE47ED /* CGCalculateModuleRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DE91C7DE87600AE47ED /* CGCalculateModuleRouter.m */; };
 		63152DF01C7DE88200AE47ED /* CGCalculateModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DED1C7DE88200AE47ED /* CGCalculateModuleViewController.m */; };
-		63152DF21C7DE90600AE47ED /* ViperMcFlurry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63152DF11C7DE90600AE47ED /* ViperMcFlurry.framework */; };
-		63152DF41C7DE9F900AE47ED /* Typhoon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63152DF31C7DE9F900AE47ED /* Typhoon.framework */; };
+		758B0D891C8894990018E85E /* CGFilterModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D761C8894990018E85E /* CGFilterModuleAssembly.m */; };
+		758B0D8A1C8894990018E85E /* CGFilterModuleInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D791C8894990018E85E /* CGFilterModuleInteractor.m */; };
+		758B0D8B1C8894990018E85E /* CGFilterModulePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D7F1C8894990018E85E /* CGFilterModulePresenter.m */; };
+		758B0D8C1C8894990018E85E /* CGFilterModuleRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D821C8894990018E85E /* CGFilterModuleRouter.m */; };
+		758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D861C8894990018E85E /* CGFilterModuleViewController.m */; };
+		758B0D8F1C89049E0018E85E /* testStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758B0D8E1C89049E0018E85E /* testStoryboard.storyboard */; };
+		758B0D921C8B80000018E85E /* SortingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D911C8B80000018E85E /* SortingView.m */; };
+		758B0D941C8B824D0018E85E /* SortingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758B0D931C8B824D0018E85E /* SortingView.xib */; };
 		75F64AD11C7DB1E50019F61C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD01C7DB1E50019F61C /* main.m */; };
 		75F64AD41C7DB1E50019F61C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD31C7DB1E50019F61C /* AppDelegate.m */; };
 		75F64AD71C7DB1E50019F61C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD61C7DB1E50019F61C /* ViewController.m */; };
@@ -21,7 +28,17 @@
 		75F64ADD1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75F64ADB1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld */; };
 		75F64ADF1C7DB1E50019F61C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F64ADE1C7DB1E50019F61C /* Assets.xcassets */; };
 		75F64AE21C7DB1E50019F61C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F64AE01C7DB1E50019F61C /* LaunchScreen.storyboard */; };
-		F41334242DD90993610B56BA /* libPods-CargoGuroViper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9460C309913AD612737E4A /* libPods-CargoGuroViper.a */; };
+		75F64AEB1C7E1C360019F61C /* libRamblerTyphoonUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F64AE91C7E1C360019F61C /* libRamblerTyphoonUtils.a */; };
+		75F64AEC1C7E1C360019F61C /* libTyphoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F64AEA1C7E1C360019F61C /* libTyphoon.a */; };
+		75F64B1E1C7E66F80019F61C /* CGResultCalculateModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B0B1C7E66F80019F61C /* CGResultCalculateModuleAssembly.m */; };
+		75F64B1F1C7E66F80019F61C /* CGResultCalculateModuleInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B0E1C7E66F80019F61C /* CGResultCalculateModuleInteractor.m */; };
+		75F64B201C7E66F80019F61C /* CGResultCalculateModulePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B141C7E66F80019F61C /* CGResultCalculateModulePresenter.m */; };
+		75F64B211C7E66F80019F61C /* CGResultCalculateModuleRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B171C7E66F80019F61C /* CGResultCalculateModuleRouter.m */; };
+		75F64B221C7E66F80019F61C /* CGResultCalculateModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B1B1C7E66F80019F61C /* CGResultCalculateModuleViewController.m */; };
+		75F64B331C8055BF0019F61C /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B2E1C8055BF0019F61C /* HTTPClient.m */; };
+		75F64B341C8055BF0019F61C /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B301C8055BF0019F61C /* JSONResponseSerializerWithData.m */; };
+		75F64B391C809F540019F61C /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B371C809F540019F61C /* ResultTableViewCell.m */; };
+		75F64B3A1C809F540019F61C /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F64B381C809F540019F61C /* ResultTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +59,27 @@
 		63152DED1C7DE88200AE47ED /* CGCalculateModuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGCalculateModuleViewController.m; path = CalculateModule/View/CGCalculateModuleViewController.m; sourceTree = "<group>"; };
 		63152DEE1C7DE88200AE47ED /* CGCalculateModuleViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGCalculateModuleViewInput.h; path = CalculateModule/View/CGCalculateModuleViewInput.h; sourceTree = "<group>"; };
 		63152DEF1C7DE88200AE47ED /* CGCalculateModuleViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGCalculateModuleViewOutput.h; path = CalculateModule/View/CGCalculateModuleViewOutput.h; sourceTree = "<group>"; };
-		63152DF11C7DE90600AE47ED /* ViperMcFlurry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ViperMcFlurry.framework; path = "Pods/../build/Debug-iphoneos/ViperMcFlurry.framework"; sourceTree = "<group>"; };
-		63152DF31C7DE9F900AE47ED /* Typhoon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Typhoon.framework; path = "Pods/../build/Debug-iphoneos/Typhoon.framework"; sourceTree = "<group>"; };
 		6DB4894CBB83AD52AF7064C7 /* Pods-CargoGuroViper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CargoGuroViper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CargoGuroViper/Pods-CargoGuroViper.debug.xcconfig"; sourceTree = "<group>"; };
+		758B0D751C8894990018E85E /* CGFilterModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleAssembly.h; sourceTree = "<group>"; };
+		758B0D761C8894990018E85E /* CGFilterModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFilterModuleAssembly.m; sourceTree = "<group>"; };
+		758B0D781C8894990018E85E /* CGFilterModuleInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleInteractor.h; sourceTree = "<group>"; };
+		758B0D791C8894990018E85E /* CGFilterModuleInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFilterModuleInteractor.m; sourceTree = "<group>"; };
+		758B0D7A1C8894990018E85E /* CGFilterModuleInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleInteractorInput.h; sourceTree = "<group>"; };
+		758B0D7B1C8894990018E85E /* CGFilterModuleInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleInteractorOutput.h; sourceTree = "<group>"; };
+		758B0D7D1C8894990018E85E /* CGFilterModuleModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleModuleInput.h; sourceTree = "<group>"; };
+		758B0D7E1C8894990018E85E /* CGFilterModulePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModulePresenter.h; sourceTree = "<group>"; };
+		758B0D7F1C8894990018E85E /* CGFilterModulePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFilterModulePresenter.m; sourceTree = "<group>"; };
+		758B0D811C8894990018E85E /* CGFilterModuleRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleRouter.h; sourceTree = "<group>"; };
+		758B0D821C8894990018E85E /* CGFilterModuleRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFilterModuleRouter.m; sourceTree = "<group>"; };
+		758B0D831C8894990018E85E /* CGFilterModuleRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleRouterInput.h; sourceTree = "<group>"; };
+		758B0D851C8894990018E85E /* CGFilterModuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleViewController.h; sourceTree = "<group>"; };
+		758B0D861C8894990018E85E /* CGFilterModuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFilterModuleViewController.m; sourceTree = "<group>"; };
+		758B0D871C8894990018E85E /* CGFilterModuleViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleViewInput.h; sourceTree = "<group>"; };
+		758B0D881C8894990018E85E /* CGFilterModuleViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleViewOutput.h; sourceTree = "<group>"; };
+		758B0D8E1C89049E0018E85E /* testStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = testStoryboard.storyboard; sourceTree = "<group>"; };
+		758B0D901C8B80000018E85E /* SortingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortingView.h; sourceTree = "<group>"; };
+		758B0D911C8B80000018E85E /* SortingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortingView.m; sourceTree = "<group>"; };
+		758B0D931C8B824D0018E85E /* SortingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortingView.xib; sourceTree = "<group>"; };
 		75F64ACC1C7DB1E50019F61C /* CargoGuroViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoGuroViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F64AD01C7DB1E50019F61C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		75F64AD21C7DB1E50019F61C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,7 +91,32 @@
 		75F64ADE1C7DB1E50019F61C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75F64AE11C7DB1E50019F61C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75F64AE31C7DB1E50019F61C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA9460C309913AD612737E4A /* libPods-CargoGuroViper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CargoGuroViper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75F64AE91C7E1C360019F61C /* libRamblerTyphoonUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRamblerTyphoonUtils.a; path = "Pods/../build/Debug-iphoneos/libRamblerTyphoonUtils.a"; sourceTree = "<group>"; };
+		75F64AEA1C7E1C360019F61C /* libTyphoon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTyphoon.a; path = "Pods/../build/Debug-iphoneos/libTyphoon.a"; sourceTree = "<group>"; };
+		75F64B0A1C7E66F80019F61C /* CGResultCalculateModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleAssembly.h; sourceTree = "<group>"; };
+		75F64B0B1C7E66F80019F61C /* CGResultCalculateModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGResultCalculateModuleAssembly.m; sourceTree = "<group>"; };
+		75F64B0D1C7E66F80019F61C /* CGResultCalculateModuleInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleInteractor.h; sourceTree = "<group>"; };
+		75F64B0E1C7E66F80019F61C /* CGResultCalculateModuleInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGResultCalculateModuleInteractor.m; sourceTree = "<group>"; };
+		75F64B0F1C7E66F80019F61C /* CGResultCalculateModuleInteractorInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleInteractorInput.h; sourceTree = "<group>"; };
+		75F64B101C7E66F80019F61C /* CGResultCalculateModuleInteractorOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleInteractorOutput.h; sourceTree = "<group>"; };
+		75F64B121C7E66F80019F61C /* CGResultCalculateModuleModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleModuleInput.h; sourceTree = "<group>"; };
+		75F64B131C7E66F80019F61C /* CGResultCalculateModulePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModulePresenter.h; sourceTree = "<group>"; };
+		75F64B141C7E66F80019F61C /* CGResultCalculateModulePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGResultCalculateModulePresenter.m; sourceTree = "<group>"; };
+		75F64B161C7E66F80019F61C /* CGResultCalculateModuleRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleRouter.h; sourceTree = "<group>"; };
+		75F64B171C7E66F80019F61C /* CGResultCalculateModuleRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGResultCalculateModuleRouter.m; sourceTree = "<group>"; };
+		75F64B181C7E66F80019F61C /* CGResultCalculateModuleRouterInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleRouterInput.h; sourceTree = "<group>"; };
+		75F64B1A1C7E66F80019F61C /* CGResultCalculateModuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleViewController.h; sourceTree = "<group>"; };
+		75F64B1B1C7E66F80019F61C /* CGResultCalculateModuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGResultCalculateModuleViewController.m; sourceTree = "<group>"; };
+		75F64B1C1C7E66F80019F61C /* CGResultCalculateModuleViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleViewInput.h; sourceTree = "<group>"; };
+		75F64B1D1C7E66F80019F61C /* CGResultCalculateModuleViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGResultCalculateModuleViewOutput.h; sourceTree = "<group>"; };
+		75F64B2D1C8055BF0019F61C /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPClient.h; path = LibraryAPI/HTTPClient.h; sourceTree = "<group>"; };
+		75F64B2E1C8055BF0019F61C /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPClient.m; path = LibraryAPI/HTTPClient.m; sourceTree = "<group>"; };
+		75F64B2F1C8055BF0019F61C /* JSONResponseSerializerWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONResponseSerializerWithData.h; path = LibraryAPI/JSONResponseSerializerWithData.h; sourceTree = "<group>"; };
+		75F64B301C8055BF0019F61C /* JSONResponseSerializerWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONResponseSerializerWithData.m; path = LibraryAPI/JSONResponseSerializerWithData.m; sourceTree = "<group>"; };
+		75F64B361C809F540019F61C /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultTableViewCell.h; path = Cells/ResultTableViewCell.h; sourceTree = "<group>"; };
+		75F64B371C809F540019F61C /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultTableViewCell.m; path = Cells/ResultTableViewCell.m; sourceTree = "<group>"; };
+		75F64B381C809F540019F61C /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResultTableViewCell.xib; path = Cells/ResultTableViewCell.xib; sourceTree = "<group>"; };
+		A1D581A13A680831D7ACC36E /* libPods-CargoGuroViper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CargoGuroViper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +124,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63152DF41C7DE9F900AE47ED /* Typhoon.framework in Frameworks */,
-				63152DF21C7DE90600AE47ED /* ViperMcFlurry.framework in Frameworks */,
-				F41334242DD90993610B56BA /* libPods-CargoGuroViper.a in Frameworks */,
+				75F64AEB1C7E1C360019F61C /* libRamblerTyphoonUtils.a in Frameworks */,
+				75F64AEC1C7E1C360019F61C /* libTyphoon.a in Frameworks */,
+				5B0133876EF0C7518663BFAA /* libPods-CargoGuroViper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,9 +136,9 @@
 		2C190506C2473BFE8DF07EA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				63152DF31C7DE9F900AE47ED /* Typhoon.framework */,
-				63152DF11C7DE90600AE47ED /* ViperMcFlurry.framework */,
-				AA9460C309913AD612737E4A /* libPods-CargoGuroViper.a */,
+				75F64AE91C7E1C360019F61C /* libRamblerTyphoonUtils.a */,
+				75F64AEA1C7E1C360019F61C /* libTyphoon.a */,
+				A1D581A13A680831D7ACC36E /* libPods-CargoGuroViper.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,6 +215,69 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		758B0D731C8894990018E85E /* FilterModule */ = {
+			isa = PBXGroup;
+			children = (
+				758B0D741C8894990018E85E /* Assembly */,
+				758B0D771C8894990018E85E /* Interactor */,
+				758B0D7C1C8894990018E85E /* Presenter */,
+				758B0D801C8894990018E85E /* Router */,
+				758B0D841C8894990018E85E /* View */,
+			);
+			path = FilterModule;
+			sourceTree = "<group>";
+		};
+		758B0D741C8894990018E85E /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				758B0D751C8894990018E85E /* CGFilterModuleAssembly.h */,
+				758B0D761C8894990018E85E /* CGFilterModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		758B0D771C8894990018E85E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				758B0D781C8894990018E85E /* CGFilterModuleInteractor.h */,
+				758B0D791C8894990018E85E /* CGFilterModuleInteractor.m */,
+				758B0D7A1C8894990018E85E /* CGFilterModuleInteractorInput.h */,
+				758B0D7B1C8894990018E85E /* CGFilterModuleInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		758B0D7C1C8894990018E85E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				758B0D7D1C8894990018E85E /* CGFilterModuleModuleInput.h */,
+				758B0D7E1C8894990018E85E /* CGFilterModulePresenter.h */,
+				758B0D7F1C8894990018E85E /* CGFilterModulePresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		758B0D801C8894990018E85E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				758B0D811C8894990018E85E /* CGFilterModuleRouter.h */,
+				758B0D821C8894990018E85E /* CGFilterModuleRouter.m */,
+				758B0D831C8894990018E85E /* CGFilterModuleRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		758B0D841C8894990018E85E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				758B0D851C8894990018E85E /* CGFilterModuleViewController.h */,
+				758B0D861C8894990018E85E /* CGFilterModuleViewController.m */,
+				758B0D871C8894990018E85E /* CGFilterModuleViewInput.h */,
+				758B0D881C8894990018E85E /* CGFilterModuleViewOutput.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		75F64AC31C7DB1E50019F61C = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +299,9 @@
 		75F64ACE1C7DB1E50019F61C /* CargoGuroViper */ = {
 			isa = PBXGroup;
 			children = (
+				75F64B231C7FC0D60019F61C /* LibraryAPI */,
+				758B0D731C8894990018E85E /* FilterModule */,
+				75F64B081C7E66F80019F61C /* ResultCalculateModule */,
 				63152DD61C7DE7D800AE47ED /* CalculateModule */,
 				75F64AD21C7DB1E50019F61C /* AppDelegate.h */,
 				75F64AD31C7DB1E50019F61C /* AppDelegate.m */,
@@ -187,6 +313,7 @@
 				75F64AE31C7DB1E50019F61C /* Info.plist */,
 				75F64ADB1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld */,
 				75F64ACF1C7DB1E50019F61C /* Supporting Files */,
+				758B0D8E1C89049E0018E85E /* testStoryboard.storyboard */,
 			);
 			path = CargoGuroViper;
 			sourceTree = "<group>";
@@ -197,6 +324,94 @@
 				75F64AD01C7DB1E50019F61C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75F64B081C7E66F80019F61C /* ResultCalculateModule */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B091C7E66F80019F61C /* Assembly */,
+				75F64B0C1C7E66F80019F61C /* Interactor */,
+				75F64B111C7E66F80019F61C /* Presenter */,
+				75F64B151C7E66F80019F61C /* Router */,
+				75F64B191C7E66F80019F61C /* View */,
+			);
+			path = ResultCalculateModule;
+			sourceTree = "<group>";
+		};
+		75F64B091C7E66F80019F61C /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B0A1C7E66F80019F61C /* CGResultCalculateModuleAssembly.h */,
+				75F64B0B1C7E66F80019F61C /* CGResultCalculateModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		75F64B0C1C7E66F80019F61C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B0D1C7E66F80019F61C /* CGResultCalculateModuleInteractor.h */,
+				75F64B0E1C7E66F80019F61C /* CGResultCalculateModuleInteractor.m */,
+				75F64B0F1C7E66F80019F61C /* CGResultCalculateModuleInteractorInput.h */,
+				75F64B101C7E66F80019F61C /* CGResultCalculateModuleInteractorOutput.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		75F64B111C7E66F80019F61C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B121C7E66F80019F61C /* CGResultCalculateModuleModuleInput.h */,
+				75F64B131C7E66F80019F61C /* CGResultCalculateModulePresenter.h */,
+				75F64B141C7E66F80019F61C /* CGResultCalculateModulePresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		75F64B151C7E66F80019F61C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B161C7E66F80019F61C /* CGResultCalculateModuleRouter.h */,
+				75F64B171C7E66F80019F61C /* CGResultCalculateModuleRouter.m */,
+				75F64B181C7E66F80019F61C /* CGResultCalculateModuleRouterInput.h */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		75F64B191C7E66F80019F61C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B1A1C7E66F80019F61C /* CGResultCalculateModuleViewController.h */,
+				75F64B1B1C7E66F80019F61C /* CGResultCalculateModuleViewController.m */,
+				75F64B1C1C7E66F80019F61C /* CGResultCalculateModuleViewInput.h */,
+				75F64B1D1C7E66F80019F61C /* CGResultCalculateModuleViewOutput.h */,
+				75F64B3B1C809F630019F61C /* Cells */,
+				758B0D901C8B80000018E85E /* SortingView.h */,
+				758B0D911C8B80000018E85E /* SortingView.m */,
+				758B0D931C8B824D0018E85E /* SortingView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		75F64B231C7FC0D60019F61C /* LibraryAPI */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B2D1C8055BF0019F61C /* HTTPClient.h */,
+				75F64B2E1C8055BF0019F61C /* HTTPClient.m */,
+				75F64B2F1C8055BF0019F61C /* JSONResponseSerializerWithData.h */,
+				75F64B301C8055BF0019F61C /* JSONResponseSerializerWithData.m */,
+			);
+			name = LibraryAPI;
+			sourceTree = "<group>";
+		};
+		75F64B3B1C809F630019F61C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				75F64B361C809F540019F61C /* ResultTableViewCell.h */,
+				75F64B371C809F540019F61C /* ResultTableViewCell.m */,
+				75F64B381C809F540019F61C /* ResultTableViewCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +448,7 @@
 				TargetAttributes = {
 					75F64ACB1C7DB1E50019F61C = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = UT3YUVT7N2;
 					};
 				};
 			};
@@ -259,8 +475,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				758B0D8F1C89049E0018E85E /* testStoryboard.storyboard in Resources */,
+				758B0D941C8B824D0018E85E /* SortingView.xib in Resources */,
 				75F64AE21C7DB1E50019F61C /* LaunchScreen.storyboard in Resources */,
 				75F64ADF1C7DB1E50019F61C /* Assets.xcassets in Resources */,
+				75F64B3A1C809F540019F61C /* ResultTableViewCell.xib in Resources */,
 				75F64ADA1C7DB1E50019F61C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,15 +539,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F64B391C809F540019F61C /* ResultTableViewCell.m in Sources */,
+				758B0D8A1C8894990018E85E /* CGFilterModuleInteractor.m in Sources */,
 				63152DF01C7DE88200AE47ED /* CGCalculateModuleViewController.m in Sources */,
 				63152DE71C7DE86F00AE47ED /* CGCalculateModulePresenter.m in Sources */,
 				75F64AD71C7DB1E50019F61C /* ViewController.m in Sources */,
 				63152DE31C7DE86700AE47ED /* CGCalculateModuleInteractor.m in Sources */,
+				758B0D921C8B80000018E85E /* SortingView.m in Sources */,
+				758B0D8B1C8894990018E85E /* CGFilterModulePresenter.m in Sources */,
 				63152DEB1C7DE87600AE47ED /* CGCalculateModuleRouter.m in Sources */,
+				75F64B1F1C7E66F80019F61C /* CGResultCalculateModuleInteractor.m in Sources */,
 				63152DDE1C7DE85B00AE47ED /* CGCalculateModuleAssembly.m in Sources */,
+				75F64B211C7E66F80019F61C /* CGResultCalculateModuleRouter.m in Sources */,
+				75F64B341C8055BF0019F61C /* JSONResponseSerializerWithData.m in Sources */,
+				75F64B331C8055BF0019F61C /* HTTPClient.m in Sources */,
+				75F64B221C7E66F80019F61C /* CGResultCalculateModuleViewController.m in Sources */,
 				75F64AD41C7DB1E50019F61C /* AppDelegate.m in Sources */,
+				75F64B1E1C7E66F80019F61C /* CGResultCalculateModuleAssembly.m in Sources */,
 				75F64ADD1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld in Sources */,
+				758B0D891C8894990018E85E /* CGFilterModuleAssembly.m in Sources */,
+				758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */,
+				75F64B201C7E66F80019F61C /* CGResultCalculateModulePresenter.m in Sources */,
 				75F64AD11C7DB1E50019F61C /* main.m in Sources */,
+				758B0D8C1C8894990018E85E /* CGFilterModuleRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,14 +672,43 @@
 			baseConfigurationReference = 6DB4894CBB83AD52AF7064C7 /* Pods-CargoGuroViper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = CargoGuroViper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks /Users/a1/workspase/CargoGuro";
-				PRODUCT_BUNDLE_IDENTIFIER = fruktorum.CargoGuroViper;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"OCMock\"",
+					"-l\"RamblerSegues\"",
+					"-l\"RamblerTyphoonUtils\"",
+					"-l\"Typhoon\"",
+					"-l\"ViperMcFlurry\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"XCTest\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fruktorum.CargoGuroViper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -455,14 +717,43 @@
 			baseConfigurationReference = 1A28622E542832680E3146A2 /* Pods-CargoGuroViper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = CargoGuroViper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fruktorum.CargoGuroViper;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"OCMock\"",
+					"-l\"RamblerSegues\"",
+					"-l\"RamblerTyphoonUtils\"",
+					"-l\"Typhoon\"",
+					"-l\"ViperMcFlurry\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"XCTest\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fruktorum.CargoGuroViper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

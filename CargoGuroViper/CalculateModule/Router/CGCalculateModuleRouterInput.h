@@ -10,4 +10,7 @@
 
 @protocol CGCalculateModuleRouterInput <NSObject>
 
+//может быть этот метод поместить лучше в CGCalculateModuleRouterOutput
+- (void)transitionOnResultCalculateModule:(NSDictionary *)datas;
+
 @end

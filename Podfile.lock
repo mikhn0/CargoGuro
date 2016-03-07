@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - JVFloatLabeledTextField (1.1.0)
+  - OCMock (3.2.2)
   - RamblerSegues (1.1.0):
     - RamblerSegues/Core (= 1.1.0)
     - RamblerSegues/CrossStoryboardSegue (= 1.1.0)
@@ -38,6 +40,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - JVFloatLabeledTextField
+  - OCMock
   - RamblerSegues
   - RamblerTyphoonUtils
   - Typhoon
@@ -45,6 +49,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
+  OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   RamblerSegues: e4b34295ede5203115b53f6b749c14d9ba6b9e5e
   RamblerTyphoonUtils: 814c02d7a0136a164efaae1133f47db1e4579cd0
   Typhoon: 200100687af3233ec5ed019064df3c9ffe350475

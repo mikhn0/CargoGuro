@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol CGCalculateModuleViewOutput <NSObject>
 
@@ -15,6 +16,9 @@
 
  Метод сообщает презентеру о том, что view готова к работе
  */
-- (void)didTriggerViewReadyEvent;
+
+//- (void)didTriggerViewReadyEvent;
+- (void)searchTransition:(NSDictionary *)datas;
+
 
 @end

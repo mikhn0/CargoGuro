@@ -14,6 +14,6 @@
 
 @interface CGCalculateModuleViewController : UIViewController <CGCalculateModuleViewInput>
 
-@property (nonatomic, strong) id<CGCalculateModuleViewOutput> output;
+@property (nonatomic, strong) id <CGCalculateModuleViewOutput> output;
 
 @end

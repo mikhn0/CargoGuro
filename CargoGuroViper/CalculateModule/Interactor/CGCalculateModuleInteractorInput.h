@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @protocol CGCalculateModuleInteractorInput <NSObject>
+
 
 @end

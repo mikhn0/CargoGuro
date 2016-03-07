@@ -7,12 +7,31 @@
 //
 
 #import "CGCalculateModulePresenter.h"
-
 #import "CGCalculateModuleViewInput.h"
 #import "CGCalculateModuleInteractorInput.h"
 #import "CGCalculateModuleRouterInput.h"
 
+#import "CGCalculateModuleInteractor.h"
+#import "CGCalculateModuleRouter.h"
+
 @implementation CGCalculateModulePresenter
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
++ (CGCalculateModulePresenter *)sharedinstance {
+    static CGCalculateModulePresenter *_sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[CGCalculateModulePresenter alloc] init];
+    });
+    return _sharedInstance;
+}
 
 #pragma mark - Методы CGCalculateModuleModuleInput
 
@@ -22,8 +41,14 @@
 
 #pragma mark - Методы CGCalculateModuleViewOutput
 
-- (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+//- (void)didTriggerViewReadyEvent {
+//	[self.view setupInitialState];
+//}
+
+- (void)searchTransition:(NSDictionary *)datas {
+    
+    [self.router transitionOnResultCalculateModule:datas];
+
 }
 
 #pragma mark - Методы CGCalculateModuleInteractorOutput
