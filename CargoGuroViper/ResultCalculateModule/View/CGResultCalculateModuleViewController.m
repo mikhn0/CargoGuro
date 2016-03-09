@@ -48,6 +48,8 @@
     currentSelectSorting = 5;
     listOfResult = @[].mutableCopy;
     
+    self.tableView.backgroundColor = [UIColor colorWithRed:255.0/256.0 green:255.0/256.0 blue:255.0/256.0 alpha:0.5];
+    
     [self.loadScreen setFrame:[UIScreen mainScreen].bounds];
     
     self.backgroundView.image = [UIImage imageNamed:@"Background"];
@@ -65,7 +67,7 @@
                                NSForegroundColorAttributeName:[UIColor blackColor]
                                };
     
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ - %@ \nобьём %@ м3; вес %@ кг; \nценность %@ р.", self.datas[@"cargoFrom"], self.datas[@"cargoTo"], self.datas[@"cV"], self.datas[@"cW"], self.datas[@"cInsP"]];
+    self.informationLabel.text = [NSString stringWithFormat:@"%@ - %@ \nобьём %@ м3; вес %@ кг; \nценность %.2f р.", self.datas[@"cargoFrom"], self.datas[@"cargoTo"], self.datas[@"cV"], self.datas[@"cW"], ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00)];
     
     NSRange range0 = [self.informationLabel.text rangeOfString: self.informationLabel.text];
     NSRange range1 = [self.informationLabel.text rangeOfString: self.datas[@"cargoFrom"]];
@@ -99,6 +101,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self setCustomNavigationBackButton];
+    
 }
 
 - (void) showAutoPlayBgViewInFullScreen
@@ -175,6 +178,7 @@
     }
     
     NSDictionary *result = listOfResult[indexPath.row];
+    cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = [result objectForKey:@"transportName"];
     
@@ -183,10 +187,7 @@
     cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
     
     float value = [[result objectForKey:@"methods"][@"calcResultPrice"] floatValue];
-    NSNumberFormatter * formatter = [NSNumberFormatter new];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:2]; // Set this if you need 2 digits
-    NSString * newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
+    NSString * newString =  [NSString stringWithFormat:@"%.2f", value];
     cell.priceLabel.text = newString;
     
     cell.transportLabel.text = [result objectForKey:@"methods"][@"name"];
@@ -204,10 +205,12 @@
     NSString *comma = [[result objectForKey:@"methods"][@"calcResultTime"] length] > 0 ? @"," : @"";
     NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
     
+    CGFloat widthOfdescribeLabel = [[UIScreen mainScreen] bounds].size.width / 320;
+    NSLog(@"widthOfdescribeLabel=================%f, width screen ======== %f" , widthOfdescribeLabel, [[UIScreen mainScreen] bounds].size.width);
     float height = [self getHeightForText:descriptionResult withFont:[UIFont systemFontOfSize:12
-                                                                      ] andWidth:150];
+                                                                      ] andWidth:150 * widthOfdescribeLabel];
     
-    return 30 + height;
+    return 33 + height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -275,13 +278,22 @@
 }
 
 - (void) filterPress {
+    
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"SortingView" owner:self options:nil];
     SortingView *mainView = [subviewArray objectAtIndex:0];
-    mainView.frame = self.view.bounds;
+    //mainView.frame = self.view.bounds;
     mainView.currentSelectSorting = currentSelectSorting;
     mainView.delegate = self;
-    [self.view addSubview:mainView];
+    
+    UIWindow* window = [[UIApplication sharedApplication] keyWindow];
+    
+    // set frame of auto play bg view
+    mainView.frame = window.frame;
+    [window addSubview: mainView];
+    
+    //[self.view addSubview:mainView];
     //[self.output didSelectFilter];
+    
 }
 
 - (IBAction)unwindToResultCalculate:(UIStoryboardSegue *)unwindSegue
