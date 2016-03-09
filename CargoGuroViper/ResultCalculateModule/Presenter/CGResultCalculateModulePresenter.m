@@ -26,7 +26,6 @@
 - (void)configureModule {
     // Стартовая конфигурация модуля, не привязанная к состоянию view
     //start animation load indicator
-
 }
 
 - (void)configureModuleWithData:(NSDictionary *)datas {
@@ -43,7 +42,7 @@
 //    } onFailure:^(NSString *error) {
 //        NSLog(@"ERROR ADVERT ========== %@", error);
 //    }];
-    myTimer = [NSTimer scheduledTimerWithTimeInterval:10.0
+    myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
                                      target:self
                                    selector:@selector(targetMethod:)
                                    userInfo:nil
@@ -68,7 +67,6 @@
         
         [self stopRotateIndicator];
         [self.view outPutError:error];
-        //отобразить error
         
     } endOfLoad:^(BOOL theEnd) {
         
@@ -81,6 +79,7 @@
     [self.imageIndicator.layer removeAllAnimations];
     self.imageIndicator.hidden = YES;
     self.loadView.hidden = YES;
+    [self.loadView removeFromSuperview];
     [myTimer invalidate];
     myTimer = nil;
 }

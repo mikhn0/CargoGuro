@@ -8,7 +8,7 @@
 
 #import "SortingView.h"
 
-@interface SortingView () <UITableViewDataSource, UITableViewDelegate>
+@interface SortingView () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -24,9 +24,37 @@
     return self;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+       shouldReceiveTouch:(UITouch *)touch {
+    return !(touch.view != self);
+}
+//- (BOOL)gestureRecognizerShouldBegin:(UITapGestureRecognizer *)gestureRecognizer {
+////    if (gestureRecognizer.view != self) {
+////        return NO;
+////    }
+////    return YES;
+//    
+//    CGPoint point = [gestureRecognizer locationInView:gestureRecognizer.view];
+//    id viewTouched = [gestureRecognizer.view hitTest:point withEvent:nil];
+//    if ([viewTouched isKindOfClass:[UITableView class]]) {
+//        return NO;
+//    } else {
+//        return YES;
+//        // respond to touch action
+//    }
+//    
+//}
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeScreen:)];
+    tapGest.delegate = self;
+    [tapGest setCancelsTouchesInView:NO];
+    [self setUserInteractionEnabled:YES];
+    [self addGestureRecognizer:tapGest];
     return 4;
 }
 
@@ -70,6 +98,16 @@
     [self removeFromSuperview];
 }
 
+- (void)closeScreen:(UITapGestureRecognizer *)sender {
+//    CGPoint point = [sender locationInView:sender.view];
+//    id viewTouched = [sender.view.superview hitTest:point withEvent:nil];
+//    if ([viewTouched isKindOfClass:[UITableViewCellContentView class]]) {
+//        
+//    } else {
+        [self removeFromSuperview];
+    //}
+    
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

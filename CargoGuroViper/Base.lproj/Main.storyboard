@@ -554,6 +554,8 @@
                                 <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.52941176469999995" green="0.1764705882" blue="0.45882352939999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="mJ3-Tr-Kub" id="ScH-N5-7h9"/>
                                     <outlet property="delegate" destination="mJ3-Tr-Kub" id="RYN-yE-SuT"/>
