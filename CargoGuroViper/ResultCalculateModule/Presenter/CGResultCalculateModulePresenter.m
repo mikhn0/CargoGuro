@@ -47,7 +47,8 @@
                                    selector:@selector(targetMethod:)
                                    userInfo:nil
                                     repeats:NO];
-    [self.interactor getCalculationWithDictionary:datas onSuccess:^(NSDictionary *result) {
+    [self.interactor getCalculationWithDictionary:datas
+                                        onSuccess:^(NSDictionary *result) {
         
         if (result[@"methods"] != [NSNull null] && [result[@"methods"] count] > 0) {
             
@@ -56,7 +57,11 @@
                 NSMutableDictionary *resultDictionary = result.mutableCopy;
                 resultDictionary[@"methods"] = [result[@"methods"] objectAtIndex:i];
                 
-                [self.view addRowWithResult:resultDictionary.copy];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                
+                    [self.view addRowWithResult:resultDictionary.copy];
+                    
+                });
                 
             }
             
@@ -65,12 +70,16 @@
         
     } onFailure:^(NSString *error) {
         
-        [self stopRotateIndicator];
-        [self.view outPutError:error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self stopRotateIndicator];
+            [self.view outPutError:error];
+        });
         
     } endOfLoad:^(BOOL theEnd) {
         
-        [self stopRotateIndicator];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self stopRotateIndicator];
+        });
         
     }];
 }

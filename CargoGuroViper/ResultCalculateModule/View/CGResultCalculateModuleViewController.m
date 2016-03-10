@@ -204,11 +204,13 @@
 {
     NSDictionary *result = listOfResult[indexPath.row];
     
-    NSString *comma = [[result objectForKey:@"methods"][@"calcResultTime"] length] > 0 ? @"," : @"";
+    id calcResultTime = [[result objectForKey:@"methods"] objectForKey:@"calcResultTime"];
+    
+    NSString *comma = ( ![calcResultTime isEqual:[NSNull null]] && [calcResultTime length] > 0) ? @"," : @"";
+    
     NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
     
     CGFloat widthOfdescribeLabel = [[UIScreen mainScreen] bounds].size.width / 320;
-    NSLog(@"widthOfdescribeLabel=================%f, width screen ======== %f" , widthOfdescribeLabel, [[UIScreen mainScreen] bounds].size.width);
     float height = [self getHeightForText:descriptionResult withFont:[UIFont systemFontOfSize:12
                                                                       ] andWidth:150 * widthOfdescribeLabel];
     
@@ -240,11 +242,13 @@
 }
 
 - (void)outPutError:(NSString *)error {
-    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
-    
-    UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
-    [alertError addAction:alertAction];
-    [self presentViewController:alertError animated:YES completion:nil];
+    if ([error length] > 0) {
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
+        
+        UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
+        [alertError addAction:alertAction];
+        [self presentViewController:alertError animated:YES completion:nil];
+    }
 }
 
 
@@ -283,7 +287,6 @@
     
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"SortingView" owner:self options:nil];
     SortingView *mainView = [subviewArray objectAtIndex:0];
-    //mainView.frame = self.view.bounds;
     mainView.currentSelectSorting = currentSelectSorting;
     mainView.arrowCurrentSorting = arrowCurrentSorting;
     mainView.delegate = self;
@@ -328,8 +331,8 @@
         }
         
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors];
-        listOfResult = sortedArray.copy;
+        NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors].copy;
+        listOfResult = sortedArray.mutableCopy;
         [self.tableView reloadData];
     }
 }
@@ -338,36 +341,33 @@
 #pragma mark - SortingViewDelegate
 
 - (void)sortingResultsBy:(Filter)filter withFlag:(Arrow)flag {
-    //if (!flag) {
-    //    currentSelectSorting = 5;
-    //} else {
-    //
+
     currentSelectSorting = filter;
-    arrowCurrentSorting = flag ? Bottom : Top;
-    //}
+    arrowCurrentSorting = (flag == Top || flag == None) ? Bottom : Top;
+
     NSSortDescriptor *sortDescriptor;
     
     if (filter == Cost) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultPrice"
-                                                     ascending:flag == Top ? YES : NO];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     } else if  (filter == Transfer) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"transportName"
-                                                     ascending:flag == Top ? name : !name];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     } else if (filter == Process) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.name"
-                                                     ascending:flag == Top ? method : !method];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     } else if (filter == Time) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultTime"
-                                                     ascending:flag == Top ? time : !time];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     }
     
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors];
-    listOfResult = sortedArray.copy;
+    NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors].copy;
+    listOfResult = sortedArray.mutableCopy;
     [self.tableView reloadData];
 }
 

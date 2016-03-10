@@ -24,47 +24,53 @@
                             onFailure: (CompletionError)     failure
                             endOfLoad: (CompletionEnd)       endOfLoad {
     
-    HTTPClient *httpClient = [[HTTPClient alloc] init];
     
-    [[httpClient getSessionManager] GET:@"1/get_complist.php" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
-        NSArray *companies = responseObject[@"companies"];
-        __block NSInteger countOfCompany = companies.count;
+        HTTPClient *httpClient = [[HTTPClient alloc] init];
         
-        for (NSDictionary *company in companies) {
-            NSLog(@"company ====== %@", company);
-            NSMutableDictionary *mutableParams = params.mutableCopy;
+        [[httpClient getSessionManager] GET:@"1/get_complist.php" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
-            mutableParams[@"tNum"] = company[@"transportNumber"];
+            NSArray *companies = responseObject[@"companies"];
+            __block NSInteger countOfCompany = companies.count;
             
-            __block NSString *companyName = company[@"transportName"];
-            __block NSString *transportSite = company[@"transportSite"];
+            for (NSDictionary *company in companies) {
+                
+                NSMutableDictionary *mutableParams = params.mutableCopy;
+                
+                mutableParams[@"tNum"] = company[@"transportNumber"];
+                
+                __block NSString *companyName = company[@"transportName"];
+                __block NSString *transportSite = company[@"transportSite"];
+                
+                [[httpClient getSessionManager] POST:@"1/get_calculation.php" parameters:mutableParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    
+                    NSMutableDictionary *responce = [responseObject mutableCopy];
+                    responce[@"transportName"] = companyName;
+                    responce[@"transportSite"] = transportSite;
+                    completion(responce.copy);
+                    
+                    countOfCompany--;
+                    if (countOfCompany == 0) {
+                        endOfLoad(YES);
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    
+                    failure([httpClient inputError:error]);
+                    
+                }];
+                
+            }
             
-            [[httpClient getSessionManager] POST:@"1/get_calculation.php" parameters:mutableParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                
-                NSMutableDictionary *responce = [responseObject mutableCopy];
-                responce[@"transportName"] = companyName;
-                responce[@"transportSite"] = transportSite;
-                completion(responce.copy);
-                
-                countOfCompany--;
-                if (countOfCompany == 0) {
-                    endOfLoad(YES);
-                }
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"count of company ======= %li", (long)countOfCompany);
-                failure([httpClient inputError:error]);
-                
-            }];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
-        }
+            failure([httpClient inputError:error]);
+            
+        }];
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        failure([httpClient inputError:error]);
-        
-    }];
+    });
     
 }
 
