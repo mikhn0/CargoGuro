@@ -7,8 +7,11 @@
 //
 
 #import "SortingView.h"
+#import "CGResultCalculateModuleViewController.h"
 
-@interface SortingView () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface SortingView () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate> {
+    NSMutableArray *flagArray;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -17,9 +20,8 @@
 
 @implementation SortingView
 
-- (id)initWithFrame:(CGRect)frame {
-    if ((self = [super initWithFrame:frame])) {
-        // Initialization code
+- (id)init {
+    if ((self = [super init])) {
     }
     return self;
 }
@@ -28,22 +30,6 @@
        shouldReceiveTouch:(UITouch *)touch {
     return !(touch.view != self);
 }
-//- (BOOL)gestureRecognizerShouldBegin:(UITapGestureRecognizer *)gestureRecognizer {
-////    if (gestureRecognizer.view != self) {
-////        return NO;
-////    }
-////    return YES;
-//    
-//    CGPoint point = [gestureRecognizer locationInView:gestureRecognizer.view];
-//    id viewTouched = [gestureRecognizer.view hitTest:point withEvent:nil];
-//    if ([viewTouched isKindOfClass:[UITableView class]]) {
-//        return NO;
-//    } else {
-//        return YES;
-//        // respond to touch action
-//    }
-//    
-//}
 
 
 #pragma mark - UITableViewDataSource
@@ -55,6 +41,9 @@
     [tapGest setCancelsTouchesInView:NO];
     [self setUserInteractionEnabled:YES];
     [self addGestureRecognizer:tapGest];
+    
+    flagArray = @[@(0), @(0), @(0), @(0)].mutableCopy;
+    
     return 4;
 }
 
@@ -68,7 +57,13 @@
                                       reuseIdentifier:resultTableIdentifier];
     }
     if (indexPath.row == self.currentSelectSorting) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+        //Reset all flags besides selected
+        [self resetAllFlagsBesides:indexPath.row];
+        
+        //Set image of checkmarks
+        cell.accessoryView = [self setButtonByIndex:indexPath.row];
+        
     }
     
     if (indexPath.row == 0) {
@@ -88,32 +83,97 @@
         cell.textLabel.text = @"По времени";
         
     }
+    
+    
     return cell;
 }
+
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate sortingResultsBy:indexPath.row withFlag:indexPath.row == self.currentSelectSorting ? NO:YES];
+    [self.delegate sortingResultsBy:indexPath.row withFlag:self.arrowCurrentSorting];
     [self removeFromSuperview];
 }
 
-- (void)closeScreen:(UITapGestureRecognizer *)sender {
-//    CGPoint point = [sender locationInView:sender.view];
-//    id viewTouched = [sender.view.superview hitTest:point withEvent:nil];
-//    if ([viewTouched isKindOfClass:[UITableViewCellContentView class]]) {
-//        
-//    } else {
-        [self removeFromSuperview];
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSNumber *checked = [flagArray objectAtIndex:indexPath.row];
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UIButton *button = (UIButton *)cell.accessoryView;
+    
+    [button setBackgroundImage:[self getImageByFlagArray:checked] forState:UIControlStateNormal];
+}
+
+- (void) resetAllFlagsBesides:(NSInteger)index {
+    for (int i=0; i<flagArray.count; i++) {
+        if (i != index) {
+            flagArray[i] = @(None);
+        }
+//        else if (i == index) {
+//            flagArray[i] = @(self.arrowCurrentSorting);
+//        }
+    }
+}
+
+- (UIImage *)getImageByFlagArray:(NSNumber *)flag {
+    UIImage *newImage;
+    if ([flag isEqualToNumber:@(None)]) {
+        newImage = nil;
+    } else if ([flag isEqualToNumber:@(Top)]) {
+        newImage = [UIImage imageNamed:@"top_arrow"];
+    } else if ([flag isEqualToNumber:@(Bottom)]) {
+        newImage = [UIImage imageNamed:@"bottom_arrow"];
+    }
+    return newImage;
+}
+
+- (UIButton *)setButtonByIndex:(NSInteger)index {
+    
+    //Change status selected checkmarks
+    //if ([flagArray[index] isEqualToNumber:@(None)]) {
+        
+    flagArray[index] = @(self.arrowCurrentSorting);//@(Top);
+        
+    //} else if ([flagArray[index] isEqualToNumber:@(Top)]) {
+        
+    //    flagArray[index] = @(Bottom);
+        
+    //} else if ([flagArray[index] isEqualToNumber:@(Bottom)]) {
+        
+    //    flagArray[index] = @(Top);
+        
     //}
     
+    //Change image of button in the rows
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *newImage = [self getImageByFlagArray:flagArray[index]];
+    CGRect frame = CGRectMake(0.0, 0.0, 36.0, 36.0);
+    button.frame = frame;
+    [button setBackgroundImage:newImage forState:UIControlStateNormal];
+    
+    [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    button.backgroundColor = [UIColor clearColor];
+    return button;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)checkButtonTapped:(id)sender event:(id)event
+{
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil)
+    {
+        [self tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
 }
-*/
+
+
+- (void)closeScreen:(UITapGestureRecognizer *)sender {
+    [self removeFromSuperview];
+}
+
 
 @end
