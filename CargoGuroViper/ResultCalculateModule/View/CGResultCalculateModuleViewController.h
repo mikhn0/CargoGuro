@@ -11,6 +11,15 @@
 #import "CGResultCalculateModuleViewInput.h"
 
 
+enum {
+    None = 0,
+    Top,
+    Bottom
+};
+
+typedef NSInteger Arrow;
+
+
 @protocol CGResultCalculateModuleViewOutput;
 
 @interface CGResultCalculateModuleViewController : UIViewController <CGResultCalculateModuleViewInput>

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CGFilterModulePresenter.h"
+#import "CGResultCalculateModuleViewController.h"
 
 @protocol SortingViewDelegate <NSObject>
 
-- (void)sortingResultsBy:(Filter)filter withFlag:(BOOL)flag;
+- (void)sortingResultsBy:(Filter)filter withFlag:(Arrow)flag;
 
 @end
 
@@ -19,7 +20,6 @@
 
 @property (weak, nonatomic) id <SortingViewDelegate> delegate;
 @property (nonatomic) Filter currentSelectSorting;
-
-- (id)initWithFrame:(CGRect)frame;
+@property (nonatomic) Arrow arrowCurrentSorting;
 
 @end

@@ -19,6 +19,7 @@
     NSInteger countOffers;
     NSMutableArray *listOfResult;
     NSInteger currentSelectSorting;
+    Arrow arrowCurrentSorting;
     
     BOOL price, name, method, time;
     
@@ -46,6 +47,7 @@
     [self showAutoPlayBgViewInFullScreen];
     countOffers = 0;
     currentSelectSorting = 5;
+    arrowCurrentSorting = None;
     listOfResult = @[].mutableCopy;
     
     self.tableView.backgroundColor = [UIColor colorWithRed:255.0/256.0 green:255.0/256.0 blue:255.0/256.0 alpha:0.5];
@@ -283,6 +285,7 @@
     SortingView *mainView = [subviewArray objectAtIndex:0];
     //mainView.frame = self.view.bounds;
     mainView.currentSelectSorting = currentSelectSorting;
+    mainView.arrowCurrentSorting = arrowCurrentSorting;
     mainView.delegate = self;
     
     UIWindow* window = [[UIApplication sharedApplication] keyWindow];
@@ -334,30 +337,31 @@
 
 #pragma mark - SortingViewDelegate
 
-- (void)sortingResultsBy:(Filter)filter withFlag:(BOOL)flag {
-    if (!flag) {
-        currentSelectSorting = 5;
-    } else {
-        
-        currentSelectSorting = filter;
-    }
+- (void)sortingResultsBy:(Filter)filter withFlag:(Arrow)flag {
+    //if (!flag) {
+    //    currentSelectSorting = 5;
+    //} else {
+    //
+    currentSelectSorting = filter;
+    arrowCurrentSorting = flag ? Bottom : Top;
+    //}
     NSSortDescriptor *sortDescriptor;
     
     if (filter == Cost) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultPrice"
-                                                     ascending:flag ? price : !price];
+                                                     ascending:flag == Top ? YES : NO];
         
     } else if  (filter == Transfer) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"transportName"
-                                                     ascending:flag ? name : !name];
+                                                     ascending:flag == Top ? name : !name];
         
     } else if (filter == Process) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.name"
-                                                     ascending:flag ? method : !method];
+                                                     ascending:flag == Top ? method : !method];
         
     } else if (filter == Time) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultTime"
-                                                     ascending:flag ? time : !time];
+                                                     ascending:flag == Top ? time : !time];
         
     }
     
