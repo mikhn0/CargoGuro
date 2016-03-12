@@ -18,7 +18,6 @@
 		758B0D8B1C8894990018E85E /* CGFilterModulePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D7F1C8894990018E85E /* CGFilterModulePresenter.m */; };
 		758B0D8C1C8894990018E85E /* CGFilterModuleRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D821C8894990018E85E /* CGFilterModuleRouter.m */; };
 		758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D861C8894990018E85E /* CGFilterModuleViewController.m */; };
-		758B0D8F1C89049E0018E85E /* testStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758B0D8E1C89049E0018E85E /* testStoryboard.storyboard */; };
 		758B0D921C8B80000018E85E /* SortingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D911C8B80000018E85E /* SortingView.m */; };
 		758B0D941C8B824D0018E85E /* SortingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758B0D931C8B824D0018E85E /* SortingView.xib */; };
 		75F64AD11C7DB1E50019F61C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD01C7DB1E50019F61C /* main.m */; };
@@ -76,11 +75,10 @@
 		758B0D861C8894990018E85E /* CGFilterModuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFilterModuleViewController.m; sourceTree = "<group>"; };
 		758B0D871C8894990018E85E /* CGFilterModuleViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleViewInput.h; sourceTree = "<group>"; };
 		758B0D881C8894990018E85E /* CGFilterModuleViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFilterModuleViewOutput.h; sourceTree = "<group>"; };
-		758B0D8E1C89049E0018E85E /* testStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = testStoryboard.storyboard; sourceTree = "<group>"; };
 		758B0D901C8B80000018E85E /* SortingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortingView.h; sourceTree = "<group>"; };
 		758B0D911C8B80000018E85E /* SortingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortingView.m; sourceTree = "<group>"; };
 		758B0D931C8B824D0018E85E /* SortingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortingView.xib; sourceTree = "<group>"; };
-		75F64ACC1C7DB1E50019F61C /* CargoGuroViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoGuroViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75F64ACC1C7DB1E50019F61C /* CargoGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F64AD01C7DB1E50019F61C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		75F64AD21C7DB1E50019F61C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		75F64AD31C7DB1E50019F61C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -291,7 +289,7 @@
 		75F64ACD1C7DB1E50019F61C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75F64ACC1C7DB1E50019F61C /* CargoGuroViper.app */,
+				75F64ACC1C7DB1E50019F61C /* CargoGuru.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,7 +311,6 @@
 				75F64AE31C7DB1E50019F61C /* Info.plist */,
 				75F64ADB1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld */,
 				75F64ACF1C7DB1E50019F61C /* Supporting Files */,
-				758B0D8E1C89049E0018E85E /* testStoryboard.storyboard */,
 			);
 			path = CargoGuroViper;
 			sourceTree = "<group>";
@@ -417,9 +414,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		75F64ACB1C7DB1E50019F61C /* CargoGuroViper */ = {
+		75F64ACB1C7DB1E50019F61C /* CargoGuru */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75F64AE61C7DB1E50019F61C /* Build configuration list for PBXNativeTarget "CargoGuroViper" */;
+			buildConfigurationList = 75F64AE61C7DB1E50019F61C /* Build configuration list for PBXNativeTarget "CargoGuru" */;
 			buildPhases = (
 				BA5D5C54345DD61CF45661BA /* Check Pods Manifest.lock */,
 				75F64AC81C7DB1E50019F61C /* Sources */,
@@ -432,9 +429,9 @@
 			);
 			dependencies = (
 			);
-			name = CargoGuroViper;
+			name = CargoGuru;
 			productName = CargoGuroViper;
-			productReference = 75F64ACC1C7DB1E50019F61C /* CargoGuroViper.app */;
+			productReference = 75F64ACC1C7DB1E50019F61C /* CargoGuru.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -448,11 +445,11 @@
 				TargetAttributes = {
 					75F64ACB1C7DB1E50019F61C = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = UT3YUVT7N2;
+						DevelopmentTeam = 56H2EM9AX8;
 					};
 				};
 			};
-			buildConfigurationList = 75F64AC71C7DB1E50019F61C /* Build configuration list for PBXProject "CargoGuroViper" */;
+			buildConfigurationList = 75F64AC71C7DB1E50019F61C /* Build configuration list for PBXProject "CargoGuru" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -465,7 +462,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				75F64ACB1C7DB1E50019F61C /* CargoGuroViper */,
+				75F64ACB1C7DB1E50019F61C /* CargoGuru */,
 			);
 		};
 /* End PBXProject section */
@@ -475,7 +472,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				758B0D8F1C89049E0018E85E /* testStoryboard.storyboard in Resources */,
 				758B0D941C8B824D0018E85E /* SortingView.xib in Resources */,
 				75F64AE21C7DB1E50019F61C /* LaunchScreen.storyboard in Resources */,
 				75F64ADF1C7DB1E50019F61C /* Assets.xcassets in Resources */,
@@ -705,8 +701,8 @@
 					"-weak_framework",
 					"\"XCTest\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fruktorum.CargoGuroViper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fruktorum.CargoGuru;
+				PRODUCT_NAME = CargoGuru;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -717,7 +713,7 @@
 			baseConfigurationReference = 1A28622E542832680E3146A2 /* Pods-CargoGuroViper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -750,8 +746,8 @@
 					"-weak_framework",
 					"\"XCTest\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fruktorum.CargoGuroViper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fruktorum.CargoGuru;
+				PRODUCT_NAME = CargoGuru;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -760,7 +756,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		75F64AC71C7DB1E50019F61C /* Build configuration list for PBXProject "CargoGuroViper" */ = {
+		75F64AC71C7DB1E50019F61C /* Build configuration list for PBXProject "CargoGuru" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75F64AE41C7DB1E50019F61C /* Debug */,
@@ -769,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75F64AE61C7DB1E50019F61C /* Build configuration list for PBXNativeTarget "CargoGuroViper" */ = {
+		75F64AE61C7DB1E50019F61C /* Build configuration list for PBXNativeTarget "CargoGuru" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75F64AE71C7DB1E50019F61C /* Debug */,

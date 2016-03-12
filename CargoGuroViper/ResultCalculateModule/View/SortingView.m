@@ -111,9 +111,6 @@
         if (i != index) {
             flagArray[i] = @(None);
         }
-//        else if (i == index) {
-//            flagArray[i] = @(self.arrowCurrentSorting);
-//        }
     }
 }
 
@@ -132,19 +129,7 @@
 - (UIButton *)setButtonByIndex:(NSInteger)index {
     
     //Change status selected checkmarks
-    //if ([flagArray[index] isEqualToNumber:@(None)]) {
-        
-    flagArray[index] = @(self.arrowCurrentSorting);//@(Top);
-        
-    //} else if ([flagArray[index] isEqualToNumber:@(Top)]) {
-        
-    //    flagArray[index] = @(Bottom);
-        
-    //} else if ([flagArray[index] isEqualToNumber:@(Bottom)]) {
-        
-    //    flagArray[index] = @(Top);
-        
-    //}
+    flagArray[index] = @(self.arrowCurrentSorting);
     
     //Change image of button in the rows
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

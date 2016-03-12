@@ -189,7 +189,19 @@
     cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
     
     float value = [[result objectForKey:@"methods"][@"calcResultPrice"] floatValue];
-    NSString * newString =  [NSString stringWithFormat:@"%.2f", value];
+    
+    NSNumberFormatter * formatter = [NSNumberFormatter new];
+    
+    [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setGroupingSeparator:@" "]; // Whatever you want here
+    [formatter setDecimalSeparator:@","];
+    formatter.usesGroupingSeparator = YES;
+    [formatter setMaximumFractionDigits:2];
+    [formatter setMinimumFractionDigits:2];
+    
+    NSString * newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
+
     cell.priceLabel.text = newString;
     
     cell.transportLabel.text = [result objectForKey:@"methods"][@"name"];
@@ -208,11 +220,17 @@
     NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
     
     CGFloat widthOfdescribeLabel = [[UIScreen mainScreen] bounds].size.width / 320;
-    NSLog(@"widthOfdescribeLabel=================%f, width screen ======== %f" , widthOfdescribeLabel, [[UIScreen mainScreen] bounds].size.width);
-    float height = [self getHeightForText:descriptionResult withFont:[UIFont systemFontOfSize:12
-                                                                      ] andWidth:150 * widthOfdescribeLabel];
+    float heightDescription = [self getHeightForText:descriptionResult withFont:[UIFont systemFontOfSize:12
+                                                                      ] andWidth:192 * widthOfdescribeLabel];//150
     
-    return 33 + height;
+    
+    
+    NSString *titleResult = [NSString stringWithFormat:@"%@", [result objectForKey:@"transportName"]];
+    
+    float heightTitle = [self getHeightForText:titleResult withFont:[UIFont systemFontOfSize:16
+                                                                                 ] andWidth:210 * widthOfdescribeLabel];
+    
+    return heightTitle + heightDescription;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -240,11 +258,12 @@
 }
 
 - (void)outPutError:(NSString *)error {
-    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
-    
-    UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
-    [alertError addAction:alertAction];
-    [self presentViewController:alertError animated:YES completion:nil];
+    if ([error length] > 0) {
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
+        [alertError addAction:alertAction];
+        [self presentViewController:alertError animated:YES completion:nil];
+    }
 }
 
 
@@ -268,7 +287,7 @@
         totalHeight = title_size.height ;
     }
     
-    CGFloat height = MAX(totalHeight, 50.0f);
+    CGFloat height = MAX(totalHeight, 30.0f);
     return height;
 }
 
@@ -329,7 +348,7 @@
         
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors];
-        listOfResult = sortedArray.copy;
+        listOfResult = sortedArray.mutableCopy;
         [self.tableView reloadData];
     }
 }
@@ -338,36 +357,33 @@
 #pragma mark - SortingViewDelegate
 
 - (void)sortingResultsBy:(Filter)filter withFlag:(Arrow)flag {
-    //if (!flag) {
-    //    currentSelectSorting = 5;
-    //} else {
-    //
+
     currentSelectSorting = filter;
-    arrowCurrentSorting = flag ? Bottom : Top;
-    //}
+    arrowCurrentSorting = (flag == Top || flag == None) ? Bottom : Top;
+
     NSSortDescriptor *sortDescriptor;
     
     if (filter == Cost) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultPrice"
-                                                     ascending:flag == Top ? YES : NO];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     } else if  (filter == Transfer) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"transportName"
-                                                     ascending:flag == Top ? name : !name];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     } else if (filter == Process) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.name"
-                                                     ascending:flag == Top ? method : !method];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     } else if (filter == Time) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultTime"
-                                                     ascending:flag == Top ? time : !time];
+                                                     ascending:arrowCurrentSorting == Top ? YES : NO];
         
     }
     
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors];
-    listOfResult = sortedArray.copy;
+    listOfResult = sortedArray.mutableCopy;
     [self.tableView reloadData];
 }
 

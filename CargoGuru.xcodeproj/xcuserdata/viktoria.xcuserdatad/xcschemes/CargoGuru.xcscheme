@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-               BuildableName = "CargoGuroViper.app"
-               BlueprintName = "CargoGuroViper"
-               ReferencedContainer = "container:CargoGuroViper.xcodeproj">
+               BuildableName = "CargoGuru.app"
+               BlueprintName = "CargoGuru"
+               ReferencedContainer = "container:CargoGuru.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-            BuildableName = "CargoGuroViper.app"
-            BlueprintName = "CargoGuroViper"
-            ReferencedContainer = "container:CargoGuroViper.xcodeproj">
+            BuildableName = "CargoGuru.app"
+            BlueprintName = "CargoGuru"
+            ReferencedContainer = "container:CargoGuru.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-            BuildableName = "CargoGuroViper.app"
-            BlueprintName = "CargoGuroViper"
-            ReferencedContainer = "container:CargoGuroViper.xcodeproj">
+            BuildableName = "CargoGuru.app"
+            BlueprintName = "CargoGuru"
+            ReferencedContainer = "container:CargoGuru.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-            BuildableName = "CargoGuroViper.app"
-            BlueprintName = "CargoGuroViper"
-            ReferencedContainer = "container:CargoGuroViper.xcodeproj">
+            BuildableName = "CargoGuru.app"
+            BlueprintName = "CargoGuru"
+            ReferencedContainer = "container:CargoGuru.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
