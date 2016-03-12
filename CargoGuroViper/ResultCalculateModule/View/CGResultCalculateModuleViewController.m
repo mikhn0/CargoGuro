@@ -347,7 +347,7 @@
         }
         
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors];
+        NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors].copy;
         listOfResult = sortedArray.mutableCopy;
         [self.tableView reloadData];
     }
@@ -382,7 +382,7 @@
     }
     
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors];
+    NSArray *sortedArray = [listOfResult sortedArrayUsingDescriptors:sortDescriptors].copy;
     listOfResult = sortedArray.mutableCopy;
     [self.tableView reloadData];
 }
