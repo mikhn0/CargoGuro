@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  CargoGuroViper
+
+  Created by a1 on 10.03.16.
+  Copyright © 2016 Виктория. All rights reserved.
+*/
+
+"ENTER_FROM" = "Введите пункт отправления";
+"ENTER_TO" = "Введите пункт назначения";
+"ENTER_VALUE" = "Введите объем груза";
+"ENTER_WAIST" = "Введите вес груза";
+
+"ERROR_NOT_INTERNET" = "У вас нет соединения с интернетом.";

@@ -174,19 +174,19 @@
     
     if (cargoFrom.length < 1) {
         
-        [self outPutError:@"Введите пункт отправления"];
+        [self outPutError:NSLocalizedString(@"ENTER_FROM", nil)];
         
     } else if (cargoTo.length < 1) {
         
-        [self outPutError:@"Введите пункт назначения"];
+        [self outPutError:NSLocalizedString(@"ENTER_TO", nil)];
         
     } else if (self.value.text.length < 1) {
         
-        [self outPutError:@"Введите объем груза"];
+        [self outPutError:NSLocalizedString(@"ENTER_VALUE", nil)];
         
     } else if (self.weight.text.length < 1) {
         
-        [self outPutError:@"Введите вес груза"];
+        [self outPutError:NSLocalizedString(@"ENTER_WAIST", nil)];
        
     } else {
         NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP};

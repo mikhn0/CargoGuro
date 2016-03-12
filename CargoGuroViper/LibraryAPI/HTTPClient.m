@@ -65,11 +65,16 @@
         
         
         if ([error isKindOfClass:[NSError class]] && [[error userInfo] objectForKey:@"JSONResponseSerializerWithDataKey"]) {
+            
             NSError *deserializationError = nil;
             object = [NSJSONSerialization
                JSONObjectWithData:[[error userInfo] objectForKey:@"JSONResponseSerializerWithDataKey"]
                options:0
                error:&deserializationError];
+            if (!object) {
+                object = [[error userInfo] objectForKey:@"NSLocalizedDescription"];
+            }
+            
         } else if ([[error userInfo] objectForKey:@"NSLocalizedDescription"]) {
             
             object = [[error userInfo] objectForKey:@"NSLocalizedDescription"];
