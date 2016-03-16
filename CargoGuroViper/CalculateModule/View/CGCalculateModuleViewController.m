@@ -14,7 +14,7 @@
 
 #import "CGCalculateModulePresenter.h"
 
-@interface CGCalculateModuleViewController () <UITextFieldDelegate>
+@interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
@@ -51,12 +51,12 @@
     self.height.delegate = self;
     self.weight.delegate = self;
     self.cost.delegate = self;
+    self.cost.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     self.background.image = [UIImage imageNamed:@"Background"];
     self.searchTransite.layer.cornerRadius = 5.0;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    tapGesture.cancelsTouchesInView = NO;
     [self.scrollView addGestureRecognizer:tapGesture];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
     
@@ -93,6 +93,31 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (textField == self.value || textField == self.length || textField == self.width || textField == self.height || textField == self.weight || textField == self.cost) {
+            NSString *candidate = [[textField text] stringByReplacingCharactersInRange:range withString:string];
+            if (!candidate || [candidate length] < 1 || [candidate isEqualToString:@""])
+            {
+                return YES;
+            }
+            if (candidate && [candidate length] > 1 && [[candidate substringFromIndex:[candidate length] - 1] isEqualToString:@","] && [[textField text] rangeOfString:@","].location == NSNotFound)
+            {
+                return YES;
+            }
+            NSScanner *scanner = [NSScanner scannerWithString:string];
+            BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+            if (isNumeric) {
+                return YES;
+            } else {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
 - (void)textFieldDidBeginEditing:(JVFloatLabeledTextField *)textField
 {
     self.activeField = textField;
@@ -122,7 +147,6 @@
 {
     [textField resignFirstResponder];
     [self.scrollView setContentOffset:CGPointMake(0,0) animated:YES];
-    
     
     return YES;
 }
