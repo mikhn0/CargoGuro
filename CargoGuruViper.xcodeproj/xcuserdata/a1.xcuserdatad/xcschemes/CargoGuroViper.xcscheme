@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-               BuildableName = "CargoGuroViper.app"
-               BlueprintName = "CargoGuroViper"
-               ReferencedContainer = "container:CargoGuroViper.xcodeproj">
+               BuildableName = "CargoGuru.app"
+               BlueprintName = "CargoGuruViper"
+               ReferencedContainer = "container:CargoGuruViper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-            BuildableName = "CargoGuroViper.app"
-            BlueprintName = "CargoGuroViper"
-            ReferencedContainer = "container:CargoGuroViper.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-            BuildableName = "CargoGuroViper.app"
-            BlueprintName = "CargoGuroViper"
-            ReferencedContainer = "container:CargoGuroViper.xcodeproj">
+            BuildableName = "CargoGuru.app"
+            BlueprintName = "CargoGuruViper"
+            ReferencedContainer = "container:CargoGuruViper.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75F64ACB1C7DB1E50019F61C"
-            BuildableName = "CargoGuroViper.app"
-            BlueprintName = "CargoGuroViper"
-            ReferencedContainer = "container:CargoGuroViper.xcodeproj">
+            BuildableName = "CargoGuru.app"
+            BlueprintName = "CargoGuruViper"
+            ReferencedContainer = "container:CargoGuruViper.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

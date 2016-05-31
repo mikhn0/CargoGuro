@@ -11,6 +11,7 @@
 #import "CGCalculateModuleViewOutput.h"
 #import "JVFloatLabeledTextField.h"
 #import "JVFloatLabeledTextView.h"
+#import "DMSideMenuController.h"
 
 #import "CGCalculateModulePresenter.h"
 
