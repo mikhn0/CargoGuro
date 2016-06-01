@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 JVillella. All rights reserved.
 //
 
-#import "JVLeftDrawerTableViewCell.h"
+#import "RevealTableViewCell.h"
 
-@interface JVLeftDrawerTableViewCell ()
+@interface RevealTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation JVLeftDrawerTableViewCell
+@implementation RevealTableViewCell
 
 - (void)awakeFromNib {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -62,17 +62,35 @@
 }
 
 - (void)setIconImage:(UIImage *)icon {
-    self.iconImageView.image = [icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.iconImageView.image = icon;//[icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
 
 #pragma Button
 
-- (UIButton *)searchButton {
-    self.searchButton;
+- (NSString *)searchText {
+    return self.searchButton.titleLabel.text;
 }
 
-- (void)setSearchButton:(UIButton *)searchButton {
+- (void)setSearchText:(NSString *)searchText {
+    self.searchButton.titleLabel.text = searchText;
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.frame = CGRectMake(0, 0, size.width, size.height);
+    layer.colors = @[ (__bridge id)[UIColor colorWithRed:156.0/255.0 green:41.0/255.0 blue:119.0/255.0 alpha:1.0].CGColor ,   // start color
+                      (__bridge id)[UIColor colorWithRed:81.0/255.0 green:24.0/255.0 blue:70.0/255.0 alpha:1.0].CGColor]; // end color
+    
+    UIGraphicsBeginImageContext(size);
+    [layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.searchButton.backgroundColor = [UIColor colorWithPatternImage:image];
+    self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width-5;
     
 }
+
+- (IBAction)pressOnSearchButton:(id)sender {
+    [self.delegate segueOnMainScreen];
+}
+
 
 @end

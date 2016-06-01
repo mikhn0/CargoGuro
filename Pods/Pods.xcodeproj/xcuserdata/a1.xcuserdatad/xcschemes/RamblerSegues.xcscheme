@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EA329CA3DDC104F5182148CB'
+               BlueprintIdentifier = '219EC487FB24B128CED9BEFF5A5AD842'
                BlueprintName = 'RamblerSegues'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRamblerSegues.a'>

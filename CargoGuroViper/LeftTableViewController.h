@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JVLeftDrawerTableViewController : UITableViewController
+@interface LeftTableViewController : UITableViewController
 
 @end

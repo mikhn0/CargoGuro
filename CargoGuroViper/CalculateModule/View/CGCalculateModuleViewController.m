@@ -11,7 +11,7 @@
 #import "CGCalculateModuleViewOutput.h"
 #import "JVFloatLabeledTextField.h"
 #import "JVFloatLabeledTextView.h"
-#import "DMSideMenuController.h"
+#import "AppDelegate.h"
 
 #import "CGCalculateModulePresenter.h"
 
@@ -54,7 +54,7 @@
     self.cost.delegate = self;
     self.cost.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-    self.background.image = [UIImage imageNamed:@"Background"];
+    //self.background.image = [UIImage imageNamed:@"Background"];
     self.searchTransite.layer.cornerRadius = 5.0;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
@@ -75,8 +75,16 @@
     [self.scrollView updateConstraints];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -94,9 +102,21 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
 }
 
+#pragma mark - Actions
+
+- (IBAction)actionToggleLeftDrawer:(id)sender {
+    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+}
+
+#pragma mark - Helpers
+
+- (JVFloatingDrawerSpringAnimator *)drawerAnimator {
+    return [[AppDelegate globalDelegate] drawerAnimator];
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
         if (textField == self.value || textField == self.length || textField == self.width || textField == self.height || textField == self.weight || textField == self.cost) {
             NSString *candidate = [[textField text] stringByReplacingCharactersInRange:range withString:string];
             if (!candidate || [candidate length] < 1 || [candidate isEqualToString:@""])
