@@ -7,6 +7,7 @@
 //
 
 #import "BaseConfigurationViewController.h"
+#import "AppDelegate.h"
 
 @interface BaseConfigurationViewController ()
 
@@ -24,14 +25,70 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)actionToggleLeftDrawer:(id)sender {
+    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
 }
-*/
+
+#pragma mark - Table View Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 7;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case kSearchIndex:
+        {
+            return 120;
+        }
+            break;
+            
+        default:
+            return 60;
+            break;
+    }
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *destinationViewController = nil;
+    
+    switch (indexPath.row) {
+        case kLanguageIndex:
+            destinationViewController = [[AppDelegate globalDelegate] languageViewController];
+            break;
+        case kCurrencyIndex:
+            destinationViewController = [[AppDelegate globalDelegate] currencyViewController];
+            break;
+        case kWeightIndex:
+            destinationViewController = [[AppDelegate globalDelegate] weightViewController];
+            break;
+        case kVolumeIndex:
+            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+            break;
+            
+            //        case kAboutProjectIndex:
+            //            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+            //            break;
+            //        case kContactUsIndex:
+            //            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+            //            break;
+            
+        default:
+            break;
+    }
+    
+    
+    [[[AppDelegate globalDelegate] drawerViewController] setCenterViewController:destinationViewController];
+    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+}
+
+
+
 
 @end

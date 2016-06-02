@@ -73,7 +73,7 @@
 
 - (void)setSearchText:(NSString *)searchText {
     self.searchButton.titleLabel.text = searchText;
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    CGSize size = CGSizeMake(112, 112);
     CAGradientLayer *layer = [CAGradientLayer layer];
     layer.frame = CGRectMake(0, 0, size.width, size.height);
     layer.colors = @[ (__bridge id)[UIColor colorWithRed:156.0/255.0 green:41.0/255.0 blue:119.0/255.0 alpha:1.0].CGColor ,   // start color
@@ -84,7 +84,8 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.searchButton.backgroundColor = [UIColor colorWithPatternImage:image];
-    self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width-5;
+    //self.searchButton.imageView.image = image;
+    self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width+4;
     
 }
 

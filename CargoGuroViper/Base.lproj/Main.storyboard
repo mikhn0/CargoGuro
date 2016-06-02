@@ -761,13 +761,13 @@
         <scene sceneID="hQr-0Z-yo9">
             <objects>
                 <tableViewController storyboardIdentifier="LeftDrawerVCStoryboardID" id="2Zj-IG-HcH" userLabel="(Left) Left Drawer" customClass="LeftTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="grW-ul-vjk">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" id="grW-ul-vjk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCellReuseIdentifier" id="Jcg-ub-aeA" customClass="RevealTableViewCell">
-                                <rect key="frame" x="0.0" y="50" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="1" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jcg-ub-aeA" id="PIL-eX-YDZ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -787,6 +787,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="8kb-JE-CTQ" secondAttribute="bottom" constant="-4" id="d2L-Aj-EwS"/>
                                         <constraint firstItem="8kb-JE-CTQ" firstAttribute="centerX" secondItem="PIL-eX-YDZ" secondAttribute="centerX" id="kDJ-y2-7MU"/>
@@ -800,7 +801,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConfigCellReuseIdentifier" id="Krb-he-Cd9" customClass="RevealTableViewCell">
-                                <rect key="frame" x="0.0" y="110" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="61" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Krb-he-Cd9" id="0HF-b1-mLi">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -894,7 +895,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCellReuseIdentifier" id="gV8-uA-sjD" customClass="RevealTableViewCell">
-                                <rect key="frame" x="0.0" y="170" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="121" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gV8-uA-sjD" id="D3p-av-5QS">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -934,6 +935,10 @@
                             <outlet property="delegate" destination="2Zj-IG-HcH" id="KjD-RD-J2W"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7in-QI-43q" userLabel="First Responder" sceneMemberID="firstResponder"/>

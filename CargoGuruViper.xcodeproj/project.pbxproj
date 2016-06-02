@@ -21,6 +21,7 @@
 		63D957051CFF396800138774 /* CurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D957041CFF396800138774 /* CurrencyViewController.m */; };
 		63D957081CFF397F00138774 /* VolumeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D957071CFF397F00138774 /* VolumeViewController.m */; };
 		63D9570B1CFF3A9B00138774 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D9570A1CFF3A9B00138774 /* WeightViewController.m */; };
+		63D9570F1D0065AE00138774 /* LanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D9570E1D0065AE00138774 /* LanTableViewCell.m */; };
 		756CD7A91C96FC450019A22C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 756CD7AB1C96FC450019A22C /* Localizable.strings */; };
 		758B0D891C8894990018E85E /* CGFilterModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D761C8894990018E85E /* CGFilterModuleAssembly.m */; };
 		758B0D8A1C8894990018E85E /* CGFilterModuleInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D791C8894990018E85E /* CGFilterModuleInteractor.m */; };
@@ -85,6 +86,8 @@
 		63D957071CFF397F00138774 /* VolumeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeViewController.m; path = ConfigurationSections/VolumeViewController.m; sourceTree = "<group>"; };
 		63D957091CFF3A9B00138774 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeightViewController.h; path = ConfigurationSections/WeightViewController.h; sourceTree = "<group>"; };
 		63D9570A1CFF3A9B00138774 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeightViewController.m; path = ConfigurationSections/WeightViewController.m; sourceTree = "<group>"; };
+		63D9570D1D0065AE00138774 /* LanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanTableViewCell.h; path = ConfigurationSections/Cells/LanTableViewCell.h; sourceTree = "<group>"; };
+		63D9570E1D0065AE00138774 /* LanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanTableViewCell.m; path = ConfigurationSections/Cells/LanTableViewCell.m; sourceTree = "<group>"; };
 		756CD7A71C96FC380019A22C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		756CD7A81C96FC380019A22C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		756CD7AA1C96FC450019A22C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -255,6 +258,7 @@
 		63D956FC1CFF38B500138774 /* ConfigurationSections */ = {
 			isa = PBXGroup;
 			children = (
+				63D9570C1D00658100138774 /* Cells */,
 				63D956FD1CFF392100138774 /* BaseConfigurationViewController.h */,
 				63D956FE1CFF392100138774 /* BaseConfigurationViewController.m */,
 				63D957001CFF395000138774 /* LanguageViewController.h */,
@@ -267,6 +271,15 @@
 				63D9570A1CFF3A9B00138774 /* WeightViewController.m */,
 			);
 			name = ConfigurationSections;
+			sourceTree = "<group>";
+		};
+		63D9570C1D00658100138774 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				63D9570D1D0065AE00138774 /* LanTableViewCell.h */,
+				63D9570E1D0065AE00138774 /* LanTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		758B0D731C8894990018E85E /* FilterModule */ = {
@@ -610,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D9570F1D0065AE00138774 /* LanTableViewCell.m in Sources */,
 				75F64B391C809F540019F61C /* ResultTableViewCell.m in Sources */,
 				758B0D8A1C8894990018E85E /* CGFilterModuleInteractor.m in Sources */,
 				63152DF01C7DE88200AE47ED /* CGCalculateModuleViewController.m in Sources */,

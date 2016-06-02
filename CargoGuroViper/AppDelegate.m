@@ -170,9 +170,6 @@ static NSString * const kCalculateModuleVCStoryboardID = @"CalculateModuleVCStor
     [self.drawerViewController toggleDrawerWithSide:JVFloatingDrawerSideLeft animated:animated completion:nil];
 }
 
-- (void)toggleRightDrawer:(id)sender animated:(BOOL)animated {
-    [self.drawerViewController toggleDrawerWithSide:JVFloatingDrawerSideRight animated:animated completion:nil];
-}
 
 #pragma mark - Core Data stack
 

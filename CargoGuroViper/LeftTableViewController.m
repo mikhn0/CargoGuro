@@ -21,7 +21,7 @@ enum {
     kContactUsIndex = 6
 };
 
-static const CGFloat kJVTableViewTopInset = 80.0;
+static const CGFloat kJVTableViewTopInset = 50.0;
 static NSString * const kSearchCellReuseIdentifier = @"SearchCellReuseIdentifier";
 static NSString * const kConfigCellReuseIdentifier = @"ConfigCellReuseIdentifier";
 static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
@@ -41,6 +41,7 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.contentInset = UIEdgeInsetsMake(kJVTableViewTopInset, 0.0, 0.0, 0.0);
     self.clearsSelectionOnViewWillAppear = NO;
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

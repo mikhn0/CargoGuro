@@ -36,6 +36,10 @@
 - (void)dismissWithSide:(JVFloatingDrawerSide)drawerSide sideView:(UIView *)sideView
              centerView:(UIView *)centerView animated:(BOOL)animated completion:(void(^)(BOOL finished))completion;
 
+
+- (void)panPresentationWithSide:(JVFloatingDrawerSide)drawerSide sideView:(UIView *)sideView
+                     centerView:(UIView *)centerView animated:(BOOL)animated completion:(void (^)(BOOL))completion;
+
 @optional
 /**
  *  Invoked before a rotation begins with the drawer open. Implementations should

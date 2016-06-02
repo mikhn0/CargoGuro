@@ -69,6 +69,9 @@ static const CGFloat kJVCenterViewDestinationScale = 0.7;
     }
 }
 
+- (void)panPresentationWithSide:(JVFloatingDrawerSide)drawerSide sideView:(UIView *)sideView centerView:(UIView *)centerView animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+
+}
 #pragma mark Orientation
 
 - (void)willRotateOpenDrawerWithOpenSide:(JVFloatingDrawerSide)drawerSide sideView:(UIView *)sideView centerView:(UIView *)centerView {}

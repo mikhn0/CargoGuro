@@ -28,6 +28,7 @@ NSString *JVFloatingDrawerSideString(JVFloatingDrawerSide side) {
 @property (nonatomic, strong, readonly) JVFloatingDrawerView *drawerView;
 @property (nonatomic, assign) JVFloatingDrawerSide currentlyOpenedSide;
 @property (nonatomic, strong) UITapGestureRecognizer *toggleDrawerTapGestureRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *toggleDrawerPanGestureRecognizer;
 
 @end
 
@@ -106,7 +107,7 @@ NSString *JVFloatingDrawerSideString(JVFloatingDrawerSide side) {
 
 - (void)toggleDrawerWithSide:(JVFloatingDrawerSide)drawerSide animated:(BOOL)animated completion:(void(^)(BOOL finished))completion {
     if(drawerSide != JVFloatingDrawerSideNone) {
-        if(drawerSide == self.currentlyOpenedSide) {
+        if (drawerSide == self.currentlyOpenedSide) {
             [self closeDrawerWithSide:drawerSide animated:animated completion:completion];
         } else {
             [self openDrawerWithSide:drawerSide animated:animated completion:completion];
@@ -119,12 +120,16 @@ NSString *JVFloatingDrawerSideString(JVFloatingDrawerSide side) {
 - (void)addDrawerGestures {
     self.centerViewController.view.userInteractionEnabled = NO;
     self.toggleDrawerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionCenterViewContainerTapped:)];
+    self.toggleDrawerPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(actionCenterViewContainerTapped:)];
     [self.drawerView.centerViewContainer addGestureRecognizer:self.toggleDrawerTapGestureRecognizer];
+    [self.drawerView.centerViewContainer addGestureRecognizer:self.toggleDrawerPanGestureRecognizer];
 }
 
 - (void)restoreGestures {
     [self.drawerView.centerViewContainer removeGestureRecognizer:self.toggleDrawerTapGestureRecognizer];
+    [self.drawerView.centerViewContainer removeGestureRecognizer:self.toggleDrawerPanGestureRecognizer];
     self.toggleDrawerTapGestureRecognizer = nil;
+    self.toggleDrawerPanGestureRecognizer = nil;
     self.centerViewController.view.userInteractionEnabled = YES;    
 }
 
