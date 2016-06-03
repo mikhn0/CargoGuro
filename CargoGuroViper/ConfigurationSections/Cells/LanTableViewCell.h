@@ -10,4 +10,9 @@
 
 @interface LanTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) NSString *flagName;
+@property (nonatomic, strong) UIImage *flagImageByName;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedIcon;
+@property (nonatomic) NSInteger currentIndex;
+
 @end

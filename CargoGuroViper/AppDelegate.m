@@ -78,7 +78,6 @@ static NSString * const kCalculateModuleVCStoryboardID = @"CalculateModuleVCStor
     if (!_languageViewController) {
         _languageViewController = [self.configurationStoryboard instantiateViewControllerWithIdentifier:kLanguageVCStoryboardID];
     }
-    
     return _languageViewController;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "LanguageViewController.h"
+#import "LanTableViewCell.h"
 
 enum {
     kRus  = 0,
@@ -17,10 +18,6 @@ enum {
 
 
 static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
-
-@interface LanguageViewController ()
-
-@end
 
 @implementation LanguageViewController
 
@@ -42,17 +39,24 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    switch (indexPath.row) {
-        case kSearchIndex:
-            
-            
-        default:
-            break;
-    }
+    LanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLanCellReuseIdentifier forIndexPath:indexPath];
+    cell.currentIndex = 0;
+    cell.flagName = [self.countryName objectAtIndex:indexPath.row];
+    cell.flagImageByName = [UIImage imageNamed:[self.countryImageName objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Выбор языка";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *userInfo = @{@"indexCountry":@(indexPath.row)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeLanguage" object:nil userInfo:userInfo];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

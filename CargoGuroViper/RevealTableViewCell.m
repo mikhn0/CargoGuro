@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *selectedParameter;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 @end
@@ -62,7 +63,17 @@
 }
 
 - (void)setIconImage:(UIImage *)icon {
-    self.iconImageView.image = icon;//[icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.iconImageView.image = icon;
+}
+
+#pragma Parametr
+
+- (NSString *)titleParameter {
+    return self.selectedParameter.text;
+}
+
+- (void)setTitleParameter:(NSString *)titleParameter {
+    self.selectedParameter.text = titleParameter;
 }
 
 #pragma Button

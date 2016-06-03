@@ -30,6 +30,7 @@
 		758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D861C8894990018E85E /* CGFilterModuleViewController.m */; };
 		758B0D921C8B80000018E85E /* SortingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D911C8B80000018E85E /* SortingView.m */; };
 		758B0D941C8B824D0018E85E /* SortingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758B0D931C8B824D0018E85E /* SortingView.xib */; };
+		7591F2581D00CE2300835276 /* CurTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2571D00CE2300835276 /* CurTableViewCell.m */; };
 		75F64AD11C7DB1E50019F61C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD01C7DB1E50019F61C /* main.m */; };
 		75F64AD41C7DB1E50019F61C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD31C7DB1E50019F61C /* AppDelegate.m */; };
 		75F64AD71C7DB1E50019F61C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD61C7DB1E50019F61C /* ViewController.m */; };
@@ -111,6 +112,8 @@
 		758B0D901C8B80000018E85E /* SortingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortingView.h; sourceTree = "<group>"; };
 		758B0D911C8B80000018E85E /* SortingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortingView.m; sourceTree = "<group>"; };
 		758B0D931C8B824D0018E85E /* SortingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortingView.xib; sourceTree = "<group>"; };
+		7591F2561D00CE2300835276 /* CurTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurTableViewCell.h; path = ConfigurationSections/Cells/CurTableViewCell.h; sourceTree = "<group>"; };
+		7591F2571D00CE2300835276 /* CurTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurTableViewCell.m; path = ConfigurationSections/Cells/CurTableViewCell.m; sourceTree = "<group>"; };
 		75F64ACC1C7DB1E50019F61C /* CargoGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F64AD01C7DB1E50019F61C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		75F64AD21C7DB1E50019F61C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 			children = (
 				63D9570D1D0065AE00138774 /* LanTableViewCell.h */,
 				63D9570E1D0065AE00138774 /* LanTableViewCell.m */,
+				7591F2561D00CE2300835276 /* CurTableViewCell.h */,
+				7591F2571D00CE2300835276 /* CurTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				75F64ACA1C7DB1E50019F61C /* Resources */,
 				4E8FC08A1E9A0DA3EE99E8AA /* 📦 Embed Pods Frameworks */,
 				C15BD4A5A69B8FC2D2676E3C /* 📦 Copy Pods Resources */,
+				CB0D3717E755939A1CC64F75 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -616,6 +622,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CB0D3717E755939A1CC64F75 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -649,6 +670,7 @@
 				758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */,
 				75F64B201C7E66F80019F61C /* CGResultCalculateModulePresenter.m in Sources */,
 				63D956FF1CFF392100138774 /* BaseConfigurationViewController.m in Sources */,
+				7591F2581D00CE2300835276 /* CurTableViewCell.m in Sources */,
 				75F64AD11C7DB1E50019F61C /* main.m in Sources */,
 				63D956F31CFDF0BB00138774 /* LeftTableViewController.m in Sources */,
 				63D957021CFF395000138774 /* LanguageViewController.m in Sources */,

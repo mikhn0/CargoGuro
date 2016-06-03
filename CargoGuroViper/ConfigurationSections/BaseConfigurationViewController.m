@@ -36,57 +36,42 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return 4;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case kSearchIndex:
-        {
-            return 120;
-        }
-            break;
-            
-        default:
-            return 60;
-            break;
-    }
-    
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *destinationViewController = nil;
-    
-    switch (indexPath.row) {
-        case kLanguageIndex:
-            destinationViewController = [[AppDelegate globalDelegate] languageViewController];
-            break;
-        case kCurrencyIndex:
-            destinationViewController = [[AppDelegate globalDelegate] currencyViewController];
-            break;
-        case kWeightIndex:
-            destinationViewController = [[AppDelegate globalDelegate] weightViewController];
-            break;
-        case kVolumeIndex:
-            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
-            break;
-            
-            //        case kAboutProjectIndex:
-            //            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
-            //            break;
-            //        case kContactUsIndex:
-            //            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
-            //            break;
-            
-        default:
-            break;
-    }
-    
-    
-    [[[AppDelegate globalDelegate] drawerViewController] setCenterViewController:destinationViewController];
-    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
-}
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UIViewController *destinationViewController = nil;
+//    
+//    switch (indexPath.row) {
+//        case kLanguageIndex:
+//            destinationViewController = [[AppDelegate globalDelegate] languageViewController];
+//            break;
+//        case kCurrencyIndex:
+//            destinationViewController = [[AppDelegate globalDelegate] currencyViewController];
+//            break;
+//        case kWeightIndex:
+//            destinationViewController = [[AppDelegate globalDelegate] weightViewController];
+//            break;
+//        case kVolumeIndex:
+//            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+//            break;
+//            
+//            //        case kAboutProjectIndex:
+//            //            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+//            //            break;
+//            //        case kContactUsIndex:
+//            //            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+//            //            break;
+//            
+//        default:
+//            break;
+//    }
+//    
+//    
+//    [[[AppDelegate globalDelegate] drawerViewController] setCenterViewController:destinationViewController];
+//    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+//}
 
 
 
