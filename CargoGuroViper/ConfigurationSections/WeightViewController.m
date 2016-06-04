@@ -7,31 +7,54 @@
 //
 
 #import "WeightViewController.h"
+#import "WeightTableViewCell.h"
 
-@interface WeightViewController ()
-
-@end
+static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
 
 @implementation WeightViewController
 
+@synthesize weightName = _weightName;
+@synthesize weightImageName = _weightImageName;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSArray *)weightName {
+    return @[@"кг", @"г", @"тн"];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_weightName count];
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    WeightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCurCellReuseIdentifier forIndexPath:indexPath];
+    cell.name = [self.weightName objectAtIndex:indexPath.row];
+    
+    [[cell selectedIcon] setHidden:YES];
+    if (indexPath.row == self.currentIndex) {
+        [[cell selectedIcon] setHidden:NO];
+    }
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Вес";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    self.currentIndex = indexPath.row;
+    [self.tableView reloadData];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(indexPath.row) forKey:@"currentIndexWeight"];
+    
+    NSDictionary *userInfo = @{@"indexWeight":@(indexPath.row)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeWeight" object:nil userInfo:userInfo];
+}
 
 @end

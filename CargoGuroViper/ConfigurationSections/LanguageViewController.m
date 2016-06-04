@@ -26,7 +26,7 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue];
 }
 
 - (NSArray *)countryName {
@@ -37,12 +37,21 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
     return @[@"rus_flag", @"ch_flag", @"en_flag", @"en_flag"];
 }
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_countryName count];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     LanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLanCellReuseIdentifier forIndexPath:indexPath];
-    cell.currentIndex = 0;
-    cell.flagName = [self.countryName objectAtIndex:indexPath.row];
-    cell.flagImageByName = [UIImage imageNamed:[self.countryImageName objectAtIndex:indexPath.row]];
+    cell.name = [self.countryName objectAtIndex:indexPath.row];
+    cell.imageByName = [UIImage imageNamed:[self.countryImageName objectAtIndex:indexPath.row]];
+    
+    [[cell selectedIcon] setHidden:YES];
+    if (indexPath.row == self.currentIndex) {
+        [[cell selectedIcon] setHidden:NO];
+    }
     
     return cell;
 }
@@ -53,6 +62,13 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.currentIndex = indexPath.row;
+    [self.tableView reloadData];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@(indexPath.row) forKey:@"currentIndexCountry"];
+    [defaults synchronize];
+    
     NSDictionary *userInfo = @{@"indexCountry":@(indexPath.row)};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeLanguage" object:nil userInfo:userInfo];
     

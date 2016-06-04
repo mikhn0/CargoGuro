@@ -20,14 +20,15 @@ enum {
 
 static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 
-@interface CurrencyViewController ()
-
-@end
-
 @implementation CurrencyViewController
 
 @synthesize currencyName = _currencyName;
 @synthesize currencyImageName = _currencyImageName;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue];
+}
 
 - (NSArray *)currencyName {
     return @[@"RUB", @"USD", @"EUR", @"KTZ", @"CNY"];
@@ -37,13 +38,19 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
     return @[@"ru", @"en_US", @"EUR", @"KTZ", @"CNY"];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_currencyName count];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CurTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCurCellReuseIdentifier forIndexPath:indexPath];
-    cell.currencyName = [self.currencyName objectAtIndex:indexPath.row];
+    cell.name = [self.currencyName objectAtIndex:indexPath.row];
     cell.currencySymbolByName = [self printPriceWithCurrencySymbol:[self.currencyName objectAtIndex:indexPath.row] withLocale:[self.currencyLocaleName objectAtIndex:indexPath.row]];
-    if (indexPath.row==kRub) {
-        cell.selectedIcon.hidden = NO;
+    
+    [[cell selectedIcon] setHidden:YES];
+    if (indexPath.row == self.currentIndex) {
+        [[cell selectedIcon] setHidden:NO];
     }
     return cell;
 }
@@ -55,6 +62,13 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    self.currentIndex = indexPath.row;
+    [self.tableView reloadData];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@(indexPath.row) forKey:@"currentIndexCurrency"];
+    [defaults synchronize];
+    
     NSDictionary *userInfo = @{@"indexCurrency":@(indexPath.row)};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeCurrency" object:nil userInfo:userInfo];
 }
@@ -65,7 +79,7 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
     
     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [numberFormatter setCurrencyCode:currency];
-    //[numberFormatter setLocale:[NSLocale localeWithLocaleIdentifier:locale]];
+    [numberFormatter setLocale:[NSLocale localeWithLocaleIdentifier:locale]];
     
     NSString * productPrice = [numberFormatter stringFromNumber:@0];
     

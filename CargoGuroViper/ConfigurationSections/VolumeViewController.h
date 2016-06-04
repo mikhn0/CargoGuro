@@ -10,4 +10,8 @@
 
 @interface VolumeViewController : BaseConfigurationViewController
 
+@property (nonatomic, strong) NSArray *volumeName;
+@property (nonatomic, strong) NSArray *volumeImageName;
+@property (nonatomic) NSInteger currentIndex;
+
 @end

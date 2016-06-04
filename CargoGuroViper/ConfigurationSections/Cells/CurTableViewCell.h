@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableViewCell.h"
 
-@interface CurTableViewCell : UITableViewCell
+@interface CurTableViewCell : BaseTableViewCell
 
-@property (nonatomic, strong) NSString *currencyName;
 @property (nonatomic, strong) NSString *currencySymbolByName;
-@property (weak, nonatomic) IBOutlet UIImageView *selectedIcon;
 
 @end

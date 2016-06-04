@@ -31,6 +31,9 @@
 		758B0D921C8B80000018E85E /* SortingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 758B0D911C8B80000018E85E /* SortingView.m */; };
 		758B0D941C8B824D0018E85E /* SortingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758B0D931C8B824D0018E85E /* SortingView.xib */; };
 		7591F2581D00CE2300835276 /* CurTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2571D00CE2300835276 /* CurTableViewCell.m */; };
+		7591F25B1D023DD400835276 /* VolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F25A1D023DD400835276 /* VolTableViewCell.m */; };
+		7591F25E1D023DF200835276 /* WeightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F25D1D023DF200835276 /* WeightTableViewCell.m */; };
+		7591F2611D023E4F00835276 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2601D023E4F00835276 /* BaseTableViewCell.m */; };
 		75F64AD11C7DB1E50019F61C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD01C7DB1E50019F61C /* main.m */; };
 		75F64AD41C7DB1E50019F61C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD31C7DB1E50019F61C /* AppDelegate.m */; };
 		75F64AD71C7DB1E50019F61C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD61C7DB1E50019F61C /* ViewController.m */; };
@@ -114,6 +117,12 @@
 		758B0D931C8B824D0018E85E /* SortingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortingView.xib; sourceTree = "<group>"; };
 		7591F2561D00CE2300835276 /* CurTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurTableViewCell.h; path = ConfigurationSections/Cells/CurTableViewCell.h; sourceTree = "<group>"; };
 		7591F2571D00CE2300835276 /* CurTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurTableViewCell.m; path = ConfigurationSections/Cells/CurTableViewCell.m; sourceTree = "<group>"; };
+		7591F2591D023DD400835276 /* VolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolTableViewCell.h; path = ConfigurationSections/Cells/VolTableViewCell.h; sourceTree = "<group>"; };
+		7591F25A1D023DD400835276 /* VolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolTableViewCell.m; path = ConfigurationSections/Cells/VolTableViewCell.m; sourceTree = "<group>"; };
+		7591F25C1D023DF200835276 /* WeightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeightTableViewCell.h; path = ConfigurationSections/Cells/WeightTableViewCell.h; sourceTree = "<group>"; };
+		7591F25D1D023DF200835276 /* WeightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeightTableViewCell.m; path = ConfigurationSections/Cells/WeightTableViewCell.m; sourceTree = "<group>"; };
+		7591F25F1D023E4F00835276 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTableViewCell.h; path = ConfigurationSections/Cells/BaseTableViewCell.h; sourceTree = "<group>"; };
+		7591F2601D023E4F00835276 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTableViewCell.m; path = ConfigurationSections/Cells/BaseTableViewCell.m; sourceTree = "<group>"; };
 		75F64ACC1C7DB1E50019F61C /* CargoGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F64AD01C7DB1E50019F61C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		75F64AD21C7DB1E50019F61C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -283,6 +292,12 @@
 				63D9570E1D0065AE00138774 /* LanTableViewCell.m */,
 				7591F2561D00CE2300835276 /* CurTableViewCell.h */,
 				7591F2571D00CE2300835276 /* CurTableViewCell.m */,
+				7591F2591D023DD400835276 /* VolTableViewCell.h */,
+				7591F25A1D023DD400835276 /* VolTableViewCell.m */,
+				7591F25C1D023DF200835276 /* WeightTableViewCell.h */,
+				7591F25D1D023DF200835276 /* WeightTableViewCell.m */,
+				7591F25F1D023E4F00835276 /* BaseTableViewCell.h */,
+				7591F2601D023E4F00835276 /* BaseTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -648,6 +663,8 @@
 				75F64B391C809F540019F61C /* ResultTableViewCell.m in Sources */,
 				758B0D8A1C8894990018E85E /* CGFilterModuleInteractor.m in Sources */,
 				63152DF01C7DE88200AE47ED /* CGCalculateModuleViewController.m in Sources */,
+				7591F25B1D023DD400835276 /* VolTableViewCell.m in Sources */,
+				7591F2611D023E4F00835276 /* BaseTableViewCell.m in Sources */,
 				63152DE71C7DE86F00AE47ED /* CGCalculateModulePresenter.m in Sources */,
 				75F64AD71C7DB1E50019F61C /* ViewController.m in Sources */,
 				63152DE31C7DE86700AE47ED /* CGCalculateModuleInteractor.m in Sources */,
@@ -658,6 +675,7 @@
 				63152DDE1C7DE85B00AE47ED /* CGCalculateModuleAssembly.m in Sources */,
 				75F64B211C7E66F80019F61C /* CGResultCalculateModuleRouter.m in Sources */,
 				75F64B341C8055BF0019F61C /* JSONResponseSerializerWithData.m in Sources */,
+				7591F25E1D023DF200835276 /* WeightTableViewCell.m in Sources */,
 				75F64B331C8055BF0019F61C /* HTTPClient.m in Sources */,
 				75F64B221C7E66F80019F61C /* CGResultCalculateModuleViewController.m in Sources */,
 				75F64AD41C7DB1E50019F61C /* AppDelegate.m in Sources */,

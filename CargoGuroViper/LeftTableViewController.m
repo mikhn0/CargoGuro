@@ -30,6 +30,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 {
     NSInteger currentCountry;
     NSInteger currentCurrency;
+    NSInteger currentWeight;
+    NSInteger currentVolume;
 }
 @property (nonatomic) NSArray *leftMenuSections;
 @property (nonatomic) NSArray *countryImageName;
@@ -48,8 +50,16 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     self.tableView.contentInset = UIEdgeInsetsMake(kJVTableViewTopInset, 0.0, 0.0, 0.0);
     self.clearsSelectionOnViewWillAppear = NO;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    currentCountry = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue];
+    currentCurrency = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue];
+    currentVolume = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue];
+    currentWeight = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLanguageWithIndexCountry:) name:@"ChangeLanguage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCurrencyWithIndex:) name:@"ChangeCurrency" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVolumeWithIndex:) name:@"ChangeVolume" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeWeightWithIndex:) name:@"ChangeWeight" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -121,7 +131,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
             cell = [tableView dequeueReusableCellWithIdentifier:kConfigCellReuseIdentifier forIndexPath:indexPath];
             cell.titleText = [self.leftMenuSections objectAtIndex:indexPath.row];
             cell.iconImage = nil;
-            cell.titleParameter = [[self.configName objectAtIndex:indexPath.row-2] objectAtIndex:currentCountry];
+            
+            cell.titleParameter = [[self.configName objectAtIndex:indexPath.row-2] objectAtIndex:(indexPath.row == kCurrencyIndex ? currentCurrency : indexPath.row == kWeightIndex ? currentWeight : indexPath.row == kVolumeIndex ? currentVolume : 0)];
         }
             break;
         case kAboutProjectIndex:
@@ -191,6 +202,20 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     currentCurrency = [notification.userInfo[@"indexCurrency"] integerValue];
     [self.tableView beginUpdates];
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kCurrencyIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
+}
+
+- (void)changeVolumeWithIndex:(NSNotification *)notification {
+    currentVolume = [notification.userInfo[@"indexVolume"] integerValue];
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kVolumeIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
+}
+
+- (void)changeWeightWithIndex:(NSNotification *)notification {
+    currentWeight = [notification.userInfo[@"indexWeight"] integerValue];
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kWeightIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
 

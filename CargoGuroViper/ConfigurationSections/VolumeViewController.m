@@ -7,31 +7,55 @@
 //
 
 #import "VolumeViewController.h"
+#import "VolTableViewCell.h"
 
-@interface VolumeViewController ()
-
-@end
+static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 
 @implementation VolumeViewController
 
+@synthesize volumeName = _volumeName;
+@synthesize volumeImageName = _volumeImageName;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSArray *)volumeName {
+    return @[@"м^3", @"см^3", @"л"];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_volumeName count];
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    VolTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCurCellReuseIdentifier forIndexPath:indexPath];
+    cell.name = [self.volumeName objectAtIndex:indexPath.row];
+    
+    [[cell selectedIcon] setHidden:YES];
+    if (indexPath.row == self.currentIndex) {
+        [[cell selectedIcon] setHidden:NO];
+    }
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Объем";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    self.currentIndex = indexPath.row;
+    [self.tableView reloadData];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(indexPath.row) forKey:@"currentIndexVolume"];
+    
+    NSDictionary *userInfo = @{@"indexVolume":@(indexPath.row)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeVolume" object:nil userInfo:userInfo];
+}
+
 
 @end
