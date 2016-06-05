@@ -26,7 +26,8 @@ static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_weightName count];
+    NSArray *weights = self.weightName;
+    return [weights count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

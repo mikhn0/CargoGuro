@@ -8,6 +8,7 @@
 
 #import "VolumeViewController.h"
 #import "VolTableViewCell.h"
+#import "ConfigFormat+NSString.h"
 
 static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 
@@ -22,11 +23,12 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 }
 
 - (NSArray *)volumeName {
-    return @[@"м^3", @"см^3", @"л"];
+    return @[[NSString printCubeOfValue:@"м"], [NSString printCubeOfValue:@"см"], @"л"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_volumeName count];
+    NSArray *volues = self.volumeName;
+    return [volues count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,6 +58,7 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
     NSDictionary *userInfo = @{@"indexVolume":@(indexPath.row)};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeVolume" object:nil userInfo:userInfo];
 }
+
 
 
 @end

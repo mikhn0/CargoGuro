@@ -39,7 +39,8 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_countryName count];
+    NSArray *countries = self.countryName;
+    return [countries count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

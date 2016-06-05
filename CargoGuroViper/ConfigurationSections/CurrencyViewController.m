@@ -8,6 +8,7 @@
 
 #import "CurrencyViewController.h"
 #import "CurTableViewCell.h"
+#import "ConfigFormat+NSString.h"
 
 enum {
     kRub  = 0,
@@ -31,22 +32,23 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 }
 
 - (NSArray *)currencyName {
-    return @[@"RUB", @"USD", @"EUR", @"KTZ", @"CNY"];
+    return @[@"RUB", @"USD", @"EUR", @"KZT", @"CNY"];
 }
 
 - (NSArray *)currencyLocaleName {
-    return @[@"ru", @"en_US", @"EUR", @"KTZ", @"CNY"];
+    return @[@"ru", @"en_US", @"EUR", @"kk_KZ", @"zh_Hans_CN"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_currencyName count];
+    NSArray *currencies = self.currencyName;
+    return currencies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CurTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCurCellReuseIdentifier forIndexPath:indexPath];
     cell.name = [self.currencyName objectAtIndex:indexPath.row];
-    cell.currencySymbolByName = [self printPriceWithCurrencySymbol:[self.currencyName objectAtIndex:indexPath.row] withLocale:[self.currencyLocaleName objectAtIndex:indexPath.row]];
+    cell.currencySymbolByName = [NSString printPriceWithCurrencySymbol:[self.currencyName objectAtIndex:indexPath.row] withLocale:[self.currencyLocaleName objectAtIndex:indexPath.row]];
     
     [[cell selectedIcon] setHidden:YES];
     if (indexPath.row == self.currentIndex) {
@@ -71,20 +73,6 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
     
     NSDictionary *userInfo = @{@"indexCurrency":@(indexPath.row)};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeCurrency" object:nil userInfo:userInfo];
-}
-
-- (NSString *)printPriceWithCurrencySymbol:(NSString *)currency  withLocale:(NSString *)locale{
-    
-    NSNumberFormatter * numberFormatter = [[NSNumberFormatter alloc] init];
-    
-    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [numberFormatter setCurrencyCode:currency];
-    [numberFormatter setLocale:[NSLocale localeWithLocaleIdentifier:locale]];
-    
-    NSString * productPrice = [numberFormatter stringFromNumber:@0];
-    
-    return productPrice;
-    
 }
 
 @end

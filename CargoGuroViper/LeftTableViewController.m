@@ -10,6 +10,7 @@
 #import "RevealTableViewCell.h"
 #import "AppDelegate.h"
 #import "JVFloatingDrawerViewController.h"
+#import "ConfigFormat+NSString.h"
 
 enum {
     kSearchIndex    = 0,
@@ -76,7 +77,7 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 }
 
 - (NSArray *)configName {
-    return @[@[@"RUB", @"USD", @"EUR", @"KTZ", @"CNY"], @[@"кг", @"г", @"тн"], @[@"м^3", @"см^3", @"л"]];
+    return @[@[@"RUB", @"USD", @"EUR", @"KTZ", @"CNY"], @[@"кг", @"г", @"тн"], @[[NSString printCubeOfValue:@"м"], [NSString printCubeOfValue:@"см"], @"л"]];
 }
 
 #pragma mark - Table View Data Source
