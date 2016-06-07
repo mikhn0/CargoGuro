@@ -35,6 +35,8 @@
 		7591F25E1D023DF200835276 /* WeightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F25D1D023DF200835276 /* WeightTableViewCell.m */; };
 		7591F2611D023E4F00835276 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2601D023E4F00835276 /* BaseTableViewCell.m */; };
 		7591F2641D049A0000835276 /* ConfigFormat+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2631D049A0000835276 /* ConfigFormat+NSString.m */; };
+		7591F2681D05876B00835276 /* ReturnConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2671D05876B00835276 /* ReturnConnectionViewController.m */; };
+		7591F26B1D059B4400835276 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F26A1D059B4400835276 /* AboutUsViewController.m */; };
 		75F64AD11C7DB1E50019F61C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD01C7DB1E50019F61C /* main.m */; };
 		75F64AD41C7DB1E50019F61C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD31C7DB1E50019F61C /* AppDelegate.m */; };
 		75F64AD71C7DB1E50019F61C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD61C7DB1E50019F61C /* ViewController.m */; };
@@ -126,6 +128,10 @@
 		7591F2601D023E4F00835276 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTableViewCell.m; path = ConfigurationSections/Cells/BaseTableViewCell.m; sourceTree = "<group>"; };
 		7591F2621D049A0000835276 /* ConfigFormat+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ConfigFormat+NSString.h"; path = "Category/ConfigFormat+NSString.h"; sourceTree = "<group>"; };
 		7591F2631D049A0000835276 /* ConfigFormat+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ConfigFormat+NSString.m"; path = "Category/ConfigFormat+NSString.m"; sourceTree = "<group>"; };
+		7591F2661D05876B00835276 /* ReturnConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReturnConnectionViewController.h; path = InfoSections/ReturnConnectionViewController.h; sourceTree = "<group>"; };
+		7591F2671D05876B00835276 /* ReturnConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReturnConnectionViewController.m; path = InfoSections/ReturnConnectionViewController.m; sourceTree = "<group>"; };
+		7591F2691D059B4400835276 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsViewController.h; path = InfoSections/AboutUsViewController.h; sourceTree = "<group>"; };
+		7591F26A1D059B4400835276 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsViewController.m; path = InfoSections/AboutUsViewController.m; sourceTree = "<group>"; };
 		75F64ACC1C7DB1E50019F61C /* CargoGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F64AD01C7DB1E50019F61C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		75F64AD21C7DB1E50019F61C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -282,10 +288,10 @@
 				63D957011CFF395000138774 /* LanguageViewController.m */,
 				63D957031CFF396800138774 /* CurrencyViewController.h */,
 				63D957041CFF396800138774 /* CurrencyViewController.m */,
-				63D957061CFF397F00138774 /* VolumeViewController.h */,
-				63D957071CFF397F00138774 /* VolumeViewController.m */,
 				63D957091CFF3A9B00138774 /* WeightViewController.h */,
 				63D9570A1CFF3A9B00138774 /* WeightViewController.m */,
+				63D957061CFF397F00138774 /* VolumeViewController.h */,
+				63D957071CFF397F00138774 /* VolumeViewController.m */,
 			);
 			name = ConfigurationSections;
 			sourceTree = "<group>";
@@ -370,6 +376,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7591F2651D0581EF00835276 /* InfoSections */ = {
+			isa = PBXGroup;
+			children = (
+				7591F2661D05876B00835276 /* ReturnConnectionViewController.h */,
+				7591F2671D05876B00835276 /* ReturnConnectionViewController.m */,
+				7591F2691D059B4400835276 /* AboutUsViewController.h */,
+				7591F26A1D059B4400835276 /* AboutUsViewController.m */,
+			);
+			name = InfoSections;
+			sourceTree = "<group>";
+		};
 		75F64AC31C7DB1E50019F61C = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +408,7 @@
 		75F64ACE1C7DB1E50019F61C /* CargoGuroViper */ = {
 			isa = PBXGroup;
 			children = (
+				7591F2651D0581EF00835276 /* InfoSections */,
 				63D956FC1CFF38B500138774 /* ConfigurationSections */,
 				63D956F51CFEFC5C00138774 /* Category */,
 				63D956F41CFDF0C400138774 /* LeftMenu */,
@@ -688,7 +706,9 @@
 				75F64B1E1C7E66F80019F61C /* CGResultCalculateModuleAssembly.m in Sources */,
 				63D957051CFF396800138774 /* CurrencyViewController.m in Sources */,
 				63D957081CFF397F00138774 /* VolumeViewController.m in Sources */,
+				7591F2681D05876B00835276 /* ReturnConnectionViewController.m in Sources */,
 				63D956F21CFDF0BB00138774 /* RevealTableViewCell.m in Sources */,
+				7591F26B1D059B4400835276 /* AboutUsViewController.m in Sources */,
 				75F64ADD1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld in Sources */,
 				758B0D891C8894990018E85E /* CGFilterModuleAssembly.m in Sources */,
 				758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */,

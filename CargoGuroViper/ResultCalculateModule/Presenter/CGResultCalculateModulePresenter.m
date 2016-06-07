@@ -42,6 +42,7 @@
 //    } onFailure:^(NSString *error) {
 //        NSLog(@"ERROR ADVERT ========== %@", error);
 //    }];
+    
     myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
                                      target:self
                                    selector:@selector(targetMethod:)

@@ -8,6 +8,8 @@
 
 #import "RevealTableViewCell.h"
 
+static const CGFloat kJVCenterViewContainerCornerRadius = 5.0;
+
 @interface RevealTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -95,8 +97,30 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.searchButton.backgroundColor = [UIColor colorWithPatternImage:image];
-    //self.searchButton.imageView.image = image;
+    
     self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width+4;
+    
+    CALayer *layerShadow = self.searchButton.layer;
+    layerShadow.shadowRadius  = 30.0;
+    layerShadow.shadowColor   = [UIColor blackColor].CGColor;
+    layerShadow.shadowOpacity = 0.6;
+    layerShadow.shadowOffset  = CGSizeMake(35.0, 35.0);
+    layerShadow.masksToBounds = NO;
+    
+    [self updateShadowPath];
+}
+
+- (void)updateShadowPath {
+    CALayer *layer = self.searchButton.layer;
+    
+    CGFloat increase = layer.shadowRadius;
+    CGRect centerViewContainerRect = self.searchButton.bounds;
+    centerViewContainerRect.origin.x -= increase;
+    centerViewContainerRect.origin.y -= increase;
+    centerViewContainerRect.size.width  += 2 * increase;
+    centerViewContainerRect.size.height += 2 * increase;
+    
+    layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:centerViewContainerRect cornerRadius:kJVCenterViewContainerCornerRadius] CGPath];
     
 }
 

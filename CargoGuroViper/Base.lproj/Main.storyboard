@@ -778,9 +778,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="8kb-JE-CTQ" secondAttribute="height" multiplier="1:1" id="vEy-Bg-fS7"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                             <state key="normal" title="Поиск">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
                                                 <action selector="pressOnSearchButton:" destination="Jcg-ub-aeA" eventType="touchUpInside" id="hfp-EC-4IA"/>
@@ -812,7 +814,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="195" id="l1S-Dm-vuB"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -904,7 +906,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="О нас" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9t-sd-JFd">
                                             <rect key="frame" x="21" y="10" width="278" height="40"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>

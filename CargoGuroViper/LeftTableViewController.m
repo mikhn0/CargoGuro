@@ -168,10 +168,10 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
             break;
             
         case kAboutProjectIndex:
-            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+            destinationViewController = [[AppDelegate globalDelegate] aboutUsViewController];
             break;
         case kContactUsIndex:
-            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+            destinationViewController = [[AppDelegate globalDelegate] returnConnectionViewController];
             break;
             
         default:
