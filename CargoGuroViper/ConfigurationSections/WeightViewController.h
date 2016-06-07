@@ -10,4 +10,8 @@
 
 @interface WeightViewController : BaseConfigurationViewController
 
+@property (nonatomic, strong) NSArray *weightName;
+@property (nonatomic, strong) NSArray *weightImageName;
+@property (nonatomic) NSInteger currentIndex;
+
 @end

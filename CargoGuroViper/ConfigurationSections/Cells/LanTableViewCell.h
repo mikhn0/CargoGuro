@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableViewCell.h"
 
-@interface LanTableViewCell : UITableViewCell
+@interface LanTableViewCell : BaseTableViewCell
+
 
 @end

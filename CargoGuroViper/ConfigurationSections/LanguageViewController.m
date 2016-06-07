@@ -7,6 +7,7 @@
 //
 
 #import "LanguageViewController.h"
+#import "LanTableViewCell.h"
 
 enum {
     kRus  = 0,
@@ -18,10 +19,6 @@ enum {
 
 static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
-@interface LanguageViewController ()
-
-@end
-
 @implementation LanguageViewController
 
 @synthesize countryName = _countryName;
@@ -29,7 +26,7 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue];
 }
 
 - (NSArray *)countryName {
@@ -40,19 +37,43 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
     return @[@"rus_flag", @"ch_flag", @"en_flag", @"en_flag"];
 }
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *countries = self.countryName;
+    return [countries count];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    switch (indexPath.row) {
-        case kSearchIndex:
-            
-            
-        default:
-            break;
+    LanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLanCellReuseIdentifier forIndexPath:indexPath];
+    cell.name = [self.countryName objectAtIndex:indexPath.row];
+    cell.imageByName = [UIImage imageNamed:[self.countryImageName objectAtIndex:indexPath.row]];
+    
+    [[cell selectedIcon] setHidden:YES];
+    if (indexPath.row == self.currentIndex) {
+        [[cell selectedIcon] setHidden:NO];
     }
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Выбор языка";
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.currentIndex = indexPath.row;
+    [self.tableView reloadData];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@(indexPath.row) forKey:@"currentIndexCountry"];
+    [defaults synchronize];
+    
+    NSDictionary *userInfo = @{@"indexCountry":@(indexPath.row)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeLanguage" object:nil userInfo:userInfo];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

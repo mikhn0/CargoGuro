@@ -26,6 +26,8 @@
 @property (nonatomic, strong) UIViewController *currencyViewController;
 @property (nonatomic, strong) UIViewController *weightViewController;
 @property (nonatomic, strong) UIViewController *volumeViewController;
+@property (nonatomic, strong) UIViewController *aboutUsViewController;
+@property (nonatomic, strong) UIViewController *returnConnectionViewController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -37,6 +39,5 @@
 + (AppDelegate *)globalDelegate;
 
 - (void)toggleLeftDrawer:(id)sender animated:(BOOL)animated;
-
 @end
 

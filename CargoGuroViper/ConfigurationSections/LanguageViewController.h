@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSArray *countryName;
 @property (nonatomic, strong) NSArray *countryImageName;
+@property (nonatomic) NSInteger currentIndex;
 
 @end

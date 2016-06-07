@@ -22,6 +22,8 @@ static NSString * const kCurrencyVCStoryboardID = @"CurrencyVCStoryboardID";
 static NSString * const kWeightVCStoryboardID = @"WeightVCStoryboardID";
 static NSString * const kVolumeVCStoryboardID = @"VolumeVCStoryboardID";
 static NSString * const kCalculateModuleVCStoryboardID = @"CalculateModuleVCStoryboardID";
+static NSString * const kAboutUsVCStoryboardID = @"AboutUsVCStoryboardID";
+static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCStoryboardID";
 
 @interface AppDelegate ()
 
@@ -78,7 +80,6 @@ static NSString * const kCalculateModuleVCStoryboardID = @"CalculateModuleVCStor
     if (!_languageViewController) {
         _languageViewController = [self.configurationStoryboard instantiateViewControllerWithIdentifier:kLanguageVCStoryboardID];
     }
-    
     return _languageViewController;
 }
 
@@ -102,6 +103,20 @@ static NSString * const kCalculateModuleVCStoryboardID = @"CalculateModuleVCStor
         _volumeViewController = [self.configurationStoryboard instantiateViewControllerWithIdentifier:kVolumeVCStoryboardID];
     }
     return _volumeViewController;
+}
+
+- (UIViewController *)aboutUsViewController {
+    if (!_aboutUsViewController) {
+        _aboutUsViewController = [self.infoStoryboard instantiateViewControllerWithIdentifier:kAboutUsVCStoryboardID];
+    }
+    return _aboutUsViewController;
+}
+
+- (UIViewController *)returnConnectionViewController {
+    if (!_returnConnectionViewController) {
+        _returnConnectionViewController = [self.infoStoryboard instantiateViewControllerWithIdentifier:kReturnConnectionVCStoryboardID];
+    }
+    return _returnConnectionViewController;
 }
 
 - (UIViewController *)calculateModuleViewController {
@@ -146,17 +161,17 @@ static NSString * const kCalculateModuleVCStoryboardID = @"CalculateModuleVCStor
     self.drawerViewController.animator = self.drawerAnimator;
     
     
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.frame = CGRectMake(0, 0, size.width, size.height);
-    layer.colors = @[ (__bridge id)[UIColor colorWithRed:45.0/255.0 green:45.0/255.0 blue:47.0/255.0 alpha:1.0].CGColor ,   // start color
-                      (__bridge id)[UIColor colorWithRed:15.0/255.0 green:15.0/255.0 blue:15.0/255.0 alpha:1.0].CGColor]; // end color
-    
-    UIGraphicsBeginImageContext(size);
-    [layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.drawerViewController.backgroundImage = image;//[UIImage imageNamed:@"background_transport"];
+//    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+//    CAGradientLayer *layer = [CAGradientLayer layer];
+//    layer.frame = CGRectMake(0, 0, size.width, size.height);
+//    layer.colors = @[ (__bridge id)[UIColor colorWithRed:45.0/255.0 green:45.0/255.0 blue:47.0/255.0 alpha:1.0].CGColor ,   // start color
+//                      (__bridge id)[UIColor colorWithRed:15.0/255.0 green:15.0/255.0 blue:15.0/255.0 alpha:1.0].CGColor]; // end color
+//    
+//    UIGraphicsBeginImageContext(size);
+//    [layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+    self.drawerViewController.backgroundImage = [UIImage imageNamed:@"background_transport"];
 
 }
 

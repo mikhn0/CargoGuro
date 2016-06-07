@@ -10,6 +10,18 @@
 #import "HTTPClient.h"
 #import "CGResultCalculateModuleInteractorOutput.h"
 
+#define GET_COMPLIST    @"2/get_complist.php"
+#define GET_CALCULATION @"2/get_calculation.php"
+#define GET_ADVERT      @"2/get_advert.php"
+#define GET_RES_ADVERT  @"2/get_res_advert.php"
+#define GET_CVT_PRICES  @"2/get_cvt_prices.php"
+#define CLICKURL        @"2/clickurl.php"
+
+#define kCOMPANIES          @"companies"
+#define kTRANSPORT_NUMBER   @"transportNumber"
+#define kTRANSPORT_NAME     @"transportName"
+#define kTRANSPORT_SITE     @"transportSite"
+
 @implementation CGResultCalculateModuleInteractor
 
 #pragma mark - Методы CGResultCalculateModuleInteractorInput
@@ -28,36 +40,35 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        [[httpClient getSessionManager] GET:@"1/get_complist.php" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // Get all companies that can potentially provide services
+        [[httpClient getSessionManager] GET:GET_COMPLIST parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
-            NSArray *companies = responseObject[@"companies"];
+            NSArray *companies = responseObject[kCOMPANIES];
             __block NSInteger countOfCompany = companies.count;
-            
-            //NSLog(@"companies.count ======== %lu", (unsigned long)companies.count);
             
             for (NSDictionary *company in companies) {
                 
                 //NSLog(@"company ====== %@", company);
                 NSMutableDictionary *mutableParams = params.mutableCopy;
                 
-                mutableParams[@"tNum"] = company[@"transportNumber"];
+                mutableParams[@"tNum"] = company[kTRANSPORT_NUMBER];
                 
                 //NSLog(@"mutableParams ====== %@", mutableParams);
                 
-                __block NSString *companyName = company[@"transportName"];
-                __block NSString *transportSite = company[@"transportSite"];
+                __block NSString *companyName = company[kTRANSPORT_NAME];
+                __block NSString *transportSite = company[kTRANSPORT_SITE];
                 
                 dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                     
-                    [[httpClient getSessionManager] POST:@"1/get_calculation.php" parameters:mutableParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                        
+                    // Get JSON with information about freight for current company
+                    [[httpClient getSessionManager] POST:GET_CALCULATION parameters:mutableParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                         
                         //NSLog(@"responseObject ====== %@", responseObject);
                         
-                        NSMutableDictionary *responce = [responseObject mutableCopy];
-                        responce[@"transportName"] = companyName;
-                        responce[@"transportSite"] = transportSite;
-                        completion(responce.copy);
+                        NSMutableDictionary *response = [responseObject mutableCopy];
+                        response[kTRANSPORT_NAME] = companyName;
+                        response[kTRANSPORT_SITE] = transportSite;
+                        completion(response.copy);
                         
                         countOfCompany--;
                         if (countOfCompany == 0) {
@@ -69,15 +80,11 @@
                         failure([httpClient inputError:error]);
                         
                     }];
-                    
                 });
-                
             }
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
             failure([httpClient inputError:error]);
-            
         }];
         
     });
@@ -86,7 +93,7 @@
 - (void) getAdvertOnSuccess:(CompletionResult)   success
                  onFailure:(CompletionError)    failure {
     HTTPClient *httpClient = [[HTTPClient alloc] init];
-    [[httpClient getSessionManager] GET:@"1/get_advert.php" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[httpClient getSessionManager] GET:GET_ADVERT parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(responseObject);
         
@@ -102,7 +109,7 @@
 - (void) getResultAdvertOnSuccess:(CompletionResult)    success
                         onFailure:(CompletionError)     failure {
     HTTPClient *httpClient = [[HTTPClient alloc] init];
-    [[httpClient getSessionManager] GET:@"1/get_res_advert.php" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[httpClient getSessionManager] GET:GET_RES_ADVERT parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(responseObject);
         
