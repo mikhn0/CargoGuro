@@ -25,15 +25,11 @@
     
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
-
-@property (weak, nonatomic) IBOutlet UIView *loadScreen;
-
-@property (weak, nonatomic) IBOutlet UIImageView *loadImage;
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (weak, nonatomic) IBOutlet UILabel *informationLabel;
+@property (weak, nonatomic) IBOutlet UIImageView    *backgroundView;
+@property (weak, nonatomic) IBOutlet UIView         *loadScreen;
+@property (weak, nonatomic) IBOutlet UIImageView    *loadImage;
+@property (weak, nonatomic) IBOutlet UITableView    *tableView;
+@property (weak, nonatomic) IBOutlet UILabel        *informationLabel;
 
 @end
 
@@ -117,7 +113,6 @@
 
 - (void)setCustomNavigationBackButton
 {
-    
     UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 44.0f, 30.0f)];
     [backButton setImage:[UIImage imageNamed:@"custom_back_button"]  forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
@@ -138,7 +133,6 @@
     [lblTitle sizeToFit];
     
     self.navigationItem.titleView = lblTitle;
-    
 }
 
 
@@ -258,11 +252,18 @@
 }
 
 - (void)outPutError:(NSString *)error {
-    if ([error length] > 0) {
+    if ([error isKindOfClass:[NSDictionary class]]) {
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:[error valueForKey:@"failReason"] preferredStyle:UIAlertControllerStyleAlert];
         [alertError addAction:alertAction];
         [self presentViewController:alertError animated:YES completion:nil];
+    } else if ([error isKindOfClass:[NSString class]]) {
+        if ([error length] > 0) {
+            UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
+            [alertError addAction:alertAction];
+            [self presentViewController:alertError animated:YES completion:nil];
+        }
     }
 }
 

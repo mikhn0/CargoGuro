@@ -52,7 +52,6 @@
         if (status == AFNetworkReachabilityStatusNotReachable) {}
     }];
     [manager.reachabilityManager startMonitoring];
-    NSLog(@"%@",manager.responseSerializer);
     return manager;
 }
 
@@ -62,8 +61,6 @@
 - (id)inputError:(id)error {
     id object;
     if (error) {
-        
-        
         if ([error isKindOfClass:[NSError class]] && [[error userInfo] objectForKey:@"JSONResponseSerializerWithDataKey"]) {
             
             NSError *deserializationError = nil;

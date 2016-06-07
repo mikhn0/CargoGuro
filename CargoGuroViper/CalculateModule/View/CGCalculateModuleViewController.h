@@ -6,8 +6,6 @@
 //  Copyright © 2016 Fruktorum. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 #import "CGCalculateModuleViewInput.h"
 
 @protocol CGCalculateModuleViewOutput;

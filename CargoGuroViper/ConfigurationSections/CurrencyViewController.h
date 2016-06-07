@@ -10,8 +10,6 @@
 
 @interface CurrencyViewController : BaseConfigurationViewController
 
-@property (nonatomic, strong) NSArray *currencyName;
-@property (nonatomic, strong) NSArray *currencyImageName;
 @property (nonatomic) NSInteger currentIndex;
 
 @end

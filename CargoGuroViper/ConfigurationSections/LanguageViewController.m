@@ -21,33 +21,23 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
 @implementation LanguageViewController
 
-@synthesize countryName = _countryName;
-@synthesize countryImageName = _countryImageName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue];
 }
 
-- (NSArray *)countryName {
-    return @[@"Русский", @"中国人", @"English", @"Deutsch"];
-}
-
-- (NSArray *)countryImageName {
-    return @[@"rus_flag", @"ch_flag", @"en_flag", @"en_flag"];
-}
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *countries = self.countryName;
+    NSArray *countries = LANGUAGE_NAME;
     return [countries count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     LanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLanCellReuseIdentifier forIndexPath:indexPath];
-    cell.name = [self.countryName objectAtIndex:indexPath.row];
-    cell.imageByName = [UIImage imageNamed:[self.countryImageName objectAtIndex:indexPath.row]];
+    cell.name = [LANGUAGE_NAME objectAtIndex:indexPath.row];//[self.countryName objectAtIndex:indexPath.row];
+    cell.imageByName = [UIImage imageNamed:[COUNTRY_IMAGE_NAME objectAtIndex:indexPath.row]];//[self.countryImageName objectAtIndex:indexPath.row]];
     
     [[cell selectedIcon] setHidden:YES];
     if (indexPath.row == self.currentIndex) {

@@ -234,7 +234,7 @@
         [self outPutError:NSLocalizedString(@"ENTER_WAIST", nil)];
        
     } else {
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP};
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue]], @"cFC": @"RU", @"cTC":@"UA"};
         [self.output searchTransition:datas];
         
     }
