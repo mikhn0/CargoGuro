@@ -224,7 +224,7 @@
     float heightTitle = [self getHeightForText:titleResult withFont:[UIFont systemFontOfSize:16
                                                                                  ] andWidth:210 * widthOfdescribeLabel];
     
-    return heightTitle + heightDescription;
+    return heightTitle + heightDescription+38;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

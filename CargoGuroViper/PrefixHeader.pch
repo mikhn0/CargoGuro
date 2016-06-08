@@ -13,10 +13,12 @@
 #import <Foundation/Foundation.h>
 #import "ConfigFormat+NSString.h"
 #import "AppDelegate.h"
+#import "LocalizeHelper.h"
 
 #define LANGUAGE_NAME @[@"Русский", @"中国人", @"English", @"Deutsch", @"Français"]
 #define LANGUAGE @[@"ru", @"zh", @"en", @"de", @"fr"]
-#define SHORT_LANGUAGE_NAME @[@"RUS", @"中", @"ENG", @"DEU"]
+#define LOCALIZE_LANGUAGE @[@"ru", @"zh-Hans", @"en", @"de", @"fr"]
+#define SHORT_LANGUAGE_NAME @[@"RUS", @"中", @"ENG", @"DEU", @"FRA"]
 #define COUNTRY_IMAGE_NAME @[@"rus_flag", @"ch_flag", @"en_flag", @"de_flag", @"fr_flag"]
 #define CURRENCY_NAME @[@"RUB", @"USD", @"EUR", @"KZT", @"CNY"]
 #define CURRENCY_LOCALE_NAME @[@"ru", @"en_US", @"EUR", @"kk_KZ", @"zh_Hans_CN"]

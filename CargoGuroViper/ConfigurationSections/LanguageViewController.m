@@ -59,6 +59,7 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@(indexPath.row) forKey:@"currentIndexCountry"];
     [defaults synchronize];
+    LocalizationSetLanguage(LOCALIZE_LANGUAGE[indexPath.row]);
     
     NSDictionary *userInfo = @{@"indexCountry":@(indexPath.row)};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeLanguage" object:nil userInfo:userInfo];

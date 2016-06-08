@@ -12,6 +12,7 @@
 		63152DE71C7DE86F00AE47ED /* CGCalculateModulePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DE61C7DE86F00AE47ED /* CGCalculateModulePresenter.m */; };
 		63152DEB1C7DE87600AE47ED /* CGCalculateModuleRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DE91C7DE87600AE47ED /* CGCalculateModuleRouter.m */; };
 		63152DF01C7DE88200AE47ED /* CGCalculateModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DED1C7DE88200AE47ED /* CGCalculateModuleViewController.m */; };
+		63915ABD1D082D4200AE102D /* LocalizeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915ABC1D082D4200AE102D /* LocalizeHelper.m */; };
 		63D956F21CFDF0BB00138774 /* RevealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D956EF1CFDF0BB00138774 /* RevealTableViewCell.m */; };
 		63D956F31CFDF0BB00138774 /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D956F11CFDF0BB00138774 /* LeftTableViewController.m */; };
 		63D956F81CFF34FB00138774 /* Configuration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D956F61CFF34FB00138774 /* Configuration.storyboard */; };
@@ -78,6 +79,23 @@
 		63152DEE1C7DE88200AE47ED /* CGCalculateModuleViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGCalculateModuleViewInput.h; path = CalculateModule/View/CGCalculateModuleViewInput.h; sourceTree = "<group>"; };
 		63152DEF1C7DE88200AE47ED /* CGCalculateModuleViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGCalculateModuleViewOutput.h; path = CalculateModule/View/CGCalculateModuleViewOutput.h; sourceTree = "<group>"; };
 		63915ABA1D06FB3A00AE102D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		63915ABB1D082D4200AE102D /* LocalizeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizeHelper.h; sourceTree = "<group>"; };
+		63915ABC1D082D4200AE102D /* LocalizeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizeHelper.m; sourceTree = "<group>"; };
+		63915ABE1D082FCD00AE102D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		63915ABF1D082FCD00AE102D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		63915AC01D082FCD00AE102D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Configuration.strings; sourceTree = "<group>"; };
+		63915AC11D082FCD00AE102D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Info.strings; sourceTree = "<group>"; };
+		63915AC21D082FCD00AE102D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		63915AC31D08304D00AE102D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		63915AC41D08304D00AE102D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		63915AC51D08304D00AE102D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Configuration.strings; sourceTree = "<group>"; };
+		63915AC61D08304D00AE102D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Info.strings; sourceTree = "<group>"; };
+		63915AC71D08304D00AE102D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		63915AC81D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		63915AC91D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		63915ACA1D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Configuration.strings"; sourceTree = "<group>"; };
+		63915ACB1D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Info.strings"; sourceTree = "<group>"; };
+		63915ACC1D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		63D956EE1CFDF0BB00138774 /* RevealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealTableViewCell.h; sourceTree = "<group>"; };
 		63D956EF1CFDF0BB00138774 /* RevealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealTableViewCell.m; sourceTree = "<group>"; };
 		63D956F01CFDF0BB00138774 /* LeftTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewController.h; sourceTree = "<group>"; };
@@ -439,6 +457,8 @@
 			children = (
 				75F64AD01C7DB1E50019F61C /* main.m */,
 				63915ABA1D06FB3A00AE102D /* PrefixHeader.pch */,
+				63915ABB1D082D4200AE102D /* LocalizeHelper.h */,
+				63915ABC1D082D4200AE102D /* LocalizeHelper.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -587,6 +607,9 @@
 				en,
 				Base,
 				ru,
+				de,
+				fr,
+				"zh-Hans",
 			);
 			mainGroup = 75F64AC31C7DB1E50019F61C;
 			productRefGroup = 75F64ACD1C7DB1E50019F61C /* Products */;
@@ -713,6 +736,7 @@
 				7591F26B1D059B4400835276 /* AboutUsViewController.m in Sources */,
 				75F64ADD1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld in Sources */,
 				758B0D891C8894990018E85E /* CGFilterModuleAssembly.m in Sources */,
+				63915ABD1D082D4200AE102D /* LocalizeHelper.m in Sources */,
 				758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */,
 				75F64B201C7E66F80019F61C /* CGResultCalculateModulePresenter.m in Sources */,
 				63D956FF1CFF392100138774 /* BaseConfigurationViewController.m in Sources */,
@@ -732,6 +756,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				63D956F71CFF34FB00138774 /* Base */,
+				63915AC01D082FCD00AE102D /* de */,
+				63915AC51D08304D00AE102D /* fr */,
+				63915ACA1D08306300AE102D /* zh-Hans */,
 			);
 			name = Configuration.storyboard;
 			sourceTree = "<group>";
@@ -740,6 +767,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				63D956FA1CFF351C00138774 /* Base */,
+				63915AC11D082FCD00AE102D /* de */,
+				63915AC61D08304D00AE102D /* fr */,
+				63915ACB1D08306300AE102D /* zh-Hans */,
 			);
 			name = Info.storyboard;
 			sourceTree = "<group>";
@@ -749,6 +779,9 @@
 			children = (
 				756CD7AA1C96FC450019A22C /* en */,
 				756CD7AC1C96FC480019A22C /* ru */,
+				63915AC21D082FCD00AE102D /* de */,
+				63915AC71D08304D00AE102D /* fr */,
+				63915ACC1D08306300AE102D /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -758,6 +791,9 @@
 			children = (
 				75F64AD91C7DB1E50019F61C /* Base */,
 				756CD7A71C96FC380019A22C /* ru */,
+				63915ABE1D082FCD00AE102D /* de */,
+				63915AC31D08304D00AE102D /* fr */,
+				63915AC81D08306300AE102D /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -767,6 +803,9 @@
 			children = (
 				75F64AE11C7DB1E50019F61C /* Base */,
 				756CD7A81C96FC380019A22C /* ru */,
+				63915ABF1D082FCD00AE102D /* de */,
+				63915AC41D08304D00AE102D /* fr */,
+				63915AC91D08306300AE102D /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

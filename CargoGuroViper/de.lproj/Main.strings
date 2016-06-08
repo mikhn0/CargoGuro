@@ -1,0 +1,81 @@
+
+/* Class = "UILabel"; text = "КУДА"; ObjectID = "23M-7M-XUn"; */
+"23M-7M-XUn.text" = "КУДА";
+
+/* Class = "UINavigationItem"; title = "CARGO.GURU"; ObjectID = "5bY-Qf-Mwz"; */
+"5bY-Qf-Mwz.title" = "CARGO.GURU";
+
+/* Class = "UIButton"; normalTitle = "Поиск"; ObjectID = "8kb-JE-CTQ"; */
+"8kb-JE-CTQ.normalTitle" = "Поиск";
+
+/* Class = "UILabel"; text = "Поиск транспорта"; ObjectID = "9Gv-So-xJW"; */
+"9Gv-So-xJW.text" = "Поиск транспорта";
+
+/* Class = "UIButton"; normalTitle = "Найти перевозку"; ObjectID = "B1O-Wc-mgF"; */
+"B1O-Wc-mgF.normalTitle" = "Найти перевозку";
+
+/* Class = "UILabel"; text = "Здесь можно разместить рекламу"; ObjectID = "CTL-Ca-0vX"; */
+"CTL-Ca-0vX.text" = "Здесь можно разместить рекламу";
+
+/* Class = "UILabel"; text = "ВЫСОТА, м"; ObjectID = "GY0-kf-EZe"; */
+"GY0-kf-EZe.text" = "ВЫСОТА, м";
+
+/* Class = "UILabel"; text = "ОТКУДА"; ObjectID = "HGU-yE-yQV"; */
+"HGU-yE-yQV.text" = "ОТКУДА";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "HvF-7p-DzP"; */
+"HvF-7p-DzP.placeholder" = "0.00";
+
+/* Class = "UILabel"; text = "Отправляем запросы перевозчикам..."; ObjectID = "Hys-OO-Jse"; */
+"Hys-OO-Jse.text" = "Отправляем запросы перевозчикам...";
+
+/* Class = "UILabel"; text = "О нас"; ObjectID = "I9t-sd-JFd"; */
+"I9t-sd-JFd.text" = "О нас";
+
+/* Class = "UITextField"; placeholder = "пункт отправления"; ObjectID = "Ofr-ze-SHf"; */
+"Ofr-ze-SHf.placeholder" = "пункт отправления";
+
+/* Class = "UILabel"; text = "ДЛИНА, м"; ObjectID = "ZZz-lP-GtK"; */
+"ZZz-lP-GtK.text" = "ДЛИНА, м";
+
+/* Class = "UITextField"; placeholder = "пункт назначения"; ObjectID = "Zf4-Mq-wau"; */
+"Zf4-Mq-wau.placeholder" = "пункт назначения";
+
+/* Class = "UILabel"; text = "RUS"; ObjectID = "b2L-bP-78b"; */
+"b2L-bP-78b.text" = "RUS";
+
+/* Class = "UILabel"; text = "Расcчитать стоимость доставки груза"; ObjectID = "cIT-Vy-zeI"; */
+"cIT-Vy-zeI.text" = "Расcчитать стоимость доставки груза";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "cmW-nF-RUt"; */
+"cmW-nF-RUt.placeholder" = "0.00";
+
+/* Class = "UILabel"; text = "ОБЪЕМ (м3)"; ObjectID = "d7C-pZ-T6j"; */
+"d7C-pZ-T6j.text" = "ОБЪЕМ (м3)";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "dOZ-Mc-eSS"; */
+"dOZ-Mc-eSS.placeholder" = "0.00";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "dq5-Ul-I1V"; */
+"dq5-Ul-I1V.placeholder" = "0.00";
+
+/* Class = "UILabel"; text = "info@cargo.guru"; ObjectID = "igU-aR-nhd"; */
+"igU-aR-nhd.text" = "info@cargo.guru";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "jUK-9U-lzn"; */
+"jUK-9U-lzn.placeholder" = "0.00";
+
+/* Class = "UILabel"; text = "ВЕС (кг)"; ObjectID = "l7z-2A-AFV"; */
+"l7z-2A-AFV.text" = "ВЕС (кг)";
+
+/* Class = "UILabel"; text = "ОБЪЯВЛЕННАЯ ЦЕННОСТЬ (руб.)"; ObjectID = "mBO-Dy-dbV"; */
+"mBO-Dy-dbV.text" = "ОБЪЯВЛЕННАЯ ЦЕННОСТЬ (руб.)";
+
+/* Class = "UILabel"; text = "Язык"; ObjectID = "n7L-cv-B0p"; */
+"n7L-cv-B0p.text" = "Язык";
+
+/* Class = "UILabel"; text = "ШИРИНА, м"; ObjectID = "o8h-2G-9pu"; */
+"o8h-2G-9pu.text" = "ШИРИНА, м";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "vkZ-ST-u6R"; */
+"vkZ-ST-u6R.placeholder" = "0.00";
