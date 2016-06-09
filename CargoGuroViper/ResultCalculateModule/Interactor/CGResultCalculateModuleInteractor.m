@@ -64,17 +64,22 @@
                     [[httpClient getSessionManager] POST:GET_CALCULATION parameters:mutableParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                         
                         NSLog(@"responseObject ====== %@", responseObject);
-                        
-                        NSMutableDictionary *response = [responseObject mutableCopy];
-                        response[kTRANSPORT_NAME] = companyName;
-                        response[kTRANSPORT_SITE] = transportSite;
-                        completion(response.copy);
-                        
+                        if (![responseObject objectForKey:@"failReason"]) {
+                            
+                            NSMutableDictionary *response = [responseObject mutableCopy];
+                            response[kTRANSPORT_NAME] = companyName;
+                            response[kTRANSPORT_SITE] = transportSite;
+                            completion(response.copy);
+                            
+                        } else {
+                            NSData *data = [responseObject[@"failReason"] dataUsingEncoding:NSUTF8StringEncoding];
+                            NSString *decodevalue = [[NSString alloc] initWithData:data encoding:NSNonLossyASCIIStringEncoding];
+                            NSLog(@"responseObject ====== %@", decodevalue);
+                        }
                         countOfCompany--;
                         if (countOfCompany == 0) {
                             endOfLoad(YES);
                         }
-                        
                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                         //NSLog(@"count of company ======= %li", (long)countOfCompany);
                         failure([httpClient inputError:error]);

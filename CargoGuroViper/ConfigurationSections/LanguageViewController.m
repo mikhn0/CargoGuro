@@ -36,8 +36,8 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     LanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLanCellReuseIdentifier forIndexPath:indexPath];
-    cell.name = [LANGUAGE_NAME objectAtIndex:indexPath.row];//[self.countryName objectAtIndex:indexPath.row];
-    cell.imageByName = [UIImage imageNamed:[COUNTRY_IMAGE_NAME objectAtIndex:indexPath.row]];//[self.countryImageName objectAtIndex:indexPath.row]];
+    cell.name = [LANGUAGE_NAME objectAtIndex:indexPath.row];
+    cell.imageByName = [UIImage imageNamed:[COUNTRY_IMAGE_NAME objectAtIndex:indexPath.row]];
     
     [[cell selectedIcon] setHidden:YES];
     if (indexPath.row == self.currentIndex) {

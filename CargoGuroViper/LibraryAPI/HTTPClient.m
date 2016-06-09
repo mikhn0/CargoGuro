@@ -80,6 +80,10 @@
             
             object = [[error userInfo] objectForKey:@"NSDebugDescription"];
             
+        } else if ( [error isKindOfClass:[NSDictionary class]] && [error objectForKey:@"failReason"] ) {
+            
+            object = [error objectForKey:@"failReason"];
+            
         } else {
             
             object = error;

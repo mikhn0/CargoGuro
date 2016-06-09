@@ -54,7 +54,12 @@
     self.cost.delegate = self;
     self.cost.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-    //self.background.image = [UIImage imageNamed:@"Background"];
+    [self.from setText:@"Уфа"];
+    [self.to setText:@"Киев"];
+    [self.value setText:@"123"];
+    [self.weight setText:@"123"];
+    [self.cost setText:@"123"];
+    
     self.searchTransite.layer.cornerRadius = 5.0;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
