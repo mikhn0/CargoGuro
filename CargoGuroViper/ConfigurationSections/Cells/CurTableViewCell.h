@@ -6,7 +6,6 @@
 //  Copyright © 2016 Виктория. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "BaseTableViewCell.h"
 
 @interface CurTableViewCell : BaseTableViewCell

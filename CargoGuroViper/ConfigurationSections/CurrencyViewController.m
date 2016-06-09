@@ -23,32 +23,23 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 
 @implementation CurrencyViewController
 
-@synthesize currencyName = _currencyName;
-@synthesize currencyImageName = _currencyImageName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue];
 }
 
-- (NSArray *)currencyName {
-    return @[@"RUB", @"USD", @"EUR", @"KZT", @"CNY"];
-}
-
-- (NSArray *)currencyLocaleName {
-    return @[@"ru", @"en_US", @"EUR", @"kk_KZ", @"zh_Hans_CN"];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *currencies = self.currencyName;
+    NSArray *currencies = CURRENCY_NAME;
     return currencies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CurTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCurCellReuseIdentifier forIndexPath:indexPath];
-    cell.name = [self.currencyName objectAtIndex:indexPath.row];
-    cell.currencySymbolByName = [NSString printPriceWithCurrencySymbol:[self.currencyName objectAtIndex:indexPath.row] withLocale:[self.currencyLocaleName objectAtIndex:indexPath.row]];
+    cell.name = [CURRENCY_NAME objectAtIndex:indexPath.row];
+    cell.currencySymbolByName = [NSString printPriceWithCurrencySymbol:[CURRENCY_NAME objectAtIndex:indexPath.row] withLocale:[CURRENCY_LOCALE_NAME objectAtIndex:indexPath.row]];
     
     [[cell selectedIcon] setHidden:YES];
     if (indexPath.row == self.currentIndex) {

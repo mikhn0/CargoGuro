@@ -54,7 +54,12 @@
     self.cost.delegate = self;
     self.cost.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-    //self.background.image = [UIImage imageNamed:@"Background"];
+    [self.from setText:@"Уфа"];
+    [self.to setText:@"Киев"];
+    [self.value setText:@"123"];
+    [self.weight setText:@"123"];
+    [self.cost setText:@"123"];
+    
     self.searchTransite.layer.cornerRadius = 5.0;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
@@ -234,7 +239,7 @@
         [self outPutError:NSLocalizedString(@"ENTER_WAIST", nil)];
        
     } else {
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP};
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue]], @"cFC": @"RU", @"cTC":@"UA"};
         [self.output searchTransition:datas];
         
     }

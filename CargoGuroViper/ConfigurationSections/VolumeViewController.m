@@ -8,33 +8,25 @@
 
 #import "VolumeViewController.h"
 #import "VolTableViewCell.h"
-#import "ConfigFormat+NSString.h"
 
 static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 
 @implementation VolumeViewController
-
-@synthesize volumeName = _volumeName;
-@synthesize volumeImageName = _volumeImageName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue];
 }
 
-- (NSArray *)volumeName {
-    return @[[NSString printCubeOfValue:@"м"], [NSString printCubeOfValue:@"см"], @"л"];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *volues = self.volumeName;
+    NSArray *volues = VOLUME_NAME;
     return [volues count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     VolTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCurCellReuseIdentifier forIndexPath:indexPath];
-    cell.name = [self.volumeName objectAtIndex:indexPath.row];
+    cell.name = [VOLUME_NAME objectAtIndex:indexPath.row];
     
     [[cell selectedIcon] setHidden:YES];
     if (indexPath.row == self.currentIndex) {

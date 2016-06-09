@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *wayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transportLabel;
+@property (weak, nonatomic) IBOutlet UILabel *siteLabel;
 
 @end

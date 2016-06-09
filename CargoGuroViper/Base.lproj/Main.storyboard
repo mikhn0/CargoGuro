@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="60N-tS-dFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="60N-tS-dFz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -518,10 +518,10 @@
             </objects>
             <point key="canvasLocation" x="875" y="842"/>
         </scene>
-        <!--Result Calculate Module View Controller-->
+        <!--CARGO.GURU-->
         <scene sceneID="YlC-8a-fRZ">
             <objects>
-                <viewController id="mJ3-Tr-Kub" customClass="CGResultCalculateModuleViewController" sceneMemberID="viewController">
+                <viewController title="CARGO.GURU" id="mJ3-Tr-Kub" customClass="CGResultCalculateModuleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vov-m0-uow"/>
                         <viewControllerLayoutGuide type="bottom" id="XUu-Eu-5Im"/>
@@ -742,7 +742,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="b0q-t7-yFF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.52941176469999995" green="0.1764705882" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.61568627450980395" green="0.16078431372549018" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>

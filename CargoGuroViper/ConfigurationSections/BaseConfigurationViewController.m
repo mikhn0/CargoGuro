@@ -7,23 +7,12 @@
 //
 
 #import "BaseConfigurationViewController.h"
-#import "AppDelegate.h"
 
 @interface BaseConfigurationViewController ()
 
 @end
 
 @implementation BaseConfigurationViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {
     [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];

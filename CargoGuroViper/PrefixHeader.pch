@@ -1,0 +1,30 @@
+//
+//  PrefixHeader.pch
+//  CargoGuruViper
+//
+//  Created by a1 on 07.06.16.
+//  Copyright © 2016 Виктория. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ConfigFormat+NSString.h"
+#import "AppDelegate.h"
+#import "LocalizeHelper.h"
+
+#define LANGUAGE_NAME @[@"Русский", @"中国人", @"English", @"Deutsch", @"Français"]
+#define LANGUAGE @[@"ru", @"zh", @"en", @"de", @"fr"]
+#define LOCALIZE_LANGUAGE @[@"ru", @"zh-Hans", @"en", @"de", @"fr"]
+#define SHORT_LANGUAGE_NAME @[@"RUS", @"中", @"ENG", @"DEU", @"FRA"]
+#define COUNTRY_IMAGE_NAME @[@"rus_flag", @"ch_flag", @"en_flag", @"de_flag", @"fr_flag"]
+#define CURRENCY_NAME @[@"RUB", @"USD", @"EUR", @"KZT", @"CNY"]
+#define CURRENCY_LOCALE_NAME @[@"ru", @"en_US", @"EUR", @"kk_KZ", @"zh_Hans_CN"]
+#define WEIGHT_NAME @[@"кг", @"г", @"тн"]
+#define VOLUME_NAME @[[NSString printCubeOfValue:@"м"], [NSString printCubeOfValue:@"см"], @"л"]
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

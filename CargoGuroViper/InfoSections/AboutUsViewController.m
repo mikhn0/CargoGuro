@@ -7,22 +7,23 @@
 //
 
 #import "AboutUsViewController.h"
-#import "AppDelegate.h"
 
 @interface AboutUsViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextView *aboutUsText;
+@property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
 
 @end
 
 @implementation AboutUsViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+    [super viewDidLoad];}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.aboutLabel.text = LocalizedString(@"TITLE_ABOUT");
+    self.aboutUsText.text = LocalizedString(@"DESCRIPTION_ABOUT");
 }
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {

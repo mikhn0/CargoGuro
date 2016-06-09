@@ -7,7 +7,6 @@
 //
 
 #import "ReturnConnectionViewController.h"
-#import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 
 @interface ReturnConnectionViewController () <MFMailComposeViewControllerDelegate>
@@ -15,11 +14,6 @@
 @end
 
 @implementation ReturnConnectionViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
 - (IBAction)callPhone:(UIButton *)sender {
     NSString *phoneNumber = @"telprompt://+79191233398";
@@ -63,11 +57,6 @@
     
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {

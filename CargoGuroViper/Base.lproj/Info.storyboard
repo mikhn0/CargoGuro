@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -30,7 +30,7 @@
                                     <action selector="sendEmail:" destination="oKE-53-95x" eventType="touchUpInside" id="gEU-xs-KUg"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-V9-X03">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mail" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-V9-X03">
                                 <rect key="frame" x="174" y="24" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="8eA-f1-GRx"/>
@@ -51,7 +51,7 @@
                                     <action selector="callPhone:" destination="oKE-53-95x" eventType="touchUpInside" id="8NF-Qw-qL4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Wj-Mf8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_call" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Wj-Mf8">
                                 <rect key="frame" x="174" y="81" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="GPD-aq-6lV"/>
@@ -97,20 +97,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yUx-ey-nvg">
-                                <rect key="frame" x="20" y="20" width="560" height="496"/>
+                                <rect key="frame" x="20" y="56" width="560" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="О проекте" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-uB-sPh">
+                                <rect key="frame" x="20" y="8" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Zb2-RG-4pO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8a8-uB-sPh" firstAttribute="trailing" secondItem="uYR-ta-ynL" secondAttribute="trailingMargin" id="3sl-Pc-cGg"/>
+                            <constraint firstItem="8a8-uB-sPh" firstAttribute="top" secondItem="WHW-oK-M90" secondAttribute="bottom" constant="8" id="602-O8-ufz"/>
+                            <constraint firstItem="yUx-ey-nvg" firstAttribute="top" secondItem="8a8-uB-sPh" secondAttribute="bottom" constant="8" id="SY8-PR-yNP"/>
                             <constraint firstItem="2XS-IZ-2e9" firstAttribute="top" secondItem="yUx-ey-nvg" secondAttribute="bottom" constant="20" id="dRk-qv-HK5"/>
                             <constraint firstItem="yUx-ey-nvg" firstAttribute="trailing" secondItem="uYR-ta-ynL" secondAttribute="trailingMargin" id="gnG-am-iYU"/>
+                            <constraint firstItem="8a8-uB-sPh" firstAttribute="leading" secondItem="uYR-ta-ynL" secondAttribute="leadingMargin" id="jNt-8h-xK5"/>
                             <constraint firstItem="yUx-ey-nvg" firstAttribute="leading" secondItem="uYR-ta-ynL" secondAttribute="leadingMargin" id="vLH-0M-1Ue"/>
                             <constraint firstItem="yUx-ey-nvg" firstAttribute="top" secondItem="WHW-oK-M90" secondAttribute="bottom" constant="20" id="vZD-TC-WSf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vZD-TC-WSf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="CARGO.GURU" id="jvg-ij-0sJ">
                         <barButtonItem key="leftBarButtonItem" image="left_menu" id="c8r-uJ-hZK" userLabel="Left Drawer Toggle Button">
@@ -120,6 +137,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="aboutLabel" destination="8a8-uB-sPh" id="hca-iD-uvd"/>
+                        <outlet property="aboutUsText" destination="yUx-ey-nvg" id="AcX-cf-nRB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBC-k6-RJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,6 +192,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_call" width="97" height="96"/>
+        <image name="icon_mail" width="182" height="120"/>
         <image name="left_menu" width="31" height="22"/>
     </resources>
 </document>

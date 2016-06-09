@@ -25,15 +25,11 @@
     
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
-
-@property (weak, nonatomic) IBOutlet UIView *loadScreen;
-
-@property (weak, nonatomic) IBOutlet UIImageView *loadImage;
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (weak, nonatomic) IBOutlet UILabel *informationLabel;
+@property (weak, nonatomic) IBOutlet UIImageView    *backgroundView;
+@property (weak, nonatomic) IBOutlet UIView         *loadScreen;
+@property (weak, nonatomic) IBOutlet UIImageView    *loadImage;
+@property (weak, nonatomic) IBOutlet UITableView    *tableView;
+@property (weak, nonatomic) IBOutlet UILabel        *informationLabel;
 
 @end
 
@@ -54,7 +50,7 @@
     
     [self.loadScreen setFrame:[UIScreen mainScreen].bounds];
     
-    self.backgroundView.image = [UIImage imageNamed:@"Background"];
+    //self.backgroundView.image = [UIImage imageNamed:@"Background"];
     self.loadScreen.hidden = NO;
     self.loadImage.hidden = NO;
     self.loadImage.image = [UIImage imageNamed:@"logo"];
@@ -117,28 +113,30 @@
 
 - (void)setCustomNavigationBackButton
 {
-    
-    UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 44.0f, 30.0f)];
-    [backButton setImage:[UIImage imageNamed:@"custom_back_button"]  forState:UIControlStateNormal];
+    UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 80.0f, 30.0f)];
+    [backButton setImage:[UIImage imageNamed:@"icon_back"]  forState:UIControlStateNormal];
+    [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
+    [backButton setTitle:@"Поиск" forState:UIControlStateNormal];
+    [backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -4, 0, 0)];
     [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     UIButton *filterButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 35.0f, 35.0f)];
-    [filterButton setImage:[UIImage imageNamed:@"sorting_icon"]  forState:UIControlStateNormal];
+    [filterButton setImage:[UIImage imageNamed:@"icon_filter"]  forState:UIControlStateNormal];
+    [filterButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -2)];
     [filterButton addTarget:self action:@selector(filterPress) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
     
-    UILabel *lblTitle = [[UILabel alloc] init];
-    lblTitle.text = @"Варианты перевозки";
-    lblTitle.backgroundColor = [UIColor clearColor];
-    lblTitle.textColor = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
-    lblTitle.shadowColor = [UIColor whiteColor];
-    lblTitle.shadowOffset = CGSizeMake(0, 1);
-    lblTitle.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0];
-    [lblTitle sizeToFit];
-    
-    self.navigationItem.titleView = lblTitle;
-    
+//    UILabel *lblTitle = [[UILabel alloc] init];
+//    lblTitle.text = @"Варианты перевозки";
+//    lblTitle.backgroundColor = [UIColor clearColor];
+//    lblTitle.textColor = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
+//    lblTitle.shadowColor = [UIColor whiteColor];
+//    lblTitle.shadowOffset = CGSizeMake(0, 1);
+//    lblTitle.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0];
+//    [lblTitle sizeToFit];
+//    
+//    self.navigationItem.titleView = lblTitle;
 }
 
 
@@ -189,9 +187,7 @@
     cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
     
     float value = [[result objectForKey:@"methods"][@"calcResultPrice"] floatValue];
-    
     NSNumberFormatter * formatter = [NSNumberFormatter new];
-    
     [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [formatter setGroupingSeparator:@" "]; // Whatever you want here
@@ -199,12 +195,13 @@
     formatter.usesGroupingSeparator = YES;
     [formatter setMaximumFractionDigits:2];
     [formatter setMinimumFractionDigits:2];
-    
     NSString * newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
 
     cell.priceLabel.text = newString;
     
     cell.transportLabel.text = [result objectForKey:@"methods"][@"name"];
+    
+    cell.siteLabel.text = listOfResult[indexPath.row][@"transportSite"];
     
     return cell;
 }
@@ -230,7 +227,7 @@
     float heightTitle = [self getHeightForText:titleResult withFont:[UIFont systemFontOfSize:16
                                                                                  ] andWidth:210 * widthOfdescribeLabel];
     
-    return heightTitle + heightDescription;
+    return heightTitle + heightDescription+38;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -258,11 +255,18 @@
 }
 
 - (void)outPutError:(NSString *)error {
-    if ([error length] > 0) {
+    if ([error isKindOfClass:[NSDictionary class]]) {
         UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:[error valueForKey:@"failReason"] preferredStyle:UIAlertControllerStyleAlert];
         [alertError addAction:alertAction];
         [self presentViewController:alertError animated:YES completion:nil];
+    } else if ([error isKindOfClass:[NSString class]]) {
+        if ([error length] > 0) {
+            UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
+            [alertError addAction:alertAction];
+            [self presentViewController:alertError animated:YES completion:nil];
+        }
     }
 }
 

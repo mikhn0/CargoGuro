@@ -8,9 +8,7 @@
 
 #import "LeftTableViewController.h"
 #import "RevealTableViewCell.h"
-#import "AppDelegate.h"
 #import "JVFloatingDrawerViewController.h"
-#import "ConfigFormat+NSString.h"
 
 enum {
     kSearchIndex    = 0,
@@ -35,8 +33,6 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     NSInteger currentVolume;
 }
 @property (nonatomic) NSArray *leftMenuSections;
-@property (nonatomic) NSArray *countryImageName;
-@property (nonatomic) NSArray *countryName;
 @property (nonatomic) NSArray *configName;
 
 @end
@@ -68,16 +64,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:kSearchIndex inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
-- (NSArray *)countryImageName {
-    return @[@"rus_flag", @"ch_flag", @"en_flag", @"en_flag"];
-}
-
-- (NSArray *)countryName {
-    return @[@"RUS", @"中", @"ENG", @"DEU"];
-}
-
 - (NSArray *)configName {
-    return @[@[@"RUB", @"USD", @"EUR", @"KTZ", @"CNY"], @[@"кг", @"г", @"тн"], @[[NSString printCubeOfValue:@"м"], [NSString printCubeOfValue:@"см"], @"л"]];
+    return @[CURRENCY_NAME, WEIGHT_NAME, VOLUME_NAME];
 }
 
 #pragma mark - Table View Data Source
@@ -121,8 +109,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
         {
             cell = [tableView dequeueReusableCellWithIdentifier:kConfigCellReuseIdentifier forIndexPath:indexPath];
             cell.titleText = [self.leftMenuSections objectAtIndex:indexPath.row];
-            cell.iconImage = [UIImage imageNamed:[self.countryImageName objectAtIndex:currentCountry]];
-            cell.titleParameter = [self.countryName objectAtIndex:currentCountry];
+            cell.iconImage = [UIImage imageNamed:[COUNTRY_IMAGE_NAME objectAtIndex:currentCountry]];
+            cell.titleParameter = [SHORT_LANGUAGE_NAME objectAtIndex:currentCountry];
         }
             break;
         case kCurrencyIndex:

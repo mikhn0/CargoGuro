@@ -1,4 +1,4 @@
-//
+ //
 //  CGResultCalculateModuleInteractor.m
 //  CargoGuroViper
 //
@@ -53,7 +53,7 @@
                 
                 mutableParams[@"tNum"] = company[kTRANSPORT_NUMBER];
                 
-                //NSLog(@"mutableParams ====== %@", mutableParams);
+                NSLog(@"mutableParams ====== %@", mutableParams);
                 
                 __block NSString *companyName = company[kTRANSPORT_NAME];
                 __block NSString *transportSite = company[kTRANSPORT_SITE];
@@ -63,18 +63,23 @@
                     // Get JSON with information about freight for current company
                     [[httpClient getSessionManager] POST:GET_CALCULATION parameters:mutableParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                         
-                        //NSLog(@"responseObject ====== %@", responseObject);
-                        
-                        NSMutableDictionary *response = [responseObject mutableCopy];
-                        response[kTRANSPORT_NAME] = companyName;
-                        response[kTRANSPORT_SITE] = transportSite;
-                        completion(response.copy);
-                        
+                        NSLog(@"responseObject ====== %@", responseObject);
+                        if (![responseObject objectForKey:@"failReason"]) {
+                            
+                            NSMutableDictionary *response = [responseObject mutableCopy];
+                            response[kTRANSPORT_NAME] = companyName;
+                            response[kTRANSPORT_SITE] = transportSite;
+                            completion(response.copy);
+                            
+                        } else {
+                            NSData *data = [responseObject[@"failReason"] dataUsingEncoding:NSUTF8StringEncoding];
+                            NSString *decodevalue = [[NSString alloc] initWithData:data encoding:NSNonLossyASCIIStringEncoding];
+                            NSLog(@"responseObject ====== %@", decodevalue);
+                        }
                         countOfCompany--;
                         if (countOfCompany == 0) {
                             endOfLoad(YES);
                         }
-                        
                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                         //NSLog(@"count of company ======= %li", (long)countOfCompany);
                         failure([httpClient inputError:error]);

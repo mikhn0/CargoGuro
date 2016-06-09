@@ -13,27 +13,21 @@ static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
 
 @implementation WeightViewController
 
-@synthesize weightName = _weightName;
-@synthesize weightImageName = _weightImageName;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue];
 }
 
-- (NSArray *)weightName {
-    return @[@"кг", @"г", @"тн"];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *weights = self.weightName;
+    NSArray *weights = WEIGHT_NAME;
     return [weights count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     WeightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCurCellReuseIdentifier forIndexPath:indexPath];
-    cell.name = [self.weightName objectAtIndex:indexPath.row];
+    cell.name = [WEIGHT_NAME objectAtIndex:indexPath.row];
     
     [[cell selectedIcon] setHidden:YES];
     if (indexPath.row == self.currentIndex) {
