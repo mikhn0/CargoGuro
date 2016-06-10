@@ -99,12 +99,12 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     switch (indexPath.row) {
         case kSearchIndex:
         {
-            cell = [tableView dequeueReusableCellWithIdentifier:kConfigCellReuseIdentifier forIndexPath:indexPath];//kSearchCellReuseIdentifier
-//            cell.searchText = @"Поиск";
-//            cell.delegate = self;
-            cell.titleText = @"Поиск";
-            cell.iconImage = nil;//[UIImage imageNamed:[COUNTRY_IMAGE_NAME objectAtIndex:currentCountry]];
-            cell.titleParameter = nil;//[SHORT_LANGUAGE_NAME objectAtIndex:currentCountry];
+            cell = [tableView dequeueReusableCellWithIdentifier:kSearchCellReuseIdentifier forIndexPath:indexPath];
+            cell.searchText = @"Поиск";
+            cell.delegate = self;
+//            cell.titleText = @"Поиск";
+//            cell.iconImage = nil;
+//            cell.titleParameter = nil;
         }
             break;
             
