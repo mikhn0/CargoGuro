@@ -54,6 +54,17 @@
     self.cost.delegate = self;
     self.cost.clearButtonMode = UITextFieldViewModeWhileEditing;
     
+    self.from.placeholder = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
+    self.from.placeholder = LocalizedString(@"CALCULATE_LOAD_DELIVERY_COAST");
+    self.from.placeholder = LocalizedString(@"ENTER_FROM");
+    self.from.placeholder = LocalizedString(@"ENTER_TO");
+    self.from.placeholder = LocalizedString(@"ENTER_VALUE");
+    self.from.placeholder = LocalizedString(@"ENTER_WEIGHT");
+    self.from.placeholder = LocalizedString(@"ENTER_DECLARED_VALUE");
+    self.from.placeholder = LocalizedString(@"ENTER_CALCULATE");
+    
+
+    
     [self.from setText:@"Уфа"];
     [self.to setText:@"Киев"];
     [self.value setText:@"123"];

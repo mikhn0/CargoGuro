@@ -56,12 +56,12 @@
 		75F64B341C8055BF0019F61C /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B301C8055BF0019F61C /* JSONResponseSerializerWithData.m */; };
 		75F64B391C809F540019F61C /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64B371C809F540019F61C /* ResultTableViewCell.m */; };
 		75F64B3A1C809F540019F61C /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F64B381C809F540019F61C /* ResultTableViewCell.xib */; };
-		A4802132541E26A6A76F9773 /* libPods-CargoGuruViper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 051668DF89B498BA60BF5F63 /* libPods-CargoGuruViper.a */; };
+		DBB8D5CC8DAE0A8173C6211B /* libPods-CargoGuruViper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1467C65B8201DDB6E4EC8928 /* libPods-CargoGuruViper.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		051668DF89B498BA60BF5F63 /* libPods-CargoGuruViper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CargoGuruViper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A0A2DC5EF8A2618FC9F1D56 /* Pods-CargoGuruViper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CargoGuruViper.release.xcconfig"; path = "Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper.release.xcconfig"; sourceTree = "<group>"; };
+		143E617536A0C7C920C926EF /* Pods-CargoGuruViper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CargoGuruViper.release.xcconfig"; path = "Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper.release.xcconfig"; sourceTree = "<group>"; };
+		1467C65B8201DDB6E4EC8928 /* libPods-CargoGuruViper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CargoGuruViper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63152DDC1C7DE85B00AE47ED /* CGCalculateModuleAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGCalculateModuleAssembly.h; path = CalculateModule/Assembly/CGCalculateModuleAssembly.h; sourceTree = "<group>"; };
 		63152DDD1C7DE85B00AE47ED /* CGCalculateModuleAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGCalculateModuleAssembly.m; path = CalculateModule/Assembly/CGCalculateModuleAssembly.m; sourceTree = "<group>"; };
 		63152DDF1C7DE86700AE47ED /* CGCalculateModuleInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGCalculateModuleInteractor.h; path = CalculateModule/Interactor/CGCalculateModuleInteractor.h; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		75F64B361C809F540019F61C /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultTableViewCell.h; path = Cells/ResultTableViewCell.h; sourceTree = "<group>"; };
 		75F64B371C809F540019F61C /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultTableViewCell.m; path = Cells/ResultTableViewCell.m; sourceTree = "<group>"; };
 		75F64B381C809F540019F61C /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResultTableViewCell.xib; path = Cells/ResultTableViewCell.xib; sourceTree = "<group>"; };
-		AA45759DF33B43CAF225B412 /* Pods-CargoGuruViper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CargoGuruViper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper.debug.xcconfig"; sourceTree = "<group>"; };
+		A8FBA235834321EEF27F15EB /* Pods-CargoGuruViper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CargoGuruViper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +197,7 @@
 			files = (
 				75F64AEB1C7E1C360019F61C /* libRamblerTyphoonUtils.a in Frameworks */,
 				75F64AEC1C7E1C360019F61C /* libTyphoon.a in Frameworks */,
-				A4802132541E26A6A76F9773 /* libPods-CargoGuruViper.a in Frameworks */,
+				DBB8D5CC8DAE0A8173C6211B /* libPods-CargoGuruViper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +209,7 @@
 			children = (
 				75F64AE91C7E1C360019F61C /* libRamblerTyphoonUtils.a */,
 				75F64AEA1C7E1C360019F61C /* libTyphoon.a */,
-				051668DF89B498BA60BF5F63 /* libPods-CargoGuruViper.a */,
+				1467C65B8201DDB6E4EC8928 /* libPods-CargoGuruViper.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -412,7 +412,7 @@
 				75F64ACE1C7DB1E50019F61C /* CargoGuroViper */,
 				75F64ACD1C7DB1E50019F61C /* Products */,
 				2C190506C2473BFE8DF07EA6 /* Frameworks */,
-				BDCB81BA81684FC8A7CF2D3B /* Pods */,
+				F3A20F9FA6952840A71CB123 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -551,11 +551,11 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		BDCB81BA81684FC8A7CF2D3B /* Pods */ = {
+		F3A20F9FA6952840A71CB123 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AA45759DF33B43CAF225B412 /* Pods-CargoGuruViper.debug.xcconfig */,
-				4A0A2DC5EF8A2618FC9F1D56 /* Pods-CargoGuruViper.release.xcconfig */,
+				A8FBA235834321EEF27F15EB /* Pods-CargoGuruViper.debug.xcconfig */,
+				143E617536A0C7C920C926EF /* Pods-CargoGuruViper.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -567,13 +567,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75F64AE61C7DB1E50019F61C /* Build configuration list for PBXNativeTarget "CargoGuruViper" */;
 			buildPhases = (
-				7EEFB1B51786D6CD116EC888 /* 📦 Check Pods Manifest.lock */,
+				5B7BE68459D78A76649EA544 /* [CP] Check Pods Manifest.lock */,
 				75F64AC81C7DB1E50019F61C /* Sources */,
 				75F64AC91C7DB1E50019F61C /* Frameworks */,
 				75F64ACA1C7DB1E50019F61C /* Resources */,
-				4E8FC08A1E9A0DA3EE99E8AA /* 📦 Embed Pods Frameworks */,
-				C15BD4A5A69B8FC2D2676E3C /* 📦 Copy Pods Resources */,
-				CB0D3717E755939A1CC64F75 /* Embed Pods Frameworks */,
+				DB4940213E44C79756C1ADED /* [CP] Embed Pods Frameworks */,
+				53F62CE40F39FF487A049D12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -640,44 +639,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E8FC08A1E9A0DA3EE99E8AA /* 📦 Embed Pods Frameworks */ = {
+		53F62CE40F39FF487A049D12 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7EEFB1B51786D6CD116EC888 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C15BD4A5A69B8FC2D2676E3C /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,14 +654,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB0D3717E755939A1CC64F75 /* Embed Pods Frameworks */ = {
+		5B7BE68459D78A76649EA544 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB4940213E44C79756C1ADED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -895,7 +879,7 @@
 		};
 		75F64AE71C7DB1E50019F61C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA45759DF33B43CAF225B412 /* Pods-CargoGuruViper.debug.xcconfig */;
+			baseConfigurationReference = A8FBA235834321EEF27F15EB /* Pods-CargoGuruViper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -943,7 +927,7 @@
 		};
 		75F64AE81C7DB1E50019F61C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A0A2DC5EF8A2618FC9F1D56 /* Pods-CargoGuruViper.release.xcconfig */;
+			baseConfigurationReference = 143E617536A0C7C920C926EF /* Pods-CargoGuruViper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
