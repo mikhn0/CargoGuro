@@ -15,6 +15,9 @@
 #import "AppDelegate.h"
 #import "LocalizeHelper.h"
 
+#define IDIOM    UI_USER_INTERFACE_IDIOM()
+#define IPAD     UIUserInterfaceIdiomPad
+
 #define LANGUAGE_NAME @[@"Русский", @"中国人", @"English", @"Deutsch", @"Français"]
 #define LANGUAGE @[@"ru", @"zh", @"en", @"de", @"fr"]
 #define LOCALIZE_LANGUAGE @[@"ru", @"zh-Hans", @"en", @"de", @"fr"]

@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "479662023.542002"
+            timestampString = "487274669.743877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-hideKeyboard"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "-keyboardWasShown:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "479662023.542002"
+            timestampString = "487274669.743877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "-searchTransiteAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,12 +346,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "479662023.542002"
+            timestampString = "487274669.743877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "-hideKeyboard"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-keyboardWasShown:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "479662023.542002"
+            timestampString = "487274669.743877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "-textField:shouldChangeCharactersInRange:replacementString:"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "479662023.542002"
+            timestampString = "487274669.743877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "-textFieldDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "479662023.542002"
+            timestampString = "487274669.743877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "-textFieldDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>

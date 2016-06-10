@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
+@property (weak, nonatomic) IBOutlet UILabel *logoLabel;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *from;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *to;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *value;
@@ -32,7 +33,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *heightLabel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_from_to;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_to_volume;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_volume_weight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_weight_cost;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_cost_button;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_from_right;
+
 @property (nonatomic) JVFloatLabeledTextField *activeField;
+
 
 @end
 
@@ -53,7 +63,17 @@
     self.weight.delegate = self;
     self.cost.delegate = self;
     self.cost.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.logoLabel.adjustsFontSizeToFitWidth = YES;
     
+    self.from.layer.borderWidth = 1.0;
+    self.from.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.from.layer.cornerRadius = 3.0;
+    
+    self.to.layer.borderWidth = 1.0;
+    self.to.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.to.layer.cornerRadius = 3.0;
+    
+<<<<<<< HEAD
     self.from.placeholder = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
     self.from.placeholder = LocalizedString(@"CALCULATE_LOAD_DELIVERY_COAST");
     self.from.placeholder = LocalizedString(@"ENTER_FROM");
@@ -70,6 +90,25 @@
     [self.value setText:@"123"];
     [self.weight setText:@"123"];
     [self.cost setText:@"123"];
+=======
+    self.value.layer.borderWidth = 1.0;
+    self.value.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.value.layer.cornerRadius = 3.0;
+    
+    self.weight.layer.borderWidth = 1.0;
+    self.weight.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.weight.layer.cornerRadius = 3.0;
+    
+    self.cost.layer.borderWidth = 1.0;
+    self.cost.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.cost.layer.cornerRadius = 3.0;
+    
+//    [self.from setText:@"Уфа"];
+//    [self.to setText:@"Киев"];
+//    [self.value setText:@"123"];
+//    [self.weight setText:@"123"];
+//    [self.cost setText:@"123"];
+>>>>>>> e6347de5486ed3c7659f7de3525cac3d6ee96417
     
     self.searchTransite.layer.cornerRadius = 5.0;
     
@@ -79,16 +118,23 @@
     
     [self registerForKeyboardNotifications];
     
-    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.widthLabel
-                                                     attribute:NSLayoutAttributeWidth
-                                                     relatedBy:NSLayoutRelationEqual
-                                                        toItem:self.lengthLabel
-                                                     attribute:NSLayoutAttributeWidth
-                                                    multiplier:1.0 
-                                                      constant:0]];
-    [self.scrollView updateConstraints];
+    self.aligment_from_to.constant = (14 * self.view.frame.size.width) / 305.0;
+    self.aligment_to_volume.constant = (14 * self.view.frame.size.width) / 305.0;
+    self.aligment_volume_weight.constant = (14 * self.view.frame.size.width) / 305.0;
+    self.aligment_weight_cost.constant = (14 * self.view.frame.size.width) / 305.0;
+    self.aligment_cost_button.constant = (14 * self.view.frame.size.width) / 305.0;
+    self.aligment_from_right.constant = (20 * self.view.frame.size.width) / 305.0;
+
+//    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+//    
+//    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.widthLabel
+//                                                     attribute:NSLayoutAttributeWidth
+//                                                     relatedBy:NSLayoutRelationEqual
+//                                                        toItem:self.lengthLabel
+//                                                     attribute:NSLayoutAttributeWidth
+//                                                    multiplier:1.0 
+//                                                      constant:0]];
+//    [self.scrollView updateConstraints];
 }
 
 - (void) viewWillAppear:(BOOL)animated

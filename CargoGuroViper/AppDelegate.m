@@ -161,17 +161,17 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
     self.drawerViewController.animator = self.drawerAnimator;
     
     
-//    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-//    CAGradientLayer *layer = [CAGradientLayer layer];
-//    layer.frame = CGRectMake(0, 0, size.width, size.height);
-//    layer.colors = @[ (__bridge id)[UIColor colorWithRed:45.0/255.0 green:45.0/255.0 blue:47.0/255.0 alpha:1.0].CGColor ,   // start color
-//                      (__bridge id)[UIColor colorWithRed:15.0/255.0 green:15.0/255.0 blue:15.0/255.0 alpha:1.0].CGColor]; // end color
-//    
-//    UIGraphicsBeginImageContext(size);
-//    [layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-    self.drawerViewController.backgroundImage = [UIImage imageNamed:@"background_transport"];
+    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.frame = CGRectMake(0, 0, size.width, size.height);
+    layer.colors = @[ (__bridge id)[UIColor colorWithRed:158.0/255.0 green:158.0/255.0 blue:158.0/255.0 alpha:1.0].CGColor ,   // start color
+                      (__bridge id)[UIColor colorWithRed:97.0/255.0 green:97.0/255.0 blue:97.0/255.0 alpha:1.0].CGColor]; // end color
+    
+    UIGraphicsBeginImageContext(size);
+    [layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.drawerViewController.backgroundImage = [UIImage imageNamed:@"background_test"];
 
 }
 

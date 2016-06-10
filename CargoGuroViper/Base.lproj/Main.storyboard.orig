@@ -1493,6 +1493,9 @@
         </scene>
     </scenes>
     <resources>
+<<<<<<< HEAD
+        <image name="left_menu" width="182" height="120"/>
+=======
         <image name="input_big_screen" width="309" height="478"/>
         <image name="left_btn_transition" width="22" height="48"/>
         <image name="left_menu" width="31" height="22"/>
@@ -1501,5 +1504,6 @@
         <image name="rightUP_ball" width="54" height="54"/>
         <image name="right_down_ball" width="38" height="38"/>
         <image name="right_up_ball" width="38" height="38"/>
+>>>>>>> e6347de5486ed3c7659f7de3525cac3d6ee96417
     </resources>
 </document>

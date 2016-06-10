@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+>>>>>>> e6347de5486ed3c7659f7de3525cac3d6ee96417
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--CARGO.GURU-->
+        <scene sceneID="uPe-iG-ZkR">
+            <objects>
+                <viewController id="oKE-53-95x" customClass="ReturnConnectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lAt-j9-AXi"/>
+                        <viewControllerLayoutGuide type="bottom" id="SKB-Ny-BGy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2NQ-rz-2Qa">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WW3-kk-PCc">
+                                <rect key="frame" x="253" y="31" width="135" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="Uir-Ir-zBm"/>
+                                    <constraint firstAttribute="width" constant="135" id="iTk-Uy-5dr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="info@cargo.guru"/>
+                                <connections>
+                                    <action selector="sendEmail:" destination="oKE-53-95x" eventType="touchUpInside" id="gEU-xs-KUg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mail" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-V9-X03">
+                                <rect key="frame" x="174" y="24" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="8eA-f1-GRx"/>
+                                    <constraint firstAttribute="height" constant="48" id="CPq-dn-vr7"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odg-cb-ZVh">
+                                <rect key="frame" x="253" y="88" width="161" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="161" id="aaQ-HD-jhI"/>
+                                    <constraint firstAttribute="height" constant="33" id="biE-V1-iTB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="+7 (919) 123-33-98 ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callPhone:" destination="oKE-53-95x" eventType="touchUpInside" id="8NF-Qw-qL4"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_call" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Wj-Mf8">
+                                <rect key="frame" x="174" y="81" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="GPD-aq-6lV"/>
+                                    <constraint firstAttribute="height" constant="48" id="N7A-9v-R2v"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="odg-cb-ZVh" firstAttribute="centerX" secondItem="2NQ-rz-2Qa" secondAttribute="centerX" constant="33.5" id="FBK-Ge-XrF"/>
+                            <constraint firstItem="WW3-kk-PCc" firstAttribute="top" secondItem="lAt-j9-AXi" secondAttribute="bottom" constant="31" id="JR7-zH-VaT"/>
+                            <constraint firstItem="WW3-kk-PCc" firstAttribute="leading" secondItem="pGu-V9-X03" secondAttribute="trailing" constant="31" id="Ria-VO-85l"/>
+                            <constraint firstItem="VPU-Wj-Mf8" firstAttribute="top" secondItem="pGu-V9-X03" secondAttribute="bottom" constant="9" id="kDR-YZ-ceL"/>
+                            <constraint firstItem="odg-cb-ZVh" firstAttribute="leading" secondItem="VPU-Wj-Mf8" secondAttribute="trailing" constant="31" id="lUK-bQ-HaZ"/>
+                            <constraint firstItem="odg-cb-ZVh" firstAttribute="top" secondItem="WW3-kk-PCc" secondAttribute="bottom" constant="24" id="rbr-ty-vbH"/>
+                            <constraint firstItem="pGu-V9-X03" firstAttribute="top" secondItem="lAt-j9-AXi" secondAttribute="bottom" constant="24" id="t1E-pn-eq9"/>
+                            <constraint firstItem="WW3-kk-PCc" firstAttribute="centerX" secondItem="2NQ-rz-2Qa" secondAttribute="centerX" constant="20.5" id="zYM-Gr-YC6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="CARGO.GURU" id="1ar-QU-aoe">
+                        <barButtonItem key="leftBarButtonItem" image="left_menu" id="c9Z-x0-qge" userLabel="Left Drawer Toggle Button">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="actionToggleLeftDrawer:" destination="oKE-53-95x" id="fzE-zC-Oao"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MtQ-x1-EfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898" y="225"/>
+        </scene>
+        <!--CARGO.GURU-->
+        <scene sceneID="C8q-9F-Asl">
+            <objects>
+                <viewController id="oTS-yz-IIf" customClass="AboutUsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WHW-oK-M90"/>
+                        <viewControllerLayoutGuide type="bottom" id="2XS-IZ-2e9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uYR-ta-ynL">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yUx-ey-nvg">
+                                <rect key="frame" x="20" y="56" width="560" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="О проекте" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-uB-sPh">
+                                <rect key="frame" x="20" y="8" width="560" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Zb2-RG-4pO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8a8-uB-sPh" firstAttribute="trailing" secondItem="uYR-ta-ynL" secondAttribute="trailingMargin" id="3sl-Pc-cGg"/>
+                            <constraint firstItem="8a8-uB-sPh" firstAttribute="top" secondItem="WHW-oK-M90" secondAttribute="bottom" constant="8" id="602-O8-ufz"/>
+                            <constraint firstItem="yUx-ey-nvg" firstAttribute="top" secondItem="8a8-uB-sPh" secondAttribute="bottom" constant="8" id="SY8-PR-yNP"/>
+                            <constraint firstItem="2XS-IZ-2e9" firstAttribute="top" secondItem="yUx-ey-nvg" secondAttribute="bottom" constant="20" id="dRk-qv-HK5"/>
+                            <constraint firstItem="yUx-ey-nvg" firstAttribute="trailing" secondItem="uYR-ta-ynL" secondAttribute="trailingMargin" id="gnG-am-iYU"/>
+                            <constraint firstItem="8a8-uB-sPh" firstAttribute="leading" secondItem="uYR-ta-ynL" secondAttribute="leadingMargin" id="jNt-8h-xK5"/>
+                            <constraint firstItem="yUx-ey-nvg" firstAttribute="leading" secondItem="uYR-ta-ynL" secondAttribute="leadingMargin" id="vLH-0M-1Ue"/>
+                            <constraint firstItem="yUx-ey-nvg" firstAttribute="top" secondItem="WHW-oK-M90" secondAttribute="bottom" constant="20" id="vZD-TC-WSf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vZD-TC-WSf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="CARGO.GURU" id="jvg-ij-0sJ">
+                        <barButtonItem key="leftBarButtonItem" image="left_menu" id="c8r-uJ-hZK" userLabel="Left Drawer Toggle Button">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="actionToggleLeftDrawer:" destination="oTS-yz-IIf" id="SZk-9G-JAR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="aboutLabel" destination="8a8-uB-sPh" id="hca-iD-uvd"/>
+                        <outlet property="aboutUsText" destination="yUx-ey-nvg" id="AcX-cf-nRB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBC-k6-RJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892" y="-476"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f9w-5l-gXZ">
+            <objects>
+                <navigationController storyboardIdentifier="ReturnConnectionVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="4F0-uW-Y83" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nBQ-ED-XU5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.52941176469999995" green="0.1764705882" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oKE-53-95x" kind="relationship" relationship="rootViewController" id="Meh-39-gJE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9j-b6-haM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="225"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="S9F-hJ-Loy">
+            <objects>
+                <navigationController storyboardIdentifier="AboutUsVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Nxp-aW-1nU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="YQ7-DX-qTp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.52941176469999995" green="0.1764705882" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oTS-yz-IIf" kind="relationship" relationship="rootViewController" id="bQE-Gi-mHJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQG-Eb-fdm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="-476"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_call" width="97" height="96"/>
+        <image name="icon_mail" width="182" height="120"/>
+        <image name="left_menu" width="31" height="22"/>
+    </resources>
+</document>

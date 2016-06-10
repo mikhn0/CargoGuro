@@ -102,6 +102,9 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
             cell = [tableView dequeueReusableCellWithIdentifier:kSearchCellReuseIdentifier forIndexPath:indexPath];
             cell.searchText = @"Поиск";
             cell.delegate = self;
+//            cell.titleText = @"Поиск";
+//            cell.iconImage = nil;
+//            cell.titleParameter = nil;
         }
             break;
             

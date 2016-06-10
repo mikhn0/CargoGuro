@@ -196,6 +196,7 @@ NSString *JVFloatingDrawerSideString(JVFloatingDrawerSide side) {
 
 - (void)setBackgroundImage:(UIImage *)backgroundImage {
     self.drawerView.backgroundImageView.image = backgroundImage;
+    self.drawerView.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (UIImage *)backgroundImage {
