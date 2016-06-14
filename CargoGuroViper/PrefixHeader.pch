@@ -14,6 +14,7 @@
 #import "ConfigFormat+NSString.h"
 #import "AppDelegate.h"
 #import "LocalizeHelper.h"
+#import "UIViewController+MMDrawerController.h"
 
 #define IDIOM    UI_USER_INTERFACE_IDIOM()
 #define IPAD     UIUserInterfaceIdiomPad

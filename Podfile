@@ -11,5 +11,6 @@ target 'CargoGuruViper' do
   pod 'OCMock'
   pod 'JVFloatLabeledTextField'
   pod 'JVFloatingDrawer'
+  pod 'MMDrawerController', '~> 0.5.7'
 
 end

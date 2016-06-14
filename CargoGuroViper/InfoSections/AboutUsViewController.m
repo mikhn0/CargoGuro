@@ -27,7 +27,7 @@
 }
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {
-    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 @end

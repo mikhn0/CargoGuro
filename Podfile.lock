@@ -16,6 +16,18 @@ PODS:
     - AFNetworking/NSURLSession
   - JVFloatingDrawer (0.1.0)
   - JVFloatLabeledTextField (1.1.0)
+  - MMDrawerController (0.5.7):
+    - MMDrawerController/Core (= 0.5.7)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
+    - MMDrawerController/MMDrawerVisualStates (= 0.5.7)
+    - MMDrawerController/Subclass (= 0.5.7)
+  - MMDrawerController/Core (0.5.7)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.7):
+    - MMDrawerController/Core
   - OCMock (3.3)
   - RamblerSegues (1.1.0):
     - RamblerSegues/Core (= 1.1.0)
@@ -43,6 +55,7 @@ DEPENDENCIES:
   - AFNetworking
   - JVFloatingDrawer
   - JVFloatLabeledTextField
+  - MMDrawerController (~> 0.5.7)
   - OCMock
   - RamblerSegues
   - RamblerTyphoonUtils
@@ -53,6 +66,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   JVFloatingDrawer: 4782b1df21411aef2c1818f3b346cace02cc2e24
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
+  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
   OCMock: d68685bde31f69cb61d518dcb39269080c78b5ed
   RamblerSegues: e4b34295ede5203115b53f6b749c14d9ba6b9e5e
   RamblerTyphoonUtils: 7c4c7a7e6fa569a38512a687f676a834de2bd311

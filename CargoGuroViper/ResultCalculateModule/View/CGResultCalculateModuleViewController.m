@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView         *loadScreen;
 @property (weak, nonatomic) IBOutlet UIImageView    *loadImage;
 @property (weak, nonatomic) IBOutlet UITableView    *tableView;
+@property (weak, nonatomic) IBOutlet UILabel        *routeLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *informationLabel;
 
 @end
@@ -56,42 +57,10 @@
     self.loadImage.image = [UIImage imageNamed:@"logo"];
     [self rotateLayerInfinite:self.loadImage.layer];
     
-    NSDictionary *attrs = @{
-                            NSFontAttributeName:[UIFont boldSystemFontOfSize:13],
-                            NSForegroundColorAttributeName:[UIColor blackColor]
-                            };
-    NSDictionary *subAttrs = @{
-                               NSFontAttributeName:[UIFont systemFontOfSize:13],
-                               NSForegroundColorAttributeName:[UIColor blackColor]
-                               };
-    
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ - %@ \nобьём %@ м3; вес %@ кг; \nценность %.2f р.", self.datas[@"cargoFrom"], self.datas[@"cargoTo"], self.datas[@"cV"], self.datas[@"cW"], ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00)];
-    
-    NSRange range0 = [self.informationLabel.text rangeOfString: self.informationLabel.text];
-    NSRange range1 = [self.informationLabel.text rangeOfString: self.datas[@"cargoFrom"]];
-    NSRange range2 = [self.informationLabel.text rangeOfString: self.datas[@"cargoTo"]];
-    NSRange range3 = [self.informationLabel.text rangeOfString: self.datas[@"cV"]];
-    NSRange range4 = [self.informationLabel.text rangeOfString: self.datas[@"cW"]];
-    NSRange range5 = [self.informationLabel.text rangeOfString: self.datas[@"cInsP"]];
-    
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:self.informationLabel.text];
+    self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];
     
     
-    [attributedText setAttributes:subAttrs
-                            range:range0];
-    [attributedText setAttributes:attrs
-                            range:range1];
-    [attributedText setAttributes:attrs
-                            range:range2];
-    [attributedText setAttributes:attrs
-                            range:range3];
-    [attributedText setAttributes:attrs
-                            range:range4];
-    [attributedText setAttributes:attrs
-                            range:range5];
-    
-    self.informationLabel.attributedText = attributedText;
-    
+    self.informationLabel.text = [NSString stringWithFormat:@"Обьём %@ %@. Вес %@ %@. Ценность %.2f %@.", self.datas[@"cV"], VOLUME_NAME[[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue]], self.datas[@"cW"], WEIGHT_NAME[[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue]], ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00), CURRENCY_NAME[[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue]]];
     
     self.output.imageIndicator = self.loadImage;
     self.output.loadView = self.loadScreen;

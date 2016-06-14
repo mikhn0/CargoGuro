@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6033BD036129D4575F77EB5B'
+               BlueprintIdentifier = '92619CE9912C85B9F01AF751'
                BlueprintName = 'Pods-CargoGuruViper'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-CargoGuruViper.a'>
