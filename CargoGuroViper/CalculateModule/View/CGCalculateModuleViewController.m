@@ -11,11 +11,11 @@
 #import "CGCalculateModuleViewOutput.h"
 #import "JVFloatLabeledTextField.h"
 #import "JVFloatLabeledTextView.h"
-#import "AppDelegate.h"
+#import "VolumeCalculateView.h"
 
 #import "CGCalculateModulePresenter.h"
 
-@interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
+@interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
 @property (weak, nonatomic) IBOutlet UILabel *logoLabel;
@@ -175,22 +175,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"Main view frame ==== %@", NSStringFromCGRect(self.view.frame));
-//    if ([self.activeField isEqual:self.length] || [self.activeField isEqual:self.width] || [self.activeField isEqual:self.height]) {
-//        if (self.length.text.length > 0 && self.width.text.length > 0 && self.height.text.length>0) {
-//            
-//            NSNumber *number = [[NSNumberFormatter new] numberFromString: self.length.text];
-//            float lengthValue = number.floatValue;
-//            
-//            number = [[NSNumberFormatter new] numberFromString: self.width.text];
-//            float widthValue = number.floatValue;
-//
-//            number = [[NSNumberFormatter new] numberFromString: self.height.text];
-//            float heightValue = number.floatValue;
-//            
-//            self.value.text = [NSString stringWithFormat:@"%.2f", lengthValue * widthValue * heightValue];
-//        }
-//    }
     self.activeField = nil;
 }
 
@@ -248,6 +232,24 @@
     self.to.text = fromString;
 }
 
+- (IBAction)volumeCalculation:(id)sender {
+    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"VolumeCalculateView" owner:self options:nil];
+    VolumeCalculateView *mainView = [subviewArray objectAtIndex:0];
+    //mainView.frame = self.view.bounds;
+    //mainView.currentSelectSorting = currentSelectSorting;
+    //mainView.arrowCurrentSorting = arrowCurrentSorting;
+    mainView.delegate = self;
+    
+    UIWindow* window = [[UIApplication sharedApplication] keyWindow];
+    
+    // set frame of auto play bg view
+    mainView.frame = window.frame;
+    [window addSubview: mainView];
+    
+    //[self.view addSubview:mainView];
+    //[self.output didSelectFilter];
+}
+
 - (IBAction)searchTransiteAction:(id)sender {
     NSInteger tNum = 1;
     NSString *cargoFrom = self.from.text;
@@ -273,11 +275,18 @@
         [self outPutError:NSLocalizedString(@"ENTER_WAIST", nil)];
        
     } else {
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue]], @"cFC": @"RU", @"cTC":@"UA"};
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC": @"RU", @"cTC":@"UA"};
         [self.output searchTransition:datas];
         
     }
     
+}
+
+
+#pragma mark - VolumeCalculateViewDelegate 
+
+- (void)resultCalculateVolume:(NSString *)resultString {
+    self.value.text = resultString;
 }
 
 - (void)outPutError:(NSString *)error {

@@ -57,11 +57,11 @@
                 NSMutableDictionary *resultDictionary = result.mutableCopy;
                 resultDictionary[@"methods"] = [result[@"methods"] objectAtIndex:i];
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
+                //dispatch_async(dispatch_get_main_queue(), ^{
                     
                     [self.view addRowWithResult:resultDictionary.copy];
                     
-                });
+                //});
             }
             
         }

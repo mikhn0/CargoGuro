@@ -26,7 +26,7 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue];
+    self.currentIndex = INDEX_CURRENCY;
 }
 
 

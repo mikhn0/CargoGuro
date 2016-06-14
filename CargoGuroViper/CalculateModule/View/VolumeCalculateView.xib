@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VolumeCalculateView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPg-58-6Bf">
+                    <rect key="frame" x="185" y="100" width="231" height="320"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kft-HA-h27" userLabel="ContentView">
+                            <rect key="frame" x="0.0" y="0.0" width="231" height="320"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_big_screen" translatesAutoresizingMaskIntoConstraints="NO" id="aNB-MR-gl9">
+                                    <rect key="frame" x="0.0" y="0.0" width="231" height="320"/>
+                                </imageView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="l4k-2t-qI2" customClass="JVFloatLabeledTextField">
+                                    <rect key="frame" x="28" y="35" width="175" height="38"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="l4k-2t-qI2" secondAttribute="height" multiplier="175:38" id="sk9-Ze-C0c"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
+                                            <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="H4T-bH-1cN" customClass="JVFloatLabeledTextField">
+                                    <rect key="frame" x="28" y="98" width="175" height="38"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="H4T-bH-1cN" secondAttribute="height" multiplier="175:38" id="mN7-E8-vGC"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
+                                            <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Длина (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="b4j-Ly-STL" customClass="JVFloatLabeledTextField">
+                                    <rect key="frame" x="28" y="161" width="175" height="38"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="b4j-Ly-STL" secondAttribute="height" multiplier="175:38" id="nLU-fk-Q8n"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
+                                            <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dn-v7-O9u">
+                                    <rect key="frame" x="28" y="233" width="175" height="38"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="9Dn-v7-O9u" secondAttribute="height" multiplier="175:38" id="VQq-A6-FcL"/>
+                                    </constraints>
+                                    <state key="normal" title="Рассчитать">
+                                        <color key="titleColor" red="0.54044508319999995" green="0.069210278489999999" blue="0.45226294169999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pressOnCulculateButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="B34-wF-eZd"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="H4T-bH-1cN" secondAttribute="trailing" constant="28" id="6j7-yh-wIz"/>
+                                <constraint firstItem="aNB-MR-gl9" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" id="8P6-bB-oFC"/>
+                                <constraint firstItem="b4j-Ly-STL" firstAttribute="top" secondItem="H4T-bH-1cN" secondAttribute="bottom" constant="25" id="Csu-Lj-yj3"/>
+                                <constraint firstAttribute="trailing" secondItem="9Dn-v7-O9u" secondAttribute="trailing" constant="28" id="I6j-rU-4WN"/>
+                                <constraint firstItem="l4k-2t-qI2" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" constant="35" id="LAr-Qu-a2e"/>
+                                <constraint firstItem="H4T-bH-1cN" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="NYk-lg-noi"/>
+                                <constraint firstAttribute="bottom" secondItem="aNB-MR-gl9" secondAttribute="bottom" id="Nwd-Mi-fc7"/>
+                                <constraint firstItem="H4T-bH-1cN" firstAttribute="top" secondItem="l4k-2t-qI2" secondAttribute="bottom" constant="25" id="PA7-oz-tXy"/>
+                                <constraint firstAttribute="trailing" secondItem="b4j-Ly-STL" secondAttribute="trailing" constant="28" id="URs-oB-YDV"/>
+                                <constraint firstItem="b4j-Ly-STL" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="W6Q-rJ-N8L"/>
+                                <constraint firstItem="l4k-2t-qI2" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="Y1V-Jw-i2U"/>
+                                <constraint firstAttribute="bottom" secondItem="9Dn-v7-O9u" secondAttribute="bottom" constant="49" id="aMs-tk-6xz"/>
+                                <constraint firstAttribute="trailing" secondItem="l4k-2t-qI2" secondAttribute="trailing" constant="28" id="bjy-Lm-yPK"/>
+                                <constraint firstAttribute="trailing" secondItem="H4T-bH-1cN" secondAttribute="trailing" constant="28" id="oBa-Bk-IAX"/>
+                                <constraint firstItem="9Dn-v7-O9u" firstAttribute="top" secondItem="b4j-Ly-STL" secondAttribute="bottom" constant="34" id="oIj-FA-3xD"/>
+                                <constraint firstItem="aNB-MR-gl9" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" id="vRu-29-yDU"/>
+                                <constraint firstAttribute="trailing" secondItem="aNB-MR-gl9" secondAttribute="trailing" id="wOs-fp-C9f"/>
+                                <constraint firstItem="l4k-2t-qI2" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="29" id="xd3-hf-dun"/>
+                                <constraint firstItem="9Dn-v7-O9u" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="xy5-BE-PH8"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="xd3-hf-dun"/>
+                                    <exclude reference="oBa-Bk-IAX"/>
+                                </mask>
+                            </variation>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Kft-HA-h27" firstAttribute="top" secondItem="rPg-58-6Bf" secondAttribute="top" id="3is-1I-vEW"/>
+                        <constraint firstAttribute="width" secondItem="rPg-58-6Bf" secondAttribute="height" multiplier="231:320" id="K8Y-XC-rHW"/>
+                        <constraint firstItem="Kft-HA-h27" firstAttribute="leading" secondItem="rPg-58-6Bf" secondAttribute="leading" id="OBz-K7-5Y5"/>
+                        <constraint firstAttribute="trailing" secondItem="Kft-HA-h27" secondAttribute="trailing" id="ZDM-Jp-ohz"/>
+                        <constraint firstItem="Kft-HA-h27" firstAttribute="centerY" secondItem="rPg-58-6Bf" secondAttribute="centerY" id="cwS-Z8-BJa"/>
+                        <constraint firstAttribute="bottom" secondItem="Kft-HA-h27" secondAttribute="bottom" id="ggc-Ki-bSZ"/>
+                        <constraint firstItem="Kft-HA-h27" firstAttribute="centerX" secondItem="rPg-58-6Bf" secondAttribute="centerX" id="h4Y-2t-ogI"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="rPg-58-6Bf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-77" id="etd-Wj-9UW"/>
+                <constraint firstItem="rPg-58-6Bf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="jQj-Hb-V3M"/>
+                <constraint firstItem="rPg-58-6Bf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="63" id="jt6-nc-h0v"/>
+                <constraint firstItem="rPg-58-6Bf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="m4E-dN-zYr"/>
+                <constraint firstItem="rPg-58-6Bf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qa9-W2-ubc"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="jt6-nc-h0v"/>
+                    <exclude reference="qa9-W2-ubc"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="calculateButton" destination="9Dn-v7-O9u" id="T9F-Lk-0Gc"/>
+                <outlet property="height" destination="H4T-bH-1cN" id="bqr-aG-Kfm"/>
+                <outlet property="length" destination="b4j-Ly-STL" id="2Va-Q0-BeQ"/>
+                <outlet property="scrollView" destination="rPg-58-6Bf" id="acq-gc-gcs"/>
+                <outlet property="width" destination="l4k-2t-qI2" id="lcN-Ft-4pe"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="input_big_screen" width="309" height="478"/>
+    </resources>
+</document>

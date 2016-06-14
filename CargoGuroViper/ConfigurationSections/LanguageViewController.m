@@ -24,7 +24,7 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue];
+    self.currentIndex = INDEX_COUNTRY;
 }
 
 

@@ -15,7 +15,7 @@ static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue];
+    self.currentIndex = INDEX_WEIGHT;
 }
 
 

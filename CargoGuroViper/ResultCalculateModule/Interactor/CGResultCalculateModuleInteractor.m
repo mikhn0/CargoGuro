@@ -10,18 +10,6 @@
 #import "HTTPClient.h"
 #import "CGResultCalculateModuleInteractorOutput.h"
 
-#define GET_COMPLIST    @"2/get_complist.php"
-#define GET_CALCULATION @"2/get_calculation.php"
-#define GET_ADVERT      @"2/get_advert.php"
-#define GET_RES_ADVERT  @"2/get_res_advert.php"
-#define GET_CVT_PRICES  @"2/get_cvt_prices.php"
-#define CLICKURL        @"2/clickurl.php"
-
-#define kCOMPANIES          @"companies"
-#define kTRANSPORT_NUMBER   @"transportNumber"
-#define kTRANSPORT_NAME     @"transportName"
-#define kTRANSPORT_SITE     @"transportSite"
-
 @implementation CGResultCalculateModuleInteractor
 
 #pragma mark - Методы CGResultCalculateModuleInteractorInput
@@ -44,7 +32,8 @@
         [[httpClient getSessionManager] GET:GET_COMPLIST parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             NSArray *companies = responseObject[kCOMPANIES];
-            __block NSInteger countOfCompany = companies.count;
+            NSInteger countOfCompany = companies.count;
+            dispatch_queue_t concurrent_queue = dispatch_queue_create("com.fruktorum.GetCalculationQueue", DISPATCH_QUEUE_CONCURRENT);
             
             for (NSDictionary *company in companies) {
                 
@@ -53,46 +42,87 @@
                 
                 mutableParams[@"tNum"] = company[kTRANSPORT_NUMBER];
                 
-                NSLog(@"mutableParams ====== %@", mutableParams);
+                //NSLog(@"mutableParams ====== %@", mutableParams);
                 
                 __block NSString *companyName = company[kTRANSPORT_NAME];
                 __block NSString *transportSite = company[kTRANSPORT_SITE];
+                __block NSDictionary *transportNames = company[kTRANSPORT_NAMES];
                 
-                dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-                    
-                    // Get JSON with information about freight for current company
-                    [[httpClient getSessionManager] POST:GET_CALCULATION parameters:mutableParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                        
-                        NSLog(@"responseObject ====== %@", responseObject);
-                        if (![responseObject objectForKey:@"failReason"]) {
-                            
-                            NSMutableDictionary *response = [responseObject mutableCopy];
-                            response[kTRANSPORT_NAME] = companyName;
-                            response[kTRANSPORT_SITE] = transportSite;
-                            completion(response.copy);
-                            
-                        } else {
-                            NSData *data = [responseObject[@"failReason"] dataUsingEncoding:NSUTF8StringEncoding];
-                            NSString *decodevalue = [[NSString alloc] initWithData:data encoding:NSNonLossyASCIIStringEncoding];
-                            NSLog(@"responseObject ====== %@", decodevalue);
-                        }
-                        countOfCompany--;
-                        if (countOfCompany == 0) {
-                            endOfLoad(YES);
-                        }
-                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                        //NSLog(@"count of company ======= %li", (long)countOfCompany);
-                        failure([httpClient inputError:error]);
-                        
-                    }];
-                });
+                countOfCompany--;
+                if (countOfCompany % 10 == 0) {
+                    dispatch_barrier_async(concurrent_queue, ^{
+                        [self getCalculationByCompanyName:  companyName
+                                             withSiteName:  transportSite
+                                       withTransportNames:  transportNames
+                                       withCountOfCompany:  countOfCompany
+                                           withDictionary:  mutableParams
+                                                onSuccess:^(NSDictionary *result) {
+                                                    completion(result);
+                                           } onFailure:^(NSString *error) {
+                                               failure(error);
+                                           } endOfLoad:^(BOOL theEnd) {
+                                               endOfLoad(theEnd);
+                                           }];
+                    });
+                } else {
+                    dispatch_async(concurrent_queue, ^{
+                        [self getCalculationByCompanyName: companyName
+                                              withSiteName: transportSite
+                                        withTransportNames: transportNames
+                                        withCountOfCompany: countOfCompany
+                                            withDictionary: mutableParams
+                                                 onSuccess:^(NSDictionary *result) {
+                                                     completion(result);
+                                                 } onFailure:^(NSString *error) {
+                                                     failure(error);
+                                                 } endOfLoad:^(BOOL theEnd) {
+                                                     endOfLoad(theEnd);
+                                                 }];
+                    });
+                }
             }
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             failure([httpClient inputError:error]);
         }];
-        
     });
+}
+
+- (void) getCalculationByCompanyName: (NSString *)          companyName
+                        withSiteName: (NSString *)          siteName
+                  withTransportNames: (NSDictionary *)      transportNames
+                  withCountOfCompany: (NSInteger)           countOfCompany
+                      withDictionary: (NSDictionary *)      params
+                           onSuccess: (CompletionResult)    completion
+                           onFailure: (CompletionError)     failure
+                           endOfLoad: (CompletionEnd)       endOfLoad {
+    
+    
+    HTTPClient *httpClient = [[HTTPClient alloc] init];
+    [[httpClient getSessionManager] POST:GET_CALCULATION parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (![responseObject objectForKey:@"failReason"]) {
+            
+            NSMutableDictionary *response = [responseObject mutableCopy];
+            response[kTRANSPORT_NAME] = companyName;
+            response[kTRANSPORT_SITE] = siteName;
+            response[kTRANSPORT_NAMES] = transportNames;
+            //NSLog(@"responseObject ====== %@", response);
+            completion(response.copy);
+            
+        } else {
+            //NSData *data = [responseObject[@"failReason"] dataUsingEncoding:NSUTF8StringEncoding];
+            //NSString *decodevalue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            //NSLog(@"responseObject ====== %@", decodevalue);
+        }
+        //NSLog(@"dispatch_async ===== %li", (long)countOfCompany);
+        if ( countOfCompany == 0 ) {
+            endOfLoad( YES );
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //NSLog(@"count of company ======= %li", (long)countOfCompany);
+        failure([httpClient inputError:error]);
+    }];
 }
 
 - (void) getAdvertOnSuccess:(CompletionResult)   success

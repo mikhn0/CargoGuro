@@ -42,6 +42,5 @@
 
 + (AppDelegate *)globalDelegate;
 
-- (void)toggleLeftDrawer:(id)sender animated:(BOOL)animated;
 @end
 

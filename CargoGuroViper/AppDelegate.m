@@ -45,7 +45,7 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
     [self configureDrawerViewController];
     
     [self.window makeKeyAndVisible];
-    LocalizationSetLanguage(LOCALIZE_LANGUAGE[[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue]]);
+    LocalizationSetLanguage(LOCALIZE_LANGUAGE[INDEX_COUNTRY]);
     return YES;
 }
 

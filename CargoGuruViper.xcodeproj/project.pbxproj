@@ -13,6 +13,10 @@
 		63152DEB1C7DE87600AE47ED /* CGCalculateModuleRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DE91C7DE87600AE47ED /* CGCalculateModuleRouter.m */; };
 		63152DF01C7DE88200AE47ED /* CGCalculateModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63152DED1C7DE88200AE47ED /* CGCalculateModuleViewController.m */; };
 		63915ABD1D082D4200AE102D /* LocalizeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915ABC1D082D4200AE102D /* LocalizeHelper.m */; };
+		63915AF91D103FEB00AE102D /* TransportServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915AF81D103FEB00AE102D /* TransportServices.m */; };
+		63915AFC1D10401F00AE102D /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915AFB1D10401F00AE102D /* City.m */; };
+		63915AFF1D1068CE00AE102D /* VolumeCalculateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915AFE1D1068CE00AE102D /* VolumeCalculateView.m */; };
+		63915B011D1068E400AE102D /* VolumeCalculateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63915B001D1068E400AE102D /* VolumeCalculateView.xib */; };
 		63D956F21CFDF0BB00138774 /* RevealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D956EF1CFDF0BB00138774 /* RevealTableViewCell.m */; };
 		63D956F31CFDF0BB00138774 /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D956F11CFDF0BB00138774 /* LeftTableViewController.m */; };
 		63D956F81CFF34FB00138774 /* Configuration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D956F61CFF34FB00138774 /* Configuration.storyboard */; };
@@ -97,6 +101,13 @@
 		63915ACA1D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Configuration.strings"; sourceTree = "<group>"; };
 		63915ACB1D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Info.strings"; sourceTree = "<group>"; };
 		63915ACC1D08306300AE102D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		63915AF71D103FEB00AE102D /* TransportServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransportServices.h; path = LibraryAPI/TransportServices/TransportServices.h; sourceTree = "<group>"; };
+		63915AF81D103FEB00AE102D /* TransportServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransportServices.m; path = LibraryAPI/TransportServices/TransportServices.m; sourceTree = "<group>"; };
+		63915AFA1D10401F00AE102D /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = LibraryAPI/TransportServices/City.h; sourceTree = "<group>"; };
+		63915AFB1D10401F00AE102D /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = LibraryAPI/TransportServices/City.m; sourceTree = "<group>"; };
+		63915AFD1D1068CE00AE102D /* VolumeCalculateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeCalculateView.h; path = CalculateModule/View/VolumeCalculateView.h; sourceTree = "<group>"; };
+		63915AFE1D1068CE00AE102D /* VolumeCalculateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeCalculateView.m; path = CalculateModule/View/VolumeCalculateView.m; sourceTree = "<group>"; };
+		63915B001D1068E400AE102D /* VolumeCalculateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VolumeCalculateView.xib; path = CalculateModule/View/VolumeCalculateView.xib; sourceTree = "<group>"; };
 		63D956EE1CFDF0BB00138774 /* RevealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealTableViewCell.h; sourceTree = "<group>"; };
 		63D956EF1CFDF0BB00138774 /* RevealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealTableViewCell.m; sourceTree = "<group>"; };
 		63D956F01CFDF0BB00138774 /* LeftTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewController.h; sourceTree = "<group>"; };
@@ -276,8 +287,22 @@
 				63152DED1C7DE88200AE47ED /* CGCalculateModuleViewController.m */,
 				63152DEE1C7DE88200AE47ED /* CGCalculateModuleViewInput.h */,
 				63152DEF1C7DE88200AE47ED /* CGCalculateModuleViewOutput.h */,
+				63915AFD1D1068CE00AE102D /* VolumeCalculateView.h */,
+				63915AFE1D1068CE00AE102D /* VolumeCalculateView.m */,
+				63915B001D1068E400AE102D /* VolumeCalculateView.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		63915AF61D103EE900AE102D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63915AF71D103FEB00AE102D /* TransportServices.h */,
+				63915AF81D103FEB00AE102D /* TransportServices.m */,
+				63915AFA1D10401F00AE102D /* City.h */,
+				63915AFB1D10401F00AE102D /* City.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		63D956F41CFDF0C400138774 /* LeftMenu */ = {
@@ -546,6 +571,7 @@
 		75F64B231C7FC0D60019F61C /* LibraryAPI */ = {
 			isa = PBXGroup;
 			children = (
+				63915AF61D103EE900AE102D /* Models */,
 				75F64B2D1C8055BF0019F61C /* HTTPClient.h */,
 				75F64B2E1C8055BF0019F61C /* HTTPClient.m */,
 				75F64B2F1C8055BF0019F61C /* JSONResponseSerializerWithData.h */,
@@ -645,6 +671,7 @@
 				75F64AE21C7DB1E50019F61C /* LaunchScreen.storyboard in Resources */,
 				75F64ADF1C7DB1E50019F61C /* Assets.xcassets in Resources */,
 				75F64B3A1C809F540019F61C /* ResultTableViewCell.xib in Resources */,
+				63915B011D1068E400AE102D /* VolumeCalculateView.xib in Resources */,
 				63D956F81CFF34FB00138774 /* Configuration.storyboard in Resources */,
 				75F64ADA1C7DB1E50019F61C /* Main.storyboard in Resources */,
 			);
@@ -737,6 +764,7 @@
 				63152DDE1C7DE85B00AE47ED /* CGCalculateModuleAssembly.m in Sources */,
 				75F64B211C7E66F80019F61C /* CGResultCalculateModuleRouter.m in Sources */,
 				75F64B341C8055BF0019F61C /* JSONResponseSerializerWithData.m in Sources */,
+				63915AFF1D1068CE00AE102D /* VolumeCalculateView.m in Sources */,
 				7591F2641D049A0000835276 /* ConfigFormat+NSString.m in Sources */,
 				7591F25E1D023DF200835276 /* WeightTableViewCell.m in Sources */,
 				75F64B331C8055BF0019F61C /* HTTPClient.m in Sources */,
@@ -746,6 +774,7 @@
 				63D957051CFF396800138774 /* CurrencyViewController.m in Sources */,
 				63D957081CFF397F00138774 /* VolumeViewController.m in Sources */,
 				7591F2681D05876B00835276 /* ReturnConnectionViewController.m in Sources */,
+				63915AFC1D10401F00AE102D /* City.m in Sources */,
 				63D956F21CFDF0BB00138774 /* RevealTableViewCell.m in Sources */,
 				7591F26B1D059B4400835276 /* AboutUsViewController.m in Sources */,
 				75F64ADD1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld in Sources */,
@@ -753,6 +782,7 @@
 				63915ABD1D082D4200AE102D /* LocalizeHelper.m in Sources */,
 				758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */,
 				75F64B201C7E66F80019F61C /* CGResultCalculateModulePresenter.m in Sources */,
+				63915AF91D103FEB00AE102D /* TransportServices.m in Sources */,
 				63D956FF1CFF392100138774 /* BaseConfigurationViewController.m in Sources */,
 				7591F2581D00CE2300835276 /* CurTableViewCell.m in Sources */,
 				75F64AD11C7DB1E50019F61C /* main.m in Sources */,

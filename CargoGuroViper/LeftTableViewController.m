@@ -49,10 +49,10 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     self.clearsSelectionOnViewWillAppear = NO;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    currentCountry = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue];
-    currentCurrency = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue];
-    currentVolume = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue];
-    currentWeight = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue];
+    currentCountry = INDEX_COUNTRY;
+    currentCurrency = INDEX_CURRENCY;
+    currentVolume = INDEX_VOLUME;
+    currentWeight = INDEX_WEIGHT;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLanguageWithIndexCountry:) name:@"ChangeLanguage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCurrencyWithIndex:) name:@"ChangeCurrency" object:nil];
