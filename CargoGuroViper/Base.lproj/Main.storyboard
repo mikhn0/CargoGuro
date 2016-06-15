@@ -588,7 +588,7 @@
                                                         <rect key="frame" x="223" y="8" width="28" height="298"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Откуда" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ki-S2-Q8Q" customClass="JVFloatLabeledTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Откуда" textAlignment="center" minimumFontSize="8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5ki-S2-Q8Q" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="12" y="0.0" width="205" height="36"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -611,7 +611,7 @@
                                                         <rect key="frame" x="0.0" y="36" width="217" height="14"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Куда" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ryz-uC-Yf1" customClass="JVFloatLabeledTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Куда" textAlignment="center" minimumFontSize="8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ryz-uC-Yf1" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="12" y="50" width="205" height="36"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -629,7 +629,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Вес (кг)" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hqy-U7-tKj" customClass="JVFloatLabeledTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Вес (кг)" textAlignment="center" minimumFontSize="8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hqy-U7-tKj" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="12" y="150" width="205" height="36"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -637,7 +637,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
                                                                 <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -647,7 +647,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Объявленная ценность(руб)" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-0K-uyl" customClass="JVFloatLabeledTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Объявленная ценность(руб)" textAlignment="center" minimumFontSize="8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-0K-uyl" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="12" y="200" width="205" height="36"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -655,7 +655,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
                                                                 <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -686,7 +686,7 @@
                                                             <constraint firstAttribute="width" constant="95" id="l9I-G4-p47"/>
                                                         </constraints>
                                                     </view>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Объём" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-7x-R9x" customClass="JVFloatLabeledTextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Объём" textAlignment="center" minimumFontSize="8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-7x-R9x" customClass="JVFloatLabeledTextField">
                                                         <rect key="frame" x="12" y="100" width="205" height="36"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -694,7 +694,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
                                                                 <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -766,22 +766,24 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1B-Cj-XN1" userLabel="up_ball_button">
-                                        <rect key="frame" x="235" y="114" width="30" height="30"/>
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1B-Cj-XN1" userLabel="up_ball_button">
+                                        <rect key="frame" x="228" y="107" width="44" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j1B-Cj-XN1" secondAttribute="height" multiplier="1:1" id="fVU-4u-XfC"/>
                                         </constraints>
+                                        <inset key="imageEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
                                         <state key="normal" image="right_up_ball"/>
                                         <connections>
                                             <action selector="changeCityPlaces:" destination="JcE-5Z-vOF" eventType="touchUpInside" id="PEg-Le-Fri"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwR-KV-8tT" userLabel="down_ball_button">
-                                        <rect key="frame" x="237" y="191" width="26" height="26"/>
+                                        <rect key="frame" x="228" y="182" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hwR-KV-8tT" secondAttribute="height" multiplier="1:1" id="Yra-yk-KsL"/>
                                         </constraints>
+                                        <inset key="contentEdgeInsets" minX="9" minY="9" maxX="9" maxY="9"/>
                                         <state key="normal" image="right_down_ball"/>
                                         <connections>
                                             <action selector="volumeCalculation:" destination="JcE-5Z-vOF" eventType="touchUpInside" id="aY8-1K-LV9"/>
@@ -790,8 +792,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kaU-t3-ICK" firstAttribute="top" secondItem="dPM-Fj-pJ2" secondAttribute="top" id="0pf-Hg-J1p"/>
+                                    <constraint firstItem="AuZ-2f-AmV" firstAttribute="trailing" secondItem="j1B-Cj-XN1" secondAttribute="trailing" constant="-4" id="Cdq-Fr-XaJ"/>
                                     <constraint firstItem="dJm-Wj-geD" firstAttribute="centerY" secondItem="bNc-7x-R9x" secondAttribute="centerY" id="E0D-SB-FT2"/>
                                     <constraint firstAttribute="trailing" secondItem="kaU-t3-ICK" secondAttribute="trailing" constant="14" id="EuT-Bg-yir"/>
+                                    <constraint firstItem="AuZ-2f-AmV" firstAttribute="trailing" secondItem="j1B-Cj-XN1" secondAttribute="trailing" constant="-7" id="FxI-XE-gCH"/>
                                     <constraint firstItem="j1B-Cj-XN1" firstAttribute="centerX" secondItem="AuZ-2f-AmV" secondAttribute="centerX" id="HiP-6m-MyK"/>
                                     <constraint firstAttribute="width" secondItem="dPM-Fj-pJ2" secondAttribute="height" multiplier="37:56" id="LTA-Ac-WOq"/>
                                     <constraint firstItem="kaU-t3-ICK" firstAttribute="centerY" secondItem="dPM-Fj-pJ2" secondAttribute="centerY" id="Lvf-eH-K2s"/>
@@ -803,6 +807,7 @@
                                     <constraint firstItem="j1B-Cj-XN1" firstAttribute="bottom" secondItem="AuZ-2f-AmV" secondAttribute="bottom" id="XuV-w9-pdy"/>
                                     <constraint firstItem="hwR-KV-8tT" firstAttribute="centerY" secondItem="dJm-Wj-geD" secondAttribute="centerY" id="aOk-K1-T0q"/>
                                     <constraint firstItem="j1B-Cj-XN1" firstAttribute="top" secondItem="AuZ-2f-AmV" secondAttribute="top" constant="2" id="c2m-1k-wVe"/>
+                                    <constraint firstItem="dJm-Wj-geD" firstAttribute="trailing" secondItem="hwR-KV-8tT" secondAttribute="trailing" constant="-7" id="ciS-Dn-eZK"/>
                                     <constraint firstItem="hwR-KV-8tT" firstAttribute="trailing" secondItem="dJm-Wj-geD" secondAttribute="trailing" constant="-2" id="co3-4O-vBG"/>
                                     <constraint firstAttribute="width" secondItem="dPM-Fj-pJ2" secondAttribute="height" multiplier="69:101" constant="-40.56435643564356" id="heG-OA-MOn"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="244" id="kqp-Au-V96"/>
@@ -818,8 +823,11 @@
                                     <mask key="constraints">
                                         <exclude reference="heG-OA-MOn"/>
                                         <exclude reference="OHF-Vd-JeS"/>
+                                        <exclude reference="VOF-2C-MiF"/>
                                         <exclude reference="XuV-w9-pdy"/>
                                         <exclude reference="c2m-1k-wVe"/>
+                                        <exclude reference="Cdq-Fr-XaJ"/>
+                                        <exclude reference="co3-4O-vBG"/>
                                         <exclude reference="xBH-iL-w8i"/>
                                     </mask>
                                 </variation>
@@ -862,10 +870,12 @@
                         <outlet property="aligment_to_volume" destination="6Q8-Yi-BxY" id="zAY-SU-8pI"/>
                         <outlet property="aligment_volume_weight" destination="ZTV-Sw-eZr" id="J9a-fL-BaI"/>
                         <outlet property="aligment_weight_cost" destination="h4o-Sm-WkU" id="D5p-AE-Kyd"/>
+                        <outlet property="calculateVolume" destination="hwR-KV-8tT" id="Fg7-LX-WUY"/>
                         <outlet property="cost" destination="ecq-0K-uyl" id="h0Y-BL-qpX"/>
                         <outlet property="from" destination="5ki-S2-Q8Q" id="mqT-pk-Grk"/>
                         <outlet property="inputView" destination="pwe-SQ-myR" id="THd-2O-IPl"/>
                         <outlet property="logoLabel" destination="lLW-Ro-J86" id="WIy-7I-LiR"/>
+                        <outlet property="replaceCity" destination="j1B-Cj-XN1" id="Iar-Aj-N7h"/>
                         <outlet property="scrollView" destination="dPM-Fj-pJ2" id="pzP-yh-qqN"/>
                         <outlet property="searchTransite" destination="PKd-fk-dej" id="o3k-e0-dHw"/>
                         <outlet property="to" destination="ryz-uC-Yf1" id="jXX-sQ-wTi"/>

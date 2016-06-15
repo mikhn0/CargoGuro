@@ -18,6 +18,8 @@
 @interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
+@property (weak, nonatomic) IBOutlet UIButton *replaceCity;
+@property (weak, nonatomic) IBOutlet UIButton *calculateVolume;
 @property (weak, nonatomic) IBOutlet UILabel *logoLabel;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *from;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *to;
@@ -51,43 +53,49 @@
     self.logoLabel.adjustsFontSizeToFitWidth = YES;
     
     self.from.delegate = self;
-    UIColor *color = [UIColor whiteColor];
-    self.from.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Откуда" attributes:@{NSForegroundColorAttributeName: color}];
-    self.from.layer.borderWidth = 1.0;
-    self.from.layer.borderColor = [UIColor whiteColor].CGColor;
+    UIColor *colorText = [UIColor whiteColor];
+    UIColor *borderColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+    
+    self.from.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Откуда" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.from.layer.borderWidth = 0.5;
+    self.from.layer.borderColor = borderColor.CGColor;
     self.from.layer.cornerRadius = 3.0;
     
     self.to.delegate = self;
-    self.to.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Куда" attributes:@{NSForegroundColorAttributeName: color}];
-    self.to.layer.borderWidth = 1.0;
-    self.to.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.to.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Куда" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.to.layer.borderWidth = 0.5;
+    self.to.layer.borderColor = borderColor.CGColor;
     self.to.layer.cornerRadius = 3.0;
     
     self.value.delegate = self;
-    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Объем (%@)", [NSString printCubeOfValue:@"м"]] attributes:@{NSForegroundColorAttributeName: color}];
-    self.value.layer.borderWidth = 1.0;
-    self.value.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Объем (%@)", [NSString printCubeOfValue:@"м"]] attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.value.layer.borderWidth = 0.5;
+    self.value.layer.borderColor = borderColor.CGColor;
     self.value.layer.cornerRadius = 3.0;
     
     self.weight.delegate = self;
-    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Вес (кг)" attributes:@{NSForegroundColorAttributeName: color}];
-    self.weight.layer.borderWidth = 1.0;
-    self.weight.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Вес (кг)" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.weight.layer.borderWidth = 0.5;
+    self.weight.layer.borderColor = borderColor.CGColor;
     self.weight.layer.cornerRadius = 3.0;
     
     self.cost.delegate = self;
-    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Объявленная ценность (руб)" attributes:@{NSForegroundColorAttributeName: color}];
-    self.cost.layer.borderWidth = 1.0;
-    self.cost.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Объявленная ценность (руб)" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.cost.layer.borderWidth = 0.5;
+    self.cost.layer.borderColor = borderColor.CGColor;
     self.cost.layer.cornerRadius = 3.0;
     
-    [self.from setText:@"Уфа"];
-    [self.to setText:@"Киев"];
-    [self.value setText:@"123"];
-    [self.weight setText:@"123"];
-    [self.cost setText:@"123"];
+//    [self.from setText:@"Уфа"];
+//    [self.to setText:@"Киев"];
+//    [self.value setText:@"123"];
+//    [self.weight setText:@"123"];
+//    [self.cost setText:@"123"];
+    //self.calculateVolume.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    //self.replaceCity.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     
     self.searchTransite.layer.cornerRadius = 5.0;
+    self.searchTransite.enabled = NO;
+    self.searchTransite.alpha = 0.5;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.scrollView addGestureRecognizer:tapGesture];
@@ -171,10 +179,20 @@
 - (void)textFieldDidBeginEditing:(JVFloatLabeledTextField *)textField
 {
     self.activeField = textField;
+    self.activeField.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    if (self.from.text.length > 0 && self.to.text.length > 0 && self.value.text.length>0 && self.weight.text.length>0 && self.cost.text.length>0) {
+        self.searchTransite.enabled = YES;
+        self.searchTransite.alpha = 1.0;
+    } else {
+        self.searchTransite.enabled = NO;
+        self.searchTransite.alpha = 0.5;
+    }
+    
+    self.activeField.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.5].CGColor;
     self.activeField = nil;
 }
 

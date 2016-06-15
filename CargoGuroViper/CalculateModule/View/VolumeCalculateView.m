@@ -38,22 +38,24 @@
 
 - (void)drawRect:(CGRect)rect {
     UIColor *color = [UIColor whiteColor];
+    UIColor *colorBorder = [UIColor colorWithWhite:1.0 alpha:0.5];
+    
     self.width.delegate = self;
     self.width.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Ширина (м)" attributes:@{NSForegroundColorAttributeName: color}];
     self.width.layer.borderWidth = 1.0;
-    self.width.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.width.layer.borderColor = colorBorder.CGColor;
     self.width.layer.cornerRadius = 3.0;
     
     self.height.delegate = self;
     self.height.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Высота (м)" attributes:@{NSForegroundColorAttributeName: color}];
     self.height.layer.borderWidth = 1.0;
-    self.height.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.height.layer.borderColor = colorBorder.CGColor;
     self.height.layer.cornerRadius = 3.0;
     
     self.length.delegate = self;
     self.length.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Длина (м)" attributes:@{NSForegroundColorAttributeName: color}];
     self.length.layer.borderWidth = 1.0;
-    self.length.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.length.layer.borderColor = colorBorder.CGColor;
     self.length.layer.cornerRadius = 3.0;
     
     self.calculateButton.layer.cornerRadius = 5.0;
@@ -66,6 +68,9 @@
     [self setUserInteractionEnabled:YES];
     [self addGestureRecognizer:tapGest];
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.scrollView addGestureRecognizer:tapGesture];
+    [self.scrollView setShowsVerticalScrollIndicator:NO];
     
 }
 
@@ -107,11 +112,11 @@
 - (void)textFieldDidBeginEditing:(JVFloatLabeledTextField *)textField
 {
     self.activeField = textField;
+    self.activeField.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-//    NSLog(@"Main view frame ==== %@", NSStringFromCGRect(self.view.frame));
     if ([self.activeField isEqual:self.length] || [self.activeField isEqual:self.width] || [self.activeField isEqual:self.height]) {
         if (self.length.text.length > 0 && self.width.text.length > 0 && self.height.text.length>0) {
             self.calculateButton.enabled = YES;
@@ -121,6 +126,7 @@
             self.calculateButton.alpha = 0.5;
         }
     }
+    self.activeField.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.5].CGColor;
     self.activeField = nil;
 }
 
