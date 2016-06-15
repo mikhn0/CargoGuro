@@ -117,9 +117,9 @@
     
     self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_VALUE"),  [NSString printCubeOfValue:LocalizedString(@"M")]] attributes:@{NSForegroundColorAttributeName: colorText}];
     
-    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_WEIGHT"),  [NSString printCubeOfValue:LocalizedString(@"KG")]] attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_WEIGHT"),  LocalizedString(@"KG")] attributes:@{NSForegroundColorAttributeName: colorText}];
     
-    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_DECLARED_VALUE"),  [NSString printCubeOfValue:LocalizedString(@"CURENCY_VALUE")]] attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"ENTER_DECLARED_VALUE"), LocalizedString(@"CURENCY_VALUE")] attributes:@{NSForegroundColorAttributeName: colorText}];
     
     [self.searchTransite setTitle:LocalizedString(@"ENTER_CALCULATE") forState:UIControlStateNormal];
     
