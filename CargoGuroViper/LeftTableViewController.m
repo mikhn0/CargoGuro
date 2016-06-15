@@ -60,7 +60,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 }
 
 - (NSArray *)leftMenuSections {
-    return @[@"Поиск", @"Язык", @"Валюта", @"Вес", @"Объем", @"О проекте", @"Обратная связь"];
+   // return @[@"Поиск", @"Язык", @"Валюта", @"Вес", @"Объем", @"О проекте", @"Обратная связь"];
+    return @ [ LocalizedString(@"SEARCH"),LocalizedString(@"LANGUAGE") ,LocalizedString(@"CURRENCY") ,LocalizedString(@"WEIGHT") ,LocalizedString(@"VALUE") ,LocalizedString(@"TITLE_ABOUT") ,LocalizedString(@"FEEDBACK")];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -104,7 +105,7 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
         case kSearchIndex:
         {
             cell = [tableView dequeueReusableCellWithIdentifier:kSearchCellReuseIdentifier forIndexPath:indexPath];
-            cell.searchText = @"Поиск";
+            cell.searchText = LocalizedString(@"SEARCH"); //@"Поиск"
             cell.delegate = self;
         }
             break;

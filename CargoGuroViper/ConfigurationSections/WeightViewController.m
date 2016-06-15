@@ -37,7 +37,7 @@ static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Вес";
+    return LocalizedString(@"WEIGHT"); //@"Вес";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

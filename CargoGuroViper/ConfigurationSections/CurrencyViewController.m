@@ -49,7 +49,7 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Валюта";
+    return LocalizedString(@"CURRENCY");//@"Валюта";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

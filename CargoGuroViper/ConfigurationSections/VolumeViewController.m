@@ -36,7 +36,7 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Объем";
+    return LocalizedString(@"VALUE"); //@"Объем";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

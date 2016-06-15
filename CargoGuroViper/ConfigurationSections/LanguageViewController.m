@@ -48,7 +48,7 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Выбор языка";
+    return LocalizedString(@"CHOICE OF_LANGUAGE"); //@"Выбор языка";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
