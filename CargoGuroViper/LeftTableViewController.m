@@ -43,7 +43,6 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.leftMenuSections = @[@"Поиск", @"Язык", @"Валюта", @"Вес", @"Объем", @"О проекте", @"Обратная связь"];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.contentInset = UIEdgeInsetsMake(kJVTableViewTopInset, 0.0, 0.0, 0.0);
     self.clearsSelectionOnViewWillAppear = NO;
@@ -58,6 +57,10 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCurrencyWithIndex:) name:@"ChangeCurrency" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVolumeWithIndex:) name:@"ChangeVolume" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeWeightWithIndex:) name:@"ChangeWeight" object:nil];
+}
+
+- (NSArray *)leftMenuSections {
+    return @[@"Поиск", @"Язык", @"Валюта", @"Вес", @"Объем", @"О проекте", @"Обратная связь"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
