@@ -56,43 +56,36 @@
     UIColor *colorText = [UIColor whiteColor];
     UIColor *borderColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     
-    self.from.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Откуда" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.from.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_FROM") attributes:@{NSForegroundColorAttributeName: colorText}];
     self.from.layer.borderWidth = 0.5;
     self.from.layer.borderColor = borderColor.CGColor;
     self.from.layer.cornerRadius = 3.0;
     
     self.to.delegate = self;
-    self.to.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Куда" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.to.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_TO") attributes:@{NSForegroundColorAttributeName: colorText}];
     self.to.layer.borderWidth = 0.5;
     self.to.layer.borderColor = borderColor.CGColor;
     self.to.layer.cornerRadius = 3.0;
     
     self.value.delegate = self;
-    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Объем (%@)", [NSString printCubeOfValue:@"м"]] attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_VALUE") attributes:@{NSForegroundColorAttributeName: colorText}];
     self.value.layer.borderWidth = 0.5;
     self.value.layer.borderColor = borderColor.CGColor;
     self.value.layer.cornerRadius = 3.0;
     
     self.weight.delegate = self;
-    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Вес (кг)" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_WEIGHT") attributes:@{NSForegroundColorAttributeName: colorText}];
     self.weight.layer.borderWidth = 0.5;
     self.weight.layer.borderColor = borderColor.CGColor;
     self.weight.layer.cornerRadius = 3.0;
     
     self.cost.delegate = self;
-    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Объявленная ценность (руб)" attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_DECLARED_VALUE") attributes:@{NSForegroundColorAttributeName: colorText}];
     self.cost.layer.borderWidth = 0.5;
     self.cost.layer.borderColor = borderColor.CGColor;
     self.cost.layer.cornerRadius = 3.0;
     
-    self.from.placeholder = LocalizedString(@"ENTER_FROM");
-    self.to.placeholder = LocalizedString(@"ENTER_TO");
-    self.value.placeholder = LocalizedString(@"ENTER_VALUE");
-    self.weight.placeholder = LocalizedString(@"ENTER_WEIGHT");
-    self.cost.placeholder = LocalizedString(@"ENTER_DECLARED_VALUE");
     self.searchTransite.titleLabel.text = LocalizedString(@"ENTER_CALCULATE");
-    
-    
     self.searchTransite.layer.cornerRadius = 5.0;
     self.searchTransite.enabled = NO;
     self.searchTransite.alpha = 0.5;

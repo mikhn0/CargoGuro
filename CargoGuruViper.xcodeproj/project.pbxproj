@@ -606,12 +606,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75F64AE61C7DB1E50019F61C /* Build configuration list for PBXNativeTarget "CargoGuruViper" */;
 			buildPhases = (
+				DA7C75FD5139B19EEB43C882 /* 📦 Check Pods Manifest.lock */,
 				5B7BE68459D78A76649EA544 /* [CP] Check Pods Manifest.lock */,
 				75F64AC81C7DB1E50019F61C /* Sources */,
 				75F64AC91C7DB1E50019F61C /* Frameworks */,
 				75F64ACA1C7DB1E50019F61C /* Resources */,
 				DB4940213E44C79756C1ADED /* [CP] Embed Pods Frameworks */,
 				53F62CE40F39FF487A049D12 /* [CP] Copy Pods Resources */,
+				01D743219F4CE10D79398E97 /* 📦 Embed Pods Frameworks */,
+				9160E55B41933736A4339906 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -679,6 +682,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		01D743219F4CE10D79398E97 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		53F62CE40F39FF487A049D12 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -702,6 +720,36 @@
 			inputPaths = (
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9160E55B41933736A4339906 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA7C75FD5139B19EEB43C882 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
