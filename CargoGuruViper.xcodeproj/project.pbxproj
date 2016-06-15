@@ -478,11 +478,11 @@
 				75F64AD51C7DB1E50019F61C /* ViewController.h */,
 				75F64AD61C7DB1E50019F61C /* ViewController.m */,
 				75F64ADE1C7DB1E50019F61C /* Assets.xcassets */,
-				75F64AE01C7DB1E50019F61C /* LaunchScreen.storyboard */,
 				75F64AE31C7DB1E50019F61C /* Info.plist */,
 				75F64ADB1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld */,
 				75F64ACF1C7DB1E50019F61C /* Supporting Files */,
 				756CD7AB1C96FC450019A22C /* Localizable.strings */,
+				75F64AE01C7DB1E50019F61C /* LaunchScreen.storyboard */,
 				75F64AD81C7DB1E50019F61C /* Main.storyboard */,
 				63D956F61CFF34FB00138774 /* Configuration.storyboard */,
 				63D956F91CFF351C00138774 /* Info.storyboard */,
@@ -977,7 +977,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

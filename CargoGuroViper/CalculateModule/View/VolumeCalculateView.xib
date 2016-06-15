@@ -13,16 +13,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPg-58-6Bf">
-                    <rect key="frame" x="185" y="100" width="231" height="320"/>
+                    <rect key="frame" x="147" y="100" width="306" height="423"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kft-HA-h27" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="231" height="320"/>
+                            <rect key="frame" x="0.0" y="0.0" width="306" height="424"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="input_big_screen" translatesAutoresizingMaskIntoConstraints="NO" id="aNB-MR-gl9">
-                                    <rect key="frame" x="0.0" y="0.0" width="231" height="320"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="306" height="424"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="l4k-2t-qI2" customClass="JVFloatLabeledTextField">
-                                    <rect key="frame" x="28" y="35" width="175" height="38"/>
+                                    <rect key="frame" x="66" y="57" width="175" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -30,25 +30,7 @@
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
-                                            <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
-                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="H4T-bH-1cN" customClass="JVFloatLabeledTextField">
-                                    <rect key="frame" x="28" y="98" width="175" height="38"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="H4T-bH-1cN" secondAttribute="height" multiplier="175:38" id="mN7-E8-vGC"/>
-                                    </constraints>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
                                             <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -59,14 +41,14 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Длина (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="b4j-Ly-STL" customClass="JVFloatLabeledTextField">
-                                    <rect key="frame" x="28" y="161" width="175" height="38"/>
+                                    <rect key="frame" x="66" y="183" width="175" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="b4j-Ly-STL" secondAttribute="height" multiplier="175:38" id="nLU-fk-Q8n"/>
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
                                             <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -77,7 +59,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dn-v7-O9u">
-                                    <rect key="frame" x="28" y="233" width="175" height="38"/>
+                                    <rect key="frame" x="66" y="254" width="175" height="38"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="9Dn-v7-O9u" secondAttribute="height" multiplier="175:38" id="VQq-A6-FcL"/>
@@ -89,33 +71,54 @@
                                         <action selector="pressOnCulculateButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="B34-wF-eZd"/>
                                     </connections>
                                 </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="H4T-bH-1cN" customClass="JVFloatLabeledTextField">
+                                    <rect key="frame" x="66" y="120" width="175" height="38"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="H4T-bH-1cN" secondAttribute="height" multiplier="175:38" id="mN7-E8-vGC"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelTextColor">
+                                            <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="b4j-Ly-STL" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="1Zi-TU-0yz"/>
                                 <constraint firstAttribute="trailing" secondItem="H4T-bH-1cN" secondAttribute="trailing" constant="28" id="6j7-yh-wIz"/>
+                                <constraint firstItem="b4j-Ly-STL" firstAttribute="top" secondItem="H4T-bH-1cN" secondAttribute="bottom" constant="25" id="8JK-6K-2nx"/>
                                 <constraint firstItem="aNB-MR-gl9" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" id="8P6-bB-oFC"/>
-                                <constraint firstItem="b4j-Ly-STL" firstAttribute="top" secondItem="H4T-bH-1cN" secondAttribute="bottom" constant="25" id="Csu-Lj-yj3"/>
                                 <constraint firstAttribute="trailing" secondItem="9Dn-v7-O9u" secondAttribute="trailing" constant="28" id="I6j-rU-4WN"/>
                                 <constraint firstItem="l4k-2t-qI2" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" constant="35" id="LAr-Qu-a2e"/>
                                 <constraint firstItem="H4T-bH-1cN" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="NYk-lg-noi"/>
                                 <constraint firstAttribute="bottom" secondItem="aNB-MR-gl9" secondAttribute="bottom" id="Nwd-Mi-fc7"/>
                                 <constraint firstItem="H4T-bH-1cN" firstAttribute="top" secondItem="l4k-2t-qI2" secondAttribute="bottom" constant="25" id="PA7-oz-tXy"/>
-                                <constraint firstAttribute="trailing" secondItem="b4j-Ly-STL" secondAttribute="trailing" constant="28" id="URs-oB-YDV"/>
-                                <constraint firstItem="b4j-Ly-STL" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="W6Q-rJ-N8L"/>
                                 <constraint firstItem="l4k-2t-qI2" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="Y1V-Jw-i2U"/>
                                 <constraint firstAttribute="bottom" secondItem="9Dn-v7-O9u" secondAttribute="bottom" constant="49" id="aMs-tk-6xz"/>
                                 <constraint firstAttribute="trailing" secondItem="l4k-2t-qI2" secondAttribute="trailing" constant="28" id="bjy-Lm-yPK"/>
+                                <constraint firstAttribute="trailing" secondItem="b4j-Ly-STL" secondAttribute="trailing" constant="28" id="gCV-yE-ThS"/>
+                                <constraint firstItem="9Dn-v7-O9u" firstAttribute="top" secondItem="b4j-Ly-STL" secondAttribute="bottom" constant="33" id="gFf-Cv-wA4"/>
                                 <constraint firstAttribute="trailing" secondItem="H4T-bH-1cN" secondAttribute="trailing" constant="28" id="oBa-Bk-IAX"/>
-                                <constraint firstItem="9Dn-v7-O9u" firstAttribute="top" secondItem="b4j-Ly-STL" secondAttribute="bottom" constant="34" id="oIj-FA-3xD"/>
                                 <constraint firstItem="aNB-MR-gl9" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" id="vRu-29-yDU"/>
                                 <constraint firstAttribute="trailing" secondItem="aNB-MR-gl9" secondAttribute="trailing" id="wOs-fp-C9f"/>
                                 <constraint firstItem="l4k-2t-qI2" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="29" id="xd3-hf-dun"/>
                                 <constraint firstItem="9Dn-v7-O9u" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="xy5-BE-PH8"/>
+                                <constraint firstItem="l4k-2t-qI2" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" constant="57" id="zyS-qg-OGM"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="LAr-Qu-a2e"/>
                                     <exclude reference="xd3-hf-dun"/>
                                     <exclude reference="oBa-Bk-IAX"/>
+                                    <exclude reference="aMs-tk-6xz"/>
                                 </mask>
                             </variation>
                         </view>
@@ -129,19 +132,28 @@
                         <constraint firstItem="Kft-HA-h27" firstAttribute="centerY" secondItem="rPg-58-6Bf" secondAttribute="centerY" id="cwS-Z8-BJa"/>
                         <constraint firstAttribute="bottom" secondItem="Kft-HA-h27" secondAttribute="bottom" id="ggc-Ki-bSZ"/>
                         <constraint firstItem="Kft-HA-h27" firstAttribute="centerX" secondItem="rPg-58-6Bf" secondAttribute="centerX" id="h4Y-2t-ogI"/>
+                        <constraint firstAttribute="width" secondItem="rPg-58-6Bf" secondAttribute="height" multiplier="34:47" id="zSv-d7-JIk"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="K8Y-XC-rHW"/>
+                        </mask>
+                    </variation>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="rPg-58-6Bf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-77" id="etd-Wj-9UW"/>
+                <constraint firstItem="rPg-58-6Bf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="iSh-Wh-w8G"/>
                 <constraint firstItem="rPg-58-6Bf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="jQj-Hb-V3M"/>
                 <constraint firstItem="rPg-58-6Bf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="63" id="jt6-nc-h0v"/>
                 <constraint firstItem="rPg-58-6Bf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="m4E-dN-zYr"/>
                 <constraint firstItem="rPg-58-6Bf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qa9-W2-ubc"/>
+                <constraint firstAttribute="bottom" secondItem="rPg-58-6Bf" secondAttribute="bottom" constant="77" id="ttb-Ht-5kN"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="jQj-Hb-V3M"/>
                     <exclude reference="jt6-nc-h0v"/>
                     <exclude reference="qa9-W2-ubc"/>
                 </mask>

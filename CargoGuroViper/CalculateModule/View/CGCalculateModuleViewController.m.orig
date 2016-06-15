@@ -85,6 +85,10 @@
     self.cost.layer.borderColor = borderColor.CGColor;
     self.cost.layer.cornerRadius = 3.0;
     
+<<<<<<< HEAD
+<<<<<<< HEAD
+//    self..placeholder = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
+//    self..placeholder = LocalizedString(@"CALCULATE_LOAD_DELIVERY_COAST");
     self.from.placeholder = LocalizedString(@"ENTER_FROM");
     self.to.placeholder = LocalizedString(@"ENTER_TO");
     self.value.placeholder = LocalizedString(@"ENTER_VALUE");
@@ -92,6 +96,26 @@
     self.cost.placeholder = LocalizedString(@"ENTER_DECLARED_VALUE");
     self.searchTransite.titleLabel.text = LocalizedString(@"ENTER_CALCULATE");
     
+=======
+>>>>>>> f7ffea57e174dc7b30d744c344b01a33291a421c
+//    [self.from setText:@"Уфа"];
+//    [self.to setText:@"Киев"];
+//    [self.value setText:@"123"];
+//    [self.weight setText:@"123"];
+//    [self.cost setText:@"123"];
+<<<<<<< HEAD
+
+=======
+    [self.from setText:@"Уфа"];
+    [self.to setText:@"Киев"];
+    [self.value setText:@"123"];
+    [self.weight setText:@"123"];
+    [self.cost setText:@"123"];
+>>>>>>> d7a3c0a583e8b1ecbd3ee9f25c6f95968e59124d
+=======
+    //self.calculateVolume.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    //self.replaceCity.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+>>>>>>> f7ffea57e174dc7b30d744c344b01a33291a421c
     
     self.searchTransite.layer.cornerRadius = 5.0;
     self.searchTransite.enabled = NO;
