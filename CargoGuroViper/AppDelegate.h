@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "MMDrawerController.h"
 
 @class JVFloatingDrawerViewController;
 @class JVFloatingDrawerSpringAnimator;
@@ -29,6 +30,9 @@
 @property (nonatomic, strong) UIViewController *aboutUsViewController;
 @property (nonatomic, strong) UIViewController *returnConnectionViewController;
 
+@property (nonatomic,strong) MMDrawerController * drawerController;
+
+
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -38,6 +42,5 @@
 
 + (AppDelegate *)globalDelegate;
 
-- (void)toggleLeftDrawer:(id)sender animated:(BOOL)animated;
 @end
 

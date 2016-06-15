@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIView         *loadScreen;
 @property (weak, nonatomic) IBOutlet UIImageView    *loadImage;
 @property (weak, nonatomic) IBOutlet UITableView    *tableView;
+@property (weak, nonatomic) IBOutlet UILabel        *routeLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *informationLabel;
 
 @end
@@ -49,49 +50,15 @@
     self.tableView.backgroundColor = [UIColor colorWithRed:255.0/256.0 green:255.0/256.0 blue:255.0/256.0 alpha:0.5];
     
     [self.loadScreen setFrame:[UIScreen mainScreen].bounds];
-    
-    //self.backgroundView.image = [UIImage imageNamed:@"Background"];
     self.loadScreen.hidden = NO;
     self.loadImage.hidden = NO;
     self.loadImage.image = [UIImage imageNamed:@"logo"];
     [self rotateLayerInfinite:self.loadImage.layer];
     
-    NSDictionary *attrs = @{
-                            NSFontAttributeName:[UIFont boldSystemFontOfSize:13],
-                            NSForegroundColorAttributeName:[UIColor blackColor]
-                            };
-    NSDictionary *subAttrs = @{
-                               NSFontAttributeName:[UIFont systemFontOfSize:13],
-                               NSForegroundColorAttributeName:[UIColor blackColor]
-                               };
-    
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ - %@ \nобьём %@ м3; вес %@ кг; \nценность %.2f р.", self.datas[@"cargoFrom"], self.datas[@"cargoTo"], self.datas[@"cV"], self.datas[@"cW"], ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00)];
-    
-    NSRange range0 = [self.informationLabel.text rangeOfString: self.informationLabel.text];
-    NSRange range1 = [self.informationLabel.text rangeOfString: self.datas[@"cargoFrom"]];
-    NSRange range2 = [self.informationLabel.text rangeOfString: self.datas[@"cargoTo"]];
-    NSRange range3 = [self.informationLabel.text rangeOfString: self.datas[@"cV"]];
-    NSRange range4 = [self.informationLabel.text rangeOfString: self.datas[@"cW"]];
-    NSRange range5 = [self.informationLabel.text rangeOfString: self.datas[@"cInsP"]];
-    
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:self.informationLabel.text];
+    self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];
     
     
-    [attributedText setAttributes:subAttrs
-                            range:range0];
-    [attributedText setAttributes:attrs
-                            range:range1];
-    [attributedText setAttributes:attrs
-                            range:range2];
-    [attributedText setAttributes:attrs
-                            range:range3];
-    [attributedText setAttributes:attrs
-                            range:range4];
-    [attributedText setAttributes:attrs
-                            range:range5];
-    
-    self.informationLabel.attributedText = attributedText;
-    
+    self.informationLabel.text = [NSString stringWithFormat:@"Обьём %@ %@. Вес %@ %@. Ценность %.2f %@.", self.datas[@"cV"], VOLUME_NAME[INDEX_VOLUME], self.datas[@"cW"], WEIGHT_NAME[INDEX_WEIGHT], ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00), CURRENCY_NAME[INDEX_CURRENCY]];
     
     self.output.imageIndicator = self.loadImage;
     self.output.loadView = self.loadScreen;
@@ -126,17 +93,7 @@
     [filterButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -2)];
     [filterButton addTarget:self action:@selector(filterPress) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:filterButton];
-    
-//    UILabel *lblTitle = [[UILabel alloc] init];
-//    lblTitle.text = @"Варианты перевозки";
-//    lblTitle.backgroundColor = [UIColor clearColor];
-//    lblTitle.textColor = [UIColor colorWithRed:77.0/255.0 green:77.0/255.0 blue:77.0/255.0 alpha:1.0];
-//    lblTitle.shadowColor = [UIColor whiteColor];
-//    lblTitle.shadowOffset = CGSizeMake(0, 1);
-//    lblTitle.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0];
-//    [lblTitle sizeToFit];
-//    
-//    self.navigationItem.titleView = lblTitle;
+
 }
 
 
@@ -180,28 +137,31 @@
     NSDictionary *result = listOfResult[indexPath.row];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = [result objectForKey:@"transportName"];
+    cell.titleLabel.text = [[result objectForKey:kTRANSPORT_NAMES] objectForKey:LANGUAGE[INDEX_COUNTRY]];
     
-    NSString *comma = [[result objectForKey:@"methods"][@"calcResultTime"] length] > 0 ? @"," : @"";
     
-    cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
+    NSString *comma = [[result objectForKey:@"methods"][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
+    cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [[result objectForKey:@"methods"][kTRANSPORT_TIMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]];
     
-    float value = [[result objectForKey:@"methods"][@"calcResultPrice"] floatValue];
+    
+    float value = [[[result objectForKey:@"methods"][kTRANSPORT_PRICES] objectForKey:CURRENCY_NAME[INDEX_CURRENCY]] floatValue];
     NSNumberFormatter * formatter = [NSNumberFormatter new];
     [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setGroupingSeparator:@" "]; // Whatever you want here
+    [formatter setGroupingSeparator:@" "];
     [formatter setDecimalSeparator:@","];
     formatter.usesGroupingSeparator = YES;
     [formatter setMaximumFractionDigits:2];
     [formatter setMinimumFractionDigits:2];
-    NSString * newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
-
-    cell.priceLabel.text = newString;
+    NSString *newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
+    cell.priceLabel.text = [NSString stringWithFormat:@"%@ %@",newString, CURRENCY_NAME[INDEX_CURRENCY]];
     
-    cell.transportLabel.text = [result objectForKey:@"methods"][@"name"];
     
-    cell.siteLabel.text = listOfResult[indexPath.row][@"transportSite"];
+    cell.transportLabel.text = [[result objectForKey:@"methods"][@"names"] objectForKey:LANGUAGE[INDEX_COUNTRY]];
+    
+    
+    cell.siteLabel.text = listOfResult[indexPath.row][kTRANSPORT_SITE];
+    
     
     return cell;
 }
@@ -213,16 +173,16 @@
 {
     NSDictionary *result = listOfResult[indexPath.row];
     
-    NSString *comma = [[result objectForKey:@"methods"][@"calcResultTime"] length] > 0 ? @"," : @"";
-    NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][@"calcResultTime"]];
+    NSString *comma = [[result objectForKey:@"methods"][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
+    NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][kTRANSPORT_TIME]];
     
     CGFloat widthOfdescribeLabel = [[UIScreen mainScreen] bounds].size.width / 320;
     float heightDescription = [self getHeightForText:descriptionResult withFont:[UIFont systemFontOfSize:12
-                                                                      ] andWidth:192 * widthOfdescribeLabel];//150
+                                                                      ] andWidth:192 * widthOfdescribeLabel];
     
     
     
-    NSString *titleResult = [NSString stringWithFormat:@"%@", [result objectForKey:@"transportName"]];
+    NSString *titleResult = [NSString stringWithFormat:@"%@", [[result objectForKey:kTRANSPORT_NAMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]];
     
     float heightTitle = [self getHeightForText:titleResult withFont:[UIFont systemFontOfSize:16
                                                                                  ] andWidth:210 * widthOfdescribeLabel];
@@ -234,10 +194,9 @@
     
     NSDictionary *result = listOfResult[indexPath.row];
     
-    NSURL *url = [NSURL URLWithString:result[@"transportSite"]];
+    NSURL *url = [NSURL URLWithString:result[kTRANSPORT_SITE]];
     
-    [[UIApplication sharedApplication]
-     openURL:url];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 
@@ -246,7 +205,7 @@
 - (void)addRowWithResult:(NSDictionary *)result {
     
     [self.tableView beginUpdates];
-    
+    NSLog(@"result ====== %@", result);
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[listOfResult count] inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
     [listOfResult addObject:result];
@@ -370,19 +329,15 @@
     if (filter == Cost) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultPrice"
                                                      ascending:arrowCurrentSorting == Top ? YES : NO];
-        
-    } else if  (filter == Transfer) {
+    } else if (filter == Transfer) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"transportName"
                                                      ascending:arrowCurrentSorting == Top ? YES : NO];
-        
     } else if (filter == Process) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.name"
                                                      ascending:arrowCurrentSorting == Top ? YES : NO];
-        
     } else if (filter == Time) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultTime"
                                                      ascending:arrowCurrentSorting == Top ? YES : NO];
-        
     }
     
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
@@ -391,7 +346,7 @@
     [self.tableView reloadData];
 }
 
--(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         /* Reorganize views, or move child view controllers */

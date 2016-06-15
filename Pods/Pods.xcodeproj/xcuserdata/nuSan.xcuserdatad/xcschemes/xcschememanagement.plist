@@ -25,6 +25,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>MMDrawerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>OCMock.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -70,7 +75,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>219EC487FB24B128CED9BEFF5A5AD842</key>
+		<key>0947F4F7B3D8CB7E99C1274D007F945E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -80,12 +85,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3E4F09FDD47C0D9B286DF31E222F426F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4A2CAA839F2722C796C6F1DFDC806B92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58F86C49A311A150088B15B390406D39</key>
+		<key>550F7EEAEEA17E3F92C873912E23B01C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -95,7 +105,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>667817691F01E12E0EAF685F82B4B085</key>
+		<key>6E32719C8DDC908066ED2D6179758F1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -105,12 +115,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>950D37CBD78A6725EE0B81171ED0DCD7</key>
+		<key>B3E1CD23B9CA754CB862744E2537BB20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE25F7CB870B7C329B395D6E93A52527</key>
+		<key>FDA3BCD19E0B19437AE1D9D221D6F3E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

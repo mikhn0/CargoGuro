@@ -11,27 +11,21 @@
 #import "CGCalculateModuleViewOutput.h"
 #import "JVFloatLabeledTextField.h"
 #import "JVFloatLabeledTextView.h"
-#import "AppDelegate.h"
+#import "VolumeCalculateView.h"
 
 #import "CGCalculateModulePresenter.h"
 
-@interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
+@interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
 @property (weak, nonatomic) IBOutlet UILabel *logoLabel;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *from;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *to;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *value;
-@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *length;
-@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *width;
-@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *height;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *weight;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *cost;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *widthLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
-@property (weak, nonatomic) IBOutlet UILabel *heightLabel;
+@property (weak, nonatomic) IBOutlet UIView *inputView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_from_to;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *aligment_to_volume;
@@ -54,37 +48,40 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
-    self.from.delegate = self;
-    self.to.delegate = self;
-    self.value.delegate = self;
-    self.length.delegate = self;
-    self.width.delegate = self;
-    self.height.delegate = self;
-    self.weight.delegate = self;
-    self.cost.delegate = self;
-    self.cost.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.logoLabel.adjustsFontSizeToFitWidth = YES;
     
+    self.from.delegate = self;
+    UIColor *color = [UIColor whiteColor];
+    self.from.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Откуда" attributes:@{NSForegroundColorAttributeName: color}];
     self.from.layer.borderWidth = 1.0;
     self.from.layer.borderColor = [UIColor whiteColor].CGColor;
     self.from.layer.cornerRadius = 3.0;
     
+    self.to.delegate = self;
+    self.to.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Куда" attributes:@{NSForegroundColorAttributeName: color}];
     self.to.layer.borderWidth = 1.0;
     self.to.layer.borderColor = [UIColor whiteColor].CGColor;
     self.to.layer.cornerRadius = 3.0;
     
+    self.value.delegate = self;
+    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Объем (%@)", [NSString printCubeOfValue:@"м"]] attributes:@{NSForegroundColorAttributeName: color}];
     self.value.layer.borderWidth = 1.0;
     self.value.layer.borderColor = [UIColor whiteColor].CGColor;
     self.value.layer.cornerRadius = 3.0;
     
+    self.weight.delegate = self;
+    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Вес (кг)" attributes:@{NSForegroundColorAttributeName: color}];
     self.weight.layer.borderWidth = 1.0;
     self.weight.layer.borderColor = [UIColor whiteColor].CGColor;
     self.weight.layer.cornerRadius = 3.0;
     
+    self.cost.delegate = self;
+    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Объявленная ценность (руб)" attributes:@{NSForegroundColorAttributeName: color}];
     self.cost.layer.borderWidth = 1.0;
     self.cost.layer.borderColor = [UIColor whiteColor].CGColor;
     self.cost.layer.cornerRadius = 3.0;
     
+<<<<<<< HEAD
 //    self..placeholder = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
 //    self..placeholder = LocalizedString(@"CALCULATE_LOAD_DELIVERY_COAST");
     self.from.placeholder = LocalizedString(@"ENTER_FROM");
@@ -100,6 +97,13 @@
 //    [self.weight setText:@"123"];
 //    [self.cost setText:@"123"];
 
+=======
+    [self.from setText:@"Уфа"];
+    [self.to setText:@"Киев"];
+    [self.value setText:@"123"];
+    [self.weight setText:@"123"];
+    [self.cost setText:@"123"];
+>>>>>>> d7a3c0a583e8b1ecbd3ee9f25c6f95968e59124d
     
     self.searchTransite.layer.cornerRadius = 5.0;
     
@@ -116,16 +120,6 @@
     self.aligment_cost_button.constant = (14 * self.view.frame.size.width) / 305.0;
     self.aligment_from_right.constant = (20 * self.view.frame.size.width) / 305.0;
 
-//    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-//    
-//    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.widthLabel
-//                                                     attribute:NSLayoutAttributeWidth
-//                                                     relatedBy:NSLayoutRelationEqual
-//                                                        toItem:self.lengthLabel
-//                                                     attribute:NSLayoutAttributeWidth
-//                                                    multiplier:1.0 
-//                                                      constant:0]];
-//    [self.scrollView updateConstraints];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -158,7 +152,7 @@
 #pragma mark - Actions
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {
-    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 #pragma mark - Helpers
@@ -170,7 +164,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
-        if (textField == self.value || textField == self.length || textField == self.width || textField == self.height || textField == self.weight || textField == self.cost) {
+        if (textField == self.value || textField == self.weight || textField == self.cost) {
             NSString *candidate = [[textField text] stringByReplacingCharactersInRange:range withString:string];
             if (!candidate || [candidate length] < 1 || [candidate isEqualToString:@""])
             {
@@ -199,21 +193,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if ([self.activeField isEqual:self.length] || [self.activeField isEqual:self.width] || [self.activeField isEqual:self.height]) {
-        if (self.length.text.length > 0 && self.width.text.length > 0 && self.height.text.length>0) {
-            
-            NSNumber *number = [[NSNumberFormatter new] numberFromString: self.length.text];
-            float lengthValue = number.floatValue;
-            
-            number = [[NSNumberFormatter new] numberFromString: self.width.text];
-            float widthValue = number.floatValue;
-
-            number = [[NSNumberFormatter new] numberFromString: self.height.text];
-            float heightValue = number.floatValue;
-            
-            self.value.text = [NSString stringWithFormat:@"%.2f", lengthValue * widthValue * heightValue];
-        }
-    }
     self.activeField = nil;
 }
 
@@ -235,6 +214,7 @@
 
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
+    NSLog(@"Main view frame ==== %@", NSStringFromCGRect(self.view.frame));
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -246,8 +226,13 @@
     // Your app might not need or want this behavior.
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
-        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+    
+    CGRect tfRect = self.activeField.frame;
+    tfRect.origin.y += self.inputView.frame.origin.y + self.scrollView.frame.origin.y + 64 + self.activeField.frame.size.height;
+    NSLog(@"self.activeField.frame.origin ==== %@", NSStringFromCGPoint(tfRect.origin));
+    if (!CGRectContainsPoint(aRect, tfRect.origin) ) {
+        tfRect.origin.y -= self.inputView.frame.origin.y + 64 + self.activeField.frame.size.height;
+        [self.scrollView scrollRectToVisible:tfRect animated:YES];
     }
 }
 
@@ -255,11 +240,32 @@
     [self.from resignFirstResponder];
     [self.to resignFirstResponder];
     [self.value resignFirstResponder];
-    [self.length resignFirstResponder];
-    [self.width resignFirstResponder];
-    [self.height resignFirstResponder];
     [self.weight resignFirstResponder];
     [self.cost resignFirstResponder];
+}
+
+- (IBAction)changeCityPlaces:(id)sender {
+    NSString *fromString = self.from.text;
+    self.from.text = self.to.text;
+    self.to.text = fromString;
+}
+
+- (IBAction)volumeCalculation:(id)sender {
+    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"VolumeCalculateView" owner:self options:nil];
+    VolumeCalculateView *mainView = [subviewArray objectAtIndex:0];
+    //mainView.frame = self.view.bounds;
+    //mainView.currentSelectSorting = currentSelectSorting;
+    //mainView.arrowCurrentSorting = arrowCurrentSorting;
+    mainView.delegate = self;
+    
+    UIWindow* window = [[UIApplication sharedApplication] keyWindow];
+    
+    // set frame of auto play bg view
+    mainView.frame = window.frame;
+    [window addSubview: mainView];
+    
+    //[self.view addSubview:mainView];
+    //[self.output didSelectFilter];
 }
 
 - (IBAction)searchTransiteAction:(id)sender {
@@ -287,11 +293,18 @@
         [self outPutError:NSLocalizedString(@"ENTER_WAIST", nil)];
        
     } else {
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue]], @"cFC": @"RU", @"cTC":@"UA"};
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC": @"RU", @"cTC":@"UA"};
         [self.output searchTransition:datas];
         
     }
     
+}
+
+
+#pragma mark - VolumeCalculateViewDelegate 
+
+- (void)resultCalculateVolume:(NSString *)resultString {
+    self.value.text = resultString;
 }
 
 - (void)outPutError:(NSString *)error {

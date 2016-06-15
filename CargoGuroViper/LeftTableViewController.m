@@ -9,6 +9,7 @@
 #import "LeftTableViewController.h"
 #import "RevealTableViewCell.h"
 #import "JVFloatingDrawerViewController.h"
+#import "UIViewController+MMDrawerController.h"
 
 enum {
     kSearchIndex    = 0,
@@ -48,10 +49,10 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     self.clearsSelectionOnViewWillAppear = NO;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    currentCountry = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue];
-    currentCurrency = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue];
-    currentVolume = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue];
-    currentWeight = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue];
+    currentCountry = INDEX_COUNTRY;
+    currentCurrency = INDEX_CURRENCY;
+    currentVolume = INDEX_VOLUME;
+    currentWeight = INDEX_WEIGHT;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeLanguageWithIndexCountry:) name:@"ChangeLanguage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCurrencyWithIndex:) name:@"ChangeCurrency" object:nil];
@@ -102,9 +103,6 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
             cell = [tableView dequeueReusableCellWithIdentifier:kSearchCellReuseIdentifier forIndexPath:indexPath];
             cell.searchText = @"Поиск";
             cell.delegate = self;
-//            cell.titleText = @"Поиск";
-//            cell.iconImage = nil;
-//            cell.titleParameter = nil;
         }
             break;
             
@@ -168,17 +166,15 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
         default:
             break;
     }
-
-    [[[AppDelegate globalDelegate] drawerViewController] setCenterViewController:destinationViewController];
-    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+    [self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
 }
 
 #pragma mark - RevealTableViewCellDelegate
+
 - (void)segueOnMainScreen {
     UIViewController *destinationViewController = nil;
     destinationViewController = [[AppDelegate globalDelegate] calculateModuleViewController];
-    [[[AppDelegate globalDelegate] drawerViewController] setCenterViewController:destinationViewController];
-    [[AppDelegate globalDelegate] toggleLeftDrawer:self animated:YES];
+    [self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
 }
 
 

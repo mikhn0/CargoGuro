@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "JVFloatingDrawerViewController.h"
 #import "JVFloatingDrawerSpringAnimator.h"
+#import "MMExampleDrawerVisualStateManager.h"
 
 static NSString * const kMainStoryboardName = @"Main";
 static NSString * const kConfigurationStoryboardName = @"Configuration";
@@ -41,27 +42,15 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.drawerViewController;
     [self configureDrawerViewController];
     
     [self.window makeKeyAndVisible];
-    LocalizationSetLanguage(LOCALIZE_LANGUAGE[[[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue]]);
+    LocalizationSetLanguage(LOCALIZE_LANGUAGE[INDEX_COUNTRY]);
     return YES;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveContext];
-}
-
-#pragma mark - Drawer View Controllers
-
-- (JVFloatingDrawerViewController *)drawerViewController {
-    if (!_drawerViewController) {
-        _drawerViewController = [[JVFloatingDrawerViewController alloc] init];
-    }
-    
-    return _drawerViewController;
 }
 
 #pragma mark Sides
@@ -126,12 +115,8 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
     return _calculateModuleViewController;
 }
 
-- (JVFloatingDrawerSpringAnimator *)drawerAnimator {
-    if (!_drawerAnimator) {
-        _drawerAnimator = [[JVFloatingDrawerSpringAnimator alloc] init];
-    }
-    return _drawerAnimator;
-}
+
+#pragma mark - Detect Storyboard
 
 - (UIStoryboard *)drawersStoryboard {
     if(!_drawersStoryboard) {
@@ -155,23 +140,54 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
 }
 
 - (void)configureDrawerViewController {
-    self.drawerViewController.leftViewController = self.leftDrawerViewController;
-    self.drawerViewController.centerViewController = self.calculateModuleViewController;
+    UIViewController * leftDrawer = self.leftDrawerViewController;
+    leftDrawer.view.backgroundColor = [UIColor colorWithRed:84.0/255.0
+                                                      green:85.0/255.0
+                                                       blue:87.0/255.0
+                                                      alpha:1.0];
     
-    self.drawerViewController.animator = self.drawerAnimator;
+    UIViewController * center = self.calculateModuleViewController;
     
+    self.drawerController = [[MMDrawerController alloc]
+                                             initWithCenterViewController:center
+                                             leftDrawerViewController:leftDrawer
+                                             rightDrawerViewController:nil];
+    [self.drawerController setShowsShadow:NO];
+    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    [self.drawerController setMaximumRightDrawerWidth:200.0];
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.frame = CGRectMake(0, 0, size.width, size.height);
-    layer.colors = @[ (__bridge id)[UIColor colorWithRed:158.0/255.0 green:158.0/255.0 blue:158.0/255.0 alpha:1.0].CGColor ,   // start color
-                      (__bridge id)[UIColor colorWithRed:97.0/255.0 green:97.0/255.0 blue:97.0/255.0 alpha:1.0].CGColor]; // end color
+    [self.drawerController
+     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+         MMDrawerControllerDrawerVisualStateBlock block;
+         block = [[MMExampleDrawerVisualStateManager sharedManager]
+                  drawerVisualStateBlockForDrawerSide:drawerSide];
+         if(block){
+             block(drawerController, drawerSide, percentVisible);
+         }
+     }];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIGraphicsBeginImageContext(size);
-    [layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.drawerViewController.backgroundImage = [UIImage imageNamed:@"background_test"];
+    UIColor * tintColor = [UIColor colorWithRed:84.0/255.0
+                                          green:85.0/255.0
+                                           blue:87.0/255.0
+                                          alpha:1.0];
+    [self.window setTintColor:tintColor];
+    [self.window setRootViewController:self.drawerController];
+    
+ 
+//    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+//    CAGradientLayer *layer = [CAGradientLayer layer];
+//    layer.frame = CGRectMake(0, 0, size.width, size.height);
+//    layer.colors = @[ (__bridge id)[UIColor colorWithRed:158.0/255.0 green:158.0/255.0 blue:158.0/255.0 alpha:1.0].CGColor ,   // start color
+//                      (__bridge id)[UIColor colorWithRed:97.0/255.0 green:97.0/255.0 blue:97.0/255.0 alpha:1.0].CGColor]; // end color
+//    
+//    UIGraphicsBeginImageContext(size);
+//    [layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    self.drawerViewController.backgroundImage = [UIImage imageNamed:@"background_test"];
 
 }
 
@@ -180,11 +196,6 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
 + (AppDelegate *)globalDelegate {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
-
-- (void)toggleLeftDrawer:(id)sender animated:(BOOL)animated {
-    [self.drawerViewController toggleDrawerWithSide:JVFloatingDrawerSideLeft animated:animated completion:nil];
-}
-
 
 #pragma mark - Core Data stack
 

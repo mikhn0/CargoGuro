@@ -15,19 +15,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Деловые линии" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1a-YK-fEU">
-                        <rect key="frame" x="33" y="17" width="143" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Деловые линии" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1a-YK-fEU">
+                        <rect key="frame" x="28" y="17" width="148" height="23"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="c5N-E4-XZ0"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="143" id="wwX-Rc-Zxn"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="140" id="wwX-Rc-Zxn"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.25490196078431371" green="0.25882352941176467" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автотранспорт" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9z-IC-diB">
-                        <rect key="frame" x="181" y="59" width="107" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автотранспорт" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a9z-IC-diB">
+                        <rect key="frame" x="181" y="59" width="112" height="16"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="TPb-s1-flo"/>
@@ -36,25 +36,26 @@
                         <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2199,00 руб." textAlignment="right" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0u-oc-wX3">
-                        <rect key="frame" x="181" y="17" width="107" height="19"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2199,00 руб." textAlignment="right" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="v0u-oc-wX3">
+                        <rect key="frame" x="181" y="17" width="112" height="22"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="3Bo-ZR-qif"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="i0o-ne-RKW"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="3Bo-ZR-qif"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="i0o-ne-RKW"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.52941176469999995" green="0.1764705882" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Москва-Краснодар " textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFI-oQ-IP4">
-                        <rect key="frame" x="33" y="44" width="143" height="31"/>
+                        <rect key="frame" x="28" y="44" width="148" height="31"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4-5 дней" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olk-eM-cA6">
-                        <rect key="frame" x="181" y="44" width="107" height="14"/>
+                        <rect key="frame" x="181" y="44" width="112" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Is1-eC-9er"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="Utr-EE-fCr"/>
@@ -69,15 +70,15 @@
                     <constraint firstItem="a9z-IC-diB" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="5LA-Ve-0Xk"/>
                     <constraint firstItem="v0u-oc-wX3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="AvD-Rp-2zg"/>
                     <constraint firstItem="v0u-oc-wX3" firstAttribute="leading" secondItem="D1a-YK-fEU" secondAttribute="trailing" constant="5" id="DgW-sl-SUt"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="a9z-IC-diB" secondAttribute="trailing" constant="24" id="E1D-Hf-Ww0"/>
-                    <constraint firstItem="AFI-oQ-IP4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="EcB-kR-e3j"/>
-                    <constraint firstItem="D1a-YK-fEU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="EyF-2W-Tnz"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="v0u-oc-wX3" secondAttribute="trailing" constant="24" id="Ifb-QO-EKB"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="a9z-IC-diB" secondAttribute="trailing" constant="19" id="E1D-Hf-Ww0"/>
+                    <constraint firstItem="AFI-oQ-IP4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="EcB-kR-e3j"/>
+                    <constraint firstItem="D1a-YK-fEU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="EyF-2W-Tnz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="v0u-oc-wX3" secondAttribute="trailing" constant="19" id="Ifb-QO-EKB"/>
                     <constraint firstItem="D1a-YK-fEU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="Ubu-S5-Kz5"/>
                     <constraint firstItem="a9z-IC-diB" firstAttribute="top" secondItem="olk-eM-cA6" secondAttribute="bottom" constant="1" id="YKm-xV-SKV"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="olk-eM-cA6" secondAttribute="trailing" constant="24" id="cJc-vz-o4K"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="olk-eM-cA6" secondAttribute="trailing" constant="19" id="cJc-vz-o4K"/>
                     <constraint firstItem="AFI-oQ-IP4" firstAttribute="top" secondItem="D1a-YK-fEU" secondAttribute="bottom" constant="4" id="qet-fP-OAR"/>
-                    <constraint firstItem="olk-eM-cA6" firstAttribute="top" secondItem="v0u-oc-wX3" secondAttribute="bottom" constant="8" id="rY0-HC-oTz"/>
+                    <constraint firstItem="olk-eM-cA6" firstAttribute="top" secondItem="v0u-oc-wX3" secondAttribute="bottom" constant="5" id="rY0-HC-oTz"/>
                     <constraint firstItem="olk-eM-cA6" firstAttribute="leading" secondItem="AFI-oQ-IP4" secondAttribute="trailing" constant="5" id="wXO-Zz-GCa"/>
                     <constraint firstItem="olk-eM-cA6" firstAttribute="top" secondItem="AFI-oQ-IP4" secondAttribute="top" priority="250" id="wdr-pr-TNM"/>
                     <constraint firstItem="AFI-oQ-IP4" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="xP5-Ra-bTA"/>

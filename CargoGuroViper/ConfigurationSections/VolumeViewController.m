@@ -15,7 +15,7 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue];
+    self.currentIndex = INDEX_VOLUME;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

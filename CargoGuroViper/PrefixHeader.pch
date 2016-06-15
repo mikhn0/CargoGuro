@@ -14,9 +14,16 @@
 #import "ConfigFormat+NSString.h"
 #import "AppDelegate.h"
 #import "LocalizeHelper.h"
+#import "UIViewController+MMDrawerController.h"
 
 #define IDIOM    UI_USER_INTERFACE_IDIOM()
 #define IPAD     UIUserInterfaceIdiomPad
+
+#define USER_DEF [NSUserDefaults standardUserDefaults]
+#define INDEX_COUNTRY [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCountry"] integerValue]
+#define INDEX_CURRENCY [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexCurrency"] integerValue]
+#define INDEX_VOLUME [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexVolume"] integerValue]
+#define INDEX_WEIGHT [[[NSUserDefaults standardUserDefaults] objectForKey:@"currentIndexWeight"] integerValue]
 
 #define LANGUAGE_NAME @[@"Русский", @"中国人", @"English", @"Deutsch", @"Français"]
 #define LANGUAGE @[@"ru", @"zh", @"en", @"de", @"fr"]
@@ -29,5 +36,22 @@
 #define VOLUME_NAME @[[NSString printCubeOfValue:@"м"], [NSString printCubeOfValue:@"см"], @"л"]
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#define GET_COMPLIST    @"2/get_complist.php"
+#define GET_CALCULATION @"2/get_calculation.php"
+#define GET_ADVERT      @"2/get_advert.php"
+#define GET_RES_ADVERT  @"2/get_res_advert.php"
+#define GET_CVT_PRICES  @"2/get_cvt_prices.php"
+#define CLICKURL        @"2/clickurl.php"
+
+#define kCOMPANIES          @"companies"
+#define kTRANSPORT_NUMBER   @"transportNumber"
+#define kTRANSPORT_NAME     @"transportName"
+#define kTRANSPORT_NAMES    @"transportNames"
+#define kTRANSPORT_SITE     @"transportSite"
+#define kTRANSPORT_PRICES    @"calcResultPrices"
+#define kTRANSPORT_TIME     @"calcResultTime"
+#define kTRANSPORT_TIMES    @"calcResultTimes"
 
 #endif /* PrefixHeader_pch */
