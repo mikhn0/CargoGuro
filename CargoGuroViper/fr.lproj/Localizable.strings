@@ -17,3 +17,32 @@
 
 "TITLE_ABOUT" = "À propos du projet";
 "DESCRIPTION_ABOUT" = "Nous sommes fiers de vous présenter le nouveau service pour le calcul en ligne de Cargo.guru pour le transport de fret, conçu pour simplifier et accélérer la procédure de sélection d'une compagnie de transport pour le transport de vos marchandises. Maintenant, vous ne devez plus passer un temps précieux à la recherche d'un TC approprié qui répond le mieux à vos attentes. En utilisant le service pratique Cargo.guru, vous pouvez choisir le transporteur et calculer le coût du transport de fret en Russie en quelques minutes, alors que la recherche d'une option rentable sur Internet va prendre environ une heure.\n\nNotre base de données est constituée de milliers de transporteurs fiables opérant sur le territoire de la Russie et de la CEI. Un grand nombre de colonies va vous permettre de faire un itinéraire clair en seulement quelques minutes. Une large gamme de solutions de rechange disponibles aux fins de comparaison est le principal avantage du service Cargo.guru, où vous pouvez connaître immédiatement le coût du transport de marchandises en Russie et dans tout autre pays de la CEI.\n\nNotre site est mobile-friendly de sorte que vous pouvez l’utiliser sur tout appareil, que ce soit un ordinateur de bureau ou un téléphone intelligent. Le site Cargo.guru est aussi facile à utiliser, donc il y a une application pour les téléphones mobiles et les tablettes, qui fonctionne aussi bien sur OS Android et iOS. Par conséquent, lors de l'utilisation des appareils mobiles, vous n’aurez aucune difficulté avec le calcul de la livraison de marchandises par la société de transport.\n\nVous pouvez trouver l'option de prix parfait en changeant les véhicules souhaités et les délais de livraison. Dans ce cas, vous ne devez pas passer beaucoup de temps a structurer et analyser l'information afin de calculer le coût de la livraison par les différentes compagnies de transport: l'information sera fournie sous une forme lisible en quelques secondes.\n\nCargo-Guru vous aidera a faire le bon choix de compagnhie de transport.";
+
+
+
+"GLOBAL_TRANSPORT_INFORMATION_SYSTEM" = "";
+"CALCULATE_LOAD_DELIVERY_COAST" = "";
+"ENTER_FROM" = "De";
+"ENTER_TO" = "A"; //хвост
+"ENTER_VALUE" = "Volume";
+"ENTER_WEIGHT" = "Poids";
+"ENTER_DECLARED_VALUE" = "la valeur declaree"; //хвост
+"ENTER_CALCULATE" = "Calculer";
+
+"SEARCH" = "la Recherche";
+"LANGUAGE" = "la langue";
+"CURRENCY" = "la devise";
+"WEIGHT" = "le poids";
+"VALUE" = "le volume";
+"TITLE_ABOUT" = "information sur le  projet";
+"FEEDBACK" = "la liaison en retour";
+"CHOICE_OF_LANGUAGE" = "Le choix de la langue";
+
+"KG" = "kg";
+"G" = "g";
+"TN" = "tn";
+
+"M" = "m";
+"СM" = "cm";
+"L" = "l";
+

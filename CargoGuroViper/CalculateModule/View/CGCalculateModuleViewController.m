@@ -73,24 +73,6 @@
     self.to.layer.borderColor = [UIColor whiteColor].CGColor;
     self.to.layer.cornerRadius = 3.0;
     
-<<<<<<< HEAD
-    self.from.placeholder = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
-    self.from.placeholder = LocalizedString(@"CALCULATE_LOAD_DELIVERY_COAST");
-    self.from.placeholder = LocalizedString(@"ENTER_FROM");
-    self.from.placeholder = LocalizedString(@"ENTER_TO");
-    self.from.placeholder = LocalizedString(@"ENTER_VALUE");
-    self.from.placeholder = LocalizedString(@"ENTER_WEIGHT");
-    self.from.placeholder = LocalizedString(@"ENTER_DECLARED_VALUE");
-    self.from.placeholder = LocalizedString(@"ENTER_CALCULATE");
-    
-
-    
-    [self.from setText:@"Уфа"];
-    [self.to setText:@"Киев"];
-    [self.value setText:@"123"];
-    [self.weight setText:@"123"];
-    [self.cost setText:@"123"];
-=======
     self.value.layer.borderWidth = 1.0;
     self.value.layer.borderColor = [UIColor whiteColor].CGColor;
     self.value.layer.cornerRadius = 3.0;
@@ -103,12 +85,21 @@
     self.cost.layer.borderColor = [UIColor whiteColor].CGColor;
     self.cost.layer.cornerRadius = 3.0;
     
+//    self..placeholder = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
+//    self..placeholder = LocalizedString(@"CALCULATE_LOAD_DELIVERY_COAST");
+    self.from.placeholder = LocalizedString(@"ENTER_FROM");
+    self.to.placeholder = LocalizedString(@"ENTER_TO");
+    self.value.placeholder = LocalizedString(@"ENTER_VALUE");
+    self.weight.placeholder = LocalizedString(@"ENTER_WEIGHT");
+    self.cost.placeholder = LocalizedString(@"ENTER_DECLARED_VALUE");
+    self.searchTransite.titleLabel.text = LocalizedString(@"ENTER_CALCULATE");
+    
 //    [self.from setText:@"Уфа"];
 //    [self.to setText:@"Киев"];
 //    [self.value setText:@"123"];
 //    [self.weight setText:@"123"];
 //    [self.cost setText:@"123"];
->>>>>>> e6347de5486ed3c7659f7de3525cac3d6ee96417
+
     
     self.searchTransite.layer.cornerRadius = 5.0;
     

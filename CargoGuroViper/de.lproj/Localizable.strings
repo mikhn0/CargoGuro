@@ -17,3 +17,31 @@
 
 "TITLE_ABOUT" = "Über das Projekt";
 "DESCRIPTION_ABOUT" = "Wir sind stolz, Ihnen den neusten Service für die Berechnung der Frachtlieferung Cargo.guru zu präsentieren, konzipiert um die Länge der Zeit und Komplexität beim Aussuchen der richtigen Spedition zu verringern. Jetzt müssen Sie nicht wertvolle Zeit damit verbringen, nach der Spedition zu suchen, die Ihren ANforderungen entspricht. Wenn Sie den bequemen Service bei Cargo.guru nutzen, können Sie die richtige Spedition aussuchen und die Kosten für Frachtlieferungen un Russland innerhalb von wenigen Minuten berechnen, während die Suche im Internet nach einer Kosten effektiven Alternative ungefähr eine Stunde dauert.\n\nUnsere Datenbank besteht auf tausenden zuverlässigen Spediteuren, die auf dem Territorium Russlands und der GUS operieren. Eine riesige Anzahl an Städten erlaubt es Ihnen in nur wenigen Minuten eine klare Route zu definieren. Viele Alternativen zum Vergleich stehen zur Verfügung und ist der Hauptvorteil des Cargo.guru Services, bei dem Sie sofort die Kosten für die Frachtlieferung in Russland und GUS herausfinden können.\n\nUnsere Seite ist für Mobile Nutzer geeignet und kann auf jedem Gerät genutzt werden, unabhängig davon, ob es ein Desktop Computer oder Smartphone ist. Die Webseite Cargo.guru ist auch sehr benutzerfreundlich und hat eine app für handys und Tablets, die sowohl mit mit OS Android, als auch iOS funktionieren. Deshalb werden Sie keine Probleme mit mobilen Geräten haben, wenn Sie die Frachtlieferung einer Spedition berechnen.\n\nSie können die perfekte Preis Option wählen, indem SIe das gewünschte Fahrzeug und die Ankunftszeit wechseln. In diesem Fall müssen Sie nicht viel Zeit damit verbringen, die Informationen zu strukturieren und analysieren um die Kosten für verschiedene Spediteure zu berechnen. Diese Informationen werden leserlich innerhalb weniger Sekunden zur Verfügung stehen.\n\nCargo.guru wird Ihnen helfen, den richtigen Spediteur zu finden!";
+
+
+"GLOBAL_TRANSPORT_INFORMATION_SYSTEM" = "Das globale informative Transportsystem";
+"CALCULATE_LOAD_DELIVERY_COAST" = "Rechnen Sie den Wert der Zustellung der Ladung";
+"ENTER_FROM" = "Von";
+"ENTER_TO" = "Bis";
+"ENTER_VALUE" = "Volumen";
+"ENTER_WEIGHT" = "Gewitch";
+"ENTER_DECLARED_VALUE" = "angemeldeter Wert";
+"ENTER_CALCULATE" = "Berechner";
+
+"SEARCH" = "die Suche";
+"LANGUAGE" = "die Sprache";
+"CURRENCY" = "die Währung";
+"WEIGHT" = "das Gewicht";
+"VALUE" = "der Umfang";
+"TITLE_ABOUT" = "Über das Projekt";
+"FEEDBACK" = "das Feedback";
+"CHOICE_OF_LANGUAGE" = "Die Auswahl der Sprache";
+
+"KG" = "kg";
+"G" = "g";
+"TN" = "tn";
+
+"M" = "m";
+"СM" = "cm";
+"L" = "l";
+
