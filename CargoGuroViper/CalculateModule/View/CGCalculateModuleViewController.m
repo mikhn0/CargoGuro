@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *replaceCity;
 @property (weak, nonatomic) IBOutlet UIButton *calculateVolume;
 @property (weak, nonatomic) IBOutlet UILabel *logoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *globalTransInfSysLabel; // глобальная транспортно-информационная система
+@property (weak, nonatomic) IBOutlet UILabel *calcLoadDeliveryCoastLabel; //расчитайте стоимость доставки груза
+
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *from;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *to;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *value;
@@ -52,6 +55,10 @@
     
     self.logoLabel.adjustsFontSizeToFitWidth = YES;
     
+    self.globalTransInfSysLabel.text = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
+    self.calcLoadDeliveryCoastLabel.text = LocalizedString(@"CALCULATE_LOAD_DELIVERY_COAST");
+
+    
     self.from.delegate = self;
     UIColor *colorText = [UIColor whiteColor];
     UIColor *borderColor = [UIColor colorWithWhite:1.0 alpha:0.5];
@@ -74,7 +81,7 @@
     self.value.layer.cornerRadius = 3.0;
     
     self.weight.delegate = self;
-    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_WEIGHT") attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_WEIGHT"),  [NSString printCubeOfValue:LocalizedString(@"KG")]] attributes:@{NSForegroundColorAttributeName: colorText}];
     self.weight.layer.borderWidth = 0.5;
     self.weight.layer.borderColor = borderColor.CGColor;
     self.weight.layer.cornerRadius = 3.0;
@@ -86,8 +93,6 @@
     self.cost.layer.cornerRadius = 3.0;
     
     self.searchTransite.titleLabel.text = LocalizedString(@"ENTER_CALCULATE");
-    
-    
     self.searchTransite.layer.cornerRadius = 5.0;
     self.searchTransite.enabled = NO;
     self.searchTransite.alpha = 0.5;

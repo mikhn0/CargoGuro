@@ -6,11 +6,6 @@
   Copyright © 2016 Виктория. All rights reserved.
 */
 
-"ENTER_FROM" = "Enter the departure point";
-"ENTER_TO" = "Enter the destination point";
-"ENTER_VALUE" = "Enter the amount of cargo";
-"ENTER_WAIST" = "Enter the waight of cargo";
-
 "ERROR_NOT_INTERNET" = "У вас нет соединения с интернетом.";
 
 //About project
