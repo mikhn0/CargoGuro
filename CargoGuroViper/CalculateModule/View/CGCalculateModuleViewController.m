@@ -68,7 +68,7 @@
     self.to.layer.cornerRadius = 3.0;
     
     self.value.delegate = self;
-    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_VALUE") attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_VALUE"),  [NSString printCubeOfValue:LocalizedString(@"M")]] attributes:@{NSForegroundColorAttributeName: colorText}];
     self.value.layer.borderWidth = 0.5;
     self.value.layer.borderColor = borderColor.CGColor;
     self.value.layer.cornerRadius = 3.0;
@@ -86,6 +86,8 @@
     self.cost.layer.cornerRadius = 3.0;
     
     self.searchTransite.titleLabel.text = LocalizedString(@"ENTER_CALCULATE");
+    
+    
     self.searchTransite.layer.cornerRadius = 5.0;
     self.searchTransite.enabled = NO;
     self.searchTransite.alpha = 0.5;
