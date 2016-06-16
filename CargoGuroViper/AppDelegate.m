@@ -45,6 +45,7 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
     [self configureDrawerViewController];
     
     [self.window makeKeyAndVisible];
+    [GMSServices provideAPIKey:GOOGLE_PLACE_API_KEY];
     LocalizationSetLanguage(LOCALIZE_LANGUAGE[INDEX_COUNTRY]);
     return YES;
 }

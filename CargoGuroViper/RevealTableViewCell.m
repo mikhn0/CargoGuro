@@ -80,41 +80,40 @@ static const CGFloat kJVCenterViewContainerCornerRadius = 5.0;
 
 #pragma Button
 
-- (NSString *)searchText {
-    return self.searchButton.titleLabel.text;
-}
-
-- (void)setSearchText:(NSString *)searchText {
-    self.searchButton.titleLabel.text = searchText;
-    CGSize size = CGSizeMake(112, 112);
-    CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.frame = CGRectMake(0, 0, size.width, size.height);
-    layer.colors = @[ (__bridge id)[UIColor colorWithRed:156.0/255.0 green:41.0/255.0 blue:119.0/255.0 alpha:1.0].CGColor ,   // start color
-                      (__bridge id)[UIColor colorWithRed:81.0/255.0 green:24.0/255.0 blue:70.0/255.0 alpha:1.0].CGColor]; // end color
+- (void)setSearchText:(BOOL)isFirsty {
+    [self.searchButton setTitle:LocalizedString(@"SEARCH") forState:UIControlStateNormal];
     
-    UIGraphicsBeginImageContext(size);
-    [layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.searchButton.backgroundColor = [UIColor colorWithPatternImage:image];
-    
-    self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width+4;
-    
-    CALayer *layerShadow = self.searchButton.layer;
-    layerShadow.shadowRadius  = 30.0;
-    layerShadow.shadowColor   = [UIColor blackColor].CGColor;
-    layerShadow.shadowOpacity = 0.6;
-    layerShadow.shadowOffset  = CGSizeMake(35.0, 35.0);
-    layerShadow.masksToBounds = NO;
-    
-    [self updateShadowPath];
+    if (isFirsty) {
+        CGSize size = CGSizeMake(112, 112);
+        CAGradientLayer *layer = [CAGradientLayer layer];
+        layer.frame = CGRectMake(0, 0, size.width, size.height);
+        layer.colors = @[ (__bridge id)[UIColor colorWithRed:156.0/255.0 green:41.0/255.0 blue:119.0/255.0 alpha:1.0].CGColor ,   // start color
+                          (__bridge id)[UIColor colorWithRed:81.0/255.0 green:24.0/255.0 blue:70.0/255.0 alpha:1.0].CGColor]; // end color
+        
+        UIGraphicsBeginImageContext(size);
+        [layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        self.searchButton.backgroundColor = [UIColor colorWithPatternImage:image];
+        
+        self.searchButton.layer.cornerRadius = self.searchButton.frame.size.width+4;
+        
+        CALayer *layerShadow = self.searchButton.layer;
+        layerShadow.shadowRadius  = 30.0;
+        layerShadow.shadowColor   = [UIColor blackColor].CGColor;
+        layerShadow.shadowOpacity = 0.6;
+        layerShadow.shadowOffset  = CGSizeMake(35.0, 35.0);
+        layerShadow.masksToBounds = NO;
+        
+        [self updateShadowPath];
+    }
 }
 
 - (void)updateShadowPath {
-    CALayer *layer = self.searchButton.layer;
+    CALayer *layer = _searchButton.layer;
     
     CGFloat increase = layer.shadowRadius;
-    CGRect centerViewContainerRect = self.searchButton.bounds;
+    CGRect centerViewContainerRect = _searchButton.bounds;
     centerViewContainerRect.origin.x -= increase;
     centerViewContainerRect.origin.y -= increase;
     centerViewContainerRect.size.width  += 2 * increase;

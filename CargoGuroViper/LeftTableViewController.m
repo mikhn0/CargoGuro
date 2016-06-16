@@ -32,6 +32,7 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     NSInteger currentCurrency;
     NSInteger currentWeight;
     NSInteger currentVolume;
+    BOOL isFirsty;
 }
 @property (nonatomic) NSArray *leftMenuSections;
 @property (nonatomic) NSArray *configName;
@@ -42,6 +43,7 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isFirsty = YES;
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.contentInset = UIEdgeInsetsMake(kJVTableViewTopInset, 0.0, 0.0, 0.0);
@@ -60,7 +62,6 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 }
 
 - (NSArray *)leftMenuSections {
-   // return @[@"Поиск", @"Язык", @"Валюта", @"Вес", @"Объем", @"О проекте", @"Обратная связь"];
     return @ [ LocalizedString(@"SEARCH"),LocalizedString(@"LANGUAGE") ,LocalizedString(@"CURRENCY") ,LocalizedString(@"WEIGHT") ,LocalizedString(@"VALUE") ,LocalizedString(@"TITLE_ABOUT") ,LocalizedString(@"FEEDBACK")];
 }
 
@@ -105,7 +106,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
         case kSearchIndex:
         {
             cell = [tableView dequeueReusableCellWithIdentifier:kSearchCellReuseIdentifier forIndexPath:indexPath];
-            cell.searchText = LocalizedString(@"SEARCH"); //@"Поиск"
+            [cell setSearchText:isFirsty];
+            isFirsty = NO;
             cell.delegate = self;
         }
             break;
@@ -186,28 +188,28 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 - (void)changeLanguageWithIndexCountry:(NSNotification *)notification {
     currentCountry = [notification.userInfo[@"indexCountry"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kLanguageIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kLanguageIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
 
 - (void)changeCurrencyWithIndex:(NSNotification *)notification {
     currentCurrency = [notification.userInfo[@"indexCurrency"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kCurrencyIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kCurrencyIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
 
 - (void)changeVolumeWithIndex:(NSNotification *)notification {
     currentVolume = [notification.userInfo[@"indexVolume"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kVolumeIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kVolumeIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
 
 - (void)changeWeightWithIndex:(NSNotification *)notification {
     currentWeight = [notification.userInfo[@"indexWeight"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kWeightIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kWeightIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
 

@@ -5,8 +5,8 @@
 /* Class = "UINavigationItem"; title = "CARGO.GURU"; ObjectID = "5bY-Qf-Mwz"; */
 "5bY-Qf-Mwz.title" = "CARGO.GURU";
 
-/* Class = "UIButton"; normalTitle = "Поиск"; ObjectID = "8kb-JE-CTQ"; */
-"8kb-JE-CTQ.normalTitle" = "Поиск";
+/* Class = "UIButton"; normalTitle = "la Recherche"; ObjectID = "8kb-JE-CTQ"; */
+"8kb-JE-CTQ.normalTitle" = "la Recherche";
 
 /* Class = "UILabel"; text = "Поиск транспорта"; ObjectID = "9Gv-So-xJW"; */
 "9Gv-So-xJW.text" = "Поиск транспорта";

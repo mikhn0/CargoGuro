@@ -6,7 +6,13 @@
   Copyright © 2016 Виктория. All rights reserved.
 */
 
-"ERROR_NOT_INTERNET" = "У вас нет соединения с интернетом.";
+"ENTER_ERROR_FROM" = "Enter the departure point";
+"ENTER_ERROR_TO" = "Enter the destination point";
+"ENTER_ERROR_VALUE" = "Enter the amount of cargo";
+"ENTER_ERROR_WAIST" = "Enter the waight of cargo";
+
+
+"ERROR_NOT_INTERNET" = "You have no Internet connection.";
 
 //About project
 
@@ -28,17 +34,28 @@
 "CURRENCY" = "Currency";
 "WEIGHT" = "Weight";
 "VALUE" = "Value";
+"WIGTH" = "Width";
+"LENGTH" = "Length";
+"HEIGHT" = "Height";
 "TITLE_ABOUT" = "About";
 "FEEDBACK" = "Feedback";
 "CHOICE_OF_LANGUAGE" = "Choice of Language";
+"PRICE" = "Price";
+
+
+//Filter
+"BY_PRICE" = "By price";
+"BY_COMPANY" = "By carrier";
+"BY_METHOD" = "By the way";
+"BY_TIME" = "By the time";
 
 "KG" = "kg";
 "G" = "g";
 "TN" = "tn";
 
 "M" = "m";
-"СM" = "cм";
-"L" = "л";
+"СM" = "cm";
+"L" = "l";
 
 "CURENCY_VALUE" = "rub";
 

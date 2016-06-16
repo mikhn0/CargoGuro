@@ -312,9 +312,9 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="8kb-JE-CTQ" secondAttribute="height" multiplier="1:1" id="vEy-Bg-fS7"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                            <state key="normal" title="Поиск">
+                                            <state key="normal" title="Search">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </state>

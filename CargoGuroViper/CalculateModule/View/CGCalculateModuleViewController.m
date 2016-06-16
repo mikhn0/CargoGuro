@@ -15,7 +15,9 @@
 
 #import "CGCalculateModulePresenter.h"
 
-@interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate>
+@interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate, UITableViewDelegate, UITableViewDataSource> {
+    GMSPlacesClient *_placesClient;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
 @property (weak, nonatomic) IBOutlet UIButton *replaceCity;
@@ -42,6 +44,9 @@
 
 @property (nonatomic) JVFloatLabeledTextField *activeField;
 
+@property (nonatomic) UITableView *autocompleteTableView;
+@property (nonatomic) NSMutableArray *autocompleteUrls;
+@property (nonatomic) NSArray *pastUrls;
 
 @end
 
@@ -54,12 +59,13 @@
 	[super viewDidLoad];
     
     self.logoLabel.adjustsFontSizeToFitWidth = YES;
-    
-    self.from.delegate = self;
+    _placesClient = [[GMSPlacesClient alloc] init];
+    self.autocompleteUrls = [NSMutableArray array];
+    [self addAutocomplitedTableForTextField];
     
     UIColor *borderColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     
-
+    self.from.delegate = self;
     self.from.layer.borderWidth = 0.5;
     self.from.layer.borderColor = borderColor.CGColor;
     self.from.layer.cornerRadius = 3.0;
@@ -106,6 +112,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     UIColor *colorText = [UIColor whiteColor];
  
     self.globalTransInfSysLabel.text = LocalizedString(@"GLOBAL_TRANSPORT_INFORMATION_SYSTEM");
@@ -138,6 +145,18 @@
     [UIView setAnimationsEnabled:YES];
 }
 
+
+- (void)addAutocomplitedTableForTextField {
+    CGFloat widthComplTable = self.inputView.frame.size.width;
+    self.autocompleteTableView = [[UITableView alloc] initWithFrame:
+                             CGRectMake(0, 0, widthComplTable, widthComplTable) style:UITableViewStylePlain];
+    self.autocompleteTableView.delegate = self;
+    self.autocompleteTableView.dataSource = self;
+    self.autocompleteTableView.scrollEnabled = YES;
+    self.autocompleteTableView.hidden = YES;
+    [self.inputView addSubview:self.autocompleteTableView];
+}
+
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -162,6 +181,27 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    //Autocomplited Textfield - START
+    if (textField.tag == 1 || textField.tag == 2) {
+        self.autocompleteTableView.hidden = NO;
+        CGRect frameTable = self.autocompleteTableView.frame;
+        frameTable.origin = CGPointMake(self.activeField.frame.origin.x, self.activeField.frame.origin.y + self.activeField.frame.size.height+2);
+        frameTable.size.width = self.activeField.frame.size.width;
+        self.autocompleteTableView.frame = frameTable;
+        NSString *substring = [NSString stringWithString:textField.text];
+        substring = [substring
+                     stringByReplacingCharactersInRange:range withString:string];
+        [self placeAutocomplete:substring];
+        
+        
+        
+        CGRect tfRect = self.activeField.frame;
+        tfRect.origin.y -= 64.0;//self.autocompleteTableView.frame.size.height;
+        [self.scrollView scrollRectToVisible:tfRect animated:YES];
+    }
+    
+    //Autocomplited Textfield - END
+    
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
         if (textField == self.value || textField == self.weight || textField == self.cost) {
             NSString *candidate = [[textField text] stringByReplacingCharactersInRange:range withString:string];
@@ -184,6 +224,7 @@
     }
     return YES;
 }
+
 
 - (void)textFieldDidBeginEditing:(JVFloatLabeledTextField *)textField
 {
@@ -223,7 +264,6 @@
 
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    NSLog(@"Main view frame ==== %@", NSStringFromCGRect(self.view.frame));
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -238,7 +278,7 @@
     
     CGRect tfRect = self.activeField.frame;
     tfRect.origin.y += self.inputView.frame.origin.y + self.scrollView.frame.origin.y + 64 + self.activeField.frame.size.height;
-    NSLog(@"self.activeField.frame.origin ==== %@", NSStringFromCGPoint(tfRect.origin));
+    
     if (!CGRectContainsPoint(aRect, tfRect.origin) ) {
         tfRect.origin.y -= self.inputView.frame.origin.y + 64 + self.activeField.frame.size.height;
         [self.scrollView scrollRectToVisible:tfRect animated:YES];
@@ -246,11 +286,63 @@
 }
 
 - (void)hideKeyboard {
+    self.autocompleteTableView.hidden = YES;
     [self.from resignFirstResponder];
     [self.to resignFirstResponder];
     [self.value resignFirstResponder];
     [self.weight resignFirstResponder];
     [self.cost resignFirstResponder];
+}
+
+
+#pragma mark - Autocomplited Textfield
+
+- (void)placeAutocomplete:(NSString *)substring {
+    
+    GMSAutocompleteFilter *filter = [[GMSAutocompleteFilter alloc] init];
+    filter.type = kGMSPlacesAutocompleteTypeFilterCity;
+    
+    [_placesClient autocompleteQuery:substring  //this should be your textfield text
+                              bounds:nil
+                              filter:filter
+                            callback:^(NSArray *results, NSError *error) {
+                                if (error != nil) {
+                                    NSLog(@"Autocomplete error %@", [error localizedDescription]);
+                                    return;
+                                }
+                                
+                                for (GMSAutocompletePrediction* result in results) {
+                                    NSLog(@"Result '%@' with placeID %@", result.attributedFullText.string, result.placeID);
+                                }
+                                
+                                [self.autocompleteUrls removeAllObjects];
+                                for (GMSAutocompletePrediction *curString in results) {
+                                    
+                                    [self.autocompleteUrls addObject:curString.attributedFullText.string];
+                                    
+                                }
+                                [self.autocompleteTableView reloadData];
+                                
+                            }];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.autocompleteUrls.count > 5 ? 5 : self.autocompleteUrls.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [UITableViewCell new];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticeNeue Light" size:12.0];
+    cell.textLabel.text = self.autocompleteUrls[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.activeField.text = self.autocompleteUrls[indexPath.row];
+    tableView.hidden = YES;
 }
 
 - (IBAction)changeCityPlaces:(id)sender {
@@ -262,19 +354,12 @@
 - (IBAction)volumeCalculation:(id)sender {
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"VolumeCalculateView" owner:self options:nil];
     VolumeCalculateView *mainView = [subviewArray objectAtIndex:0];
-    //mainView.frame = self.view.bounds;
-    //mainView.currentSelectSorting = currentSelectSorting;
-    //mainView.arrowCurrentSorting = arrowCurrentSorting;
     mainView.delegate = self;
     
     UIWindow* window = [[UIApplication sharedApplication] keyWindow];
-    
     // set frame of auto play bg view
     mainView.frame = window.frame;
     [window addSubview: mainView];
-    
-    //[self.view addSubview:mainView];
-    //[self.output didSelectFilter];
 }
 
 - (IBAction)searchTransiteAction:(id)sender {
@@ -287,19 +372,19 @@
     
     if (cargoFrom.length < 1) {
         
-        [self outPutError:NSLocalizedString(@"ENTER_FROM", nil)];
+        [self outPutError:LocalizedString(@"ENTER_ERROR_FROM")];
         
     } else if (cargoTo.length < 1) {
         
-        [self outPutError:NSLocalizedString(@"ENTER_TO", nil)];
+        [self outPutError:LocalizedString(@"ENTER_ERROR_TO")];
         
     } else if (self.value.text.length < 1) {
         
-        [self outPutError:NSLocalizedString(@"ENTER_VALUE", nil)];
+        [self outPutError:LocalizedString(@"ENTER_ERROR_VALUE")];
         
     } else if (self.weight.text.length < 1) {
         
-        [self outPutError:NSLocalizedString(@"ENTER_WAIST", nil)];
+        [self outPutError:LocalizedString(@"ENTER_ERROR_WAIST")];
        
     } else {
         NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC": @"RU", @"cTC":@"UA"};

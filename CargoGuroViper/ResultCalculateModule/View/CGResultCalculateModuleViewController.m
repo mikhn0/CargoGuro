@@ -58,7 +58,7 @@
     self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];
     
     
-    self.informationLabel.text = [NSString stringWithFormat:@"Обьём %@ %@. Вес %@ %@. Ценность %.2f %@.", self.datas[@"cV"], VOLUME_NAME[INDEX_VOLUME], self.datas[@"cW"], WEIGHT_NAME[INDEX_WEIGHT], ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00), CURRENCY_NAME[INDEX_CURRENCY]];
+    self.informationLabel.text = [NSString stringWithFormat:@"%@ %@ %@. %@ %@ %@. %@ %.2f %@.", LocalizedString(@"VALUE"), self.datas[@"cV"], VOLUME_NAME[INDEX_VOLUME], LocalizedString(@"WEIGHT"), self.datas[@"cW"], WEIGHT_NAME[INDEX_WEIGHT], LocalizedString(@"PRICE"), ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00), CURRENCY_NAME[INDEX_CURRENCY]];
     
     self.output.imageIndicator = self.loadImage;
     self.output.loadView = self.loadScreen;
@@ -83,7 +83,7 @@
     UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 80.0f, 30.0f)];
     [backButton setImage:[UIImage imageNamed:@"icon_back"]  forState:UIControlStateNormal];
     [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
-    [backButton setTitle:@"Поиск" forState:UIControlStateNormal];
+    [backButton setTitle:LocalizedString(@"SEARCH") forState:UIControlStateNormal];
     [backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -4, 0, 0)];
     [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
@@ -205,7 +205,6 @@
 - (void)addRowWithResult:(NSDictionary *)result {
     
     [self.tableView beginUpdates];
-    NSLog(@"result ====== %@", result);
     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[listOfResult count] inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
     [listOfResult addObject:result];

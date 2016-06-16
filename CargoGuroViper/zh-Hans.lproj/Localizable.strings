@@ -6,44 +6,52 @@
   Copyright © 2016 Виктория. All rights reserved.
 */
 
-"ENTER_FROM" = "Enter the departure point";
-"ENTER_TO" = "Enter the destination point";
-"ENTER_VALUE" = "Enter the amount of cargo";
-"ENTER_WAIST" = "Enter the waight of cargo";
+"ENTER_ERROR_FROM" = "该出发点";
+"ENTER_ERROR_TO" = "进入目的地点";
+"ENTER_ERROR_VALUE" = "输入的货物的数量";
+"ENTER_ERROR_WAIST" = "进入维特*货物";
 
-"ERROR_NOT_INTERNET" = "У вас нет соединения с интернетом.";
+"ERROR_NOT_INTERNET" = "你有没有互联网连接。";
 
 //About project
 
 "TITLE_ABOUT" = "關於該項目";
 "DESCRIPTION_ABOUT" = "М我們很榮幸為您呈現最新的在線計算貨物運送Cargo.guru 的服務，服務旨在簡化和加快選擇一家合適的運輸公司之程序。現在，你不必再花費寶貴的時間在尋找最能滿足您期望的一家TC。使用便捷的Cargo.guru服務，你可以選擇運輸公司，並在幾分鐘之內計算貨物在俄羅斯運輸的費用，以往你可能需要大約一個小時在互聯網上搜索一個具有成本效益的選擇。\n\n我們的數據庫由數以千計在俄羅斯和獨聯體境內營運的可靠運輸公司組成。數量龐大的定居點讓你在短短幾分鐘之內定出清晰的路線。Cargo.guru服務的優點在於提供廣泛而不同類型的替代方案給你比較，在這裡你可以馬上找到在俄羅斯和獨聯體境內貨物運輸的成本。\n\n我們的網站適合任何設備上使用，無論是台式電腦還是智能手機也能友好地使用。人性化的Cargo.guru 網站提供在手機和平板電腦的應用程序，應用程序適合在操作系統Android和iOS上使用。因此，當你使用移動設備來計算運輸公司提供的貨遞費用時，你不會感到任何困難。\n\n您可以通過改變所需的車輛和交貨時間來選擇完美的價格。若你想計算由不同運輸公司來交付的成本時，在這種情況下，你不必花費大量的時間來構建和分析信息：可讀形式的信息將在幾秒鐘內呈現。\n\nCargo.guru將幫助您正確的選擇TC！";
 
+"GLOBAL_TRANSPORT_INFORMATION_SYSTEM" = "全球运输信息系统";
+"CALCULATE_LOAD_DELIVERY_COAST" = "计算成本的传送";
+"ENTER_FROM" = "由";
+"ENTER_TO" = "至";
+"ENTER_VALUE" = "體積";
+"ENTER_WEIGHT" = "重量";
+"ENTER_DECLARED_VALUE" = "聲明價值";
+"ENTER_CALCULATE" = "計算";
 
+"SEARCH" = "搜索";
+"LANGUAGE" = "语言";
+"CURRENCY" = "货币";
+"WEIGHT" = "重量";
+"VALUE" = "音量";
+"WIGTH" = "宽";
+"LENGTH" = "长";
+"HEIGHT" = "高度";
+"TITLE_ABOUT" = "關於我們";
+"FEEDBACK" = "反馈";
+"CHOICE_OF_LANGUAGE" = "语言选择";
+"PRICE" = "值";
 
-"GLOBAL_TRANSPORT_INFORMATION_SYSTEM" = "";
-"CALCULATE_LOAD_DELIVERY_COAST" = "";
-"ENTER_FROM" = "";
-"ENTER_TO" = "";
-"ENTER_VALUE" = "";
-"ENTER_WEIGHT" = "";
-"ENTER_DECLARED_VALUE" = "";
-"ENTER_CALCULATE" = "";
+//Filter
+"BY_PRICE" = "为代价的";
+"BY_COMPANY" = "载体";
+"BY_METHOD" = "通过这种方式";
+"BY_TIME" = "时间";
 
-"SEARCH" = "";
-"LANGUAGE" = "";
-"CURRENCY" = "";
-"WEIGHT" = "";
-"VALUE" = "";
-"TITLE_ABOUT" = "";
-"FEEDBACK" = "";
-"CHOICE_OF_LANGUAGE" = "";
+"KG" = "kg";
+"G" = "g";
+"TN" = "t";
 
-"KG" = "";
-"G" = "";
-"TN" = "";
-
-"M" = "";
-"СM" = "";
-"L" = "";
+"M" = "m";
+"СM" = "cm";
+"L" = "l";
 
 "CURENCY_VALUE" = "擦";

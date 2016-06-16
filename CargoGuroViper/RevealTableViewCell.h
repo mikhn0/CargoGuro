@@ -19,7 +19,9 @@
 @property (nonatomic, copy) NSString *titleText;
 @property (nonatomic, strong) UIImage *iconImage;
 @property (nonatomic, copy) NSString *titleParameter;
-@property (nonatomic, strong) NSString *searchText;
+
 @property (nonatomic, weak) id <RevealTableViewCellDelegate> delegate;
+
+- (void)setSearchText:(BOOL)isFirsty;
 
 @end

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - GoogleMaps (1.13.2)
   - JVFloatingDrawer (0.1.0)
   - JVFloatLabeledTextField (1.1.0)
   - MMDrawerController (0.5.7):
@@ -53,6 +54,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - GoogleMaps
   - JVFloatingDrawer
   - JVFloatLabeledTextField
   - MMDrawerController (~> 0.5.7)
@@ -64,6 +66,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   JVFloatingDrawer: 4782b1df21411aef2c1818f3b346cace02cc2e24
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
@@ -73,6 +76,6 @@ SPEC CHECKSUMS:
   Typhoon: 0953addabd5a10a930973fcc131c03badc88c4ba
   ViperMcFlurry: dc0aed190c3485fc6c95a50375d2e9812c9adb7e
 
-PODFILE CHECKSUM: 0cf29ed6eac3923dd2867e8571acf364d2208f00
+PODFILE CHECKSUM: 17d7ba0841ba1aa77d900a447582297c3db0d8be
 
 COCOAPODS: 1.0.0

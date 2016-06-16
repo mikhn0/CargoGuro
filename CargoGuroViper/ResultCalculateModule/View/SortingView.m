@@ -68,19 +68,19 @@
     
     if (indexPath.row == 0) {
         
-        cell.textLabel.text = @"По цене";
+        cell.textLabel.text = LocalizedString(@"BY_PRICE");
         
     } else if (indexPath.row == 1) {
         
-        cell.textLabel.text = @"По перевозчику";
+        cell.textLabel.text = LocalizedString(@"BY_COMPANY");
         
     } else if (indexPath.row == 2) {
         
-        cell.textLabel.text = @"По способу";
+        cell.textLabel.text = LocalizedString(@"BY_METHOD");
         
     } else if (indexPath.row == 3) {
         
-        cell.textLabel.text = @"По времени";
+        cell.textLabel.text = LocalizedString(@"BY_TIME");
         
     }
     
