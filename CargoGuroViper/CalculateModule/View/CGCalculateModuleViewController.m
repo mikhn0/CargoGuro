@@ -17,6 +17,7 @@
 
 @interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     GMSPlacesClient *_placesClient;
+    NSString *cFC, *cTC, *cFS, *cTS;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
@@ -96,6 +97,7 @@
     self.searchTransite.alpha = 0.5;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    tapGesture.delegate = self;
     [self.scrollView addGestureRecognizer:tapGesture];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
     
@@ -108,6 +110,7 @@
     self.aligment_cost_button.constant = (14 * self.view.frame.size.width) / 305.0;
     self.aligment_from_right.constant = (20 * self.view.frame.size.width) / 305.0;
 
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -133,27 +136,15 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
-
-- (void) viewWillDisappear:(BOOL)animated
-{
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:NO];
-    [UIView setAnimationsEnabled:YES];
-}
-
-
 - (void)addAutocomplitedTableForTextField {
     CGFloat widthComplTable = self.inputView.frame.size.width;
     self.autocompleteTableView = [[UITableView alloc] initWithFrame:
-                             CGRectMake(0, 0, widthComplTable, widthComplTable) style:UITableViewStylePlain];
+                             CGRectMake(0, 0, widthComplTable, 190.0) style:UITableViewStylePlain];
     self.autocompleteTableView.delegate = self;
     self.autocompleteTableView.dataSource = self;
     self.autocompleteTableView.scrollEnabled = YES;
     self.autocompleteTableView.hidden = YES;
+    self.autocompleteTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.inputView addSubview:self.autocompleteTableView];
 }
 
@@ -167,17 +158,22 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
 }
 
+
 #pragma mark - Actions
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
+
 #pragma mark - Helpers
 
 - (JVFloatingDrawerSpringAnimator *)drawerAnimator {
     return [[AppDelegate globalDelegate] drawerAnimator];
 }
+
+
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -196,8 +192,10 @@
         
         
         CGRect tfRect = self.activeField.frame;
-        tfRect.origin.y -= 64.0;//self.autocompleteTableView.frame.size.height;
+        tfRect.origin.y += self.autocompleteTableView.frame.size.height + 45.0;
         [self.scrollView scrollRectToVisible:tfRect animated:YES];
+        //self.scrollView.canCancelContentTouches = NO;
+
     }
     
     //Autocomplited Textfield - END
@@ -250,7 +248,7 @@
 {
     [textField resignFirstResponder];
     [self.scrollView setContentOffset:CGPointMake(0,0) animated:YES];
-    
+    self.autocompleteTableView.hidden = YES;
     return YES;
 }
 
@@ -294,6 +292,14 @@
     [self.cost resignFirstResponder];
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    
+    // Disallow recognition of tap gestures in the segmented control.
+    if ([touch.view.superview isKindOfClass:[UITableViewCell class]]) {//change it to your condition
+        return NO;
+    }
+    return YES;
+}
 
 #pragma mark - Autocomplited Textfield
 
@@ -312,37 +318,89 @@
                                 }
                                 
                                 for (GMSAutocompletePrediction* result in results) {
-                                    NSLog(@"Result '%@' with placeID %@", result.attributedFullText.string, result.placeID);
+                                    NSLog(@"Result '%@' with placeID %@", result.attributedPrimaryText.string, result.placeID);
                                 }
                                 
                                 [self.autocompleteUrls removeAllObjects];
                                 for (GMSAutocompletePrediction *curString in results) {
                                     
-                                    [self.autocompleteUrls addObject:curString.attributedFullText.string];
+                                    [self.autocompleteUrls addObject:curString];//.attributedPrimaryText.string];
                                     
                                 }
                                 [self.autocompleteTableView reloadData];
-                                
                             }];
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.autocompleteUrls.count > 5 ? 5 : self.autocompleteUrls.count;
+    return self.autocompleteUrls.count > 0 ? (self.autocompleteUrls.count > 5 ? 6 : self.autocompleteUrls.count+1) : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [UITableViewCell new];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticeNeue Light" size:12.0];
-    cell.textLabel.text = self.autocompleteUrls[indexPath.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    NSInteger max = self.autocompleteUrls.count > 4 ? 5 : self.autocompleteUrls.count;
+    if (indexPath.row == max) {
+        cell.imageView.image = [UIImage imageNamed:@"google"];
+        cell.imageView.contentMode = UIViewContentModeScaleToFill;
+        cell.userInteractionEnabled = NO;
+    } else {
+        
+        NSDictionary* attributes = @{
+                                     NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:10]
+                                     };
+        GMSAutocompletePrediction *curString = self.autocompleteUrls[indexPath.row];
+        NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:curString.attributedFullText.string attributes:attributes];
+        cell.textLabel.attributedText = attrText;
+        [cell.textLabel setNumberOfLines:0];
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        cell.userInteractionEnabled = YES;
+        
+    }
     return cell;
 }
 
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger max = self.autocompleteUrls.count > 4 ? 5 : self.autocompleteUrls.count;
+    if (indexPath.row == max) {
+        return 10.0;
+    } else {
+        return 36.0;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.activeField.text = self.autocompleteUrls[indexPath.row];
-    tableView.hidden = YES;
+    GMSAutocompletePrediction *curString = self.autocompleteUrls[indexPath.row];
+    self.activeField.text = curString.attributedPrimaryText.string;
+    
+    [[GMSPlacesClient sharedClient] lookUpPlaceID:curString.placeID callback:^(GMSPlace * _Nullable result, NSError * _Nullable error) {
+        //    if (self.activeField.tag == 0) {
+        //        cFC = curString;
+        //        cFS = curString;
+        //    } else if (self.activeField.tag == 1) {
+        //        cTC = curString;
+        //        cTS = curString;
+        //    }
+        //
+            if (error != nil) {
+                NSLog(@"Place Details error %@", [error localizedDescription]);
+                return;
+            }
+        
+            NSLog(@"Place name %@", result.name);
+            NSLog(@"Place address %@", result.formattedAddress);
+            NSLog(@"Place placeID %@", result.placeID);
+            //GMSAddressComponent *addComponent = result.addressComponents[0];
+            //NSLog(@"Address compoent ========= %@", addComponent);
+            NSLog(@"Place attributions %@", result.attributions);
+
+    }];
+
+    
+    [self hideKeyboard];
 }
 
 - (IBAction)changeCityPlaces:(id)sender {
@@ -387,7 +445,7 @@
         [self outPutError:LocalizedString(@"ENTER_ERROR_WAIST")];
        
     } else {
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC": @"RU", @"cTC":@"UA"};
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC":@"", @"cTC":@"", @"cFS":@"" , @"cTS":@""};//cFC , @"cTC":cTC, @"cFS":cFS , @"cTS":cTS};
         [self.output searchTransition:datas];
         
     }
