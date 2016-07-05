@@ -18,6 +18,10 @@ static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
     self.currentIndex = INDEX_WEIGHT;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *weights = WEIGHT_NAME;
@@ -37,7 +41,7 @@ static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return LocalizedString(@"WEIGHT"); //@"Вес";
+    return LocalizedString(@"WEIGHT"); 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

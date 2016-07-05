@@ -36,8 +36,8 @@
 #define CURRENCY_NAME @[@"RUB", @"USD", @"EUR", @"KZT", @"CNY"]
 #define CURRENCY_LOCALE_NAME @[@"ru", @"en_US", @"EUR", @"kk_KZ", @"zh_Hans_CN"]
 
-#define WEIGHT_NAME @[LocalizedString(@"KG"), LocalizedString(@"G"), LocalizedString(@"TN")]
 
+#define WEIGHT_NAME @[LocalizedString(@"KG"), LocalizedString(@"G"), LocalizedString(@"TN")]
 #define VOLUME_NAME @[[NSString printCubeOfValue:LocalizedString(@"M")], [NSString printCubeOfValue:LocalizedString(@"СM")], LocalizedString(@"L")]
 
 // Include any system framework and library headers here that should be included in all compilation units.
@@ -51,7 +51,11 @@
 #define GET_CVT_PRICES  @"2/get_cvt_prices.php"
 #define CLICKURL        @"2/clickurl.php"
 
+#define kMETHODS            @"methods"
 #define kCOMPANIES          @"companies"
+#define kCITIES             @"cities"
+#define kARRIVAL            @"arrival"
+#define kDERIVAL            @"derival"
 #define kTRANSPORT_NUMBER   @"transportNumber"
 #define kTRANSPORT_NAME     @"transportName"
 #define kTRANSPORT_NAMES    @"transportNames"

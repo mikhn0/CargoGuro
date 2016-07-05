@@ -107,7 +107,7 @@
             response[kTRANSPORT_NAME] = companyName;
             response[kTRANSPORT_SITE] = siteName;
             response[kTRANSPORT_NAMES] = transportNames;
-            //NSLog(@"responseObject ====== %@", response);
+            NSLog(@"responseObject ====== %@", response);
             completion(response.copy);
             
         } else {

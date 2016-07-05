@@ -27,7 +27,6 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
     self.currentIndex = INDEX_COUNTRY;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *countries = LANGUAGE_NAME;
     return [countries count];

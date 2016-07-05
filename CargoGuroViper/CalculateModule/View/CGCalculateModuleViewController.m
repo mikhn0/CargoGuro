@@ -98,7 +98,7 @@
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     tapGesture.delegate = self;
-    [self.scrollView addGestureRecognizer:tapGesture];
+    [self.view addGestureRecognizer:tapGesture];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
     
     [self registerForKeyboardNotifications];
@@ -125,11 +125,11 @@
     
     self.to.attributedPlaceholder = [[NSAttributedString alloc] initWithString:LocalizedString(@"ENTER_TO") attributes:@{NSForegroundColorAttributeName: colorText}];
     
-    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_VALUE"),  [NSString printCubeOfValue:LocalizedString(@"M")]] attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.value.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_VALUE"),  VOLUME_NAME[INDEX_VOLUME]] attributes:@{NSForegroundColorAttributeName: colorText}];
     
-    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_WEIGHT"),  LocalizedString(@"KG")] attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_WEIGHT"),  WEIGHT_NAME[INDEX_WEIGHT]] attributes:@{NSForegroundColorAttributeName: colorText}];
     
-    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"ENTER_DECLARED_VALUE"), LocalizedString(@"CURENCY_VALUE")] attributes:@{NSForegroundColorAttributeName: colorText}];
+    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"ENTER_DECLARED_VALUE"), CURRENCY_NAME[INDEX_CURRENCY]] attributes:@{NSForegroundColorAttributeName: colorText}];//LocalizedString(@"CURENCY_VALUE")
     
     [self.searchTransite setTitle:LocalizedString(@"ENTER_CALCULATE") forState:UIControlStateNormal];
     

@@ -25,7 +25,7 @@ typedef NSInteger Arrow;
 @interface CGResultCalculateModuleViewController : UIViewController <CGResultCalculateModuleViewInput>
 
 @property (nonatomic, strong) id<CGResultCalculateModuleViewOutput> output;
-@property (nonatomic, weak) NSDictionary *datas;
+@property (nonatomic) NSDictionary *datas;
 
 
 - (void)addRowWithResult:(NSDictionary *)result;

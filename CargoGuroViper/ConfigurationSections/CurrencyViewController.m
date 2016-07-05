@@ -29,6 +29,10 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
     self.currentIndex = INDEX_CURRENCY;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *currencies = CURRENCY_NAME;
@@ -49,7 +53,7 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return LocalizedString(@"CURRENCY");//@"Валюта";
+    return LocalizedString(@"CURRENCY");
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

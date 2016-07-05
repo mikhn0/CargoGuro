@@ -32,6 +32,9 @@
 @property (weak, nonatomic) IBOutlet UILabel        *routeLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *informationLabel;
 
+@property (nonatomic) NSDictionary *arrival;
+@property (nonatomic) NSDictionary *derival;
+
 @end
 
 
@@ -55,11 +58,6 @@
     self.loadImage.image = [UIImage imageNamed:@"logo"];
     [self rotateLayerInfinite:self.loadImage.layer];
     
-    self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];
-    
-    
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ %@ %@. %@ %@ %@. %@ %.2f %@.", LocalizedString(@"VALUE"), self.datas[@"cV"], VOLUME_NAME[INDEX_VOLUME], LocalizedString(@"WEIGHT"), self.datas[@"cW"], WEIGHT_NAME[INDEX_WEIGHT], LocalizedString(@"PRICE"), ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00), CURRENCY_NAME[INDEX_CURRENCY]];
-    
     self.output.imageIndicator = self.loadImage;
     self.output.loadView = self.loadScreen;
 	[self.output didTriggerViewReadyEvent];
@@ -67,6 +65,27 @@
     
     [self setCustomNavigationBackButton];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (listOfResult.count > 0 && self.arrival == nil && self.derival == nil) {
+        self.arrival = [listOfResult[0] objectForKey:kCITIES][kARRIVAL];
+        self.derival = [listOfResult[0] objectForKey:kCITIES][kDERIVAL];
+    }
+    
+    if (self.arrival != nil && self.derival != nil) {
+        self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.arrival[LANGUAGE[INDEX_COUNTRY]], self.derival[LANGUAGE[INDEX_COUNTRY]]];
+
+    } else {
+        self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];
+    }
+    
+    
+    self.informationLabel.text = [NSString stringWithFormat:@"%@ %@ %@. %@ %@ %@. %@ %.2f %@.", LocalizedString(@"VALUE"), self.datas[@"cV"], VOLUME_NAME[INDEX_VOLUME], LocalizedString(@"WEIGHT"), self.datas[@"cW"], WEIGHT_NAME[INDEX_WEIGHT], LocalizedString(@"PRICE"), ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00), CURRENCY_NAME[INDEX_CURRENCY]];
+    
+    [self.tableView reloadData];
 }
 
 - (void) showAutoPlayBgViewInFullScreen
@@ -140,11 +159,11 @@
     cell.titleLabel.text = [[result objectForKey:kTRANSPORT_NAMES] objectForKey:LANGUAGE[INDEX_COUNTRY]];
     
     
-    NSString *comma = [[result objectForKey:@"methods"][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
-    cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [[result objectForKey:@"methods"][kTRANSPORT_TIMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]];
+    NSString *comma = [[result objectForKey:kMETHODS][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
+    cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], comma, [[result objectForKey:kMETHODS][kTRANSPORT_TIMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]];
     
     
-    float value = [[[result objectForKey:@"methods"][kTRANSPORT_PRICES] objectForKey:CURRENCY_NAME[INDEX_CURRENCY]] floatValue];
+    float value = [[[result objectForKey:kMETHODS][kTRANSPORT_PRICES] objectForKey:CURRENCY_NAME[INDEX_CURRENCY]] floatValue];
     NSNumberFormatter * formatter = [NSNumberFormatter new];
     [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -157,7 +176,7 @@
     cell.priceLabel.text = [NSString stringWithFormat:@"%@ %@",newString, CURRENCY_NAME[INDEX_CURRENCY]];
     
     
-    cell.transportLabel.text = [[result objectForKey:@"methods"][@"names"] objectForKey:LANGUAGE[INDEX_COUNTRY]];
+    cell.transportLabel.text = [[result objectForKey:kMETHODS][@"names"] objectForKey:LANGUAGE[INDEX_COUNTRY]];
     
     
     cell.siteLabel.text = listOfResult[indexPath.row][kTRANSPORT_SITE];
@@ -173,8 +192,8 @@
 {
     NSDictionary *result = listOfResult[indexPath.row];
     
-    NSString *comma = [[result objectForKey:@"methods"][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
-    NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:@"cityFrom"], [result objectForKey:@"cityTo"], comma, [result objectForKey:@"methods"][kTRANSPORT_TIME]];
+    NSString *comma = [[result objectForKey:kMETHODS][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
+    NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], comma, [result objectForKey:kMETHODS][kTRANSPORT_TIME]];
     
     CGFloat widthOfdescribeLabel = [[UIScreen mainScreen] bounds].size.width / 320;
     float heightDescription = [self getHeightForText:descriptionResult withFont:[UIFont systemFontOfSize:12

@@ -172,7 +172,10 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
         default:
             break;
     }
-    [self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
+    if (indexPath.row != 0) {
+        [self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
+    }
+    
 }
 
 #pragma mark - RevealTableViewCellDelegate
@@ -188,28 +191,28 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 - (void)changeLanguageWithIndexCountry:(NSNotification *)notification {
     currentCountry = [notification.userInfo[@"indexCountry"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kLanguageIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];
     [self.tableView endUpdates];
 }
 
 - (void)changeCurrencyWithIndex:(NSNotification *)notification {
     currentCurrency = [notification.userInfo[@"indexCurrency"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kCurrencyIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];
     [self.tableView endUpdates];
 }
 
 - (void)changeVolumeWithIndex:(NSNotification *)notification {
     currentVolume = [notification.userInfo[@"indexVolume"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kVolumeIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];
     [self.tableView endUpdates];
 }
 
 - (void)changeWeightWithIndex:(NSNotification *)notification {
     currentWeight = [notification.userInfo[@"indexWeight"] integerValue];
     [self.tableView beginUpdates];
-    [self.tableView reloadData];//RowsAtIndexPaths:@[[NSIndexPath indexPathForRow:kWeightIndex inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];
     [self.tableView endUpdates];
 }
 

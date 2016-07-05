@@ -18,6 +18,11 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
     self.currentIndex = INDEX_VOLUME;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *volues = VOLUME_NAME;
     return [volues count];
