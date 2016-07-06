@@ -25,6 +25,7 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = INDEX_COUNTRY;
+    [self setCustomNavigationBackButton];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -47,7 +48,7 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return LocalizedString(@"CHOICE_OF_LANGUAGE"); //@"Выбор языка";
+    return LocalizedString(@"CHOICE_OF_LANGUAGE");
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,11 +64,8 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
     NSDictionary *userInfo = @{@"indexCountry":@(indexPath.row)};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeLanguage" object:nil userInfo:userInfo];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.backButton setTitle:LocalizedString(@"BACK") forState:UIControlStateNormal];
+    
 }
 
 @end

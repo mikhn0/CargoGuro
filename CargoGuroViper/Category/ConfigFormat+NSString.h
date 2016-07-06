@@ -12,5 +12,6 @@
 
 + (NSString *)printPriceWithCurrencySymbol:(NSString *)currency  withLocale:(NSString *)locale;
 + (NSString *)printCubeOfValue:(NSString *)value;
++ (NSAttributedString *)setFontForDecimalPart:(NSString *)string;
 
 @end

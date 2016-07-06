@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 
 
-
 @protocol CGCalculateModuleInteractorInput <NSObject>
 
+
+- (void)getDetailPlaceByPlaceIdWithParam:(NSDictionary *)params
+                               onSuccess: (CompletionResult)    completion
+                               onFailure: (CompletionError)     failure
+                               endOfLoad: (CompletionEnd)       endOfLoad;
 
 @end

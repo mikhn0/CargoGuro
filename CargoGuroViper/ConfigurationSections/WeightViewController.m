@@ -16,10 +16,12 @@ static NSString * const kCurCellReuseIdentifier = @"WeightCellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = INDEX_WEIGHT;
+    [self setCustomNavigationBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setCustomNavigationBackButton];
     [self.tableView reloadData];
 }
 

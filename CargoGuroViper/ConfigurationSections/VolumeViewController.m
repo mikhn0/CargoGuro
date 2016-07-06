@@ -16,10 +16,12 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = INDEX_VOLUME;
+    [self setCustomNavigationBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setCustomNavigationBackButton];
     [self.tableView reloadData];
 }
 

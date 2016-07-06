@@ -1,8 +1,5 @@
-#source 'https://github.com/CocoaPods/Specs.git'
-
 target 'CargoGuruViper' do
     
-  # Pods for CargoGuruViper
   pod 'AFNetworking’
   pod 'Typhoon'
   pod 'RamblerTyphoonUtils'

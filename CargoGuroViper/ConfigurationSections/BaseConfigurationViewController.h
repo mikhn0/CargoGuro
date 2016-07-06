@@ -8,4 +8,8 @@
 
 @interface BaseConfigurationViewController : UITableViewController
 
+@property (nonatomic, strong) UIButton *backButton;
+
+- (void)setCustomNavigationBackButton;
+
 @end

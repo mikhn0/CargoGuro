@@ -24,4 +24,20 @@
     return tenCubed;
 }
 
++ (NSAttributedString *)setFontForDecimalPart:(NSString *)string {
+    NSRange range = [string rangeOfString:@","];
+    range.length = string.length - range.location;
+    
+    
+    NSDictionary *normalAttributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0f]};
+    
+    NSDictionary *smallAttributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Medium" size:12.0f]};
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string attributes:normalAttributes];
+    [attributedString setAttributes:smallAttributes range:range];
+    
+    [attributedString insertAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@", CURRENCY_NAME[INDEX_CURRENCY]]] atIndex:[string length]];
+    
+    return attributedString;
+}
 @end

@@ -28,6 +28,7 @@
 "ENTER_CALCULATE" = "Berechner";
 
 "SEARCH" = "Suche";
+"BACK" = "Zurück";
 "LANGUAGE" = "Sprache";
 "CURRENCY" = "Währung";
 "WEIGHT" = "Gewicht";

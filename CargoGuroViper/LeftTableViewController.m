@@ -175,8 +175,11 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     }
     if (indexPath.row != 0) {
         
-        //[self.navigationController pushViewController:destinationViewController.presentedViewController animated:YES];
-        [self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
+        //[self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
+        UINavigationController *centerViewController = nil;
+        centerViewController = (UINavigationController *)[[AppDelegate globalDelegate] calculateModuleViewController];
+        [centerViewController pushViewController:destinationViewController animated:NO];
+        [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
     }
     
 }
@@ -184,8 +187,9 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 #pragma mark - RevealTableViewCellDelegate
 
 - (void)segueOnMainScreen {
-    UIViewController *destinationViewController = nil;
-    destinationViewController = [[AppDelegate globalDelegate] calculateModuleViewController];
+    UINavigationController *destinationViewController = nil;
+    destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] calculateModuleViewController];
+    [destinationViewController popToRootViewControllerAnimated:NO];
     [self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
 }
 

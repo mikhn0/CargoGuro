@@ -19,6 +19,7 @@
 
 //- (void)didTriggerViewReadyEvent;
 - (void)searchTransition:(NSDictionary *)datas;
+- (void)getDetailByPlaceId:(NSString *)placeId sucess:(CompletionResult)success;
 
 
 @end

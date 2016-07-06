@@ -24,10 +24,11 @@
 "ENTER_TO" = "Куда";
 "ENTER_VALUE" = "Объем";
 "ENTER_WEIGHT" = "Вес";
-"ENTER_DECLARED_VALUE" = "Объявленная Ценность";
+"ENTER_DECLARED_VALUE" = "Объявленная ценность";
 "ENTER_CALCULATE" = "Рассчитать";
 
 "SEARCH" = "Поиск";
+"BACK" = "Назад";
 "LANGUAGE" = "Язык";
 "CURRENCY" = "Валюта";
 "WEIGHT" = "Вес";

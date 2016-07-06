@@ -23,7 +23,6 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 
 @implementation CurrencyViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = INDEX_CURRENCY;
@@ -31,6 +30,7 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setCustomNavigationBackButton];
     [self.tableView reloadData];
 }
 

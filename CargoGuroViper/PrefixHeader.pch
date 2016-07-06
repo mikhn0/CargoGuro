@@ -51,6 +51,9 @@
 #define GET_CVT_PRICES  @"2/get_cvt_prices.php"
 #define CLICKURL        @"2/clickurl.php"
 
+#define GET_DETAIL_PLACE @"https://maps.googleapis.com"
+#define URI_PLACE_DETAIL @"/maps/api/place/details/json"
+
 #define kMETHODS            @"methods"
 #define kCOMPANIES          @"companies"
 #define kCITIES             @"cities"
@@ -63,5 +66,10 @@
 #define kTRANSPORT_PRICES    @"calcResultPrices"
 #define kTRANSPORT_TIME     @"calcResultTime"
 #define kTRANSPORT_TIMES    @"calcResultTimes"
+
+
+typedef void (^CompletionResult)(NSDictionary *result);
+typedef void (^CompletionError)(NSString *error);
+typedef void (^CompletionEnd)(BOOL theEnd);
 
 #endif /* PrefixHeader_pch */

@@ -17,8 +17,21 @@
 
 @implementation AboutUsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setCustomNavigationBackButton];
+}
+
+- (void)setCustomNavigationBackButton
+{
+    UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 80.0f, 30.0f)];
+    [backButton setImage:[UIImage imageNamed:@"icon_back"]  forState:UIControlStateNormal];
+    [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
+    [backButton setTitle:LocalizedString(@"BACK") forState:UIControlStateNormal];
+    [backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -4, 0, 0)];
+    [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -26,8 +39,13 @@
     self.aboutUsText.text = LocalizedString(@"DESCRIPTION_ABOUT");
 }
 
-- (IBAction)actionToggleLeftDrawer:(id)sender {
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+- (void) popBack {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:NO completion:nil];
+    [self.navigationController popViewControllerAnimated:NO];
 }
+
+//- (IBAction)actionToggleLeftDrawer:(id)sender {
+//    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+//}
 
 @end

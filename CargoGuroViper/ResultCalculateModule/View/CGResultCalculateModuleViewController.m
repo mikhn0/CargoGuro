@@ -110,13 +110,6 @@
 
 - (void)setCustomNavigationBackButton
 {
-    UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 80.0f, 30.0f)];
-    [backButton setImage:[UIImage imageNamed:@"icon_back"]  forState:UIControlStateNormal];
-    [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
-    [backButton setTitle:LocalizedString(@"SEARCH") forState:UIControlStateNormal];
-    [backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -4, 0, 0)];
-    [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     UIButton *filterButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 35.0f, 35.0f)];
     [filterButton setImage:[UIImage imageNamed:@"icon_filter"]  forState:UIControlStateNormal];
@@ -184,8 +177,8 @@
     [formatter setMaximumFractionDigits:2];
     [formatter setMinimumFractionDigits:2];
     NSString *newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
-    cell.priceLabel.text = [NSString stringWithFormat:@"%@ %@",newString, CURRENCY_NAME[INDEX_CURRENCY]];
-    
+    //cell.priceLabel.text = [NSString stringWithFormat:@"%@ %@", newString, CURRENCY_NAME[INDEX_CURRENCY]];
+    cell.priceLabel.attributedText = [NSString setFontForDecimalPart:newString];
     
     cell.transportLabel.text = [[result objectForKey:kMETHODS][@"names"] objectForKey:LANGUAGE[INDEX_COUNTRY]];
     
@@ -214,10 +207,9 @@
     
     NSString *titleResult = [NSString stringWithFormat:@"%@", [[result objectForKey:kTRANSPORT_NAMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]];
     
-    float heightTitle = [self getHeightForText:titleResult withFont:[UIFont systemFontOfSize:16
-                                                                                 ] andWidth:210 * widthOfdescribeLabel];
+    float heightTitle = [self getHeightForText:titleResult withFont:[UIFont systemFontOfSize:16] andWidth:210 * widthOfdescribeLabel];
     
-    return heightTitle + heightDescription+38;
+    return heightTitle + heightDescription + 38;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -284,11 +276,14 @@
 }
 
 
-#pragma mark - Action Tab Bar
 
--(void) popBack {
-    [self.navigationController popViewControllerAnimated:NO];
+
+#pragma mark - Actions
+
+- (IBAction)actionToggleLeftDrawer:(id)sender {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
+
 
 - (void) filterPress {
     

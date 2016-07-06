@@ -44,8 +44,17 @@
 //- (void)didTriggerViewReadyEvent {
 //	[self.view setupInitialState];
 //}
+- (void)getDetailByPlaceId:(NSString *)placeId sucess:(CompletionResult)success {
+    [self.interactor getDetailPlaceByPlaceIdWithParam:@{@"key": @"AIzaSyBeZkmmMkAXuPULHGLGQ4VgDxrMiPzH8q4", @"placeid":placeId} onSuccess:^(NSDictionary *result) {
+        success(result);
+    } onFailure:^(NSString *error) {
+        NSLog(@"%@", error);
+    } endOfLoad:^(BOOL theEnd) {
+        NSLog(@"The END");
+    }];
+}
 
-- (void)searchTransition:(NSDictionary *)datas {
+- (void)searchTransition:(NSDictionary *)datas{
     
     [self.router transitionOnResultCalculateModule:datas];
 

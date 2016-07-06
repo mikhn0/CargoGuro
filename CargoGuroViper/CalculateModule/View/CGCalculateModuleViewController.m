@@ -14,10 +14,12 @@
 #import "VolumeCalculateView.h"
 
 #import "CGCalculateModulePresenter.h"
+#import "Touching+UIView.h"
 
 @interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     GMSPlacesClient *_placesClient;
     NSString *cFC, *cTC, *cFS, *cTS;
+    NSString *placeId;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
@@ -59,6 +61,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
+    cFS = cTS = cFC = cTC = @"";
     self.logoLabel.adjustsFontSizeToFitWidth = YES;
     _placesClient = [[GMSPlacesClient alloc] init];
     self.autocompleteUrls = [NSMutableArray array];
@@ -129,7 +132,7 @@
     
     self.weight.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)",LocalizedString(@"ENTER_WEIGHT"),  WEIGHT_NAME[INDEX_WEIGHT]] attributes:@{NSForegroundColorAttributeName: colorText}];
     
-    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"ENTER_DECLARED_VALUE"), CURRENCY_NAME[INDEX_CURRENCY]] attributes:@{NSForegroundColorAttributeName: colorText}];//LocalizedString(@"CURENCY_VALUE")
+    self.cost.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"ENTER_DECLARED_VALUE"), CURRENCY_NAME[INDEX_CURRENCY]] attributes:@{NSForegroundColorAttributeName: colorText}];
     
     [self.searchTransite setTitle:LocalizedString(@"ENTER_CALCULATE") forState:UIControlStateNormal];
     
@@ -295,9 +298,11 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     
     // Disallow recognition of tap gestures in the segmented control.
-    if ([touch.view.superview isKindOfClass:[UITableViewCell class]]) {//change it to your condition
+    if ([touch.view.superview isKindOfClass:[UITableViewCell class]] || touch.view.tag == 11 || touch.view.tag == 22) {//change it to your condition
         return NO;
     }
+    
+    
     return YES;
 }
 
@@ -319,6 +324,7 @@
                                 
                                 for (GMSAutocompletePrediction* result in results) {
                                     NSLog(@"Result '%@' with placeID %@", result.attributedPrimaryText.string, result.placeID);
+                                    placeId = result.placeID;
                                 }
                                 
                                 [self.autocompleteUrls removeAllObjects];
@@ -376,29 +382,28 @@
     GMSAutocompletePrediction *curString = self.autocompleteUrls[indexPath.row];
     self.activeField.text = curString.attributedPrimaryText.string;
     
-    [[GMSPlacesClient sharedClient] lookUpPlaceID:curString.placeID callback:^(GMSPlace * _Nullable result, NSError * _Nullable error) {
-        //    if (self.activeField.tag == 0) {
-        //        cFC = curString;
-        //        cFS = curString;
-        //    } else if (self.activeField.tag == 1) {
-        //        cTC = curString;
-        //        cTS = curString;
-        //    }
-        //
-            if (error != nil) {
-                NSLog(@"Place Details error %@", [error localizedDescription]);
-                return;
+    NSInteger currentTag = self.activeField.tag;
+    [self.output getDetailByPlaceId:curString.placeID sucess:^(NSDictionary *result) {
+        if (currentTag == 1) {
+            for (NSDictionary *elem in result) {
+                if ([elem[@"types"] containsObject:@"country"]) {
+                    cFC = elem[@"short_name"];
+                } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
+                    cFS = elem[@"short_name"];
+                }
             }
-        
-            NSLog(@"Place name %@", result.name);
-            NSLog(@"Place address %@", result.formattedAddress);
-            NSLog(@"Place placeID %@", result.placeID);
-            //GMSAddressComponent *addComponent = result.addressComponents[0];
-            //NSLog(@"Address compoent ========= %@", addComponent);
-            NSLog(@"Place attributions %@", result.attributions);
-
+            
+            
+        } else if (currentTag == 2) {
+            for (NSDictionary *elem in result) {
+                if ([elem[@"types"] containsObject:@"country"]) {
+                    cTC = elem[@"short_name"];
+                } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
+                    cTS = elem[@"short_name"];
+                }
+            }
+        }
     }];
-
     
     [self hideKeyboard];
 }
@@ -445,7 +450,7 @@
         [self outPutError:LocalizedString(@"ENTER_ERROR_WAIST")];
        
     } else {
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC":@"", @"cTC":@"", @"cFS":@"" , @"cTS":@""};//cFC , @"cTC":cTC, @"cFS":cFS , @"cTS":cTS};
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC":cFC , @"cTC":cTC, @"cFS":cFS , @"cTS":cTS};
         [self.output searchTransition:datas];
         
     }
