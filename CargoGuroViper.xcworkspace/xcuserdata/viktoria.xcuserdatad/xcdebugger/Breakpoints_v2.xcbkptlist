@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/ResultCalculateModule/View/CGResultCalculateModuleViewController.m"
-            timestampString = "487549137.120351"
+            timestampString = "489445883.682303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "-unwindToResultCalculate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,13 +250,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/ResultCalculateModule/View/CGResultCalculateModuleViewController.m"
-            timestampString = "487549137.120351"
+            timestampString = "489445883.682303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
-            landmarkName = "@implementation CGResultCalculateModuleViewController"
-            landmarkType = "3">
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "-unwindToResultCalculate:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -281,22 +281,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CargoGuroViper/ResultCalculateModule/Interactor/CGResultCalculateModuleInteractor.m"
-            timestampString = "479429622.011113"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-getCalculationWithDictionary:onSuccess:onFailure:endOfLoad:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/LibraryAPI/HTTPClient.m"
             timestampString = "479424844.436256"
             startingColumnNumber = "9223372036854775807"
@@ -310,16 +294,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "487538793.416348"
+            filePath = "CargoGuroViper/LeftTableViewController.m"
+            timestampString = "489454371.402924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "-textFieldDidEndEditing:"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -329,29 +313,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CargoGuroViper/LeftTableViewController.m"
-            timestampString = "487347604.452507"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "487538793.416348"
+            timestampString = "489454007.654217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
             endingLineNumber = "148"
-            landmarkName = "-textField:shouldChangeCharactersInRange:replacementString:"
+            landmarkName = "-addAutocomplitedTableForTextField"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -361,13 +329,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "487538793.416348"
+            filePath = "CargoGuroViper/ResultCalculateModule/View/CGResultCalculateModuleViewController.m"
+            timestampString = "489446071.473049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "-textFieldDidBeginEditing:"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CargoGuroViper/Category/DimensionalTranslation+NSString.m"
+            timestampString = "489446579.691387"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "+transferWeight:From:to:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -377,13 +361,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CargoGuroViper/CalculateModule/View/CGCalculateModuleViewController.m"
-            timestampString = "487538793.416348"
+            filePath = "CargoGuroViper/LeftTableViewController.m"
+            timestampString = "489454371.402924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "-keyboardWasShown:"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

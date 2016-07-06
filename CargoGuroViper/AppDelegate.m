@@ -176,8 +176,6 @@ static NSString * const kReturnConnectionVCStoryboardID = @"ReturnConnectionVCSt
                                           alpha:1.0];
     [self.window setTintColor:tintColor];
     [self.window setRootViewController:self.drawerController];
-    
- 
 //    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
 //    CAGradientLayer *layer = [CAGradientLayer layer];
 //    layer.frame = CGRectMake(0, 0, size.width, size.height);

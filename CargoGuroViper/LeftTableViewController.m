@@ -10,6 +10,7 @@
 #import "RevealTableViewCell.h"
 #import "JVFloatingDrawerViewController.h"
 #import "UIViewController+MMDrawerController.h"
+#import "LanguageViewController.h"
 
 enum {
     kSearchIndex    = 0,
@@ -173,6 +174,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
             break;
     }
     if (indexPath.row != 0) {
+        
+        //[self.navigationController pushViewController:destinationViewController.presentedViewController animated:YES];
         [self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
     }
     

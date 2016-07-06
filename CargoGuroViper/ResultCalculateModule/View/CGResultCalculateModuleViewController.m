@@ -15,14 +15,16 @@
 #import "AppDelegate.h"
 #import "SortingView.h"
 
+#import "DimensionalTranslation+NSString.h"
+
 @interface CGResultCalculateModuleViewController () <UITableViewDelegate, UITableViewDataSource, SortingViewDelegate> {
-    NSInteger countOffers;
+    NSInteger countOffers, currentSelectSorting;
     NSMutableArray *listOfResult;
-    NSInteger currentSelectSorting;
     Arrow arrowCurrentSorting;
     
     BOOL price, name, method, time;
     
+    NSString *startWeight, *startVolume;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView    *backgroundView;
@@ -45,6 +47,11 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     [self showAutoPlayBgViewInFullScreen];
+    
+    //For transfer demension of valume and weight on this screen
+    startVolume = VOLUME_NAME[INDEX_VOLUME];//1 cm^3 = 0.000001 м^3 ; 1 cm^3 = ; 1m^3 = 1000l
+    startWeight = WEIGHT_NAME[INDEX_WEIGHT];
+    
     countOffers = 0;
     currentSelectSorting = 5;
     arrowCurrentSorting = None;
@@ -83,7 +90,11 @@
     }
     
     
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ %@ %@. %@ %@ %@. %@ %.2f %@.", LocalizedString(@"VALUE"), self.datas[@"cV"], VOLUME_NAME[INDEX_VOLUME], LocalizedString(@"WEIGHT"), self.datas[@"cW"], WEIGHT_NAME[INDEX_WEIGHT], LocalizedString(@"PRICE"), ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00), CURRENCY_NAME[INDEX_CURRENCY]];
+    NSString *volumeValue = [NSString transferVolume:self.datas[@"cV"] From:startVolume to:VOLUME_NAME[INDEX_VOLUME]];
+    NSString *weightValue = [NSString transferWeight:self.datas[@"cW"] From:startWeight to:WEIGHT_NAME[INDEX_WEIGHT]];
+    CGFloat   priceValue = ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00);
+    
+    self.informationLabel.text = [NSString stringWithFormat:@"%@ %@ %@. %@ %@ %@. %@ %.2f %@.", LocalizedString(@"VALUE"), volumeValue, VOLUME_NAME[INDEX_VOLUME], LocalizedString(@"WEIGHT"), weightValue, WEIGHT_NAME[INDEX_WEIGHT], LocalizedString(@"PRICE"), priceValue, CURRENCY_NAME[INDEX_CURRENCY]];
     
     [self.tableView reloadData];
 }

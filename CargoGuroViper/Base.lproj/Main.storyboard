@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="60N-tS-dFz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="60N-tS-dFz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -826,13 +826,13 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="heG-OA-MOn"/>
-                                        <exclude reference="Cdq-Fr-XaJ"/>
                                         <exclude reference="OHF-Vd-JeS"/>
                                         <exclude reference="VOF-2C-MiF"/>
                                         <exclude reference="XuV-w9-pdy"/>
                                         <exclude reference="c2m-1k-wVe"/>
-                                        <exclude reference="xBH-iL-w8i"/>
+                                        <exclude reference="Cdq-Fr-XaJ"/>
                                         <exclude reference="co3-4O-vBG"/>
+                                        <exclude reference="xBH-iL-w8i"/>
                                     </mask>
                                 </variation>
                             </scrollView>
