@@ -41,19 +41,19 @@
     UIColor *colorBorder = [UIColor colorWithWhite:1.0 alpha:0.5];
     
     self.width.delegate = self;
-    self.width.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"WIGTH"), LocalizedString(@"M")] attributes:@{NSForegroundColorAttributeName: color}];
+    self.width.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"WIGTH"), LocalizedString(DETAIL_VOLUME_NAME[INDEX_VOLUME])] attributes:@{NSForegroundColorAttributeName: color}];
     self.width.layer.borderWidth = 1.0;
     self.width.layer.borderColor = colorBorder.CGColor;
     self.width.layer.cornerRadius = 3.0;
     
     self.height.delegate = self;
-    self.height.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"HEIGHT"), LocalizedString(@"M")] attributes:@{NSForegroundColorAttributeName: color}];
+    self.height.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"HEIGHT"), LocalizedString(DETAIL_VOLUME_NAME[INDEX_VOLUME])] attributes:@{NSForegroundColorAttributeName: color}];
     self.height.layer.borderWidth = 1.0;
     self.height.layer.borderColor = colorBorder.CGColor;
     self.height.layer.cornerRadius = 3.0;
     
     self.length.delegate = self;
-    self.length.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"LENGTH"), LocalizedString(@"M")] attributes:@{NSForegroundColorAttributeName: color}];
+    self.length.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ (%@)", LocalizedString(@"LENGTH"), LocalizedString(DETAIL_VOLUME_NAME[INDEX_VOLUME])] attributes:@{NSForegroundColorAttributeName: color}];
     self.length.layer.borderWidth = 1.0;
     self.length.layer.borderColor = colorBorder.CGColor;
     self.length.layer.cornerRadius = 3.0;

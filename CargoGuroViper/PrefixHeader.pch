@@ -39,6 +39,7 @@
 
 #define WEIGHT_NAME @[LocalizedString(@"KG"), LocalizedString(@"G"), LocalizedString(@"TN")]
 #define VOLUME_NAME @[[NSString printCubeOfValue:LocalizedString(@"M")], [NSString printCubeOfValue:LocalizedString(@"СM")], LocalizedString(@"L")]
+#define DETAIL_VOLUME_NAME @[LocalizedString(@"M"), LocalizedString(@"СM"), LocalizedString(@"GR")]
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

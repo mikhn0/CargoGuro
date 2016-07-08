@@ -27,7 +27,7 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCellReuseIdentifier
 static NSString * const kConfigCellReuseIdentifier = @"ConfigCellReuseIdentifier";
 static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 
-@interface LeftTableViewController () <RevealTableViewCellDelegate>
+@interface LeftTableViewController () <RevealTableViewCellDelegate>//, BaseConfigurationViewControllerDelegate
 {
     NSInteger currentCountry;
     NSInteger currentCurrency;
@@ -147,27 +147,28 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *destinationViewController = nil;
+    UINavigationController *destinationViewController = nil;
 
     switch (indexPath.row) {
         case kLanguageIndex:
-            destinationViewController = [[AppDelegate globalDelegate] languageViewController];
+            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] languageViewController];
+            
             break;
         case kCurrencyIndex:
-            destinationViewController = [[AppDelegate globalDelegate] currencyViewController];
+            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] currencyViewController];
             break;
         case kWeightIndex:
-            destinationViewController = [[AppDelegate globalDelegate] weightViewController];
+            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] weightViewController];
             break;
         case kVolumeIndex:
-            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
+            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] volumeViewController];
             break;
             
         case kAboutProjectIndex:
-            destinationViewController = [[AppDelegate globalDelegate] aboutUsViewController];
+            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] aboutUsViewController];
             break;
         case kContactUsIndex:
-            destinationViewController = [[AppDelegate globalDelegate] returnConnectionViewController];
+            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] returnConnectionViewController];
             break;
             
         default:
@@ -175,11 +176,22 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     }
     if (indexPath.row != 0) {
         
-        //[self.mm_drawerController setCenterViewController:destinationViewController withCloseAnimation:YES completion:nil];
-        UINavigationController *centerViewController = nil;
-        centerViewController = (UINavigationController *)[[AppDelegate globalDelegate] calculateModuleViewController];
-        [centerViewController pushViewController:destinationViewController animated:NO];
-        [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+        //UINavigationController *centerViewController = nil;
+        //centerViewController = (UINavigationController *)[[AppDelegate globalDelegate] calculateModuleViewController];
+        
+        
+        //BaseConfigurationViewController *baseVC = (BaseConfigurationViewController *)destinationViewController.topViewController;
+        //baseVC.baseDelegate = self;
+        
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        transition.type = kCATransitionPush;
+        transition.subtype = kCATransitionFromRight;
+        [self.view.window.layer addAnimation:transition forKey:nil];
+        
+        [self presentViewController:destinationViewController animated:NO completion:nil];
+        
     }
     
 }

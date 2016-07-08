@@ -162,10 +162,15 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = [[result objectForKey:kTRANSPORT_NAMES] objectForKey:LANGUAGE[INDEX_COUNTRY]];
     
-    
-    NSString *comma = [[result objectForKey:kMETHODS][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
-    cell.wayLabel.text = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], comma, [[result objectForKey:kMETHODS][kTRANSPORT_TIMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]];
-    
+    NSString *timeText = @"";
+    if ([result objectForKey:kMETHODS]) {
+        if ([[result objectForKey:kMETHODS] objectForKey:kTRANSPORT_TIMES] != nil && [[[result objectForKey:kMETHODS] objectForKey:kTRANSPORT_TIMES] isKindOfClass:[NSDictionary class]]) {
+            if ([[[result objectForKey:kMETHODS] objectForKey:kTRANSPORT_TIMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]) {
+                timeText = [NSString stringWithFormat:@"%@", [[[result objectForKey:kMETHODS] objectForKey:kTRANSPORT_TIMES] objectForKey:LANGUAGE[INDEX_COUNTRY]]];
+            }
+        }
+    }
+    cell.wayLabel.text = timeText;
     
     float value = [[[result objectForKey:kMETHODS][kTRANSPORT_PRICES] objectForKey:CURRENCY_NAME[INDEX_CURRENCY]] floatValue];
     NSNumberFormatter * formatter = [NSNumberFormatter new];
@@ -179,12 +184,8 @@
     NSString *newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
     //cell.priceLabel.text = [NSString stringWithFormat:@"%@ %@", newString, CURRENCY_NAME[INDEX_CURRENCY]];
     cell.priceLabel.attributedText = [NSString setFontForDecimalPart:newString];
-    
     cell.transportLabel.text = [[result objectForKey:kMETHODS][@"names"] objectForKey:LANGUAGE[INDEX_COUNTRY]];
-    
-    
     cell.siteLabel.text = listOfResult[indexPath.row][kTRANSPORT_SITE];
-    
     
     return cell;
 }
@@ -196,8 +197,8 @@
 {
     NSDictionary *result = listOfResult[indexPath.row];
     
-    NSString *comma = [[result objectForKey:kMETHODS][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
-    NSString *descriptionResult = [NSString stringWithFormat:@"%@ - %@%@ %@", [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], [result objectForKey:kCITIES][kARRIVAL][LANGUAGE[INDEX_COUNTRY]], comma, [result objectForKey:kMETHODS][kTRANSPORT_TIME]];
+    //NSString *comma = [[result objectForKey:kMETHODS][kTRANSPORT_TIME] length] > 0 ? @"," : @"";
+    NSString *descriptionResult = [NSString stringWithFormat:@"%@", [result objectForKey:kMETHODS][kTRANSPORT_TIME]];
     
     CGFloat widthOfdescribeLabel = [[UIScreen mainScreen] bounds].size.width / 320;
     float heightDescription = [self getHeightForText:descriptionResult withFont:[UIFont systemFontOfSize:12
@@ -209,7 +210,7 @@
     
     float heightTitle = [self getHeightForText:titleResult withFont:[UIFont systemFontOfSize:16] andWidth:210 * widthOfdescribeLabel];
     
-    return heightTitle + heightDescription + 38;
+    return heightTitle + heightDescription + 30;//38;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -324,7 +325,7 @@
                                                          ascending:YES];
             
         } else if (filterModule.currentFilter == Process) {
-            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.name"
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:[NSString stringWithFormat:@"methods.names.%@", LANGUAGE[INDEX_COUNTRY]]
                                                          ascending:YES];
             
         } else if (filterModule.currentFilter == Time) {
@@ -357,7 +358,7 @@
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"transportName"
                                                      ascending:arrowCurrentSorting == Top ? YES : NO];
     } else if (filter == Process) {
-        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.name"
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:[NSString stringWithFormat:@"methods.names.%@", LANGUAGE[INDEX_COUNTRY]]
                                                      ascending:arrowCurrentSorting == Top ? YES : NO];
     } else if (filter == Time) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultTime"

@@ -76,12 +76,17 @@
 }
 
 - (void) popBack {
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:NO completion:nil];
-    [self.navigationController popViewControllerAnimated:NO];
+//    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:NO completion:nil];
+//    [self.navigationController popViewControllerAnimated:NO];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    [self.view.window.layer addAnimation:transition forKey:nil];
+    
+    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }
-
-//- (IBAction)actionToggleLeftDrawer:(id)sender {
-//    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-//}
 
 @end

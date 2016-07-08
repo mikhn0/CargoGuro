@@ -17,7 +17,6 @@
 		63915AFC1D10401F00AE102D /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915AFB1D10401F00AE102D /* City.m */; };
 		63915AFF1D1068CE00AE102D /* VolumeCalculateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63915AFE1D1068CE00AE102D /* VolumeCalculateView.m */; };
 		63915B011D1068E400AE102D /* VolumeCalculateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63915B001D1068E400AE102D /* VolumeCalculateView.xib */; };
-		63B539881D2D47450061CA39 /* Touching+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B539871D2D47450061CA39 /* Touching+UIView.m */; };
 		63B5398B1D2D50AF0061CA39 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B5398A1D2D50AF0061CA39 /* CustomView.m */; };
 		63D956F21CFDF0BB00138774 /* RevealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D956EF1CFDF0BB00138774 /* RevealTableViewCell.m */; };
 		63D956F31CFDF0BB00138774 /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D956F11CFDF0BB00138774 /* LeftTableViewController.m */; };
@@ -111,8 +110,6 @@
 		63915AFD1D1068CE00AE102D /* VolumeCalculateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeCalculateView.h; path = CalculateModule/View/VolumeCalculateView.h; sourceTree = "<group>"; };
 		63915AFE1D1068CE00AE102D /* VolumeCalculateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeCalculateView.m; path = CalculateModule/View/VolumeCalculateView.m; sourceTree = "<group>"; };
 		63915B001D1068E400AE102D /* VolumeCalculateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VolumeCalculateView.xib; path = CalculateModule/View/VolumeCalculateView.xib; sourceTree = "<group>"; };
-		63B539861D2D47450061CA39 /* Touching+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Touching+UIView.h"; path = "Category/Touching+UIView.h"; sourceTree = "<group>"; };
-		63B539871D2D47450061CA39 /* Touching+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Touching+UIView.m"; path = "Category/Touching+UIView.m"; sourceTree = "<group>"; };
 		63B539891D2D50AF0061CA39 /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomView.h; path = CalculateModule/View/CustomView.h; sourceTree = "<group>"; };
 		63B5398A1D2D50AF0061CA39 /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomView.m; path = CalculateModule/View/CustomView.m; sourceTree = "<group>"; };
 		63D956EE1CFDF0BB00138774 /* RevealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealTableViewCell.h; sourceTree = "<group>"; };
@@ -334,8 +331,6 @@
 				7591F2631D049A0000835276 /* ConfigFormat+NSString.m */,
 				75CF6A541D2C4DF2000CE1D7 /* DimensionalTranslation+NSString.h */,
 				75CF6A551D2C4DF2000CE1D7 /* DimensionalTranslation+NSString.m */,
-				63B539861D2D47450061CA39 /* Touching+UIView.h */,
-				63B539871D2D47450061CA39 /* Touching+UIView.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -828,7 +823,6 @@
 				63B5398B1D2D50AF0061CA39 /* CustomView.m in Sources */,
 				75F64ADD1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld in Sources */,
 				758B0D891C8894990018E85E /* CGFilterModuleAssembly.m in Sources */,
-				63B539881D2D47450061CA39 /* Touching+UIView.m in Sources */,
 				63915ABD1D082D4200AE102D /* LocalizeHelper.m in Sources */,
 				758B0D8D1C8894990018E85E /* CGFilterModuleViewController.m in Sources */,
 				75F64B201C7E66F80019F61C /* CGResultCalculateModulePresenter.m in Sources */,

@@ -9,7 +9,7 @@
         <!--CARGO.GURU-->
         <scene sceneID="uPe-iG-ZkR">
             <objects>
-                <viewController storyboardIdentifier="ReturnConnectionVCStoryboardID" id="oKE-53-95x" customClass="ReturnConnectionViewController" sceneMemberID="viewController">
+                <viewController id="oKE-53-95x" customClass="ReturnConnectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lAt-j9-AXi"/>
                         <viewControllerLayoutGuide type="bottom" id="SKB-Ny-BGy"/>
@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WW3-kk-PCc">
-                                <rect key="frame" x="253" y="31" width="135" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WW3-kk-PCc">
+                                <rect key="frame" x="253" y="95" width="135" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="Uir-Ir-zBm"/>
                                     <constraint firstAttribute="width" constant="135" id="iTk-Uy-5dr"/>
@@ -30,15 +30,15 @@
                                     <action selector="sendEmail:" destination="oKE-53-95x" eventType="touchUpInside" id="gEU-xs-KUg"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_mail" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-V9-X03">
-                                <rect key="frame" x="174" y="24" width="48" height="48"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mail" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-V9-X03">
+                                <rect key="frame" x="174" y="88" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="8eA-f1-GRx"/>
                                     <constraint firstAttribute="height" constant="48" id="CPq-dn-vr7"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odg-cb-ZVh">
-                                <rect key="frame" x="253" y="88" width="161" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odg-cb-ZVh">
+                                <rect key="frame" x="253" y="152" width="161" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="aaQ-HD-jhI"/>
                                     <constraint firstAttribute="height" constant="33" id="biE-V1-iTB"/>
@@ -51,8 +51,8 @@
                                     <action selector="callPhone:" destination="oKE-53-95x" eventType="touchUpInside" id="8NF-Qw-qL4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_call" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Wj-Mf8">
-                                <rect key="frame" x="174" y="81" width="48" height="48"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_call" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-Wj-Mf8">
+                                <rect key="frame" x="174" y="145" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="GPD-aq-6lV"/>
                                     <constraint firstAttribute="height" constant="48" id="N7A-9v-R2v"/>
@@ -82,12 +82,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtQ-x1-EfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="898" y="225"/>
+            <point key="canvasLocation" x="1553" y="225"/>
         </scene>
         <!--CARGO.GURU-->
         <scene sceneID="C8q-9F-Asl">
             <objects>
-                <viewController storyboardIdentifier="AboutUsVCStoryboardID" id="oTS-yz-IIf" customClass="AboutUsViewController" sceneMemberID="viewController">
+                <viewController id="oTS-yz-IIf" customClass="AboutUsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WHW-oK-M90"/>
                         <viewControllerLayoutGuide type="bottom" id="2XS-IZ-2e9"/>
@@ -96,14 +96,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yUx-ey-nvg">
-                                <rect key="frame" x="20" y="76" width="560" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="О проекте" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-uB-sPh">
-                                <rect key="frame" x="20" y="28" width="560" height="40"/>
+                                <rect key="frame" x="20" y="72" width="560" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Zb2-RG-4pO"/>
                                 </constraints>
@@ -111,6 +105,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUx-ey-nvg">
+                                <rect key="frame" x="20" y="120" width="560" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -144,7 +144,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBC-k6-RJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1553" y="-476"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2OB-hc-1k9">
+            <objects>
+                <navigationController storyboardIdentifier="AboutUsVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Mgl-Go-tcw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9kA-K0-iRi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.54044508319999995" green="0.069210278489999999" blue="0.45226294169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oTS-yz-IIf" kind="relationship" relationship="rootViewController" id="dSg-yG-vZX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3AO-lj-A84" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="892" y="-476"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4b7-uW-LyR">
+            <objects>
+                <navigationController storyboardIdentifier="ReturnConnectionVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="Ide-A8-73h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yBU-TI-qEX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.54044508319999995" green="0.069210278489999999" blue="0.45226294169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oKE-53-95x" kind="relationship" relationship="rootViewController" id="Ipp-st-4UD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ojv-at-9B9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898" y="225"/>
         </scene>
     </scenes>
     <resources>

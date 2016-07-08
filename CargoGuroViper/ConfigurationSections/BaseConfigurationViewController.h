@@ -6,9 +6,17 @@
 //  Copyright © 2016 Виктория. All rights reserved.
 //
 
+@protocol BaseConfigurationViewControllerDelegate
+
+- (void)openRevealMenuWithCompletion:(void (^__strong)(BOOL))completion;
+
+@end
+
 @interface BaseConfigurationViewController : UITableViewController
 
 @property (nonatomic, strong) UIButton *backButton;
+
+@property (nonatomic) id <BaseConfigurationViewControllerDelegate> baseDelegate;
 
 - (void)setCustomNavigationBackButton;
 

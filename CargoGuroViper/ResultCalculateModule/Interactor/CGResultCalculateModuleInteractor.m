@@ -117,7 +117,7 @@
         }
         //NSLog(@"dispatch_async ===== %li", (long)countOfCompany);
         if ( countOfCompany == 0 ) {
-            endOfLoad( YES );
+            //endOfLoad( YES );
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //NSLog(@"count of company ======= %li", (long)countOfCompany);

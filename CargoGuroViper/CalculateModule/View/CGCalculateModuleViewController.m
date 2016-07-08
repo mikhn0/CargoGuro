@@ -14,7 +14,6 @@
 #import "VolumeCalculateView.h"
 
 #import "CGCalculateModulePresenter.h"
-#import "Touching+UIView.h"
 
 @interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate, UITableViewDelegate, UITableViewDataSource> {
     GMSPlacesClient *_placesClient;
@@ -235,7 +234,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if (self.from.text.length > 0 && self.to.text.length > 0 && self.value.text.length>0 && self.weight.text.length>0 && self.cost.text.length>0) {
+    if (self.from.text.length > 0 && self.to.text.length > 0 && self.value.text.length>0 && self.weight.text.length>0) {
         self.searchTransite.enabled = YES;
         self.searchTransite.alpha = 1.0;
     } else {

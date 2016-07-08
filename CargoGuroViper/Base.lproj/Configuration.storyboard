@@ -10,7 +10,7 @@
         <!--CARGO.GURU-->
         <scene sceneID="enL-qt-uQM">
             <objects>
-                <tableViewController storyboardIdentifier="LanguageVCStoryboardID" id="6Z4-hl-Rr4" customClass="LanguageViewController" sceneMemberID="viewController">
+                <tableViewController id="6Z4-hl-Rr4" customClass="LanguageViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" id="7r2-3f-8Hz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,19 +108,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vj8-aS-Z3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-419" y="237"/>
+            <point key="canvasLocation" x="393" y="237"/>
         </scene>
         <!--CARGO.GURU-->
         <scene sceneID="kzx-0o-STC">
             <objects>
-                <tableViewController storyboardIdentifier="CurrencyVCStoryboardID" id="I5D-OI-glL" customClass="CurrencyViewController" sceneMemberID="viewController">
+                <tableViewController id="I5D-OI-glL" customClass="CurrencyViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" id="PCf-Pr-SZh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurCellReuseIdentifier" rowHeight="60" id="Jmo-hk-Xqs" customClass="CurTableViewCell">
-                                <rect key="frame" x="0.0" y="50" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmo-hk-Xqs" id="aD0-IX-PyY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -207,19 +207,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtn-gZ-8bD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-419" y="914"/>
+            <point key="canvasLocation" x="393" y="914"/>
         </scene>
         <!--CARGO.GURU-->
         <scene sceneID="t8l-L9-CKT">
             <objects>
-                <tableViewController storyboardIdentifier="WeightVCStoryboardID" id="vJY-pR-ryp" customClass="WeightViewController" sceneMemberID="viewController">
+                <tableViewController id="vJY-pR-ryp" customClass="WeightViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" id="2K2-EX-jLY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeightCellReuseIdentifier" rowHeight="60" id="aBb-cS-x5B" customClass="WeightTableViewCell">
-                                <rect key="frame" x="0.0" y="50" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aBb-cS-x5B" id="Oqu-hP-pc0">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -272,19 +272,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Br-bB-n8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-419" y="1592"/>
+            <point key="canvasLocation" x="393" y="1592"/>
         </scene>
         <!--CARGO.GURU-->
         <scene sceneID="FwO-db-4dV">
             <objects>
-                <tableViewController storyboardIdentifier="VolumeVCStoryboardID" id="rGD-UL-Gq4" customClass="VolumeViewController" sceneMemberID="viewController">
+                <tableViewController id="rGD-UL-Gq4" customClass="VolumeViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="63" sectionHeaderHeight="18" sectionFooterHeight="18" id="1c8-wN-sO8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VolCellReuseIdentifier" rowHeight="60" id="PrM-hF-P7A" customClass="VolTableViewCell">
-                                <rect key="frame" x="0.0" y="50" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PrM-hF-P7A" id="fXe-5e-Htc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -360,6 +360,94 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkQ-aT-dcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="393" y="2264"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vFX-G7-m0k">
+            <objects>
+                <navigationController storyboardIdentifier="LanguageVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="NhC-8f-axd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AC3-4t-Bh1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.54044508319999995" green="0.069210278489999999" blue="0.45226294169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Z4-hl-Rr4" kind="relationship" relationship="rootViewController" id="9P9-gK-b6e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="11j-kd-6Tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-419" y="237"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="X1e-X2-zlp">
+            <objects>
+                <navigationController storyboardIdentifier="CurrencyVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="GCM-nP-IKI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Xn-WL-FOo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.54044508319999995" green="0.069210278489999999" blue="0.45226294169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="I5D-OI-glL" kind="relationship" relationship="rootViewController" id="IZe-k2-DZu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ryE-WE-RKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-419" y="914"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vC2-kt-W2r">
+            <objects>
+                <navigationController storyboardIdentifier="WeightVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="EfW-2n-2BO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L3F-Lu-YGA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.54044508319999995" green="0.069210278489999999" blue="0.45226294169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vJY-pR-ryp" kind="relationship" relationship="rootViewController" id="n3G-NG-kBV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Zw-1F-diy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-419" y="1592"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="crN-jA-Rfa">
+            <objects>
+                <navigationController storyboardIdentifier="VolumeVCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="KpP-JG-yZ7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T0L-3h-AXW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.54044508319999995" green="0.069210278489999999" blue="0.45226294169999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rGD-UL-Gq4" kind="relationship" relationship="rootViewController" id="kHx-HT-KMk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ShA-Ne-uRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-419" y="2264"/>
         </scene>
