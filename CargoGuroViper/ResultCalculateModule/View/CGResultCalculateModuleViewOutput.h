@@ -20,6 +20,6 @@
 @property (weak, nonatomic) UIView *loadView;
 
 - (void)didTriggerViewReadyEvent;
-- (void)didSelectFilter;
+- (void)reloadPrice:(NSString *)number withCurrency:(NSString *)curr;
 
 @end

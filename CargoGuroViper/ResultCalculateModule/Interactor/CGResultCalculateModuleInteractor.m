@@ -107,9 +107,8 @@
             response[kTRANSPORT_NAME] = companyName;
             response[kTRANSPORT_SITE] = siteName;
             response[kTRANSPORT_NAMES] = transportNames;
-            NSLog(@"responseObject ====== %@", response);
             completion(response.copy);
-            
+            NSLog(@"responseObject ====== %@", response);
         } else {
             //NSData *data = [responseObject[@"failReason"] dataUsingEncoding:NSUTF8StringEncoding];
             //NSString *decodevalue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -157,5 +156,26 @@
     }];
 }
 
+- (void) getConvertPrices: (NSString *)         number
+                 withCurr: (NSString *)         curr
+                onSuccess: (CompletionResult)   success
+                onFailure: (CompletionError)    failure {
+    HTTPClient *httpClient = [[HTTPClient alloc] init];
+NSDictionary *params = @{@"number":number, @"curr":curr};
+    [[httpClient getSessionManager] GET:GET_CVT_PRICES parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        success(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSDictionary* jsonFromData = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:error.userInfo[@"JSONResponseSerializerWithDataKey"] options:NSJSONReadingMutableContainers error:&error];
+        NSLog(@"ERRROR ====== %@\n\n", jsonFromData );
+        if ([jsonFromData objectForKey:@"RUB"]) {
+            success(jsonFromData);
+        } else {
+            failure([httpClient inputError:error]);
+        }
+    }];
+}
 
 @end

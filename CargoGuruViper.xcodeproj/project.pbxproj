@@ -44,6 +44,7 @@
 		7591F2681D05876B00835276 /* ReturnConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2671D05876B00835276 /* ReturnConnectionViewController.m */; };
 		7591F26B1D059B4400835276 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F26A1D059B4400835276 /* AboutUsViewController.m */; };
 		7591F2751D0C24ED00835276 /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7591F2741D0C24ED00835276 /* MMExampleDrawerVisualStateManager.m */; };
+		75B28EF51D3539E00079E5FF /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B28EF41D3539E00079E5FF /* Animator.m */; };
 		75CF6A561D2C4DF2000CE1D7 /* DimensionalTranslation+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CF6A551D2C4DF2000CE1D7 /* DimensionalTranslation+NSString.m */; };
 		75F64AD11C7DB1E50019F61C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD01C7DB1E50019F61C /* main.m */; };
 		75F64AD41C7DB1E50019F61C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F64AD31C7DB1E50019F61C /* AppDelegate.m */; };
@@ -169,6 +170,8 @@
 		7591F26A1D059B4400835276 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsViewController.m; path = InfoSections/AboutUsViewController.m; sourceTree = "<group>"; };
 		7591F2731D0C24ED00835276 /* MMExampleDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMExampleDrawerVisualStateManager.h; sourceTree = "<group>"; };
 		7591F2741D0C24ED00835276 /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
+		75B28EF31D3539E00079E5FF /* Animator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
+		75B28EF41D3539E00079E5FF /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
 		75CF6A541D2C4DF2000CE1D7 /* DimensionalTranslation+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DimensionalTranslation+NSString.h"; path = "Category/DimensionalTranslation+NSString.h"; sourceTree = "<group>"; };
 		75CF6A551D2C4DF2000CE1D7 /* DimensionalTranslation+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DimensionalTranslation+NSString.m"; path = "Category/DimensionalTranslation+NSString.m"; sourceTree = "<group>"; };
 		75F64ACC1C7DB1E50019F61C /* CargoGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CargoGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +319,8 @@
 		63D956F41CFDF0C400138774 /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
+				75B28EF31D3539E00079E5FF /* Animator.h */,
+				75B28EF41D3539E00079E5FF /* Animator.m */,
 				63D956EE1CFDF0BB00138774 /* RevealTableViewCell.h */,
 				63D956EF1CFDF0BB00138774 /* RevealTableViewCell.m */,
 				63D956F01CFDF0BB00138774 /* LeftTableViewController.h */,
@@ -625,6 +630,7 @@
 				53F62CE40F39FF487A049D12 /* [CP] Copy Pods Resources */,
 				9E8F8C128E7E9AC8A3C0B39E /* 📦 Embed Pods Frameworks */,
 				6F6C04FA3C8C339A461A490E /* 📦 Copy Pods Resources */,
+				8591FF495AC588E00C7BFF10 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -752,6 +758,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8591FF495AC588E00C7BFF10 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CargoGuruViper/Pods-CargoGuruViper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9E8F8C128E7E9AC8A3C0B39E /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -819,6 +840,7 @@
 				7591F2681D05876B00835276 /* ReturnConnectionViewController.m in Sources */,
 				63915AFC1D10401F00AE102D /* City.m in Sources */,
 				63D956F21CFDF0BB00138774 /* RevealTableViewCell.m in Sources */,
+				75B28EF51D3539E00079E5FF /* Animator.m in Sources */,
 				7591F26B1D059B4400835276 /* AboutUsViewController.m in Sources */,
 				63B5398B1D2D50AF0061CA39 /* CustomView.m in Sources */,
 				75F64ADD1C7DB1E50019F61C /* CargoGuroViper.xcdatamodeld in Sources */,

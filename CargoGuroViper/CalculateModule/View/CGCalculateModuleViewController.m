@@ -112,7 +112,7 @@
     self.aligment_cost_button.constant = (14 * self.view.frame.size.width) / 305.0;
     self.aligment_from_right.constant = (20 * self.view.frame.size.width) / 305.0;
 
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUI:) name:@"UpdateUI" object:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -469,6 +469,10 @@
     UIAlertController *alertError = [UIAlertController alertControllerWithTitle:nil message:error preferredStyle:UIAlertControllerStyleAlert];
     [alertError addAction:alertAction];
     [self presentViewController:alertError animated:YES completion:nil];
+}
+
+- (void)UpdateUI:(NSNotification *)notification {
+    [self viewWillAppear:YES];
 }
 
 -(void) dealloc {

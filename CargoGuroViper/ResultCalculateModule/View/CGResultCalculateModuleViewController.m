@@ -23,8 +23,6 @@
     Arrow arrowCurrentSorting;
     
     BOOL price, name, method, time;
-    
-    NSString *startWeight, *startVolume;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView    *backgroundView;
@@ -36,6 +34,11 @@
 
 @property (nonatomic) NSDictionary *arrival;
 @property (nonatomic) NSDictionary *derival;
+@property (nonatomic) NSInteger startWeight;
+@property (nonatomic) NSInteger startVolume;
+@property (nonatomic) NSInteger startCurrency;
+
+@property (nonatomic) NSDictionary *currencyPrices;
 
 @end
 
@@ -49,8 +52,12 @@
     [self showAutoPlayBgViewInFullScreen];
     
     //For transfer demension of valume and weight on this screen
-    startVolume = VOLUME_NAME[INDEX_VOLUME];//1 cm^3 = 0.000001 м^3 ; 1 cm^3 = ; 1m^3 = 1000l
-    startWeight = WEIGHT_NAME[INDEX_WEIGHT];
+    self.startVolume = INDEX_VOLUME;//1 cm^3 = 0.000001 м^3 ; 1 cm^3 = ; 1m^3 = 1000l
+    self.startWeight = INDEX_WEIGHT;
+    self.startCurrency = INDEX_CURRENCY;
+    
+    NSString *priceValue = ([self.datas[@"cInsP"] length] > 0 ? self.datas[@"cInsP"] : @"0.00");
+    [self.output reloadPrice:priceValue withCurrency:CURRENCY_NAME[self.startCurrency]];
     
     countOffers = 0;
     currentSelectSorting = 5;
@@ -71,12 +78,13 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self setCustomNavigationBackButton];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUI:) name:@"UpdateUI" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // Label on top view FROM - TO
     if (listOfResult.count > 0 && self.arrival == nil && self.derival == nil) {
         self.arrival = [listOfResult[0] objectForKey:kCITIES][kARRIVAL];
         self.derival = [listOfResult[0] objectForKey:kCITIES][kDERIVAL];
@@ -89,14 +97,33 @@
         self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];
     }
     
+    //Set information about detail cargo
     
-    NSString *volumeValue = [NSString transferVolume:self.datas[@"cV"] From:startVolume to:VOLUME_NAME[INDEX_VOLUME]];
-    NSString *weightValue = [NSString transferWeight:self.datas[@"cW"] From:startWeight to:WEIGHT_NAME[INDEX_WEIGHT]];
-    CGFloat   priceValue = ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00);
-    
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ %@ %@. %@ %@ %@. %@ %.2f %@.", LocalizedString(@"VALUE"), volumeValue, VOLUME_NAME[INDEX_VOLUME], LocalizedString(@"WEIGHT"), weightValue, WEIGHT_NAME[INDEX_WEIGHT], LocalizedString(@"PRICE"), priceValue, CURRENCY_NAME[INDEX_CURRENCY]];
-    
+    [self setInfoLabel];
     [self.tableView reloadData];
+}
+
+- (void)setInfoLabel {
+    if (self.currencyPrices != nil) {
+        NSString *volumeValue = [NSString transferVolume:self.datas[@"cV"] From:self.startVolume to:INDEX_VOLUME];
+        NSString *weightValue = [NSString transferWeight:self.datas[@"cW"] From:self.startWeight to:INDEX_WEIGHT];
+        NSString *priceValue = [self.currencyPrices[CURRENCY_NAME[INDEX_CURRENCY]] stringValue];
+        
+        NSMutableAttributedString *commonInfo = [[NSMutableAttributedString alloc] initWithString:LocalizedString(@"VALUE")];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        [commonInfo appendAttributedString:[NSString setFontForDecimalPartInTopView:volumeValue demention:VOLUME_NAME[INDEX_VOLUME] isCurrency:NO]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:LocalizedString(@"WEIGHT")]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        [commonInfo appendAttributedString:[NSString setFontForDecimalPartInTopView:weightValue demention:WEIGHT_NAME[INDEX_WEIGHT] isCurrency:NO]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:LocalizedString(@"PRICE")]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        [commonInfo appendAttributedString:[NSString setFontForDecimalPartInTopView:priceValue demention:CURRENCY_NAME[INDEX_CURRENCY] isCurrency:YES]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        self.informationLabel.attributedText = commonInfo;
+    }
+
 }
 
 - (void) showAutoPlayBgViewInFullScreen
@@ -182,7 +209,6 @@
     [formatter setMaximumFractionDigits:2];
     [formatter setMinimumFractionDigits:2];
     NSString *newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
-    //cell.priceLabel.text = [NSString stringWithFormat:@"%@ %@", newString, CURRENCY_NAME[INDEX_CURRENCY]];
     cell.priceLabel.attributedText = [NSString setFontForDecimalPart:newString];
     cell.transportLabel.text = [[result objectForKey:kMETHODS][@"names"] objectForKey:LANGUAGE[INDEX_COUNTRY]];
     cell.siteLabel.text = listOfResult[indexPath.row][kTRANSPORT_SITE];
@@ -251,6 +277,12 @@
     }
 }
 
+- (void)reloadCurrencyWuthPrice:(NSDictionary *)result {
+    NSLog(@"result Curensy ====== %@", result);
+    self.currencyPrices = result;
+    [self setInfoLabel];
+}
+
 
 - (float) getHeightForText:(NSString*) text withFont:(UIFont*) font andWidth:(float) width {
     CGSize constraint = CGSizeMake(width , 20000.0f);
@@ -300,9 +332,6 @@
     // set frame of auto play bg view
     mainView.frame = window.frame;
     [window addSubview: mainView];
-    
-    //[self.view addSubview:mainView];
-    //[self.output didSelectFilter];
     
 }
 
@@ -387,6 +416,11 @@
         // set frame of auto play bg view
         self.loadScreen.frame = window.frame;
     }];
+}
+
+
+- (void)UpdateUI:(NSNotification *)notification {
+    [self viewWillAppear:YES];
 }
 
 @end

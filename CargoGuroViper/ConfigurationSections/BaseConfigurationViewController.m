@@ -17,13 +17,13 @@
 
 - (void)setCustomNavigationBackButton
 {
-    self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 80.0f, 30.0f)];
+    self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(15.0f, 25.0f, 80.0f, 30.0f)];
     [self.backButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [self.backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
     [self.backButton setTitle:LocalizedString(@"BACK") forState:UIControlStateNormal];
-    [self.backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -4, 0, 0)];
+    [self.backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -14, 0, 0)];
     [self.backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
+    [self.customTopBar addSubview:self.backButton];
 }
 
 #pragma mark - Table View Data Source
@@ -33,16 +33,10 @@
 }
 
 - (void) popBack {
-
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.3;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromLeft;
-    [self.view.window.layer addAnimation:transition forKey:nil];
-    
-    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateUI" object:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
+
 
 @end

@@ -8,4 +8,6 @@
 
 @interface ReturnConnectionViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIView *customTopBar;
+
 @end
