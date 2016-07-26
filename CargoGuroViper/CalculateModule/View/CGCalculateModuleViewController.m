@@ -174,11 +174,7 @@
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
     
-    double delayInSeconds = 0.5;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    });
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 
@@ -415,6 +411,8 @@
                     cFC = elem[@"short_name"];
                 } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
                     cFS = elem[@"short_name"];
+                } else if ( [elem[@"types"] containsObject:@"locality"]) {
+                    self.from.text = elem[@"long_name"];
                 }
             }
             
@@ -425,6 +423,8 @@
                     cTC = elem[@"short_name"];
                 } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
                     cTS = elem[@"short_name"];
+                } else if ( [elem[@"types"] containsObject:@"locality"]) {
+                    self.to.text = elem[@"long_name"];
                 }
             }
         }
