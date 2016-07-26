@@ -15,6 +15,17 @@
 
 @implementation BaseConfigurationViewController
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.backButton removeFromSuperview];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setCustomNavigationBackButton];
+    [self.tableView reloadData];
+}
+
 - (void)setCustomNavigationBackButton
 {
     self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(15.0f, 25.0f, 80.0f, 30.0f)];

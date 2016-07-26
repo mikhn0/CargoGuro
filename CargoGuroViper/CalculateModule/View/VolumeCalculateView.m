@@ -72,6 +72,7 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.scrollView addGestureRecognizer:tapGesture];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
+    [self registerForKeyboardNotifications];
     
 }
 
@@ -107,6 +108,18 @@
                 return NO;
             }
         }
+    }
+    
+    if ([string isEqualToString:@","] && [textField.text containsString:@","]) {
+        return NO;
+    }
+    
+    if ((self.length.text.length > 0 || [textField isEqual:self.length]) && (self.width.text.length > 0 || [textField isEqual:self.width]) && (self.height.text.length>0 || [textField isEqual:self.height])) {
+        self.calculateButton.enabled = YES;
+        self.calculateButton.alpha = 1.0;
+    } else {
+        self.calculateButton.enabled = NO;
+        self.calculateButton.alpha = 0.5;
     }
     return YES;
 }
@@ -150,7 +163,6 @@
 
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-  //  NSLog(@"Main view frame ==== %@", NSStringFromCGRect(self.view.frame));
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -164,15 +176,16 @@
     aRect.size.height -= kbSize.height;
     
     CGRect tfRect = self.activeField.frame;
-    tfRect.origin.y += self.inputView.frame.origin.y + self.scrollView.frame.origin.y + 64 + self.activeField.frame.size.height;
-    NSLog(@"self.activeField.frame.origin ==== %@", NSStringFromCGPoint(tfRect.origin));
+    tfRect.origin.y += self.inputView.frame.origin.y + self.scrollView.frame.origin.y + self.activeField.frame.size.height;
     if (!CGRectContainsPoint(aRect, tfRect.origin) ) {
-        tfRect.origin.y -= self.inputView.frame.origin.y + 64 + self.activeField.frame.size.height;
+        tfRect.origin.y -= self.inputView.frame.origin.y + 84 + self.activeField.frame.size.height;
         [self.scrollView scrollRectToVisible:tfRect animated:YES];
     }
 }
 
 - (void)hideKeyboard {
+    
+    NSLog(@"hideKeyboard in VolumeCalculateViews ");
     [self.length resignFirstResponder];
     [self.width resignFirstResponder];
     [self.height resignFirstResponder];
@@ -191,16 +204,25 @@
         number = [[NSNumberFormatter new] numberFromString: self.height.text];
         float heightValue = number.floatValue;
 
-        resultValue = [NSString stringWithFormat:@"%.2f", lengthValue * widthValue * heightValue];
+        NSNumberFormatter * formatter = [NSNumberFormatter new];
+        [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [formatter setGroupingSeparator:@""];
+        [formatter setDecimalSeparator:@","];
+        formatter.usesGroupingSeparator = YES;
+        [formatter setMaximumFractionDigits:2];
+        [formatter setMinimumFractionDigits:0];
+        resultValue =  [formatter stringFromNumber:[NSNumber numberWithFloat:(lengthValue * widthValue * heightValue)]];
+        
         [self.delegate resultCalculateVolume:resultValue];
         [self removeFromSuperview];
+        
         
     }
 }
 
-#pragma mark - UITableViewDataSource
-
 - (void)closeScreen:(UITapGestureRecognizer *)sender {
+    [self.delegate hideVolumeCalculateView];
     [self removeFromSuperview];
 }
 

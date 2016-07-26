@@ -11,9 +11,15 @@
 
 @interface ReturnConnectionViewController () <MFMailComposeViewControllerDelegate>
 
+@property (nonatomic) UIButton *backButton;
 @end
 
 @implementation ReturnConnectionViewController
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.backButton removeFromSuperview];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -22,13 +28,13 @@
 
 - (void)setCustomNavigationBackButton
 {
-    UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(15.0f, 25.0f, 80.0f, 30.0f)];
-    [backButton setImage:[UIImage imageNamed:@"icon_back"]  forState:UIControlStateNormal];
-    [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
-    [backButton setTitle:LocalizedString(@"BACK") forState:UIControlStateNormal];
-    [backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -14, 0, 0)];
-    [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
-    [self.customTopBar addSubview:backButton];
+    self.backButton = [[UIButton alloc] initWithFrame: CGRectMake(15.0f, 25.0f, 80.0f, 30.0f)];
+    [self.backButton setImage:[UIImage imageNamed:@"icon_back"]  forState:UIControlStateNormal];
+    [self.backButton setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
+    [self.backButton setTitle:LocalizedString(@"BACK") forState:UIControlStateNormal];
+    [self.backButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -14, 0, 0)];
+    [self.backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.customTopBar addSubview:self.backButton];
 }
 
 - (IBAction)callPhone:(UIButton *)sender {
@@ -76,7 +82,6 @@
 }
 
 - (void) popBack {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateUI" object:self];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

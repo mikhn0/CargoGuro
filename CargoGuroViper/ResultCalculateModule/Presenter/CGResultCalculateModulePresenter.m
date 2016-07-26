@@ -93,12 +93,6 @@
     [self stopRotateIndicator];
 }
 
-#pragma mark - Методы CGResultCalculateModuleViewOutput
-
-- (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
-}
-
 - (void)reloadPrice:(NSString *)number withCurrency:(NSString *)curr {
     [self.interactor getConvertPrices:number withCurr:curr onSuccess:^(NSDictionary *result) {
         [self.view reloadCurrencyWuthPrice:result];

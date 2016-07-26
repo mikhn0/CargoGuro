@@ -29,7 +29,7 @@ static NSString * const kConfigCellReuseIdentifier = @"ConfigCellReuseIdentifier
 static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 
 
-@interface LeftTableViewController () <RevealTableViewCellDelegate, UIViewControllerTransitioningDelegate >//, BaseConfigurationViewControllerDelegate
+@interface LeftTableViewController () <RevealTableViewCellDelegate, UIViewControllerTransitioningDelegate >
 {
     NSInteger currentCountry;
     NSInteger currentCurrency;
@@ -72,6 +72,7 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideKeyboard" object:nil];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:kSearchIndex inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
@@ -219,30 +220,22 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 #pragma mark - LanguageViewControllerDelegate
 - (void)changeLanguageWithIndexCountry:(NSNotification *)notification {
     currentCountry = [notification.userInfo[@"indexCountry"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)changeCurrencyWithIndex:(NSNotification *)notification {
     currentCurrency = [notification.userInfo[@"indexCurrency"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)changeVolumeWithIndex:(NSNotification *)notification {
     currentVolume = [notification.userInfo[@"indexVolume"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)changeWeightWithIndex:(NSNotification *)notification {
     currentWeight = [notification.userInfo[@"indexWeight"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)didReceiveMemoryWarning {

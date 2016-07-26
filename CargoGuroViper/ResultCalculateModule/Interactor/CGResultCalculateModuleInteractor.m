@@ -37,12 +37,9 @@
             
             for (NSDictionary *company in companies) {
                 
-                //NSLog(@"company ====== %@", company);
                 NSMutableDictionary *mutableParams = params.mutableCopy;
                 
                 mutableParams[@"tNum"] = company[kTRANSPORT_NUMBER];
-                
-                //NSLog(@"mutableParams ====== %@", mutableParams);
                 
                 __block NSString *companyName = company[kTRANSPORT_NAME];
                 __block NSString *transportSite = company[kTRANSPORT_SITE];
@@ -109,12 +106,7 @@
             response[kTRANSPORT_NAMES] = transportNames;
             completion(response.copy);
             NSLog(@"responseObject ====== %@", response);
-        } else {
-            //NSData *data = [responseObject[@"failReason"] dataUsingEncoding:NSUTF8StringEncoding];
-            //NSString *decodevalue = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            //NSLog(@"responseObject ====== %@", decodevalue);
-        }
-        //NSLog(@"dispatch_async ===== %li", (long)countOfCompany);
+        } 
         if ( countOfCompany == 0 ) {
             //endOfLoad( YES );
         }
@@ -133,8 +125,7 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        NSDictionary* jsonFromData = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:error.userInfo[@"JSONResponseSerializerWithDataKey"] options:NSJSONReadingMutableContainers error:&error];
-        NSLog(@"ERRROR ====== %@\n\n", jsonFromData );
+        NSLog(@"ERRROR ====== %@\n\n", error );
         failure([httpClient inputError:error]);
         
     }];
@@ -149,8 +140,7 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        NSDictionary* jsonFromData = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:error.userInfo[@"JSONResponseSerializerWithDataKey"] options:NSJSONReadingMutableContainers error:&error];
-        NSLog(@"ERRROR ====== %@\n\n", jsonFromData );
+        NSLog(@"ERRROR ====== %@\n\n", error );
         failure([httpClient inputError:error]);
         
     }];
@@ -161,19 +151,18 @@
                 onSuccess: (CompletionResult)   success
                 onFailure: (CompletionError)    failure {
     HTTPClient *httpClient = [[HTTPClient alloc] init];
-NSDictionary *params = @{@"number":number, @"curr":curr};
+    NSDictionary *params = @{@"number":number, @"curr":curr};
     [[httpClient getSessionManager] GET:GET_CVT_PRICES parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        NSDictionary* jsonFromData = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:error.userInfo[@"JSONResponseSerializerWithDataKey"] options:NSJSONReadingMutableContainers error:&error];
-        NSLog(@"ERRROR ====== %@\n\n", jsonFromData );
-        if ([jsonFromData objectForKey:@"RUB"]) {
-            success(jsonFromData);
+        id responseError = [httpClient inputError:error];
+        if ([responseError isKindOfClass:[NSDictionary class]] && [responseError objectForKey:@"RUB"]) {
+            success(responseError);
         } else {
-            failure([httpClient inputError:error]);
+            failure(responseError);
         }
     }];
 }

@@ -11,6 +11,7 @@
 @protocol VolumeCalculateViewDelegate <NSObject>
 
 - (void)resultCalculateVolume:(NSString *)resultString;
+- (void)hideVolumeCalculateView;
 
 @end
 

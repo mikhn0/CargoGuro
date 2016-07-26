@@ -140,11 +140,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ADLabel" destination="CTL-Ca-0vX" id="2V8-D1-8oo"/>
                         <outlet property="backgroundView" destination="C9j-08-6g8" id="MAa-iM-4HP"/>
                         <outlet property="informationLabel" destination="pnQ-QN-Spn" id="YDS-ub-DUu"/>
                         <outlet property="loadImage" destination="ZaG-pE-SOJ" id="IaJ-rw-2GT"/>
                         <outlet property="loadScreen" destination="LKK-oS-YRU" id="sYI-yj-Euu"/>
                         <outlet property="routeLabel" destination="9Gv-So-xJW" id="CPx-Jm-unv"/>
+                        <outlet property="sendRequestLabel" destination="Hys-OO-Jse" id="jRQ-zG-mR2"/>
                         <outlet property="tableView" destination="VL5-wG-8zU" id="Csg-oN-w0P"/>
                         <segue destination="E4b-n3-rQ9" kind="show" identifier="FilterSegue" id="EaF-2M-5S3"/>
                     </connections>

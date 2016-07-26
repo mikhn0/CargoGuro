@@ -14,5 +14,6 @@
 + (NSString *)printCubeOfValue:(NSString *)value;
 + (NSAttributedString *)setFontForDecimalPart:(NSString *)string;
 + (NSAttributedString *)setFontForDecimalPartInTopView:(NSString *)string demention:(NSString *)demention isCurrency:(BOOL)isCurrency ;
++ (NSAttributedString *)setFontForDecimalVWInTopView:(NSString *)string demention:(NSString *)demention isCurrency:(BOOL)isCurrency;
 
 @end

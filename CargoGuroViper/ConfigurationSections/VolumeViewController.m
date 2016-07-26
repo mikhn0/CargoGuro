@@ -16,13 +16,6 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = INDEX_VOLUME;
-    [self setCustomNavigationBackButton];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self setCustomNavigationBackButton];
-    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -43,7 +36,7 @@ static NSString * const kCurCellReuseIdentifier = @"VolCellReuseIdentifier";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return LocalizedString(@"VALUE"); //@"Объем";
+    return LocalizedString(@"VALUE");
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
