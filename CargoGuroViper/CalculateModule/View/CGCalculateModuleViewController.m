@@ -170,6 +170,7 @@
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {
     [self hideKeyboard];
+    [self killScroll];
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
@@ -179,8 +180,19 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     });
+
 }
 
+- (void)killScroll
+{
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x -= 1.0;
+    offset.y -= 1.0;
+    [self.scrollView setContentOffset:offset animated:NO];
+    offset.x += 1.0;
+    offset.y += 1.0;
+    [self.scrollView setContentOffset:offset animated:NO];
+}
 
 #pragma mark - Helpers
 
