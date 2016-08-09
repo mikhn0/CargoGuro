@@ -13,7 +13,6 @@
 #import "JVFloatLabeledTextView.h"
 #import "VolumeCalculateView.h"
 #import "DimensionalTranslation+NSString.h"
-
 #import "CGCalculateModulePresenter.h"
 
 @interface CGCalculateModuleViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,  VolumeCalculateViewDelegate, UITableViewDelegate, UITableViewDataSource> {
@@ -174,6 +173,7 @@
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
     
+    [self killScroll];
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
@@ -307,12 +307,26 @@
 - (void)hideKeyboard {
     NSLog(@"hideKeyboard in CGCalculateModuleVC ");
     self.autocompleteTableView.hidden = YES;
+    [self killScroll];
     [self.from resignFirstResponder];
     [self.to resignFirstResponder];
     [self.value resignFirstResponder];
     [self.weight resignFirstResponder];
     [self.cost resignFirstResponder];
 }
+
+- (void)killScroll
+{
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x -= 1.0;
+    offset.y -= 1.0;
+    [self.scrollView setContentOffset:offset animated:NO];
+    offset.x += 1.0;
+    offset.y += 1.0;
+    [self.scrollView setContentOffset:offset animated:NO];
+}
+
+
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if ([touch.view.superview isKindOfClass:[UITableViewCell class]] || touch.view.tag == 11 || touch.view.tag == 22) {//change it to your condition
