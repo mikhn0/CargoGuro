@@ -17,11 +17,6 @@
 
 - (void)transitionOnFilterModule {
     [self.transitionHandler openModuleUsingSegue:@"FilterSegue"];
-    
-//    [[self.transitionHandler openModuleUsingSegue:@"FilterSegue"] thenChainUsingBlock:^id<RamblerViperModuleOutput>(id<CGFilterModuleModuleInput> moduleInput) {
-//        [moduleInput configureModuleWithData:datas];
-//        return nil;
-//    }];
 }
 
 @end

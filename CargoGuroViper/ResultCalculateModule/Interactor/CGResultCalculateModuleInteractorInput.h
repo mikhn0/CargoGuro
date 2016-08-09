@@ -25,4 +25,8 @@ typedef void (^CompletionEnd)(BOOL theEnd);
 - (void) getResultAdvertOnSuccess:(CompletionResult)    success
                         onFailure:(CompletionError)     failure;
 
+- (void) getConvertPrices: (NSString *)         number
+                 withCurr: (NSString *)         curr
+                onSuccess: (CompletionResult)   success
+                onFailure: (CompletionError)    failure;
 @end

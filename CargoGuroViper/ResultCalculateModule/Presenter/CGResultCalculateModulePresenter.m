@@ -57,11 +57,7 @@
                 NSMutableDictionary *resultDictionary = result.mutableCopy;
                 resultDictionary[@"methods"] = [result[@"methods"] objectAtIndex:i];
                 
-                //dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    [self.view addRowWithResult:resultDictionary.copy];
-                    
-                //});
+                [self.view addRowWithResult:resultDictionary.copy];
             }
             
         }
@@ -97,16 +93,13 @@
     [self stopRotateIndicator];
 }
 
-#pragma mark - Методы CGResultCalculateModuleViewOutput
-
-- (void)didTriggerViewReadyEvent {
-	[self.view setupInitialState];
+- (void)reloadPrice:(NSString *)number withCurrency:(NSString *)curr {
+    [self.interactor getConvertPrices:number withCurr:curr onSuccess:^(NSDictionary *result) {
+        [self.view reloadCurrencyWuthPrice:result];
+    } onFailure:^(NSString *error) {
+        [self.view outPutError:error];
+    }];
 }
-
-- (void)didSelectFilter {
-    [self.router transitionOnFilterModule];
-}
-
 
 #pragma mark - Методы CGResultCalculateModuleInteractorOutput
 

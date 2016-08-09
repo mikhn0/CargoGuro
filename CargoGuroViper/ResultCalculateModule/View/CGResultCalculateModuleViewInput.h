@@ -17,8 +17,8 @@
  */
 @property (weak, nonatomic) NSDictionary *datas;
 
-- (void)setupInitialState;
 - (void)addRowWithResult:(NSDictionary *)result;
+- (void)reloadCurrencyWuthPrice:(NSDictionary *)result;
 - (void)outPutError:(NSString *)error;
 
 @end

@@ -41,9 +41,6 @@
 
 #pragma mark - Методы CGCalculateModuleViewOutput
 
-//- (void)didTriggerViewReadyEvent {
-//	[self.view setupInitialState];
-//}
 - (void)getDetailByPlaceId:(NSString *)placeId sucess:(CompletionResult)success {
     [self.interactor getDetailPlaceByPlaceIdWithParam:@{@"key": @"AIzaSyBeZkmmMkAXuPULHGLGQ4VgDxrMiPzH8q4", @"placeid":placeId} onSuccess:^(NSDictionary *result) {
         success(result);

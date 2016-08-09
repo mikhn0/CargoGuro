@@ -57,7 +57,10 @@
 "M" = "m";
 "СM" = "cm";
 "L" = "l";
-"GR" = "gr";
+"DC" = "dm";
 
 "CURENCY_VALUE" = "rub";
+
+"SEND_REQ_CARRIERS" = "Sends a request to carriers ...";
+"PLACE_ADS" = "Here you can place ads";
 

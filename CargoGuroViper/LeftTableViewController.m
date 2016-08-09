@@ -11,6 +11,7 @@
 #import "JVFloatingDrawerViewController.h"
 #import "UIViewController+MMDrawerController.h"
 #import "LanguageViewController.h"
+#import "Animator.h"
 
 enum {
     kSearchIndex    = 0,
@@ -27,7 +28,8 @@ static NSString * const kSearchCellReuseIdentifier = @"SearchCellReuseIdentifier
 static NSString * const kConfigCellReuseIdentifier = @"ConfigCellReuseIdentifier";
 static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 
-@interface LeftTableViewController () <RevealTableViewCellDelegate>//, BaseConfigurationViewControllerDelegate
+
+@interface LeftTableViewController () <RevealTableViewCellDelegate, UIViewControllerTransitioningDelegate >
 {
     NSInteger currentCountry;
     NSInteger currentCurrency;
@@ -60,6 +62,8 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCurrencyWithIndex:) name:@"ChangeCurrency" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVolumeWithIndex:) name:@"ChangeVolume" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeWeightWithIndex:) name:@"ChangeWeight" object:nil];
+    
+    
 }
 
 - (NSArray *)leftMenuSections {
@@ -68,6 +72,7 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideKeyboard" object:nil];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:kSearchIndex inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
@@ -147,28 +152,28 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UINavigationController *destinationViewController = nil;
+    UIViewController *destinationViewController = nil;
 
     switch (indexPath.row) {
         case kLanguageIndex:
-            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] languageViewController];
+            destinationViewController = [[AppDelegate globalDelegate] languageViewController];
             
             break;
         case kCurrencyIndex:
-            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] currencyViewController];
+            destinationViewController = [[AppDelegate globalDelegate] currencyViewController];
             break;
         case kWeightIndex:
-            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] weightViewController];
+            destinationViewController = [[AppDelegate globalDelegate] weightViewController];
             break;
         case kVolumeIndex:
-            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] volumeViewController];
+            destinationViewController = [[AppDelegate globalDelegate] volumeViewController];
             break;
             
         case kAboutProjectIndex:
-            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] aboutUsViewController];
+            destinationViewController = [[AppDelegate globalDelegate] aboutUsViewController];
             break;
         case kContactUsIndex:
-            destinationViewController = (UINavigationController *)[[AppDelegate globalDelegate] returnConnectionViewController];
+            destinationViewController = [[AppDelegate globalDelegate] returnConnectionViewController];
             break;
             
         default:
@@ -176,25 +181,31 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
     }
     if (indexPath.row != 0) {
         
-        //UINavigationController *centerViewController = nil;
-        //centerViewController = (UINavigationController *)[[AppDelegate globalDelegate] calculateModuleViewController];
-        
-        
-        //BaseConfigurationViewController *baseVC = (BaseConfigurationViewController *)destinationViewController.topViewController;
-        //baseVC.baseDelegate = self;
-        
-        CATransition *transition = [CATransition animation];
-        transition.duration = 0.3;
-        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        transition.type = kCATransitionPush;
-        transition.subtype = kCATransitionFromRight;
-        [self.view.window.layer addAnimation:transition forKey:nil];
-        
-        [self presentViewController:destinationViewController animated:NO completion:nil];
+        destinationViewController.transitioningDelegate = self;
+        destinationViewController.modalPresentationStyle = UIModalPresentationCustom;
+        [self presentViewController:destinationViewController animated:YES completion:nil];
         
     }
     
 }
+
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    
+    Animator *animator = [Animator new];
+    animator.presenting = YES;
+    return animator;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    Animator *animator = [Animator new];
+    return animator;
+}
+
 
 #pragma mark - RevealTableViewCellDelegate
 
@@ -209,30 +220,22 @@ static NSString * const kInfoCellReuseIdentifier = @"InfoCellReuseIdentifier";
 #pragma mark - LanguageViewControllerDelegate
 - (void)changeLanguageWithIndexCountry:(NSNotification *)notification {
     currentCountry = [notification.userInfo[@"indexCountry"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)changeCurrencyWithIndex:(NSNotification *)notification {
     currentCurrency = [notification.userInfo[@"indexCurrency"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)changeVolumeWithIndex:(NSNotification *)notification {
     currentVolume = [notification.userInfo[@"indexVolume"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)changeWeightWithIndex:(NSNotification *)notification {
     currentWeight = [notification.userInfo[@"indexWeight"] integerValue];
-    [self.tableView beginUpdates];
     [self.tableView reloadData];
-    [self.tableView endUpdates];
 }
 
 - (void)didReceiveMemoryWarning {

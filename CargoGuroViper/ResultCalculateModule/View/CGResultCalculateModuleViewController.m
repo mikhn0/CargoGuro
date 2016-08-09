@@ -21,14 +21,16 @@
     NSInteger countOffers, currentSelectSorting;
     NSMutableArray *listOfResult;
     Arrow arrowCurrentSorting;
+    NSString *startVolumeValue;
+    NSString *startWeightValue;
     
     BOOL price, name, method, time;
-    
-    NSString *startWeight, *startVolume;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView    *backgroundView;
 @property (weak, nonatomic) IBOutlet UIView         *loadScreen;
+@property (weak, nonatomic) IBOutlet UILabel        *sendRequestLabel;
+@property (weak, nonatomic) IBOutlet UILabel        *ADLabel;
 @property (weak, nonatomic) IBOutlet UIImageView    *loadImage;
 @property (weak, nonatomic) IBOutlet UITableView    *tableView;
 @property (weak, nonatomic) IBOutlet UILabel        *routeLabel;
@@ -36,6 +38,11 @@
 
 @property (nonatomic) NSDictionary *arrival;
 @property (nonatomic) NSDictionary *derival;
+@property (nonatomic) NSInteger startWeightIndex;
+@property (nonatomic) NSInteger startVolumeIndex;
+@property (nonatomic) NSInteger startCurrency;
+
+@property (nonatomic) NSDictionary *currencyPrices;
 
 @end
 
@@ -49,8 +56,15 @@
     [self showAutoPlayBgViewInFullScreen];
     
     //For transfer demension of valume and weight on this screen
-    startVolume = VOLUME_NAME[INDEX_VOLUME];//1 cm^3 = 0.000001 м^3 ; 1 cm^3 = ; 1m^3 = 1000l
-    startWeight = WEIGHT_NAME[INDEX_WEIGHT];
+    self.startVolumeIndex = INDEX_VOLUME;//1 cm^3 = 0.000001 м^3 ; 1 cm^3 = ; 1m^3 = 1000l
+    self.startWeightIndex = INDEX_WEIGHT;
+    startVolumeValue = [NSString transferVolume:self.datas[@"cV"] From:0 to:INDEX_VOLUME];
+    startWeightValue = [NSString transferWeight:self.datas[@"cW"] From:0 to:INDEX_WEIGHT];
+    
+    self.startCurrency = INDEX_CURRENCY;
+    
+    NSString *priceValue = ([self.datas[@"cInsP"] length] > 0 ? self.datas[@"cInsP"] : @"0.00");
+    [self.output reloadPrice:priceValue withCurrency:CURRENCY_NAME[self.startCurrency]];
     
     countOffers = 0;
     currentSelectSorting = 5;
@@ -63,20 +77,22 @@
     self.loadScreen.hidden = NO;
     self.loadImage.hidden = NO;
     self.loadImage.image = [UIImage imageNamed:@"logo"];
+    self.sendRequestLabel.text = LocalizedString(@"SEND_REQ_CARRIERS");
+    self.ADLabel.text = LocalizedString(@"PLACE_ADS");
     [self rotateLayerInfinite:self.loadImage.layer];
     
     self.output.imageIndicator = self.loadImage;
     self.output.loadView = self.loadScreen;
-	[self.output didTriggerViewReadyEvent];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self setCustomNavigationBackButton];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUI:) name:@"UpdateUI" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // Label on top view FROM - TO
     if (listOfResult.count > 0 && self.arrival == nil && self.derival == nil) {
         self.arrival = [listOfResult[0] objectForKey:kCITIES][kARRIVAL];
         self.derival = [listOfResult[0] objectForKey:kCITIES][kDERIVAL];
@@ -89,14 +105,53 @@
         self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];
     }
     
+    //Set information about detail cargo
     
-    NSString *volumeValue = [NSString transferVolume:self.datas[@"cV"] From:startVolume to:VOLUME_NAME[INDEX_VOLUME]];
-    NSString *weightValue = [NSString transferWeight:self.datas[@"cW"] From:startWeight to:WEIGHT_NAME[INDEX_WEIGHT]];
-    CGFloat   priceValue = ([self.datas[@"cInsP"] length] > 0 ? [self.datas[@"cInsP"] floatValue] : 0.00);
-    
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ %@ %@. %@ %@ %@. %@ %.2f %@.", LocalizedString(@"VALUE"), volumeValue, VOLUME_NAME[INDEX_VOLUME], LocalizedString(@"WEIGHT"), weightValue, WEIGHT_NAME[INDEX_WEIGHT], LocalizedString(@"PRICE"), priceValue, CURRENCY_NAME[INDEX_CURRENCY]];
-    
+    [self setInfoLabel];
     [self.tableView reloadData];
+}
+
+- (void)setInfoLabel {
+    if (self.currencyPrices != nil) {
+        NSString *volumeValue = [NSString transferVolume:startVolumeValue From:self.startVolumeIndex to:INDEX_VOLUME];
+        NSString *weightValue = [NSString transferWeight:startWeightValue From:self.startWeightIndex to:INDEX_WEIGHT];
+        
+        NSString *priceValue = [self.currencyPrices[CURRENCY_NAME[INDEX_CURRENCY]] stringValue];
+        
+        NSMutableAttributedString *commonInfo = [[NSMutableAttributedString alloc] initWithString:LocalizedString(@"VALUE")];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        
+        NSNumberFormatter * formatter = [NSNumberFormatter new];
+        [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [formatter setGroupingSeparator:@" "];
+        [formatter setDecimalSeparator:@","];
+        formatter.usesGroupingSeparator = YES;
+        [formatter setMaximumFractionDigits:6];
+        [formatter setMinimumFractionDigits:0];
+        NSString *volumeString =  [formatter stringFromNumber:[NSNumber numberWithFloat:[volumeValue floatValue]]];
+        [commonInfo appendAttributedString:[NSString setFontForDecimalVWInTopView:volumeString demention:VOLUME_NAME[INDEX_VOLUME] isCurrency:NO]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:LocalizedString(@"WEIGHT")]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        
+        NSString *weightString =  [formatter stringFromNumber:[NSNumber numberWithFloat:[weightValue floatValue]]];
+        [commonInfo appendAttributedString:[NSString setFontForDecimalVWInTopView:weightString demention:WEIGHT_NAME[INDEX_WEIGHT] isCurrency:NO]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:LocalizedString(@"PRICE")]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        
+        float value = [priceValue floatValue];
+        [formatter setMaximumFractionDigits:2];
+        [formatter setMinimumFractionDigits:2];
+        NSString *newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
+        [commonInfo appendAttributedString:[NSString setFontForDecimalPartInTopView:newString demention:CURRENCY_NAME[INDEX_CURRENCY] isCurrency:YES]];
+        [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        self.informationLabel.attributedText = commonInfo;
+    } else {
+        self.informationLabel.text = @"";
+    }
+
 }
 
 - (void) showAutoPlayBgViewInFullScreen
@@ -131,14 +186,6 @@
     [layer removeAllAnimations];
     [layer addAnimation:rotation forKey:@"Spin"];
 }
-
-
-#pragma mark - Методы CGResultCalculateModuleViewInput
-
-- (void)setupInitialState {
-	// В этом методе происходит настройка параметров view, зависящих от ее жизненого цикла (создание элементов, анимации и пр.)
-}
-
 
 #pragma mark - UITableViewDataSource protocol
 
@@ -182,7 +229,6 @@
     [formatter setMaximumFractionDigits:2];
     [formatter setMinimumFractionDigits:2];
     NSString *newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
-    //cell.priceLabel.text = [NSString stringWithFormat:@"%@ %@", newString, CURRENCY_NAME[INDEX_CURRENCY]];
     cell.priceLabel.attributedText = [NSString setFontForDecimalPart:newString];
     cell.transportLabel.text = [[result objectForKey:kMETHODS][@"names"] objectForKey:LANGUAGE[INDEX_COUNTRY]];
     cell.siteLabel.text = listOfResult[indexPath.row][kTRANSPORT_SITE];
@@ -251,6 +297,12 @@
     }
 }
 
+- (void)reloadCurrencyWuthPrice:(NSDictionary *)result {
+    NSLog(@"result Curensy ====== %@", result);
+    self.currencyPrices = result;
+    [self setInfoLabel];
+}
+
 
 - (float) getHeightForText:(NSString*) text withFont:(UIFont*) font andWidth:(float) width {
     CGSize constraint = CGSizeMake(width , 20000.0f);
@@ -301,9 +353,6 @@
     mainView.frame = window.frame;
     [window addSubview: mainView];
     
-    //[self.view addSubview:mainView];
-    //[self.output didSelectFilter];
-    
 }
 
 - (IBAction)unwindToResultCalculate:(UIStoryboardSegue *)unwindSegue
@@ -352,7 +401,7 @@
     NSSortDescriptor *sortDescriptor;
     
     if (filter == Cost) {
-        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"methods.calcResultPrice"
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:[NSString stringWithFormat:@"methods.calcResultPrices.%@", CURRENCY_NAME[INDEX_CURRENCY]]
                                                      ascending:arrowCurrentSorting == Top ? YES : NO];
     } else if (filter == Transfer) {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"transportName"
@@ -387,6 +436,11 @@
         // set frame of auto play bg view
         self.loadScreen.frame = window.frame;
     }];
+}
+
+
+- (void)UpdateUI:(NSNotification *)notification {
+    [self viewWillAppear:YES];
 }
 
 @end

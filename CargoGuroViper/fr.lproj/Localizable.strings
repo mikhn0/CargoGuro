@@ -53,6 +53,9 @@
 "M" = "m";
 "СM" = "cm";
 "L" = "l";
-"GR" = "gr";
+"DC" = "dm";
 
 "CURENCY_VALUE" = "frotter";
+
+"SEND_REQ_CARRIERS" = "Envoie une requête aux transporteurs ...";
+"PLACE_ADS" = "Ici vous pouvez placer des annonces";

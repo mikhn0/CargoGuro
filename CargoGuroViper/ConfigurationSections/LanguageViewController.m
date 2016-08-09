@@ -25,7 +25,6 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentIndex = INDEX_COUNTRY;
-    [self setCustomNavigationBackButton];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -61,10 +60,10 @@ static NSString * const kLanCellReuseIdentifier = @"LanCellReuseIdentifier";
     [defaults synchronize];
     LocalizationSetLanguage(LOCALIZE_LANGUAGE[indexPath.row]);
     
-    NSDictionary *userInfo = @{@"indexCountry":@(indexPath.row)};
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeLanguage" object:nil userInfo:userInfo];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateUI" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeLanguage" object:nil userInfo:@{@"indexCountry":@(indexPath.row)}];
     [self.backButton setTitle:LocalizedString(@"BACK") forState:UIControlStateNormal];
+    
     
 }
 

@@ -45,7 +45,7 @@
     [manager.requestSerializer setValue:countryCode forHTTPHeaderField:@"X-CLIENT-COUNTRY"];
     
     manager.responseSerializer = [JSONResponseSerializerWithData serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", nil];
     
     
     [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {

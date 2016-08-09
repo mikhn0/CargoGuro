@@ -6,6 +6,7 @@
 //  Copyright © 2016 Виктория. All rights reserved.
 //
 
+
 @protocol BaseConfigurationViewControllerDelegate
 
 - (void)openRevealMenuWithCompletion:(void (^__strong)(BOOL))completion;
@@ -15,6 +16,7 @@
 @interface BaseConfigurationViewController : UITableViewController
 
 @property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, weak) IBOutlet UIView *customTopBar;
 
 @property (nonatomic) id <BaseConfigurationViewControllerDelegate> baseDelegate;
 

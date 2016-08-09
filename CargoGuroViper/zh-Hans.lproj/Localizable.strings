@@ -54,6 +54,9 @@
 "M" = "m";
 "СM" = "cm";
 "L" = "l";
-"GR" = "gr";
+"DC" = "dm";
 
 "CURENCY_VALUE" = "擦";
+
+"SEND_REQ_CARRIERS" = "發送給運營商的請求......";
+"PLACE_ADS" = "在這裡，您可以放置廣告";

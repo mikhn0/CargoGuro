@@ -10,7 +10,7 @@
 
 @interface NSString (DimensionalTranslation)
 
-+ (NSString *)transferVolume:(NSString *)value From:(NSString *)startDem to:(NSString *)endDem;
-+ (NSString *)transferWeight:(NSString *)value From:(NSString *)startDem to:(NSString *)endDem;
++ (NSString *)transferVolume:(NSString *)value From:(NSInteger)startDem to:(NSInteger)endDem;
++ (NSString *)transferWeight:(NSString *)value From:(NSInteger)startDem to:(NSInteger)endDem;
 
 @end

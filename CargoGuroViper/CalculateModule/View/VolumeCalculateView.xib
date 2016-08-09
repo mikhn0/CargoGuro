@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -22,7 +22,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="306" height="424"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ширина (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="l4k-2t-qI2" customClass="JVFloatLabeledTextField">
-                                    <rect key="frame" x="66" y="57" width="175" height="38"/>
+                                    <rect key="frame" x="28" y="50" width="250" height="54"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -41,7 +41,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Длина (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="b4j-Ly-STL" customClass="JVFloatLabeledTextField">
-                                    <rect key="frame" x="66" y="183" width="175" height="38"/>
+                                    <rect key="frame" x="28" y="195" width="250" height="54"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="b4j-Ly-STL" secondAttribute="height" multiplier="175:38" id="nLU-fk-Q8n"/>
@@ -59,7 +59,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dn-v7-O9u">
-                                    <rect key="frame" x="66" y="254" width="175" height="38"/>
+                                    <rect key="frame" x="28" y="274" width="250" height="54"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="9Dn-v7-O9u" secondAttribute="height" multiplier="175:38" id="VQq-A6-FcL"/>
@@ -72,7 +72,7 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Высота (м)" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="H4T-bH-1cN" customClass="JVFloatLabeledTextField">
-                                    <rect key="frame" x="66" y="120" width="175" height="38"/>
+                                    <rect key="frame" x="28" y="122" width="250" height="55"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="H4T-bH-1cN" secondAttribute="height" multiplier="175:38" id="mN7-E8-vGC"/>
@@ -94,24 +94,24 @@
                             <constraints>
                                 <constraint firstItem="b4j-Ly-STL" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="1Zi-TU-0yz"/>
                                 <constraint firstAttribute="trailing" secondItem="H4T-bH-1cN" secondAttribute="trailing" constant="28" id="6j7-yh-wIz"/>
-                                <constraint firstItem="b4j-Ly-STL" firstAttribute="top" secondItem="H4T-bH-1cN" secondAttribute="bottom" constant="25" id="8JK-6K-2nx"/>
+                                <constraint firstItem="b4j-Ly-STL" firstAttribute="top" secondItem="H4T-bH-1cN" secondAttribute="bottom" constant="18" id="8JK-6K-2nx"/>
                                 <constraint firstItem="aNB-MR-gl9" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" id="8P6-bB-oFC"/>
                                 <constraint firstAttribute="trailing" secondItem="9Dn-v7-O9u" secondAttribute="trailing" constant="28" id="I6j-rU-4WN"/>
                                 <constraint firstItem="l4k-2t-qI2" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" constant="35" id="LAr-Qu-a2e"/>
                                 <constraint firstItem="H4T-bH-1cN" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="NYk-lg-noi"/>
                                 <constraint firstAttribute="bottom" secondItem="aNB-MR-gl9" secondAttribute="bottom" id="Nwd-Mi-fc7"/>
-                                <constraint firstItem="H4T-bH-1cN" firstAttribute="top" secondItem="l4k-2t-qI2" secondAttribute="bottom" constant="25" id="PA7-oz-tXy"/>
+                                <constraint firstItem="H4T-bH-1cN" firstAttribute="top" secondItem="l4k-2t-qI2" secondAttribute="bottom" constant="18" id="PA7-oz-tXy"/>
                                 <constraint firstItem="l4k-2t-qI2" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="Y1V-Jw-i2U"/>
                                 <constraint firstAttribute="bottom" secondItem="9Dn-v7-O9u" secondAttribute="bottom" constant="49" id="aMs-tk-6xz"/>
                                 <constraint firstAttribute="trailing" secondItem="l4k-2t-qI2" secondAttribute="trailing" constant="28" id="bjy-Lm-yPK"/>
                                 <constraint firstAttribute="trailing" secondItem="b4j-Ly-STL" secondAttribute="trailing" constant="28" id="gCV-yE-ThS"/>
-                                <constraint firstItem="9Dn-v7-O9u" firstAttribute="top" secondItem="b4j-Ly-STL" secondAttribute="bottom" constant="33" id="gFf-Cv-wA4"/>
+                                <constraint firstItem="9Dn-v7-O9u" firstAttribute="top" secondItem="b4j-Ly-STL" secondAttribute="bottom" constant="25" id="gFf-Cv-wA4"/>
                                 <constraint firstAttribute="trailing" secondItem="H4T-bH-1cN" secondAttribute="trailing" constant="28" id="oBa-Bk-IAX"/>
                                 <constraint firstItem="aNB-MR-gl9" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" id="vRu-29-yDU"/>
                                 <constraint firstAttribute="trailing" secondItem="aNB-MR-gl9" secondAttribute="trailing" id="wOs-fp-C9f"/>
                                 <constraint firstItem="l4k-2t-qI2" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="29" id="xd3-hf-dun"/>
                                 <constraint firstItem="9Dn-v7-O9u" firstAttribute="leading" secondItem="Kft-HA-h27" secondAttribute="leading" constant="28" id="xy5-BE-PH8"/>
-                                <constraint firstItem="l4k-2t-qI2" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" constant="57" id="zyS-qg-OGM"/>
+                                <constraint firstItem="l4k-2t-qI2" firstAttribute="top" secondItem="Kft-HA-h27" secondAttribute="top" constant="50" id="zyS-qg-OGM"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">

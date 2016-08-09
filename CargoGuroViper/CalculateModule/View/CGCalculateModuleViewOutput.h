@@ -17,7 +17,6 @@
  Метод сообщает презентеру о том, что view готова к работе
  */
 
-//- (void)didTriggerViewReadyEvent;
 - (void)searchTransition:(NSDictionary *)datas;
 - (void)getDetailByPlaceId:(NSString *)placeId sucess:(CompletionResult)success;
 

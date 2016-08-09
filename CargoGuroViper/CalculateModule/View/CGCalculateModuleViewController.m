@@ -12,6 +12,7 @@
 #import "JVFloatLabeledTextField.h"
 #import "JVFloatLabeledTextView.h"
 #import "VolumeCalculateView.h"
+#import "DimensionalTranslation+NSString.h"
 
 #import "CGCalculateModulePresenter.h"
 
@@ -19,6 +20,7 @@
     GMSPlacesClient *_placesClient;
     NSString *cFC, *cTC, *cFS, *cTS;
     NSString *placeId;
+    BOOL handleSelectFromAutoComplete;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *searchTransite;
@@ -111,8 +113,6 @@
     self.aligment_weight_cost.constant = (14 * self.view.frame.size.width) / 305.0;
     self.aligment_cost_button.constant = (14 * self.view.frame.size.width) / 305.0;
     self.aligment_from_right.constant = (20 * self.view.frame.size.width) / 305.0;
-
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -152,18 +152,28 @@
 
 - (void)registerForKeyboardNotifications
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUI:) name:@"UpdateUI" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard) name:@"HideKeyboard" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardDidHideNotification object:nil];
 }
 
 
 #pragma mark - Actions
 
 - (IBAction)actionToggleLeftDrawer:(id)sender {
+    [self hideKeyboard];
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
@@ -181,46 +191,25 @@
 {
     //Autocomplited Textfield - START
     if (textField.tag == 1 || textField.tag == 2) {
-        self.autocompleteTableView.hidden = NO;
+        //self.autocompleteTableView.hidden = NO;
         CGRect frameTable = self.autocompleteTableView.frame;
         frameTable.origin = CGPointMake(self.activeField.frame.origin.x, self.activeField.frame.origin.y + self.activeField.frame.size.height+2);
         frameTable.size.width = self.activeField.frame.size.width;
         self.autocompleteTableView.frame = frameTable;
         NSString *substring = [NSString stringWithString:textField.text];
-        substring = [substring
-                     stringByReplacingCharactersInRange:range withString:string];
+        substring = [substring stringByReplacingCharactersInRange:range withString:string];
         [self placeAutocomplete:substring];
-        
-        
         
         CGRect tfRect = self.activeField.frame;
         tfRect.origin.y += self.autocompleteTableView.frame.size.height + 45.0;
         [self.scrollView scrollRectToVisible:tfRect animated:YES];
-        //self.scrollView.canCancelContentTouches = NO;
 
     }
-    
     //Autocomplited Textfield - END
     
-    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
-        if (textField == self.value || textField == self.weight || textField == self.cost) {
-            NSString *candidate = [[textField text] stringByReplacingCharactersInRange:range withString:string];
-            if (!candidate || [candidate length] < 1 || [candidate isEqualToString:@""])
-            {
-                return YES;
-            }
-            if (candidate && [candidate length] > 1 && [[candidate substringFromIndex:[candidate length] - 1] isEqualToString:@","] && [[textField text] rangeOfString:@","].location == NSNotFound)
-            {
-                return YES;
-            }
-            NSScanner *scanner = [NSScanner scannerWithString:string];
-            BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
-            if (isNumeric) {
-                return YES;
-            } else {
-                return NO;
-            }
-        }
+    // Prohibition enter @"," more once
+    else if ([string isEqualToString:@","] && [textField.text containsString:@","]) {
+        return NO;
     }
     return YES;
 }
@@ -242,6 +231,35 @@
         self.searchTransite.alpha = 0.5;
     }
     
+    if ((self.from.text.length > 0 || self.to.text.length > 0) && !handleSelectFromAutoComplete && self.autocompleteUrls.count > 0 && (self.activeField.tag == 1 || self.activeField.tag == 2)) {
+        GMSAutocompletePrediction *firstCity = [self.autocompleteUrls objectAtIndex:0];
+        self.activeField.text = firstCity.attributedPrimaryText.string;
+        
+        NSInteger currentTag = self.activeField.tag;
+        [self.output getDetailByPlaceId:firstCity.placeID sucess:^(NSDictionary *result) {
+            if (currentTag == 1) {
+                for (NSDictionary *elem in result) {
+                    if ([elem[@"types"] containsObject:@"country"]) {
+                        cFC = elem[@"short_name"];
+                    } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
+                        cFS = elem[@"short_name"];
+                    }
+                }
+                
+                
+            } else if (currentTag == 2) {
+                for (NSDictionary *elem in result) {
+                    if ([elem[@"types"] containsObject:@"country"]) {
+                        cTC = elem[@"short_name"];
+                    } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
+                        cTS = elem[@"short_name"];
+                    }
+                }
+            }
+        }];
+        
+    }
+    handleSelectFromAutoComplete = NO;
     self.activeField.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.5].CGColor;
     self.activeField = nil;
 }
@@ -260,6 +278,7 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
+    [self reloadInputViews];
 }
 
 - (void)keyboardWasShown:(NSNotification*)aNotification
@@ -277,15 +296,16 @@
     aRect.size.height -= kbSize.height;
     
     CGRect tfRect = self.activeField.frame;
-    tfRect.origin.y += self.inputView.frame.origin.y + self.scrollView.frame.origin.y + 64 + self.activeField.frame.size.height;
+    tfRect.origin.y += self.inputView.frame.origin.y + self.scrollView.frame.origin.y + 104 + self.activeField.frame.size.height;
     
     if (!CGRectContainsPoint(aRect, tfRect.origin) ) {
-        tfRect.origin.y -= self.inputView.frame.origin.y + 64 + self.activeField.frame.size.height;
+        tfRect.origin.y -= self.inputView.frame.origin.y + 44 + self.activeField.frame.size.height;
         [self.scrollView scrollRectToVisible:tfRect animated:YES];
     }
 }
 
 - (void)hideKeyboard {
+    NSLog(@"hideKeyboard in CGCalculateModuleVC ");
     self.autocompleteTableView.hidden = YES;
     [self.from resignFirstResponder];
     [self.to resignFirstResponder];
@@ -295,15 +315,13 @@
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    
-    // Disallow recognition of tap gestures in the segmented control.
     if ([touch.view.superview isKindOfClass:[UITableViewCell class]] || touch.view.tag == 11 || touch.view.tag == 22) {//change it to your condition
         return NO;
     }
     
-    
     return YES;
 }
+
 
 #pragma mark - Autocomplited Textfield
 
@@ -329,12 +347,15 @@
                                 [self.autocompleteUrls removeAllObjects];
                                 for (GMSAutocompletePrediction *curString in results) {
                                     
-                                    [self.autocompleteUrls addObject:curString];//.attributedPrimaryText.string];
+                                    [self.autocompleteUrls addObject:curString];
                                     
                                 }
+                                
+                                self.autocompleteTableView.hidden = NO;
                                 [self.autocompleteTableView reloadData];
                             }];
 }
+
 
 #pragma mark - UITableViewDataSource
 
@@ -378,6 +399,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    handleSelectFromAutoComplete = YES;
     GMSAutocompletePrediction *curString = self.autocompleteUrls[indexPath.row];
     self.activeField.text = curString.attributedPrimaryText.string;
     
@@ -389,6 +411,8 @@
                     cFC = elem[@"short_name"];
                 } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
                     cFS = elem[@"short_name"];
+                } else if ( [elem[@"types"] containsObject:@"locality"]) {
+                    self.from.text = elem[@"long_name"];
                 }
             }
             
@@ -399,6 +423,8 @@
                     cTC = elem[@"short_name"];
                 } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
                     cTS = elem[@"short_name"];
+                } else if ( [elem[@"types"] containsObject:@"locality"]) {
+                    self.to.text = elem[@"long_name"];
                 }
             }
         }
@@ -414,6 +440,7 @@
 }
 
 - (IBAction)volumeCalculation:(id)sender {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"VolumeCalculateView" owner:self options:nil];
     VolumeCalculateView *mainView = [subviewArray objectAtIndex:0];
     mainView.delegate = self;
@@ -449,7 +476,9 @@
         [self outPutError:LocalizedString(@"ENTER_ERROR_WAIST")];
        
     } else {
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC":cFC , @"cTC":cTC, @"cFS":cFS , @"cTS":cTS};
+        NSString *currWeight = [NSString transferWeight:cW From:INDEX_WEIGHT to:0];
+        NSString *currVolume = [NSString transferVolume:cV From:INDEX_VOLUME to:0];
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": currWeight, @"cV": currVolume, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC":cFC , @"cTC":cTC, @"cFS":cFS , @"cTS":cTS};
         [self.output searchTransition:datas];
         
     }
@@ -461,6 +490,18 @@
 
 - (void)resultCalculateVolume:(NSString *)resultString {
     self.value.text = resultString;
+    [self registerForKeyboardNotifications];
+}
+
+- (void)hideVolumeCalculateView {
+    [self registerForKeyboardNotifications];
+}
+
+
+#pragma mark - NSNotificationCenter UpdateUI
+
+- (void)UpdateUI:(NSNotification *)notification {
+    [self viewWillAppear:YES];
 }
 
 - (void)outPutError:(NSString *)error {
@@ -471,8 +512,9 @@
     [self presentViewController:alertError animated:YES completion:nil];
 }
 
--(void) dealloc {
+- (void)didReceiveMemoryWarning {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super didReceiveMemoryWarning];
 }
 
 @end

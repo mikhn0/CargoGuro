@@ -8,4 +8,6 @@
 
 @interface AboutUsViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIView *customTopBar;
+
 @end

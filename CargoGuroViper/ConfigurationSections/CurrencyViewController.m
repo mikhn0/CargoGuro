@@ -28,12 +28,6 @@ static NSString * const kCurCellReuseIdentifier = @"CurCellReuseIdentifier";
     self.currentIndex = INDEX_CURRENCY;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self setCustomNavigationBackButton];
-    [self.tableView reloadData];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *currencies = CURRENCY_NAME;
     return currencies.count;

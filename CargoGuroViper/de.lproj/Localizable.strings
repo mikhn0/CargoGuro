@@ -54,6 +54,9 @@
 "M" = "m";
 "СM" = "cm";
 "L" = "l";
-"GR" = "gr";
+"DC" = "dm";
 
 "CURENCY_VALUE" = "rur";
+
+"SEND_REQ_CARRIERS" = "Sendet eine Anforderung an Träger ...";
+"PLACE_ADS" = "Hier können Sie Anzeigen schalten";
