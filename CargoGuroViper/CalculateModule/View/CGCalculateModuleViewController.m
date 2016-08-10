@@ -215,8 +215,7 @@
 }
 
 
-- (void)textFieldDidBeginEditing:(JVFloatLabeledTextField *)textField
-{
+- (void)textFieldDidBeginEditing:(JVFloatLabeledTextField *)textField {
     self.activeField = textField;
     self.activeField.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
 }
