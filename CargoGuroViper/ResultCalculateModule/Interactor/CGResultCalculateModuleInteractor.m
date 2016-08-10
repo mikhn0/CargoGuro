@@ -8,6 +8,7 @@
 
 #import "CGResultCalculateModuleInteractor.h"
 #import "HTTPClient.h"
+#import "DimensionalTranslation+NSString.h"
 #import "CGResultCalculateModuleInteractorOutput.h"
 
 @implementation CGResultCalculateModuleInteractor
@@ -39,6 +40,11 @@
                 
                 NSMutableDictionary *mutableParams = params.mutableCopy;
                 
+                NSString *currWeight = [NSString transferWeight:params[@"cW"] From:INDEX_WEIGHT to:0];
+                NSString *currVolume = [NSString transferVolume:params[@"cV"] From:INDEX_VOLUME to:0];
+                
+                mutableParams[@"cV"] = currVolume;
+                mutableParams[@"cW"] = currWeight;
                 mutableParams[@"tNum"] = company[kTRANSPORT_NUMBER];
                 
                 __block NSString *companyName = company[kTRANSPORT_NAME];

@@ -18,7 +18,6 @@
                                onSuccess: (CompletionResult)    completion
                                onFailure: (CompletionError)     failure
                                endOfLoad: (CompletionEnd)       endOfLoad{
-    //HTTPClient *httpClient = [[HTTPClient alloc] init];
     
     NSURL *baseURL = [NSURL URLWithString:GET_DETAIL_PLACE];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];

@@ -58,8 +58,8 @@
     //For transfer demension of valume and weight on this screen
     self.startVolumeIndex = INDEX_VOLUME;//1 cm^3 = 0.000001 м^3 ; 1 cm^3 = ; 1m^3 = 1000l
     self.startWeightIndex = INDEX_WEIGHT;
-    startVolumeValue = [NSString transferVolume:self.datas[@"cV"] From:0 to:INDEX_VOLUME];
-    startWeightValue = [NSString transferWeight:self.datas[@"cW"] From:0 to:INDEX_WEIGHT];
+    startVolumeValue = self.datas[@"cV"];//[NSString transferVolume:self.datas[@"cV"] From:0 to:INDEX_VOLUME];
+    startWeightValue = self.datas[@"cW"];//[NSString transferWeight:self.datas[@"cW"] From:0 to:INDEX_WEIGHT];
     
     self.startCurrency = INDEX_CURRENCY;
     
@@ -129,13 +129,24 @@
         formatter.usesGroupingSeparator = YES;
         [formatter setMaximumFractionDigits:6];
         [formatter setMinimumFractionDigits:0];
-        NSString *volumeString =  [formatter stringFromNumber:[NSNumber numberWithFloat:[volumeValue floatValue]]];
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+        [numberFormatter setDecimalSeparator:@","];
+        [numberFormatter setMaximumFractionDigits:6];
+        [numberFormatter setMinimumFractionDigits:0];
+        volumeValue = [volumeValue stringByReplacingOccurrencesOfString:@"." withString:@","];
+        float valueFloat = [numberFormatter numberFromString:volumeValue].floatValue;
+        NSString *volumeString =  [formatter stringFromNumber:[NSNumber numberWithFloat:valueFloat]];
+        
         [commonInfo appendAttributedString:[NSString setFontForDecimalVWInTopView:volumeString demention:VOLUME_NAME[INDEX_VOLUME] isCurrency:NO]];
         [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:LocalizedString(@"WEIGHT")]];
         [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         
-        NSString *weightString =  [formatter stringFromNumber:[NSNumber numberWithFloat:[weightValue floatValue]]];
+        weightValue = [weightValue stringByReplacingOccurrencesOfString:@"." withString:@","];
+        float weightFloat = [numberFormatter numberFromString:weightValue].floatValue;
+        NSString *weightString =  [formatter stringFromNumber:[NSNumber numberWithFloat:weightFloat]];
+        
         [commonInfo appendAttributedString:[NSString setFontForDecimalVWInTopView:weightString demention:WEIGHT_NAME[INDEX_WEIGHT] isCurrency:NO]];
         [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:LocalizedString(@"PRICE")]];
@@ -144,7 +155,7 @@
         float value = [priceValue floatValue];
         [formatter setMaximumFractionDigits:2];
         [formatter setMinimumFractionDigits:2];
-        NSString *newString =  [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
+        NSString *newString = [formatter stringFromNumber:[NSNumber numberWithFloat:value]];
         [commonInfo appendAttributedString:[NSString setFontForDecimalPartInTopView:newString demention:CURRENCY_NAME[INDEX_CURRENCY] isCurrency:YES]];
         [commonInfo appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         self.informationLabel.attributedText = commonInfo;

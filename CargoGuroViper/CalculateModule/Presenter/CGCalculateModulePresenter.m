@@ -41,8 +41,8 @@
 
 #pragma mark - Методы CGCalculateModuleViewOutput
 
-- (void)getDetailByPlaceId:(NSString *)placeId sucess:(CompletionResult)success {
-    [self.interactor getDetailPlaceByPlaceIdWithParam:@{@"key": @"AIzaSyBeZkmmMkAXuPULHGLGQ4VgDxrMiPzH8q4", @"placeid":placeId} onSuccess:^(NSDictionary *result) {
+- (void)getDetailByPlaceId:(NSString *)placeId language:(NSString *)language sucess:(CompletionResult)success {
+    [self.interactor getDetailPlaceByPlaceIdWithParam:@{@"key": @"AIzaSyBeZkmmMkAXuPULHGLGQ4VgDxrMiPzH8q4", @"placeid":placeId, @"language":language} onSuccess:^(NSDictionary *result) {
         success(result);
     } onFailure:^(NSString *error) {
         NSLog(@"%@", error);

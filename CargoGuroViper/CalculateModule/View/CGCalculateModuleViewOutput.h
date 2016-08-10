@@ -18,7 +18,7 @@
  */
 
 - (void)searchTransition:(NSDictionary *)datas;
-- (void)getDetailByPlaceId:(NSString *)placeId sucess:(CompletionResult)success;
+- (void)getDetailByPlaceId:(NSString *)placeId language:(NSString *)language sucess:(CompletionResult)success;
 
 
 @end

@@ -9,6 +9,8 @@
 "ENTER_ERROR_FROM" = "Введите пункт отправления";
 "ENTER_ERROR_TO" = "Введите пункт прибытия";
 "ENTER_ERROR_VALUE" = "Введите объем груза";
+"ENTER_NONCORRECT_VALUE" = "Введите объем груза больше 0,01";
+"ENTER_NONCORRECT_WAIST" = "Введите вес груза больше 0,01";
 "ENTER_ERROR_WAIST" = "Введите вес груза";
 
 "ERROR_NOT_INTERNET" = "У вас нет соединения с интернетом.";

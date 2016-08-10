@@ -10,6 +10,8 @@
 "ENTER_ERROR_TO" = "Enter the destination point";
 "ENTER_ERROR_VALUE" = "Enter the amount of cargo";
 "ENTER_ERROR_WAIST" = "Enter the waight of cargo";
+"ENTER_NONCORRECT_VALUE" = "Enter the amount of cargo more 0,01";
+"ENTER_NONCORRECT_WAIST" = "Enter the waight of cargo more 0,01";
 
 
 "ERROR_NOT_INTERNET" = "You have no Internet connection.";

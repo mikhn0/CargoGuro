@@ -10,6 +10,8 @@
 "ENTER_ERROR_TO" = "Geben Sie den Ziel-Punkt";
 "ENTER_ERROR_VALUE" = "Geben Sie den Betrag der Ladung";
 "ENTER_ERROR_WAIST" = "Geben Sie den waight der Ladung";
+"ENTER_NONCORRECT_VALUE" = "Geben Sie den Betrag der Ladung more 0,01";
+"ENTER_NONCORRECT_WAIST" = "Geben Sie den waight der Ladung more 0,01";
 
 "ERROR_NOT_INTERNET" = "Sie haben keine Verbindung mit dem Internet.";
 

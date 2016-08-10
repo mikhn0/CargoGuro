@@ -236,13 +236,16 @@
         self.activeField.text = firstCity.attributedPrimaryText.string;
         
         NSInteger currentTag = self.activeField.tag;
-        [self.output getDetailByPlaceId:firstCity.placeID sucess:^(NSDictionary *result) {
+        NSString *language = [UITextInputMode currentInputMode].primaryLanguage;
+        [self.output getDetailByPlaceId:firstCity.placeID language:language sucess:^(NSDictionary *result) {
             if (currentTag == 1) {
                 for (NSDictionary *elem in result) {
                     if ([elem[@"types"] containsObject:@"country"]) {
                         cFC = elem[@"short_name"];
                     } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
                         cFS = elem[@"short_name"];
+                    } else if ( [elem[@"types"] containsObject:@"locality"]) {
+                        self.from.text = elem[@"long_name"];
                     }
                 }
                 
@@ -253,6 +256,8 @@
                         cTC = elem[@"short_name"];
                     } else if ([elem[@"types"] containsObject:@"administrative_area_level_1"]) {
                         cTS = elem[@"short_name"];
+                    } else if ( [elem[@"types"] containsObject:@"locality"]) {
+                        self.to.text = elem[@"long_name"];
                     }
                 }
             }
@@ -272,7 +277,9 @@
     return YES;
 }
 
+
 // Called when the UIKeyboardWillHideNotification is sent
+
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
@@ -318,7 +325,6 @@
     if ([touch.view.superview isKindOfClass:[UITableViewCell class]] || touch.view.tag == 11 || touch.view.tag == 22) {//change it to your condition
         return NO;
     }
-    
     return YES;
 }
 
@@ -404,7 +410,8 @@
     self.activeField.text = curString.attributedPrimaryText.string;
     
     NSInteger currentTag = self.activeField.tag;
-    [self.output getDetailByPlaceId:curString.placeID sucess:^(NSDictionary *result) {
+    NSString *language = [UITextInputMode currentInputMode].primaryLanguage;
+    [self.output getDetailByPlaceId:curString.placeID language:language sucess:^(NSDictionary *result) {
         if (currentTag == 1) {
             for (NSDictionary *elem in result) {
                 if ([elem[@"types"] containsObject:@"country"]) {
@@ -459,6 +466,12 @@
     NSString *cV = self.value.text;
     NSString *cInsP = self.cost.text;
     
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    
+    float valuetext = [numberFormatter numberFromString:self.value.text].floatValue;
+    float weighttext = [numberFormatter numberFromString:self.weight.text].floatValue;
+    
     if (cargoFrom.length < 1) {
         
         [self outPutError:LocalizedString(@"ENTER_ERROR_FROM")];
@@ -471,14 +484,23 @@
         
         [self outPutError:LocalizedString(@"ENTER_ERROR_VALUE")];
         
+    } else if (valuetext < 0.01) {
+        
+        [self outPutError:LocalizedString(@"ENTER_NONCORRECT_VALUE")];
+        
     } else if (self.weight.text.length < 1) {
         
         [self outPutError:LocalizedString(@"ENTER_ERROR_WAIST")];
        
+    } else if (weighttext < 0.01) {
+        
+        [self outPutError:LocalizedString(@"ENTER_NONCORRECT_WAIST")];
+        
     } else {
-        NSString *currWeight = [NSString transferWeight:cW From:INDEX_WEIGHT to:0];
-        NSString *currVolume = [NSString transferVolume:cV From:INDEX_VOLUME to:0];
-        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": currWeight, @"cV": currVolume, @"cInsP": cInsP, @"lang":@"ru", @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC":cFC , @"cTC":cTC, @"cFS":cFS , @"cTS":cTS};
+        
+        NSString *language = LOCALIZE_LANGUAGE[INDEX_COUNTRY];//[UITextInputMode currentInputMode].primaryLanguage;//[[NSLocale preferredLanguages] objectAtIndex:0];
+        
+        NSDictionary *datas = @{@"tNum":@(tNum), @"cargoFrom": cargoFrom, @"cargoTo": cargoTo, @"cW": cW, @"cV": cV, @"cInsP": cInsP, @"lang":language, @"currency": [CURRENCY_NAME objectAtIndex:INDEX_COUNTRY], @"cFC":cFC , @"cTC":cTC, @"cFS":cFS , @"cTS":cTS};
         [self.output searchTransition:datas];
         
     }

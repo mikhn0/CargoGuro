@@ -10,6 +10,8 @@
 "ENTER_ERROR_TO" = "进入目的地点";
 "ENTER_ERROR_VALUE" = "输入的货物的数量";
 "ENTER_ERROR_WAIST" = "进入维特*货物";
+"ENTER_NONCORRECT_VALUE" = "输入的货物的数量 > 0,01";
+"ENTER_NONCORRECT_WAIST" = "进入维特*货物 > 0,01";
 
 "ERROR_NOT_INTERNET" = "你有没有互联网连接。";
 

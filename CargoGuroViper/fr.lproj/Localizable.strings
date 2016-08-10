@@ -10,6 +10,8 @@
 "ENTER_ERROR_TO" = "Entrez le point de destination";
 "ENTER_ERROR_VALUE" = "Entrez le montant de la cargaison";
 "ENTER_ERROR_WAIST" = "Entrez le waight de fret";
+"ENTER_NONCORRECT_VALUE" = "Entrez le montant de la cargaison > 0,01";
+"ENTER_NONCORRECT_WAIST" = "Entrez le waight de fret > 0,01";
 
 "ERROR_NOT_INTERNET" = "Vous n'avez pas de connexion internet.";
 
