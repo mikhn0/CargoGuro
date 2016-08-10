@@ -36,8 +36,8 @@
 @property (weak, nonatomic) IBOutlet UILabel        *routeLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *informationLabel;
 
-@property (nonatomic) NSDictionary *arrival;
 @property (nonatomic) NSDictionary *derival;
+@property (nonatomic) NSDictionary *arrival;
 @property (nonatomic) NSInteger startWeightIndex;
 @property (nonatomic) NSInteger startVolumeIndex;
 @property (nonatomic) NSInteger startCurrency;
@@ -93,13 +93,13 @@
     [super viewWillAppear:animated];
     
     // Label on top view FROM - TO
-    if (listOfResult.count > 0 && self.arrival == nil && self.derival == nil) {
-        self.arrival = [listOfResult[0] objectForKey:kCITIES][kARRIVAL];
+    if (listOfResult.count > 0 && self.derival == nil && self.arrival == nil) {
         self.derival = [listOfResult[0] objectForKey:kCITIES][kDERIVAL];
+        self.arrival = [listOfResult[0] objectForKey:kCITIES][kARRIVAL];
     }
     
-    if (self.arrival != nil && self.derival != nil) {
-        self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.arrival[LANGUAGE[INDEX_COUNTRY]], self.derival[LANGUAGE[INDEX_COUNTRY]]];
+    if (self.derival != nil && self.arrival != nil) {
+        self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.derival[LANGUAGE[INDEX_COUNTRY]], self.arrival[LANGUAGE[INDEX_COUNTRY]]];
 
     } else {
         self.routeLabel.text = [NSString stringWithFormat:@"%@ - %@", self.datas[@"cargoFrom"], self.datas[@"cargoTo"]];

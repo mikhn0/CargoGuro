@@ -1,6 +1,6 @@
 target 'CargoGuruViper' do
     
-  pod 'AFNetworking’
+  pod 'AFNetworking'
   pod 'Typhoon'
   pod 'RamblerTyphoonUtils'
   pod 'ViperMcFlurry'
@@ -9,6 +9,6 @@ target 'CargoGuruViper' do
   pod 'JVFloatLabeledTextField'
   pod 'JVFloatingDrawer'
   pod 'MMDrawerController', '~> 0.5.7'
-  pod 'GoogleMaps'
+  pod 'GoogleMaps', '~>1.13.2'
   
 end
