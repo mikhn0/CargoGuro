@@ -11,6 +11,8 @@
 @interface NSString (DimensionalTranslation)
 
 + (NSString *)transferVolume:(NSString *)value From:(NSInteger)startDem to:(NSInteger)endDem;
-+ (NSString *)transferWeight:(NSString *)value From:(NSInteger)startDem to:(NSInteger)endDem;
++ (float)transferWeight:(NSString *)value From:(NSInteger)startDem to:(NSInteger)endDem;
++ (NSString *)transferStringWeight:(NSString *)value From:(NSInteger)startDem to:(NSInteger)endDem;
++ (float)transferStringVolume:(NSString *)value From:(NSInteger)startDem to:(NSInteger)endDem;
 
 @end

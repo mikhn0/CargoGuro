@@ -40,11 +40,12 @@
                 
                 NSMutableDictionary *mutableParams = params.mutableCopy;
                 
-                NSString *currWeight = [NSString transferWeight:params[@"cW"] From:INDEX_WEIGHT to:0];
+                NSString *currWeight = [NSString transferStringWeight:params[@"cW"] From:INDEX_WEIGHT to:0];
                 NSString *currVolume = [NSString transferVolume:params[@"cV"] From:INDEX_VOLUME to:0];
                 
-                mutableParams[@"cV"] = currVolume;
-                mutableParams[@"cW"] = currWeight;
+                mutableParams[@"cV"] = [currVolume stringByReplacingOccurrencesOfString:@"," withString:@"."];
+                mutableParams[@"cW"] = [currWeight stringByReplacingOccurrencesOfString:@"," withString:@"."];
+                mutableParams[@"cInsP"] = [params[@"cInsP"] stringByReplacingOccurrencesOfString:@"," withString:@"."];
                 mutableParams[@"tNum"] = company[kTRANSPORT_NUMBER];
                 
                 __block NSString *companyName = company[kTRANSPORT_NAME];

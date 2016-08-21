@@ -481,6 +481,7 @@
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    [numberFormatter setDecimalSeparator:@","];
     
     float valuetext = [numberFormatter numberFromString:self.value.text].floatValue;
     float weighttext = [numberFormatter numberFromString:self.weight.text].floatValue;
